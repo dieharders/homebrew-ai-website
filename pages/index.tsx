@@ -8,23 +8,23 @@ import Header from '../blocks/Header';
 import Hero from '../blocks/Hero';
 import Highlights from '../blocks/Highlights';
 import Notice from '../components/Notice';
-import * as Global from '../global/global.json';
+import data from '../global/global.json';
 
 export default function Home() {
   return (
     <div>
       <Head>
-        <title>{Global.product}</title>
+        <title>{data.product}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Notice id="subscribed">Thank you for subscribing</Notice>
-      <Header id="top" title={Global.product} />
+      <Header id="top" title={data.product} />
 
       <main>
         <Hero
-          title={Global.headline}
-          subtitle={Global.subheadline}
+          title={data.headline}
+          subtitle={data.subheadline}
           illustration=""
           subscribePlaceholder="you@email.com"
           subscribeAction="Get free download link"
@@ -32,8 +32,8 @@ export default function Home() {
 
         <Benefits
           background="alternate"
-          title={Global.benefits.headline}
-          subtitle={Global.benefits.subheadline}
+          title={data.benefits.headline}
+          subtitle={data.benefits.subheadline}
           benefits={[
             { illustration: '', title: 'Your data stays on device', text: 'Choose your own provider and where to back it up. Data stays private.' },
             { illustration: '', title: 'Build your own tools', text: 'Stop waiting for new toys. Build your own Ai assistants easily with no code.' },
@@ -83,7 +83,7 @@ export default function Home() {
       </main>
 
       <Footer
-        title={Global.product}
+        title={data.product}
       />
     </div>
   )
