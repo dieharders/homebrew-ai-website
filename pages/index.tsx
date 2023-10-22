@@ -10,13 +10,6 @@ import Highlights from '../blocks/Highlights';
 import Notice from '../components/Notice';
 import * as Global from '../global/global.json';
 
-const LOREM = `
-  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-  when an unknown printer took a galley of type and scrambled it to make a type
-  specimen book.
-`;
-
 export default function Home() {
   return (
     <div>
@@ -26,66 +19,66 @@ export default function Home() {
       </Head>
 
       <Notice id="subscribed">Thank you for subscribing</Notice>
-      <Header id="top" title={Global.product}/>
+      <Header id="top" title={Global.product} />
 
       <main>
         <Hero
-          title="Clear headline that explains your product’s benefit"
-          subtitle="Explain your unique solution, how it solves your customer's problem."
+          title={Global.headline}
+          subtitle={Global.subheadline}
           illustration=""
           subscribePlaceholder="you@email.com"
-          subscribeAction="When is it ready?"
+          subscribeAction="Get free download link"
         />
 
         <Benefits
           background="alternate"
-          title="Headline that describes how your product solves the problem"
-          subtitle="Start by defining the pain your customer has right now, for example: clients not paying their invoices. Then write how your solution solves this problem for your customers."
+          title={Global.benefits.headline}
+          subtitle={Global.benefits.subheadline}
           benefits={[
-            {illustration:'', title:'Main benefit of your product', text:'Brief explanation of why and how this benefit will help your customers'},
-            {illustration:'', title:'Main benefit of your product', text:'Brief explanation of why and how this benefit will help your customers'},
-            {illustration:'', title:'Main benefit of your product', text:'Brief explanation of why and how this benefit will help your customers'},
+            { illustration: '', title: 'Your data stays on device', text: 'Choose your own provider and where to back it up. Data stays private.' },
+            { illustration: '', title: 'Build your own tools', text: 'Stop waiting for new toys. Build your own Ai assistants easily with no code.' },
+            { illustration: '', title: 'Unlimited Ai for free', text: 'Have large workloads or just want to run Ai all day long? You can for free!' },
           ]}
         />
 
         <Break
-          title="Risk Reduction: Try Product free for 14 days"
-          subtitle="This is an in-betwen CTA for visitors that already got convinced."
+          title="Free Ai: Dont risk paying high bills"
+          subtitle="Ditch the subscription and surprise api fees. Build and run Ai all day long!"
           illustration=""
-          action="When is it ready?"
-          onActionClick={() => window.scrollTo({top:99999, behavior:'smooth'})}
+          action="Download now"
+          onActionClick={() => window.scrollTo({ top: 99999, behavior: 'smooth' })}
         />
 
         <Highlights
-          title="Highlights of your product"
-          subtitle="Explain why your solution deserves attention"
+          title="Swiss-army knife of Ai"
+          subtitle="HomeBrewAi is a collection of tools you can connect together"
           highlights={[
-            {illustration:'', title:'Now go deeper into what your product offers. Word it as benefits, not as features', text:'“Save your favorite links” is a feature. “Never lose your favorite websites again” is a benefit. Users don’t care about your product, they only care about what’s in it for them.'},
-            {illustration:'', title:'Now go deeper into what your product offers. Word it as benefits, not as features', text:'“Save your favorite links” is a feature. “Never lose your favorite websites again” is a benefit. Users don’t care about your product, they only care about what’s in it for them.'},
-            {illustration:'', title:'Now go deeper into what your product offers. Word it as benefits, not as features', text:'“Save your favorite links” is a feature. “Never lose your favorite websites again” is a benefit. Users don’t care about your product, they only care about what’s in it for them.'},
+            { illustration: '', title: 'Text based responses to your requests', text: 'You can type, speak or even provide an image of your request. Bring together several Ai in a chat room and have them talk through a specific problem.' },
+            { illustration: '', title: 'Build powerful workflows with drag & drop', text: 'HomeBrewAi gives you the ability to build advanced systems that can automate your work or imitate behaviors. Building automated Ai agents is as easy as creating a todo list.' },
+            { illustration: '', title: 'And much more...', text: 'Talk to your documents, get advice, create art, start a virtual company, whatever you want you can build it.' },
           ]}
         />
 
         <Features
           background="alternate"
-          title="But wait, there is more"
-          subtitle="Describe the full extent of your product"
+          title="Feature list"
+          subtitle="We are always adding new tools. Get notified of new features or automatically update via the app to start using them immediately."
           features={[
-            {illustration:'', title:'Product feature', text:'Brief explanation of why and how this feature will help your customers'},
-            {illustration:'', title:'Product feature', text:'Brief explanation of why and how this feature will help your customers'},
-            {illustration:'', title:'Product feature', text:'Brief explanation of why and how this feature will help your customers'},
-            {illustration:'', title:'Product feature', text:'Brief explanation of why and how this feature will help your customers'},
-            {illustration:'', title:'Product feature', text:'Brief explanation of why and how this feature will help your customers'},
-            {illustration:'', title:'Product feature', text:'Brief explanation of why and how this feature will help your customers'},
+            { illustration: '', title: 'Text Inference', text: 'Provide text based answers or completions to any request, uncensored. No more "Sorry, as an LLM I cannot answer that"' },
+            { illustration: '', title: 'Search & Chat', text: 'Ask questions about documents or search for meaning in your data. Even search images based on a description!' },
+            { illustration: '', title: 'Image Inference', text: 'Create beautiful images from a text prompt or image. Your images wont be subject to censor or watermarked.' },
+            { illustration: '', title: 'Auto Agents', text: 'Easily build and deploy autonomous Ai that can perform tasks on your behalf.' },
+            { illustration: '', title: 'Auto Workflows', text: 'Write out requirements for a task and have one or more specialized agents carry out the procedure at scale.' },
+            { illustration: '', title: 'App Ecosystem', text: 'Take advantage of a growing list of apps. Gain access to hundreds of purpose built Ai.' },
           ]}
         />
 
         <Epilogue
-          title="Ask if your visitor wants to solve problem X today"
-          subtitle="Explain how your solution will solve this problem and ask them to start a free trial, or any other low-key CTA they could take"
+          title="Start automating your life today!"
+          subtitle="Download the HomeBrewAi app for free and gain a new superpower!"
           illustration=""
           subscribePlaceholder="you@email.com"
-          subscribeAction="When is it ready?"
+          subscribeAction="Download free"
         />
       </main>
 
