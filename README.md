@@ -1,44 +1,38 @@
-Next.js Landing Page Starter Kit
-===
-[Live demo](https://nextjs-landing-page-starter.vercel.app)
+# HomebrewAi website
 
+This website is for marketing and hosting release builds of the HomebrewAi application.
 
 ## Usage
 
-Clone the project and install dependencies:
+Install dependencies:
 
 ```sh
-npm install
-yarn
+pnpm i
 ```
 
 Start the local development server:
 
 ```sh
-npm run dev
-yarn dev
+pnpm dev
 ```
 
 Build for deployment to [Vercel](https://vercel.com):
 
 ```sh
-npm run build
-yarn build
+pnpm build
 ```
 
 Export a static HTML version:
 
 ```sh
-npm run export
-yarn export
+pnpm export
 ```
 
 Deploy by pushing to [Github](https://github.com), and importing the project into [Vercel](https://vercel.com).
 
-
 ## Configuration
 
-The project is based on [Next.js](https://nextjs.org) so it's helpful to have the [documentation](https://nextjs.org/docs/getting-started) around.
+The project is based on [Next.js](https://nextjs.org).
 
 Define your pages in the [`pages` directory](/blob/main/pages).
 
