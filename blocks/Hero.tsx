@@ -10,7 +10,9 @@ export default function Hero(p: {
   subtitle: string,
   illustration: string,
   subscribePlaceholder?: string,
-  subscribeAction?: string,
+  subscribeActionText?: string,
+  subscribeAction?: () => void,
+  subscribeLink?: string,
 }) {
   const className = cx(
     styles.container,
@@ -22,9 +24,9 @@ export default function Hero(p: {
       <div className={styles.header}>
         <h1 className={styles.title}>{p.title}</h1>
         <p className={styles.subtitle}>{p.subtitle}</p>
-        {p.subscribeAction && <SubscribeInput className={styles.subscribe} placeholder={p.subscribePlaceholder} action={p.subscribeAction}/>}
+        {p.subscribeActionText && <SubscribeInput className={styles.subscribe} placeholder={p.subscribePlaceholder} onAction={p.subscribeAction} link={p.subscribeLink} actionText={p.subscribeActionText} />}
       </div>
-      <div className={styles.illustration}/>
+      <div className={styles.illustration} />
     </Section>
   );
 }

@@ -27,7 +27,8 @@ export default function Home() {
           subtitle={data.subheadline}
           illustration=""
           subscribePlaceholder="you@email.com"
-          subscribeAction="Get free download link"
+          subscribeActionText="Get free download link"
+          subscribeLink="https://github.com/dieharders/ai-text-server/releases/latest/download/HomeBrewAi.Setup.exe"
         />
 
         <Benefits
