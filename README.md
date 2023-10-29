@@ -1,4 +1,4 @@
-# HomebrewAi website
+# 🍺 HomeBrewAi website
 
 This website is for marketing and hosting release builds of the HomebrewAi application.
 

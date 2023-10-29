@@ -10,7 +10,9 @@ export default function Epilogue(p: {
   subtitle: string,
   illustration: string,
   subscribePlaceholder?: string,
-  subscribeAction?: string,
+  subscribeActionText?: string,
+  subscribeAction?: () => void,
+  subscribeLink?: string,
 }) {
   const className = cx(
     styles.container,
@@ -23,7 +25,7 @@ export default function Epilogue(p: {
       <div className={styles.header}>
         <h2 className={styles.title}>{p.title}</h2>
         <div className={styles.subtitle}>{p.subtitle}</div>
-        {p.subscribeAction && <SubscribeInput className={styles.subscribe} location="accent" placeholder={p.subscribePlaceholder} actionText={p.subscribeAction} />}
+        {p.subscribeActionText && <SubscribeInput className={styles.subscribe} location="accent" placeholder={p.subscribePlaceholder} onAction={p?.subscribeAction} link={p.subscribeLink} actionText={p.subscribeActionText} />}
       </div>
     </Section>
   );

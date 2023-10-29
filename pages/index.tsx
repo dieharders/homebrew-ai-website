@@ -11,6 +11,10 @@ import Notice from '../components/Notice';
 import data from '../global/global.json';
 
 export default function Home() {
+  const downloadLink = "https://github.com/dieharders/ai-text-server/releases/latest/download/HomeBrewAi.Setup.exe"
+  const downloadText = "Download Free"
+  const downloadPlaceholderText = "you@email.com"
+
   return (
     <div>
       <Head>
@@ -26,9 +30,9 @@ export default function Home() {
           title={data.headline}
           subtitle={data.subheadline}
           illustration=""
-          subscribePlaceholder="you@email.com"
-          subscribeActionText="Get free download link"
-          subscribeLink="https://github.com/dieharders/ai-text-server/releases/latest/download/HomeBrewAi.Setup.exe"
+          subscribePlaceholder={downloadPlaceholderText}
+          subscribeActionText={downloadText}
+          subscribeLink={downloadLink}
         />
 
         <Benefits
@@ -46,7 +50,7 @@ export default function Home() {
           title="Free Ai: Dont risk paying high bills"
           subtitle="Ditch the subscription and surprise api fees. Build and run Ai all day long!"
           illustration=""
-          action="Download now"
+          action="Download Now"
           onActionClick={() => window.scrollTo({ top: 99999, behavior: 'smooth' })}
         />
 
@@ -76,10 +80,11 @@ export default function Home() {
 
         <Epilogue
           title="Start automating your life today!"
-          subtitle="Download the HomeBrewAi app for free and gain a new superpower!"
+          subtitle="Download the HomeBrewAi app for free and gain a new superpower! Sign-up to be notified of product updates."
           illustration=""
-          subscribePlaceholder="you@email.com"
-          subscribeAction="Download free"
+          subscribePlaceholder={downloadPlaceholderText}
+          subscribeActionText={downloadText}
+          subscribeLink={downloadLink}
         />
       </main>
 
