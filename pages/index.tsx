@@ -27,14 +27,13 @@ export default function Home() {
 
       <main>
         <Hero
+          title={<h1>Unlimited Ai <br /> for the masses</h1>}
           subtitle={data.subheadline}
           illustration=""
           subscribePlaceholder={downloadPlaceholderText}
           subscribeActionText={downloadText}
           subscribeLink={downloadLink}
-        >
-          <h1>Unlimited Ai <br /> <h3>for the masses</h3></h1>
-        </Hero>
+        />
 
         <Benefits
           background="alternate"
