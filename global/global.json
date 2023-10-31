@@ -1,9 +1,8 @@
 {
-  "product": "🍺HomeBrewAi",
-  "headline": "Unlimited and free Ai for the masses",
-  "subheadline": "Take advantage of an ecosystem of apps built with custom Ai running locally on your computer.",
+  "product": "🍺 HomeBrewAi",
+  "subheadline": "Take advantage of an ecosystem of Ai running on your computer",
   "benefits": {
-    "headline": "Control private data and manage your solutions locally",
+    "headline": "Control your data and manage solutions locally",
     "subheadline": "Companies like OpenAi and Anthropic read and profit off all the data you send them. In addition you pay expensive API fees for a service that provides only a handfull of tools."
   }
 }

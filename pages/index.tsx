@@ -27,13 +27,14 @@ export default function Home() {
 
       <main>
         <Hero
-          title={data.headline}
           subtitle={data.subheadline}
           illustration=""
           subscribePlaceholder={downloadPlaceholderText}
           subscribeActionText={downloadText}
           subscribeLink={downloadLink}
-        />
+        >
+          <h1>Unlimited Ai <br /> <h3>for the masses</h3></h1>
+        </Hero>
 
         <Benefits
           background="alternate"
@@ -47,15 +48,15 @@ export default function Home() {
         />
 
         <Break
-          title="Free Ai: Dont risk paying high bills"
-          subtitle="Ditch the subscription and surprise api fees. Build and run Ai all day long!"
+          title="Stop paying surprise API bills"
+          subtitle="Ditch the subscriptions. Build and run Ai all day long for free!"
           illustration=""
           action="Download Now"
           onActionClick={() => window.scrollTo({ top: 99999, behavior: 'smooth' })}
         />
 
         <Highlights
-          title="Swiss-army knife of Ai"
+          title="Ai Lego Blocks"
           subtitle="HomeBrewAi is a collection of tools you can connect together"
           highlights={[
             { illustration: '', title: 'Text based responses to your requests', text: 'You can type, speak or even provide an image of your request. Bring together several Ai in a chat room and have them talk through a specific problem.' },
@@ -67,7 +68,7 @@ export default function Home() {
         <Features
           background="alternate"
           title="Feature list"
-          subtitle="We are always adding new tools. Get notified of new features or automatically update via the app to start using them immediately."
+          subtitle="We are always adding new tools. Access new features when you update the app."
           features={[
             { illustration: '', title: 'Text Inference', text: 'Provide text based answers or completions to any request, uncensored. No more "Sorry, as an LLM I cannot answer that"' },
             { illustration: '', title: 'Search & Chat', text: 'Ask questions about documents or search for meaning in your data. Even search images based on a description!' },
@@ -79,8 +80,9 @@ export default function Home() {
         />
 
         <Epilogue
-          title="Start automating your life today!"
-          subtitle="Download the HomeBrewAi app for free and gain a new superpower! Sign-up to be notified of product updates."
+          title="Start automating your life!"
+          subtitle1="Download the HomeBrewAi app and gain a new superpower!"
+          subtitle2="Sign-up to be notified of product updates."
           illustration=""
           subscribePlaceholder={downloadPlaceholderText}
           subscribeActionText={downloadText}

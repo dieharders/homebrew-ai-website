@@ -7,7 +7,8 @@ export default function Epilogue(p: {
   id?: string,
   className?: string,
   title: string,
-  subtitle: string,
+  subtitle1: string,
+  subtitle2: string,
   illustration: string,
   subscribePlaceholder?: string,
   subscribeActionText?: string,
@@ -24,7 +25,7 @@ export default function Epilogue(p: {
       <div className={styles.illustration} />
       <div className={styles.header}>
         <h2 className={styles.title}>{p.title}</h2>
-        <div className={styles.subtitle}>{p.subtitle}</div>
+        <div className={styles.subtitle}>{p.subtitle1}<br />{p.subtitle2}</div>
         {p.subscribeActionText && <SubscribeInput className={styles.subscribe} location="accent" placeholder={p.subscribePlaceholder} onAction={p?.subscribeAction} link={p.subscribeLink} actionText={p.subscribeActionText} />}
       </div>
     </Section>
