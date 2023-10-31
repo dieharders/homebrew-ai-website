@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
-
 :root {
-  --font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  --font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen,
   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
   --page-padding: 24px;
@@ -62,7 +60,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: var(--font-family);
+  /* font-family: var(--font-inter); */
   font-size: var(--body-font-size);
   font-weight: var(--body-font-weight);
   line-height: var(--body-line-height);

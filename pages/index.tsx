@@ -9,6 +9,7 @@ import Hero from '../blocks/Hero';
 import Highlights from '../blocks/Highlights';
 import Notice from '../components/Notice';
 import data from '../global/global.json';
+import { inter, geist_sans } from 'fonts/fonts'
 
 export default function Home() {
   const downloadLink = "https://github.com/dieharders/ai-text-server/releases/latest/download/HomeBrewAi.Setup.exe"
@@ -16,7 +17,7 @@ export default function Home() {
   const downloadPlaceholderText = "you@email.com"
 
   return (
-    <div>
+    <div className={`${geist_sans.className}`}>
       <Head>
         <title>{data.product}</title>
         <link rel="icon" href="/favicon.ico" />
@@ -33,6 +34,7 @@ export default function Home() {
           subscribePlaceholder={downloadPlaceholderText}
           subscribeActionText={downloadText}
           subscribeLink={downloadLink}
+          className={inter.className}
         />
 
         <Benefits
