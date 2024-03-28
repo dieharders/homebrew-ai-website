@@ -12,7 +12,7 @@ import data from '../global/global.json';
 import { inter, geist_sans } from 'fonts/fonts'
 
 export default function Home() {
-  const downloadLink = "https://github.com/dieharders/ai-text-server/releases/latest/download/HomeBrewAi.Setup.exe"
+  const downloadLink = "https://github.com/dieharders/ai-text-server/releases/latest/download/OpenBrew-Server-WIN.zip"
   const downloadText = "Download Free"
   const downloadPlaceholderText = "you@email.com"
 
@@ -58,10 +58,10 @@ export default function Home() {
 
         <Highlights
           title="Ai Lego Blocks"
-          subtitle="HomeBrewAi is a collection of tools you can connect together"
+          subtitle="OpenBrewAi is a collection of tools you can connect together"
           highlights={[
             { illustration: '', title: 'Text based responses to your requests', text: 'You can type, speak or even provide an image of your request. Bring together several Ai in a chat room and have them talk through a specific problem.' },
-            { illustration: '', title: 'Build powerful workflows with drag & drop', text: 'HomeBrewAi gives you the ability to build advanced systems that can automate your work or imitate behaviors. Building automated Ai agents is as easy as creating a todo list.' },
+            { illustration: '', title: 'Build powerful workflows with drag & drop', text: 'OpenBrewAi gives you the ability to build advanced systems that can automate your work or imitate behaviors. Building automated Ai agents is as easy as creating a todo list.' },
             { illustration: '', title: 'And much more...', text: 'Talk to your documents, get advice, create art, start a virtual company, whatever you want you can build it.' },
           ]}
         />
@@ -82,7 +82,7 @@ export default function Home() {
 
         <Epilogue
           title="Start automating your life!"
-          subtitle1="Download the HomeBrewAi app and gain a new superpower!"
+          subtitle1="Download OpenBrewAi and gain a new superpower!"
           subtitle2="Sign-up to be notified of product updates."
           illustration=""
           subscribePlaceholder={downloadPlaceholderText}

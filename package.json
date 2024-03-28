@@ -1,7 +1,7 @@
 {
-  "name": "homebrew-ai-website",
-  "version": "0.1.0",
-  "private": true,
+  "name": "openbrewai-website",
+  "version": "0.1.1",
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -1,6 +1,6 @@
-# 🍺 HomeBrewAi website
+# 🍺 OpenBrewAi website
 
-This website is for marketing and hosting release builds of the HomebrewAi application.
+This website is for marketing and hosting release builds of the OpenBrewAi application.
 
 ## Usage
 
