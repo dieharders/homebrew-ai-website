@@ -12,7 +12,7 @@ import data from '../global/global.json';
 import { inter, geist_sans } from 'fonts/fonts'
 
 export default function Home() {
-  const downloadLink = "https://github.com/dieharders/ai-text-server/releases/latest/download/OpenBrew-Server-WIN.zip"
+  const downloadLink = "https://github.com/dieharders/ai-text-server/releases/latest/download/OpenBrewServer.WIN.Setup.exe"
   const downloadText = "Download Free"
   const downloadPlaceholderText = "you@email.com"
 

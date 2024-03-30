@@ -20,7 +20,7 @@ export default function Header(p: {
   return (
     <header id={id} className={className}>
       <div className={styles.content}>
-        <div title={p.title}>{p.title}</div>
+        <div className={styles.title} title={p.title}>{p.title}</div>
         {p.action && <Button href={p.actionHref} onClick={p.onActionClick} type="secondary">{p.action}</Button>}
       </div>
     </header>
