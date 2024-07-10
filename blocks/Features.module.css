@@ -1,6 +1,4 @@
-.container {
-
-}
+.container {}
 
 .header {
   max-width: var(--section-header-max-width);
@@ -35,6 +33,7 @@
   align-content: flex-start;
   flex-direction: column;
   justify-content: stretch;
+  align-items: stretch;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -48,9 +47,9 @@
 }
 
 .feature-illustration {
-  width: 92px;
-  height: 92px;
-  background: #eee;
+  width: 10rem;
+  height: 10rem;
+  background: var(--illustration);
   border-radius: 28px;
 }
 
@@ -74,7 +73,6 @@
   .features {
     display: flex;
     width: 100%;
-    align-items: center;
     justify-content: space-between;
     flex-flow: row wrap;
     flex-direction: row;

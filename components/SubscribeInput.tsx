@@ -11,7 +11,7 @@ export default function SubscribeInput(p: {
   link?: string,
 }) {
   const actionText = p.actionText ?? 'Join early access';
-  const placeholder = p.placeholder ?? 'you@company.com';
+  const placeholder = p.placeholder ?? 'your@company.com';
   const location = p.location ?? 'body';
 
   const className = cx(
@@ -22,10 +22,10 @@ export default function SubscribeInput(p: {
 
   return (
     <form method="GET" action="/api/subscribe">
-      <div className={className}>
+      <div className={cx(styles.subscribe, className)}>
         <input className={styles.input} name="email" type="email" required placeholder={placeholder} />
-        <input className={styles.pooh} name="b_3951c19vtqb9xa0we_9rv293" tabIndex={-1} defaultValue="" />
-        <Button className={styles.button} onClick={p.onAction} href={p.link} size="large">{actionText}</Button>
+        <input className={styles.foo} name="b_3951c19vtqb9xa0we_9rv293" tabIndex={-1} defaultValue="" />
+        <Button className={styles.button} onClick={p.onAction} href={p.link} size="large" location="body">{actionText}</Button>
       </div>
     </form>
   )

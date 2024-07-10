@@ -2,7 +2,6 @@ import { ReactNode } from 'react';
 import styles from './Hero.module.css';
 import Section from '../components/Section';
 import cx from '../utils/cx';
-import SubscribeInput from '../components/SubscribeInput';
 
 export default function Hero(p: {
   id?: string,
@@ -10,10 +9,7 @@ export default function Hero(p: {
   title: ReactNode,
   subtitle: string,
   illustration: string,
-  subscribePlaceholder?: string,
-  subscribeActionText?: string,
-  subscribeAction?: () => void,
-  subscribeLink?: string,
+  children?: React.ReactNode,
 }) {
   const className = cx(
     styles.container,
@@ -25,7 +21,8 @@ export default function Hero(p: {
       <div className={styles.header}>
         <div className={styles.title}>{p.title}</div>
         <p className={styles.subtitle}>{p.subtitle}</p>
-        {p.subscribeActionText && <SubscribeInput className={styles.subscribe} placeholder={p.subscribePlaceholder} onAction={p?.subscribeAction} link={p.subscribeLink} actionText={p.subscribeActionText} />}
+        <br />
+        {p.children && p.children}
       </div>
       <div className={styles.illustration} />
     </Section>

@@ -1,8 +1,8 @@
 {
   "product": "OpenBrew Ai",
-  "subheadline": "Take advantage of an ecosystem of Ai running on your computer",
+  "subheadline": "Take advantage of free and local Ai running on your device",
   "benefits": {
-    "headline": "Control your data and manage solutions locally",
-    "subheadline": "Companies like OpenAi and Anthropic read and profit off all the data you send them. In addition you pay expensive API fees for a service that provides only a handfull of tools."
+    "headline": "Control your data locally and manage your privacy",
+    "subheadline": "Companies are crawling your data and profiting off your creations. In addition you pay fees for services that provide only a handfull of tools."
   }
 }

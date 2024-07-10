@@ -42,7 +42,7 @@
 
 .benefit-illustration {
   height: 200px;
-  background: #eee;
+  background: var(--illustration);
   border-radius: 8px;
 }
 

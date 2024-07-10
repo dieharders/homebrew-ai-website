@@ -3,21 +3,25 @@
 }
 
 .header {
-  max-width: var(--section-header-max-width);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: var(--page-responsive-desktop);
   margin: 0 auto;
   margin-top: 48px;
 }
 
 .title {
-  font-size: var(--h1-font-size);
+  color: var(--text);
+  font-size: 4.5rem;
   font-weight: var(--h1-font-weight);
   line-height: var(--h1-line-height);
   letter-spacing: var(--h1-letter-spacing);
   text-align: center;
-  margin-bottom: 21px;
+  overflow: hidden;
 }
 
-.subtitle {
+.subtitle, .subtitle1, .subtitle2 {
   font-size: var(--subtitle-font-size);
   font-weight: var(--subtitle-font-weight);
   line-height: var(--subtitle-line-height);
@@ -26,16 +30,20 @@
   color: var(--text-accent-shade);
 }
 
-.subscribe {
-  margin: 0 auto;
-  margin-top: 32px;
-  max-width: 550px;
+.subtitle1 {
+  color: var(--text);
+}
+
+.subtitle2 {
+  color: var(--text-shade);
+  font-size: medium;
 }
 
 .illustration {
-  width: 320px;
+  width: 100%;
+  max-width: 320px;
   height: 240px;
   margin: 0 auto;
-  background: #eee;
+  background: var(--illustration);
   border-radius: 8px;;
 }

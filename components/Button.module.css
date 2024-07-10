@@ -1,7 +1,7 @@
 .container {
   position: relative;
   display: inline-block;
-  border-radius: 4px;
+  border-radius: 0.5rem;
   font-weight: 500;
   display: inline-flex;
   align-items: center;
@@ -10,6 +10,10 @@
   border: none;
   cursor: pointer;
   user-select: none;
+  text-align: center;
+  line-height: normal;
+  text-wrap: wrap;
+  overflow: hidden;
 }
 
 .container-size-large {
@@ -28,7 +32,7 @@
 
 .container-type-primary.container-location-body {
   color: var(--text-accent);
-  background: var(--accent);
+  background: var(--button);
 }
 .container-type-primary.container-location-body:hover {
   top: -3px;
@@ -37,16 +41,16 @@
 .container-type-primary.container-location-body:active {
   top: 0px;
   box-shadow: none;
-  background: var(--accent);
+  background: var(--text-shade);
 }
 
 .container-type-primary.container-location-accent {
-  color: var(--accent);
+  color: var(--button);
   background: var(--text-accent);
 }
 .container-type-primary.container-location-accent:hover {
   top: -3px;
-  box-shadow: 0 3px 0 #0002, 0 3px 0 var(--text-accent);
+  box-shadow: 0 3px 0 #0002, 0 3px 0 var(--accent);
 }
 .container-type-primary.container-location-accent:active {
   top: 0px;
@@ -56,12 +60,12 @@
 
 .container-type-secondary.container-location-body {
   background: transparent;
-  border: solid 2px var(--accent);
-  color: var(--accent);
+  border: solid 2px var(--button);
+  color: var(--button);
 }
 .container-type-secondary.container-location-body:hover {
   top: -3px;
-  box-shadow: 0 3px 0 var(--accent);
+  box-shadow: 0 3px 0 var(--button);
 }
 .container-type-secondary.container-location-body:active {
   top: 0px;

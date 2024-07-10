@@ -6,6 +6,7 @@
 }
 
 .content {
+  color: var(--text);
   height: 100%;
   display: flex;
   max-width: var(--page-max-width);

@@ -3,9 +3,13 @@
 }
 
 .header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-width: var(--section-header-max-width);
   margin: 0 auto;
   margin-bottom: 64px;
+  overflow: hidden;
 }
 
 .title {
@@ -24,6 +28,7 @@
   letter-spacing: var(--subtitle-letter-spacing);
   text-align: center;
   color: var(--text-shade);
+  margin-bottom: 2rem;
 }
 
 .subscribe {
@@ -35,6 +40,6 @@
 .illustration {
   width: 100%;
   height: 500px;
-  background: #eee;
+  background: var(--illustration);
   border-radius: 8px;
 }
