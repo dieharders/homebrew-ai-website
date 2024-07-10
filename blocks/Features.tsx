@@ -1,6 +1,6 @@
 import styles from './Features.module.css';
 import Section from '../components/Section';
-import cx from '../utils/cx';
+import { cx } from '../utils/common';
 
 export default function Features(p: {
   id?: string,

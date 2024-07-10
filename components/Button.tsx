@@ -1,9 +1,9 @@
 import styles from './Button.module.css';
-import cx from '../utils/cx';
+import { cx } from '../utils/common';
 
 export default function Button(p: {
   size?: 'large' | 'normal',
-  type?: 'primary' | 'secondary',
+  type?: 'primary' | 'secondary' | 'custom',
   location?: 'body' | 'accent',
   href?: string,
   onClick?(): void,
@@ -17,14 +17,14 @@ export default function Button(p: {
   const className = cx(
     styles.container,
     styles[`container-size-${size}`],
-    styles[`container-type-${type}`],
+    type !== 'custom' && styles[`container-type-${type}`],
     styles[`container-location-${location}`],
     p.className,
   );
 
   if (p.href) {
     return (
-      <a className={className} href={p.href} onClick={p.onClick}>
+      <a className={className} href={p.href} target="_blank" onClick={p.onClick}>
         {p.children}
       </a>
     )

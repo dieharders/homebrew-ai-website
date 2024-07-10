@@ -1,0 +1,15 @@
+.btn {
+    color: var(--text);
+    background: aquamarine;
+    border: solid 1rem var(--text-shade);
+}
+
+.btn:active {
+    top: 0px;
+    box-shadow: none;
+}
+
+.btn:hover {
+    top: -3px;
+    box-shadow: 0 3px 0 #0002, 0 3px 0 aqua;
+}

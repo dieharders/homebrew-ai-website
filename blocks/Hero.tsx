@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import styles from './Hero.module.css';
 import Section from '../components/Section';
-import cx from '../utils/cx';
+import { cx } from '../utils/common';
 
 export default function Hero(p: {
   id?: string,

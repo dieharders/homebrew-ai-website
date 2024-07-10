@@ -47,7 +47,8 @@
 }
 
 .feature-illustration {
-  width: 10rem;
+  /* width: 10rem; */
+  width: 100%;
   height: 10rem;
   background: var(--illustration);
   border-radius: 28px;
@@ -69,7 +70,7 @@
   color: var(--text-shade);
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 620px) {
   .features {
     display: flex;
     width: 100%;
@@ -79,6 +80,6 @@
     flex-wrap: wrap;
   }
   .feature {
-    width: 16rem;
+    width: 15.5rem;
   }
 }

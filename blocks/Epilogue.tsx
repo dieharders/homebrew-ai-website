@@ -1,6 +1,6 @@
 import styles from './Epilogue.module.css';
 import Section from '../components/Section';
-import cx from '../utils/cx';
+import { cx } from '../utils/common';
 
 export default function Epilogue(p: {
   id?: string,

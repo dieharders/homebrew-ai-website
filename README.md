@@ -1,6 +1,6 @@
 # 🍺 OpenBrew Ai website
 
-This website is for marketing and hosting release builds of the oBrew application.
+This website is for marketing and hosting release builds of the Obrew application.
 
 ## Usage
 

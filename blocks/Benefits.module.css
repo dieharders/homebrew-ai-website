@@ -1,6 +1,4 @@
-.container {
-
-}
+.container {}
 
 .header {
   max-width: var(--section-header-max-width);

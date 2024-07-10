@@ -1,6 +1,6 @@
 import styles from './SubscribeInput.module.css';
 import Button from './Button';
-import cx from '../utils/cx';
+import { cx } from '../utils/common';
 
 export default function SubscribeInput(p: {
   location?: 'body' | 'accent',

@@ -1,3 +1,4 @@
+import styles from './index.module.css';
 import Head from 'next/head'
 import Benefits from '../blocks/Benefits';
 import Break from '../blocks/Break';
@@ -19,11 +20,11 @@ export default function Home() {
   return (
     <div className={`${geist_sans.className}`}>
       <Head>
-        <title>{data.product} for the masses</title>
+        <title>Obrew - Fast, private Ai for the masses</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Notice id="subscribed">Thank you for subscribing</Notice>
+      <Notice id="subscribed">Thank you for subscribing!</Notice>
       <Header id="top" title={`🍺 ${data.product}`} />
 
       <main>
@@ -34,17 +35,20 @@ export default function Home() {
           className={inter.className}
         >
           <Button
+            className={styles.btn}
             href={downloadLink}
             onClick={() => { }}
             size="large"
-            location="body">
+            type="custom"
+            location="body"
+          >
             👏 Download for Windows
           </Button>
           <p style={{ marginTop: '2rem', color: 'var(--text-shade)', textAlign: 'center' }}>
             <a
               style={{ textDecoration: 'underline' }}
               href="https://github.com/dieharders/ai-text-server/releases">
-              oBrew Engine v0.7.0 live</a> | Free & Open Source
+              Obrew Engine v0.7.0 live</a> | Free & Open Source
           </p>
         </Hero>
 
@@ -69,10 +73,10 @@ export default function Home() {
 
         <Highlights
           title="Ai Engine"
-          subtitle="oBrew is like a game engine for Ai tools. It has everything you need to build on top of."
+          subtitle="Obrew is like a game engine for Ai tools. It has everything you need to build on top of."
           highlights={[
             { illustration: '', title: 'Have conversations with custom assistants', text: 'You can type, speak or even provide an image of your request. Bring together several Ai in a chat room and have them talk through a specific problem.' },
-            { illustration: '', title: 'Build workflows with natural language', text: 'oBrew gives you the ability to build advanced systems that can automate your work or imitate behaviors. Building automated Ai agents is as easy as creating a todo list.' },
+            { illustration: '', title: 'Build workflows with natural language', text: 'Obrew gives you the ability to build advanced systems that can automate your work or imitate behaviors. Building automated Ai agents is as easy as creating a todo list.' },
             { illustration: '', title: 'And much more...', text: 'Talk to your documents, get advice, create art, start a virtual company, whatever you want you can build.' },
           ]}
         />
@@ -80,7 +84,7 @@ export default function Home() {
         <Features
           background="alternate"
           title="Feature list"
-          subtitle="oBrew is built to be moddable like a video game. Dont see a feature? Mod it yourself!"
+          subtitle="Obrew is built to be moddable like a video game. Dont see a feature? Mod it yourself!"
           features={[
             { illustration: '', title: 'Uncensored Text', text: 'Get answers to any request, uncensored. No more "Sorry, I cannot answer that".' },
             { illustration: '', title: 'Search & Discuss', text: 'Ask questions or search for meaning in your data. Even find images based on a description!' },
@@ -93,7 +97,7 @@ export default function Home() {
 
         <Epilogue
           title="Accelerate your life!"
-          subtitle1="Start making things with oBrew today"
+          subtitle1="Start making things with Obrew today"
           subtitle2="Get notified of product updates"
           illustration=""
         >

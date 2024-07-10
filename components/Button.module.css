@@ -12,7 +12,7 @@
   user-select: none;
   text-align: center;
   line-height: normal;
-  text-wrap: wrap;
+  text-wrap: nowrap;
   overflow: hidden;
 }
 

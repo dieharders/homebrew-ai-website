@@ -1,6 +1,6 @@
 import styles from './Break.module.css';
 import Section from '../components/Section';
-import cx from '../utils/cx';
+import { cx } from '../utils/common';
 import Button from '../components/Button';
 
 export default function Break(p: {
@@ -21,7 +21,7 @@ export default function Break(p: {
   return (
     <Section id={p.id} className={className} size="narrow" background="accent">
       <div className={styles.content}>
-        <div className={styles.illustration}/>
+        <div className={styles.illustration} />
         <div className={styles.header}>
           <h1 className={styles.title}>{p.title}</h1>
           <p className={styles.subtitle}>{p.subtitle}</p>
