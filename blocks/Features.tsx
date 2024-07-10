@@ -20,7 +20,11 @@ export default function Features(p: {
   );
 
   return (
-    <Section id={p.id} className={className} background={p.background}>
+    <Section
+      id={p.id}
+      className={className}
+      background={p.background}
+    >
       <div className={styles.header}>
         <h2 className={styles.title}>{p.title}</h2>
         <p className={styles.subtitle}>{p.subtitle}</p>
@@ -30,7 +34,7 @@ export default function Features(p: {
         {p.features.map((item, i) => {
           return (
             <li key={i} className={styles.feature}>
-              <div className={styles['feature-illustration']}/>
+              <div className={styles['feature-illustration']} />
               <div className={styles['feature-content']}>
                 <h3 className={styles['feature-title']}>{item.title}</h3>
                 <p className={styles['feature-text']}>{item.text}</p>

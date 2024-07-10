@@ -27,16 +27,24 @@
 }
 
 .features {
-  list-style: none;
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-wrap: nowrap;
+  flex-flow: column;
+  align-content: flex-start;
+  flex-direction: column;
+  justify-content: stretch;
   padding: 0;
   margin: 0;
-  margin-bottom: -48px; /* Hack for bottom margin */
+  list-style: none;
+  gap: 3rem;
 }
 
 .feature {
-  max-width: var(--list-item-max-width);
-  margin: 0 auto;
-  margin-bottom: 48px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .feature-illustration {
@@ -65,14 +73,14 @@
 @media screen and (min-width: 800px) {
   .features {
     display: flex;
-    align-items: stretch;
-    justify-content: stretch;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
     flex-flow: row wrap;
-    margin-right: -64px; /* Hack for right margin */
+    flex-direction: row;
+    flex-wrap: wrap;
   }
   .feature {
-    flex: 1 1 0;
-    margin-right: 64px;
-    min-width: var(--list-item-max-width);
+    width: 16rem;
   }
 }
