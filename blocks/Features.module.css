@@ -15,6 +15,13 @@
   margin-bottom: 16px;
 }
 
+.icon {
+  background-color: transparent;
+  padding: 0.25rem;
+  font-size: xx-large;
+  text-align: left;
+}
+
 .subtitle {
   font-size: var(--body-font-size);
   font-weight: var(--body-font-weight);
@@ -43,7 +50,14 @@
 .feature {
   width: 100%;
   margin: 0;
-  padding: 0;
+  padding: 1rem;
+  background-color: aquamarine;
+  background-image: linear-gradient(55deg, hsl(180, 70%, 50%), hsl(160, 60%, 84%), white);
+  border-radius: 2rem;
+  /* outline-color: hsl(160, 45%, 75%); */
+  outline-color: var(--text-shade);
+  outline-width: 2px;
+  outline-style: solid;
 }
 
 .feature-illustration {

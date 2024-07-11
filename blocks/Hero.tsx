@@ -1,7 +1,9 @@
 import { ReactNode } from 'react';
 import styles from './Hero.module.css';
 import Section from '../components/Section';
-import poster from 'public/poster-head.png'
+import poster from 'public/main-poster.png';
+import phone from 'public/phone.png';
+import watch from 'public/watch-face.png';
 import { cx } from '../utils/common';
 
 export default function Hero(p: {
@@ -16,13 +18,6 @@ export default function Hero(p: {
     p.className,
   );
 
-  const posterStyle = {
-    backgroundImage: `url(${poster.src})`,
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  }
-
   return (
     <Section id={p.id} className={className}>
       <div className={styles.header}>
@@ -32,12 +27,17 @@ export default function Hero(p: {
         {p.children && p.children}
       </div>
       {/* Poster */}
-      <a
-        href="http://www.youtube.com/@OpenBrewAi"
-        target="_blank"
-      >
-        <div className={styles.illustration} style={posterStyle} />
-      </a>
+      <div className={styles.overflow}>
+        <a
+          href="http://www.youtube.com/@OpenBrewAi"
+          target="_blank"
+          className={styles.posterContainer}
+        >
+          <img src={poster.src} className={styles.illustration} />
+          <img src={phone.src} className={styles.phone} />
+          <img src={watch.src} className={styles.watch} />
+        </a>
+      </div>
     </Section>
   );
 }

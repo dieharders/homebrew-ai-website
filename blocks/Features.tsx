@@ -10,7 +10,8 @@ export default function Features(p: {
   features: {
     title: string,
     text: string,
-    illustration: any,
+    illustration?: any,
+    icon?: string
   }[],
   background?: 'normal' | 'alternate',
 }) {
@@ -34,7 +35,8 @@ export default function Features(p: {
         {p.features.map((item, i) => {
           return (
             <li key={i} className={styles.feature}>
-              <div className={styles['feature-illustration']} style={item.illustration} />
+              {item?.illustration && <div className={styles['feature-illustration']} style={item?.illustration} />}
+              {item?.icon && <div className={styles.icon}>{item?.icon}</div>}
               <div className={styles['feature-content']}>
                 <h3 className={styles['feature-title']}>{item.title}</h3>
                 <p className={styles['feature-text']}>{item.text}</p>

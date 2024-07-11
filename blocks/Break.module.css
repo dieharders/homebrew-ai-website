@@ -32,8 +32,6 @@
   background: white;
   border-radius: 8px;
   margin: 0 auto;
-  font-size: xx-large;
-  text-align: center;
 }
 
 @media screen and (min-width: 800px) {
