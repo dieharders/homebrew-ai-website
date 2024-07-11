@@ -13,12 +13,18 @@
 
 .title {
   color: var(--text);
+  padding: 0.25rem;
   font-size: 4.5rem;
   font-weight: var(--h1-font-weight);
   line-height: var(--h1-line-height);
   letter-spacing: var(--h1-letter-spacing);
   text-align: center;
   overflow: hidden;
+  background: linear-gradient(100deg, hsl(180, 100%, 50%), hsl(190, 100%, 65%), hsl(160, 100%, 65%));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* stroke */
+  -webkit-text-stroke: 1px var(--text-shade);
 }
 
 .subtitle, .subtitle1, .subtitle2 {

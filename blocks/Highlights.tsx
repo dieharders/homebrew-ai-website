@@ -10,7 +10,7 @@ export default function Highlights(p: {
   highlights: {
     title: string,
     text: string,
-    illustration: string,
+    illustration: any,
   }[],
   background?: 'normal' | 'alternate',
 }) {
@@ -30,7 +30,7 @@ export default function Highlights(p: {
         {p.highlights.map((item, i) => {
           return (
             <li key={i} className={styles.highlight}>
-              <div className={styles['highlight-illustration']} />
+              <div className={styles['highlight-illustration']} style={item.illustration} />
               <div className={styles['highlight-content']}>
                 <h3 className={styles['highlight-title']}>{item.title}</h3>
                 <p className={styles['highlight-text']}>{item.text}</p>
