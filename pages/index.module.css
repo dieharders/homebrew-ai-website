@@ -1,10 +1,10 @@
 .btn {
     color: var(--text);
     background: aquamarine;
-    border: solid 1rem var(--text-shade);
 }
 
 .btn:active {
+    background: aquamarine;
     top: 0px;
     box-shadow: none;
 }
