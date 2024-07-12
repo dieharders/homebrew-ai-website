@@ -1,6 +1,6 @@
 # 🍺 OpenBrew Ai website
 
-This website is for marketing and hosting release builds of the Obrew application.
+This website is the home of the Obrew suite of products.
 
 ## Usage
 
@@ -39,10 +39,15 @@ Define your pages in the [`pages` directory](/blob/main/pages).
 Configure the app and theme by editing [`global.css`](/blob/main/global/global.css)
 and [`global.json`](/blob/main/global/global.json).
 
-Configure Mailchimp by creating a `.env.local` file:
+## Configure Mailchimp
+
+Create an `.env` file:
 
 ```env
 MAILCHIMP_DC=us1
 MAILCHIMP_LIST_ID=xxxxxx
 MAILCHIMP_API_KEY=xxxxxxxxxxxxxxxxxxxxxxxxx-us1
 ```
+
+MAILCHIMP_DC is the region code (denoted at end of api key).
+MAILCHIMP_LIST_ID is the mailing list id assigned at account setup (https://mailchimp.com/help/find-audience-id/).
