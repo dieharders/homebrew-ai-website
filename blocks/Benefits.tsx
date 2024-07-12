@@ -1,6 +1,6 @@
 import styles from './Benefits.module.css';
 import Section from '../components/Section';
-import cx from '../utils/cx';
+import { cx } from '../utils/common';
 
 export default function Benefits(p: {
   id?: string,
@@ -10,7 +10,7 @@ export default function Benefits(p: {
   benefits: {
     title: string,
     text: string,
-    illustration: string,
+    illustration: any,
   }[],
   background?: 'normal' | 'alternate',
 }) {
@@ -30,7 +30,7 @@ export default function Benefits(p: {
         {p.benefits.map((item, i) => {
           return (
             <li key={i} className={styles.benefit}>
-              <div className={styles['benefit-illustration']}/>
+              <div className={styles['benefit-illustration']} style={item.illustration} />
               <div className={styles['benefit-content']}>
                 <h3 className={styles['benefit-title']}>{item.title}</h3>
                 <p className={styles['benefit-text']}>{item.text}</p>

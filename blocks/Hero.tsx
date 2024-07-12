@@ -1,19 +1,17 @@
 import { ReactNode } from 'react';
 import styles from './Hero.module.css';
 import Section from '../components/Section';
-import cx from '../utils/cx';
-import SubscribeInput from '../components/SubscribeInput';
+import poster from 'public/main-poster.png';
+import phone from 'public/phone.png';
+import watch from 'public/watch-face.png';
+import { cx } from '../utils/common';
 
 export default function Hero(p: {
   id?: string,
   className?: string,
   title: ReactNode,
   subtitle: string,
-  illustration: string,
-  subscribePlaceholder?: string,
-  subscribeActionText?: string,
-  subscribeAction?: () => void,
-  subscribeLink?: string,
+  children?: React.ReactNode,
 }) {
   const className = cx(
     styles.container,
@@ -25,9 +23,21 @@ export default function Hero(p: {
       <div className={styles.header}>
         <div className={styles.title}>{p.title}</div>
         <p className={styles.subtitle}>{p.subtitle}</p>
-        {p.subscribeActionText && <SubscribeInput className={styles.subscribe} placeholder={p.subscribePlaceholder} onAction={p?.subscribeAction} link={p.subscribeLink} actionText={p.subscribeActionText} />}
+        <br />
+        {p.children}
       </div>
-      <div className={styles.illustration} />
+      {/* Poster */}
+      <div className={styles.overflow}>
+        <a
+          href="http://www.youtube.com/@OpenBrewAi"
+          target="_blank"
+          className={styles.posterContainer}
+        >
+          <img src={poster.src} className={styles.illustration} />
+          <img src={phone.src} className={styles.phone} />
+          <img src={watch.src} className={styles.watch} />
+        </a>
+      </div>
     </Section>
   );
 }

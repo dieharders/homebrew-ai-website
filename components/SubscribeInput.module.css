@@ -23,10 +23,10 @@
 }
 .input:focus {
   outline: none;
-  background: lightyellow;
+  background: var(--background-alternate);
 }
 
-.pooh {
+.foo {
   position: absolute;
   z-index: -1;
 }
@@ -34,4 +34,9 @@
 .button {
   flex: 0 0 auto;
   padding: 12px 24px;
+}
+
+.subscribe {
+  margin: 0 auto;
+  max-width: 550px;
 }

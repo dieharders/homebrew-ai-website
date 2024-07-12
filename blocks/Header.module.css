@@ -1,19 +1,40 @@
 .container {
-  height: var(--page-header-height);
-  margin-bottom: calc(-1 * var(--page-header-height));
-  padding: 16px var(--page-padding);
+  display: block;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: 100;
 }
 
 .content {
-  height: 100%;
+  position: relative;
   display: flex;
-  max-width: var(--page-max-width);
-  margin: 0 auto;
+  padding: 1.25rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  gap: 1rem;
   align-items: center;
   justify-content: space-between;
+  background: var(--background-alternate);
+  box-shadow: 0 2px 2px var(--section-separator-color);
 }
 
 .title {
   font-size: 1.25rem;
   font-weight: 600;
+  justify-self: flex-start;
+  align-self: stretch;
+}
+
+.links {
+  display: flex;
+  padding-top: 0.25rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: flex-end;
+  align-self: flex-start; /* or "stretch" takes up vertical space */
+  gap: 1rem;
+  overflow: hidden;
+  white-space: nowrap;
 }

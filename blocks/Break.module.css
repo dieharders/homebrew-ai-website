@@ -15,6 +15,7 @@
   line-height: var(--h3-line-height);
   letter-spacing: var(--h3-letter-spacing);
   margin-bottom: 12px;
+  color: var(--text);
 }
 
 .subtitle {
@@ -22,13 +23,13 @@
   font-weight: var(--body-font-weight);
   line-height: var(--body-line-height);
   letter-spacing: var(--body-letter-spacing);
-  color: var(--text-accent-shade);
+  color: var(--text-shade);
 }
 
 .illustration {
   width: 128px;
   height: 80px;
-  background: #eee;
+  background: white;
   border-radius: 8px;
   margin: 0 auto;
 }

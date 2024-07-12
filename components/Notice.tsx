@@ -1,5 +1,5 @@
 import styles from './Notice.module.css';
-import cx from '../utils/cx';
+import { cx } from '../utils/common';
 
 export default function Notice(p: {
   id?: string,

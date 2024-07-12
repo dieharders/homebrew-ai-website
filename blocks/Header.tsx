@@ -1,27 +1,23 @@
 import styles from './Header.module.css';
 import Button from '../components/Button';
-import cx from '../utils/cx';
+import { cx } from '@/utils/common';
 
 export default function Header(p: {
   id?: string,
   className?: string,
   title: string,
-  action?: string,
-  actionHref?: string,
-  onActionClick?(): void,
 }) {
   const id = p.id ?? 'top';
 
-  const className = cx(
-    styles.container,
-    p.className,
-  );
-
   return (
-    <header id={id} className={className}>
+    <header id={id} className={cx(styles.container, p.className)}>
       <div className={styles.content}>
         <div className={styles.title} title={p.title}>{p.title}</div>
-        {p.action && <Button href={p.actionHref} onClick={p.onActionClick} type="secondary">{p.action}</Button>}
+        <div className={styles.links}>
+          <Button href="http://www.youtube.com/@OpenBrewAi" onClick={() => { }} type="secondary">📺YouTube</Button>
+          <Button href="mailto:openbrewai+support@gmail.com" onClick={() => { }} type="secondary">📧Email</Button>
+          <Button href="https://studio.openbrewai.com" onClick={() => { }} type="secondary">Obrew Studio</Button>
+        </div>
       </div>
     </header>
   );
