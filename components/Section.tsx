@@ -5,7 +5,7 @@ export default function Section(p: {
   id?: string,
   className?: string,
   size?: 'normal' | 'narrow',
-  background?: 'normal' | 'alternate' | 'accent',
+  background?: 'normal' | 'alternate' | 'accent' | 'accent-alt',
   children: React.ReactNode,
 }) {
   const size = p.size ?? 'normal';

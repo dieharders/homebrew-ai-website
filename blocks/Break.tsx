@@ -19,7 +19,7 @@ export default function Break(p: {
   );
 
   return (
-    <Section id={p.id} className={className} size="narrow" background="accent">
+    <Section id={p.id} className={className} size="narrow" background="accent-alt">
       <div className={styles.content}>
         {/* Poster */}
         <div className={styles.illustration} style={p.illustration} />

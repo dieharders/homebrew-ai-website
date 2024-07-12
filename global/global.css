@@ -14,6 +14,8 @@
   --background-alternate: #fafafa;
   --section-separator-color: #ddd;
   --section-separator-width: 0.5px;
+  --section-accent-color: aquamarine;
+  --section-accent-text-color: hsl(160, 100%, 5%);
 
   --text: #333;
   --text-shade: #333A;

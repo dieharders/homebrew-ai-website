@@ -35,7 +35,6 @@ export default function Features(p: {
         {p.features.map((item, i) => {
           return (
             <li key={i} className={styles.feature}>
-              <div className={styles.glow1}></div>
               {item?.illustration && <div className={styles['feature-illustration']} style={item?.illustration} />}
               {item?.icon && <div className={styles.icon}>{item?.icon}</div>}
               <div className={styles['feature-content']}>

@@ -25,6 +25,11 @@
   color: var(--text-accent)
 }
 
+.container-background-accent-alt {
+  background: linear-gradient(90deg, var(--section-accent-color), aqua);
+  color: var(--section-accent-text-color)
+}
+
 .content {
   max-width: var(--page-max-width);
   margin: 0 auto;

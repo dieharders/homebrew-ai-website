@@ -13,14 +13,15 @@ import SubscribeInput from '../components/SubscribeInput';
 import Button from '../components/Button';
 import data from '../global/global.json';
 import { inter, geist_sans } from 'fonts/fonts';
-import benefitPosterImageA from 'public/benefit-ondevice.png';
+import benefitPosterImageA from 'public/benefit-private.png';
 import benefitPosterImageB from 'public/benefit-tools.png';
-import benefitPosterImageC from 'public/benefit-documents.png';
+import benefitPosterImageC from 'public/benefit-unlimited.png';
 import highlightPosterImageA from 'public/highlight-doc.png';
-import highlightPosterImageB from 'public/highlight-tools.png';
+import highlightPosterImageB from 'public/highlight-jobs.png';
 import highlightPosterImageC from 'public/highlight-model.png';
 import epiloguePosterImage from 'public/acceleration.png';
 import breakPosterImage from 'public/nopay.jpg';
+import oneclickPosterImage from 'public/one-click.png';
 import Roadmap from '@/blocks/Roadmap';
 
 export default function Home() {
@@ -33,14 +34,17 @@ export default function Home() {
   const benefitPosterAStyle = {
     backgroundImage: `url(${benefitPosterImageA.src})`,
     ...imgStyle,
+    backgroundSize: 'contain',
   }
   const benefitPosterBStyle = {
     backgroundImage: `url(${benefitPosterImageB.src})`,
     ...imgStyle,
+    backgroundSize: 'contain',
   }
   const benefitPosterCStyle = {
     backgroundImage: `url(${benefitPosterImageC.src})`,
     ...imgStyle,
+    backgroundSize: 'contain',
   }
   const highlightPosterA = {
     backgroundImage: `url(${highlightPosterImageA.src})`,
@@ -63,6 +67,11 @@ export default function Home() {
     ...imgStyle,
     backgroundSize: 'contain',
   }
+  const oneclickPoster = {
+    backgroundImage: `url(${oneclickPosterImage.src})`,
+    ...imgStyle,
+    backgroundSize: 'contain',
+  }
 
   return (
     <div className={`${geist_sans.className}`}>
@@ -76,7 +85,7 @@ export default function Home() {
 
       <main>
         <Hero
-          title={<h1>Unlimited Ai</h1>}
+          title={<h1>Unlimited Ai anywhere</h1>}
           subtitle={data.subheadline}
           className={inter.className}
         >
@@ -106,7 +115,7 @@ export default function Home() {
           subtitle={data.benefits.subheadline}
           benefits={[
             { illustration: benefitPosterAStyle, title: 'Your data stays on device 💻', text: 'Everything you upload or type is stored on your device. Data stays private.' },
-            { illustration: benefitPosterBStyle, title: 'Build your own tools 🧰', text: 'Stop waiting for new toys. Build your own bots easily with no code needed.' },
+            { illustration: benefitPosterBStyle, title: 'Build custom tools 🧰', text: 'Create your own tools and bots easily, no code needed.' },
             { illustration: benefitPosterCStyle, title: 'Unlimited Ai for free 🌟', text: 'Have large workloads or just want to run Ai all day long? You can for free!' },
           ]}
         />
@@ -123,9 +132,9 @@ export default function Home() {
           title="The Ai Engine for makers"
           subtitle="Obrew is like a game engine for Ai tools. It has everything you need to build Ai apps and services."
           highlights={[
-            { illustration: highlightPosterA, title: 'Have conversations with custom assistants', text: 'You can type, speak or even provide an image of your request. Bring together several Ai in a chat room and have them talk through a specific problem.' },
-            { illustration: highlightPosterB, title: 'Build workflows with natural language', text: 'Obrew gives you the ability to build advanced systems that can automate your work or imitate behaviors. Building automated Ai agents is as easy as creating a todo list.' },
-            { illustration: highlightPosterC, title: 'And much more...', text: 'Talk to your documents, brainstorm ideas, create art, build a web service, or launch your next startup.' },
+            { illustration: highlightPosterA, title: 'Prevent hallucinations', text: 'We give creators tools to optimize and debug everything in their knowledge base.' },
+            { illustration: highlightPosterB, title: 'Build workflows with natural language', text: 'Obrew gives you the ability to build advanced systems to automate your tasks. Its as easy as writing a todo list.' },
+            { illustration: highlightPosterC, title: 'Download models 🤗', text: 'Choose from thousands of models, inspect their descriptions then download to your device.' },
           ]}
         />
 
@@ -145,6 +154,14 @@ export default function Home() {
             { icon: '🔑', title: 'API access', text: 'We provide an extensive api for all your needs. Obrew Studio is built on this api!' },
             // { icon: '👨‍👩‍👧‍👧', title: 'Community resources', text: 'Users can share their workflows, bots, tools with others.' },
           ]}
+        />
+
+        <Break
+          title="One-click installer"
+          subtitle="Don't waste time with Python dependencies or Docker containers. Get up and running fast."
+          action="Download Now"
+          illustration={oneclickPoster}
+          onActionClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         />
 
         <Roadmap

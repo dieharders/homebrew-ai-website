@@ -40,7 +40,7 @@
 
 .benefit-illustration {
   height: 200px;
-  background: var(--illustration);
+  background: white;
   border-radius: 8px;
   box-shadow: 0 4px 4px var(--section-separator-color);
   outline-color: var(--text-shade);

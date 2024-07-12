@@ -31,19 +31,6 @@
   color: var(--text-shade);
 }
 
-.glow1 {
-  display: block;
-  position: absolute;
-  right: -1rem;
-  top: -9rem;
-  height: 16rem;
-  width: 16rem;
-  background-color: aqua;
-  background: radial-gradient(#ffffffe3, #c4c8ff, rgb(0, 255, 255), transparent);
-  background-size: 300% 100%;
-  mask-image: -moz-radial-gradient(white, white, transparent, transparent, transparent);
-}
-
 .features {
   position: relative;
   display: flex;
@@ -67,12 +54,12 @@
   padding: 1rem;
   background-color: aquamarine;
   border-radius: 2rem;
-  outline-color: hsl(160, 45%, 60%);
+  outline-color: hsl(160, 45%, 75%);
   outline-width: 2px;
   outline-style: solid;
   /* background-image: linear-gradient(55deg, hsl(180, 70%, 50%), hsl(160, 60%, 84%), white); */
-  background: radial-gradient(ellipse at top, aqua, transparent),
-  radial-gradient(ellipse at bottom, aquamarine, transparent);
+  background: radial-gradient(ellipse at top, hsla(180, 100%, 50%, 0.25), transparent),
+  radial-gradient(ellipse at bottom, hsla(160, 100%, 75%, 0.15), transparent);
   overflow: hidden;
 }
 
