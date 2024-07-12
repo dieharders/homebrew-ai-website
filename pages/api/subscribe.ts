@@ -14,7 +14,7 @@ export default async function subscribe(
   // if (!MAILCHIMP_LIST_ID) throw "Error: `MAILCHIMP_LIST_ID` is required";
   // if (!MAILCHIMP_API_KEY) throw "Error: `MAILCHIMP_API_KEY` is required";
 
-  // Validate email
+  // Validate email, @TODO validate email correctly
   if (!req.query?.email) res.redirect("/#failed");
   // throw "Error: `email` is required";
 
