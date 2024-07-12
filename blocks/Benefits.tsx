@@ -29,7 +29,7 @@ export default function Benefits(p: {
       <ul className={styles.benefits}>
         {p.benefits.map((item, i) => {
           return (
-            <li key={i} className={styles.benefit}>
+            <li key={item.title} className={styles.benefit}>
               <div className={styles['benefit-illustration']} style={item.illustration} />
               <div className={styles['benefit-content']}>
                 <h3 className={styles['benefit-title']}>{item.title}</h3>

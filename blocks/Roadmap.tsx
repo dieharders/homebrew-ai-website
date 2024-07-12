@@ -29,7 +29,7 @@ export default function Features(p: {
 
       {p?.children &&
         <div className={styles.childrenContainer}>
-          {p?.children.map(i => <div className={styles.child}>{i}</div>)}
+          {p?.children.map((i, ind) => <div key={ind} className={styles.child}>{i}</div>)}
         </div>
       }
     </Section>

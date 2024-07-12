@@ -4,17 +4,20 @@ import type { NextApiRequest, NextApiResponse } from "next";
 
 const { MAILCHIMP_DC, MAILCHIMP_LIST_ID, MAILCHIMP_API_KEY } = process.env;
 
-// Validate props
-if (!MAILCHIMP_DC) throw "Error: `MAILCHIMP_DC` is required";
-if (!MAILCHIMP_LIST_ID) throw "Error: `MAILCHIMP_LIST_ID` is required";
-if (!MAILCHIMP_API_KEY) throw "Error: `MAILCHIMP_API_KEY` is required";
-
 export default async function subscribe(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  // Validate props
+  if (!MAILCHIMP_DC || !MAILCHIMP_LIST_ID || !MAILCHIMP_API_KEY)
+    res.redirect("/#failed");
+  // if (!MAILCHIMP_DC) throw "Error: `MAILCHIMP_DC` is required";
+  // if (!MAILCHIMP_LIST_ID) throw "Error: `MAILCHIMP_LIST_ID` is required";
+  // if (!MAILCHIMP_API_KEY) throw "Error: `MAILCHIMP_API_KEY` is required";
+
   // Validate email
-  if (!req.query?.email) throw "Error: `email` is required";
+  console.log("@@ req", req.body["email"]);
+  if (!req.query?.email) res.redirect("/#failed"); // throw "Error: `email` is required";
 
   // if (req.body["b_3951c19vtqb9xa0we_9rv293"]) {
   //   res.redirect("/#subscribed");
