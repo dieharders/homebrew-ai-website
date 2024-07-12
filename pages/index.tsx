@@ -195,8 +195,6 @@ export default function Home() {
         >
           <SubscribeInput
             placeholder="your@email.com"
-            onAction={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            // link=""
             actionText="Subscribe"
           />
         </Epilogue>
