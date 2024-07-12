@@ -13,12 +13,12 @@ import SubscribeInput from '../components/SubscribeInput';
 import Button from '../components/Button';
 import data from '../global/global.json';
 import { inter, geist_sans } from 'fonts/fonts';
-import benefitPosterImageA from 'public/data-on-device.png';
-import benefitPosterImageB from 'public/small-tools.png';
-import benefitPosterImageC from 'public/documents.png';
-import highlightPosterImageA from 'public/document-chunks.png';
-import highlightPosterImageB from 'public/build-tools.png';
-import highlightPosterImageC from 'public/model-download.png';
+import benefitPosterImageA from 'public/benefit-ondevice.png';
+import benefitPosterImageB from 'public/benefit-tools.png';
+import benefitPosterImageC from 'public/benefit-documents.png';
+import highlightPosterImageA from 'public/highlight-doc.png';
+import highlightPosterImageB from 'public/highlight-tools.png';
+import highlightPosterImageC from 'public/highlight-model.png';
 import epiloguePosterImage from 'public/acceleration.png';
 import breakPosterImage from 'public/nopay.jpg';
 import Roadmap from '@/blocks/Roadmap';
@@ -121,7 +121,7 @@ export default function Home() {
 
         <Highlights
           title="The Ai Engine for makers"
-          subtitle="Obrew is like a game engine for Ai tools. It has everything you need to build on top of."
+          subtitle="Obrew is like a game engine for Ai tools. It has everything you need to build Ai apps and services."
           highlights={[
             { illustration: highlightPosterA, title: 'Have conversations with custom assistants', text: 'You can type, speak or even provide an image of your request. Bring together several Ai in a chat room and have them talk through a specific problem.' },
             { illustration: highlightPosterB, title: 'Build workflows with natural language', text: 'Obrew gives you the ability to build advanced systems that can automate your work or imitate behaviors. Building automated Ai agents is as easy as creating a todo list.' },
@@ -134,12 +134,16 @@ export default function Home() {
           title="Feature list"
           subtitle="Obrew is built to be moddable like a video game. Dont see a feature? Mod it yourself!"
           features={[
-            { icon: '🤬', title: 'Unrestricted', text: 'Get answers to any request, uncensored. No more "Sorry, I cannot answer that".' },
-            { icon: '🔍', title: 'Search & Discuss', text: 'Have a discussion with your data. Find what you need based on a description.' },
+            { icon: '🚚', title: 'Easy install', text: 'No need to install Python deps or Docker containers (unless you want to).' },
+            { icon: '🦾', title: 'Run any model', text: 'Open-source, quantized models from Huggingface. Supports CPU & GPU.' },
             { icon: '🚫', title: 'No limits or tracking', text: 'Create without limits. Your output wont be censored or trained on by third parties.' },
+            { icon: '💬', title: 'Chat history', text: 'All threads, logs and metadata are stored in json on your device.' },
+            { icon: '🔍', title: 'Search & discuss', text: 'Have a discussion with your data (RAG). Find what you need based on a description.' },
+            { icon: '🤬', title: 'Unrestricted', text: 'Get answers to any request, uncensored. No more "Sorry, I cannot answer that".' },
             { icon: '🤖', title: 'Agents', text: 'Easily build and deploy autonomous Ai that can perform tasks on your behalf.' },
-            { icon: '✨', title: 'Workflows', text: 'Write tasks in natural language and automate things like research, etc.' },
-            { icon: '👨‍👩‍👧‍👧', title: 'Community Resources', text: 'Users can share their workflows, bots, tools with others.' },
+            { icon: '✨', title: 'Workflows', text: 'Write tasks in natural language and automate them like research.' },
+            { icon: '🔑', title: 'API access', text: 'We provide an extensive api for all your needs. Obrew Studio is built on this api!' },
+            // { icon: '👨‍👩‍👧‍👧', title: 'Community resources', text: 'Users can share their workflows, bots, tools with others.' },
           ]}
         />
 
@@ -160,6 +164,7 @@ export default function Home() {
               '✅ Build agents with access to tools',
               '❌ Create workflows and execute jobs',
               '❌ Source citations from chat responses',
+              '❌ Support cloud model providers (OpenAi, Gemini)',
               '❌ Import/Share configs, extensions, tools from community',
             ]
           }
