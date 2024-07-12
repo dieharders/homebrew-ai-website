@@ -22,7 +22,7 @@ export default function Epilogue(p: {
       <div className={styles.header}>
         <h2 className={styles.title}>{p.title}</h2>
         <h4 className={styles.subtitle1}>{p.subtitle1}</h4>
-        {p.children && p.children}
+        {p.children}
         <h5 className={styles.subtitle2}>{p.subtitle2}</h5>
       </div>
     </Section>
