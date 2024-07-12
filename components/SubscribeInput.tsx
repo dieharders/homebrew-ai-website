@@ -24,7 +24,6 @@ export default function SubscribeInput(p: {
     <form method="GET" action="/api/subscribe">
       <div className={cx(styles.subscribe, className)}>
         <input className={styles.input} name="email" type="email" required placeholder={placeholder} />
-        <input className={styles.foo} name="b_3951c19vtqb9xa0we_9rv293" tabIndex={-1} defaultValue="" />
         <Button className={styles.button} onClick={p.onAction} href={p.link} size="large" location="body">{actionText}</Button>
       </div>
     </form>

@@ -1,6 +1,4 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-// import btoa from "btoa";
-// import '@mailchimp/mailchimp_marketing';
 
 const { MAILCHIMP_DC, MAILCHIMP_LIST_ID, MAILCHIMP_API_KEY } = process.env;
 
@@ -9,6 +7,7 @@ export default async function subscribe(
   res: NextApiResponse
 ) {
   // Validate props
+  // @TODO Redirect to specific email landing page for either "failure" or "success"
   if (!MAILCHIMP_DC || !MAILCHIMP_LIST_ID || !MAILCHIMP_API_KEY)
     res.redirect("/#failed");
   // if (!MAILCHIMP_DC) throw "Error: `MAILCHIMP_DC` is required";
@@ -16,12 +15,8 @@ export default async function subscribe(
   // if (!MAILCHIMP_API_KEY) throw "Error: `MAILCHIMP_API_KEY` is required";
 
   // Validate email
-  console.log("@@ req", req.body["email"]);
-  if (!req.query?.email) res.redirect("/#failed"); // throw "Error: `email` is required";
-
-  // if (req.body["b_3951c19vtqb9xa0we_9rv293"]) {
-  //   res.redirect("/#subscribed");
-  // }
+  if (!req.query?.email) res.redirect("/#failed");
+  // throw "Error: `email` is required";
 
   const { email } = req.query;
   const url = `https://${MAILCHIMP_DC}.api.mailchimp.com/3.0/lists/${MAILCHIMP_LIST_ID}/members/`;
