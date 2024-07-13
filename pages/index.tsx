@@ -114,9 +114,9 @@ export default function Home() {
           title={data.benefits.headline}
           subtitle={data.benefits.subheadline}
           benefits={[
-            { illustration: benefitPosterAStyle, title: 'Your data stays on device 💻', text: 'Everything you upload or type is stored on your device. Data stays private.' },
-            { illustration: benefitPosterBStyle, title: 'Build custom tools 🧰', text: 'Create your own tools and bots easily, no code needed.' },
+            { illustration: benefitPosterAStyle, title: 'Data stays on device 💻', text: 'Everything you upload or type is stored on your device. Data stays private.' },
             { illustration: benefitPosterCStyle, title: 'Unlimited Ai for free 🌟', text: 'Have large workloads or just want to run Ai all day long? You can for free!' },
+            { illustration: benefitPosterBStyle, title: 'Moddable 🧰', text: 'Create your own tools and bots easily, no code needed.' },
           ]}
         />
 
@@ -133,7 +133,7 @@ export default function Home() {
           subtitle="Obrew is like a game engine for Ai tools. It has everything you need to build Ai apps and services."
           highlights={[
             { illustration: highlightPosterA, title: 'Prevent hallucinations', text: 'We give creators tools to optimize and debug everything in their knowledge base.' },
-            { illustration: highlightPosterB, title: 'Build workflows with natural language', text: 'Obrew gives you the ability to build advanced systems to automate your tasks. Its as easy as writing a todo list.' },
+            { illustration: highlightPosterB, title: 'Build workflows with natural language', text: "Obrew gives you the ability to build advanced systems to automate your tasks. It's as easy as writing a todo list." },
             { illustration: highlightPosterC, title: 'Download models 🤗', text: 'Choose from thousands of models, inspect their descriptions then download to your device.' },
           ]}
         />
@@ -143,14 +143,14 @@ export default function Home() {
           title="Feature list"
           subtitle="Obrew is built to be moddable like a video game. Dont see a feature? Mod it yourself!"
           features={[
-            { icon: '🚚', title: 'Easy install', text: 'No need to install Python deps or Docker containers (unless you want to).' },
+            { icon: '🚚', title: 'Easy install', text: 'No need to install Python dependencies or Docker containers (unless you want to).' },
             { icon: '🦾', title: 'Run any model', text: 'Open-source, quantized models from Huggingface. Supports CPU & GPU.' },
             { icon: '🚫', title: 'No limits or tracking', text: 'Create without limits. Your output wont be censored or trained on by third parties.' },
             { icon: '💬', title: 'Chat history', text: 'All threads, logs and metadata are stored in json on your device.' },
             { icon: '🔍', title: 'Search & discuss', text: 'Have a discussion with your data (RAG). Find what you need based on a description.' },
             { icon: '🤬', title: 'Unrestricted', text: 'Get answers to any request, uncensored. No more "Sorry, I cannot answer that".' },
-            { icon: '🤖', title: 'Agents', text: 'Easily build and deploy autonomous Ai that can perform tasks on your behalf.' },
-            { icon: '✨', title: 'Workflows', text: 'Write tasks in natural language and automate them like research.' },
+            { icon: '🤖', title: 'Agents', text: 'Easily build and deploy autonomous Ai that can perform tasks and interact with the internet.' },
+            { icon: '✨', title: 'Workflows', text: 'Write tasks in natural language and automate them.' },
             { icon: '🔑', title: 'API access', text: 'We provide an extensive api for all your needs. Obrew Studio is built on this api!' },
             // { icon: '👨‍👩‍👧‍👧', title: 'Community resources', text: 'Users can share their workflows, bots, tools with others.' },
           ]}

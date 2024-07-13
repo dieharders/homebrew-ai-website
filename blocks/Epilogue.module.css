@@ -14,7 +14,7 @@
 .title {
   color: var(--text);
   padding: 0.25rem;
-  font-size: 4.5rem;
+  font-size: 4rem;
   font-weight: var(--h1-font-weight);
   line-height: var(--h1-line-height);
   letter-spacing: var(--h1-letter-spacing);

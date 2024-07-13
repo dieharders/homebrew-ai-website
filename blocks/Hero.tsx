@@ -23,8 +23,7 @@ export default function Hero(p: {
       <div className={styles.header}>
         <div className={styles.title}>{p.title}</div>
         <p className={styles.subtitle}>{p.subtitle}</p>
-        <br />
-        {p.children}
+        {p.children && <div className={styles.children}>{p.children}</div>}
       </div>
       {/* Poster */}
       <div className={styles.overflow}>
