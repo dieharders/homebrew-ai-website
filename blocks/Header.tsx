@@ -16,7 +16,7 @@ export default function Header(p: {
         <div className={styles.links}>
           <Button href="http://www.youtube.com/@OpenBrewAi" onClick={() => { }} type="secondary">📺YouTube</Button>
           <Button href="mailto:openbrewai+support@gmail.com" onClick={() => { }} type="secondary">📧Email</Button>
-          <Button href="https://studio.openbrewai.com" onClick={() => { }} type="secondary">Obrew Studio</Button>
+          <Button href="https://studio.openbrewai.com" onClick={() => { }} type="secondary">✨Obrew Studio</Button>
         </div>
       </div>
     </header>
