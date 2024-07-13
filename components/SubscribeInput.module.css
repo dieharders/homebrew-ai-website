@@ -4,9 +4,10 @@
   align-items: stretch;
   box-shadow: 0 4px 18px #0002;
   border-radius: 7px;
-  padding: 4px;
+  padding: 0.5rem;
   background: #fffd;
   overflow: hidden;
+  gap: 0.25rem;
 }
 
 .input {
@@ -23,7 +24,7 @@
 }
 .input:focus {
   outline: none;
-  background: var(--background-alternate);
+  background: var(--illustration);
 }
 
 .foo {
