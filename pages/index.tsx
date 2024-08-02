@@ -78,6 +78,7 @@ export default function Home() {
       <Head>
         <title>Obrew - Fast, private Ai for the masses</title>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href="https://www.openbrewai.com" />
       </Head>
 
       <Notice id="subscribed">Thank you for subscribing!</Notice>
