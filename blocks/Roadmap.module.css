@@ -1,6 +1,11 @@
 .container {
   display: flex;
   flex-direction: column;
+  /* background: linear-gradient(
+    to top,
+    var(--accent) 0%,
+    rgba(0, 255, 255, 0.273) 100%
+  ); */
 }
 
 .header {

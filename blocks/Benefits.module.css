@@ -42,7 +42,8 @@
   height: 200px;
   background: white;
   border-radius: 8px;
-  box-shadow: 0 4px 4px var(--section-separator-color);
+  /* box-shadow: 0 4px 4px var(--section-separator-color); */
+  box-shadow: violet 0px 2px 8px 0px;
   outline-color: var(--text-shade);
   outline-width: 2px;
   outline-style: solid;

@@ -48,7 +48,7 @@
   min-height: 300px;
   background: var(--illustration);
   border-radius: 8px;
-  box-shadow: 0 4px 4px var(--section-separator-color);
+  box-shadow: var(--section-separator-color) 0px 7px 29px 0px;
 }
 
 .highlight-content {

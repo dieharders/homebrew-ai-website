@@ -115,8 +115,8 @@ export default function Home() {
           title={data.benefits.headline}
           subtitle={data.benefits.subheadline}
           benefits={[
-            { illustration: benefitPosterAStyle, title: 'Data stays on device 💻', text: 'Everything you upload or type is stored on your device. Data stays private.' },
-            { illustration: benefitPosterCStyle, title: 'Unlimited Ai for free 🌟', text: 'Have large workloads or just want to run Ai all day long? You can for free!' },
+            { illustration: benefitPosterAStyle, title: 'Data stays private 💻', text: 'Everything you upload or type is stored on your device. Data stays private.' },
+            { illustration: benefitPosterCStyle, title: 'Free unlimited Ai 🌟', text: 'Have large workloads or just want to run Ai all day long? You can for free!' },
             { illustration: benefitPosterBStyle, title: 'Moddable 🧰', text: 'Create your own tools and bots easily, no code needed.' },
           ]}
         />
@@ -144,22 +144,22 @@ export default function Home() {
           title="Feature list"
           subtitle="Obrew is built to be moddable like a video game. Dont see a feature? Mod it yourself!"
           features={[
-            { icon: '🚚', title: 'Easy install', text: 'No need to install Python dependencies or Docker containers (unless you want to).' },
+            { icon: '🚚', title: 'Easy install', text: 'No need to install any additional software.' },
             { icon: '🦾', title: 'Run any model', text: 'Open-source, quantized models from Huggingface. Supports CPU & GPU.' },
-            { icon: '🚫', title: 'No limits or tracking', text: 'Create without limits. Your output wont be censored or trained on by third parties.' },
-            { icon: '💬', title: 'Chat history', text: 'All threads, logs and metadata are stored in json on your device.' },
+            { icon: '🚫', title: 'No limits or tracking', text: 'Create without boundaries. Your output wont be censored or used for training.' },
+            { icon: '💬', title: 'Chat history', text: 'All threads, logs and metadata are stored in plain text on your device.' },
             { icon: '🔍', title: 'Search & discuss', text: 'Have a discussion with your data (RAG). Find what you need based on a description.' },
             { icon: '🤬', title: 'Unrestricted', text: 'Get answers to any request, uncensored. No more "Sorry, I cannot answer that".' },
-            { icon: '🤖', title: 'Agents', text: 'Easily build and deploy autonomous Ai that can perform tasks and interact with the internet.' },
+            { icon: '🤖', title: 'Agents', text: 'Build and deploy Ai to perform tasks and interact with the world.' },
             { icon: '✨', title: 'Workflows', text: 'Write tasks in natural language and automate them.' },
-            { icon: '🔑', title: 'API access', text: 'We provide an extensive api for all your needs. Obrew Studio is built on this api!' },
+            { icon: '🔑', title: 'API access', text: 'We provide an extensive api for all your needs. Obrew Studio is built on it!' },
             // { icon: '👨‍👩‍👧‍👧', title: 'Community resources', text: 'Users can share their workflows, bots, tools with others.' },
           ]}
         />
 
         <Break
           title="One-click installer"
-          subtitle="Don't waste time with Python dependencies or Docker containers. Get up and running fast."
+          subtitle="Don't spend time installing endless plugins and 3rd party software. Get up and running fast."
           action="Download Now"
           illustration={oneclickPoster}
           onActionClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -168,7 +168,7 @@ export default function Home() {
         <Roadmap
           background="normal"
           title="Roadmap"
-          subtitle="This is a list of where we would like to be by the end of this year."
+          subtitle="This is a list of expected progress by the end of this year."
         >
           {
             [
@@ -181,6 +181,7 @@ export default function Home() {
               '✅ Save chat history locally',
               '✅ Build agents with access to tools',
               '❌ Create workflows and execute jobs',
+              '❌ Javascript/Typescript client library',
               '❌ Source citations from chat responses',
               '❌ Support cloud model providers (OpenAi, Gemini)',
               '❌ Import/Share configs, extensions, tools from community',
@@ -189,8 +190,8 @@ export default function Home() {
         </Roadmap>
 
         <Epilogue
-          title="Accelerate your life!"
-          subtitle1="Start creating with Obrew today"
+          title="Build Your Future"
+          subtitle1="Start with Obrew today"
           subtitle2="Get notified of product updates"
           illustration={epiloguePoster}
         >
