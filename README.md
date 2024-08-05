@@ -1,4 +1,4 @@
-# 🍺 OpenBrew Ai website
+# 🍺 OpenBrewAi website
 
 This website is the home of the Obrew suite of products.
 
