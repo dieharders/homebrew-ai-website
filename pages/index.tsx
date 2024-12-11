@@ -134,7 +134,7 @@ export default function Home() {
           benefits={[
             { illustration: benefitPosterAStyle, title: 'Who is this for?', text: 'Everyone. Engineers can customize. Power users get unlimited responses.' },
             { illustration: benefitPosterCStyle, title: 'What is it?', text: 'Obrew provides a range of intuitive tools that speeds up production of Ai apps.' },
-            { illustration: benefitPosterBStyle, title: 'What can it do?', text: 'Friendly "recipe" menus are provided for crafting your ideas.' },
+            { illustration: benefitPosterBStyle, title: 'What can it do?', text: 'Generate text, images (coming soon), deploy agents or serve as a backend.' },
           ]}
         />
 
