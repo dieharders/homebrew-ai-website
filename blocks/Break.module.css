@@ -29,13 +29,18 @@
 }
 
 .illustration {
-  height: 80px;
+  /* width: 5rem; */
+  height: 5rem;
   background: white;
   border-radius: 8px;
   margin: 0 auto;
 }
 
 @media screen and (min-width: 800px) {
+  .illustration {
+    width: 5rem;
+    height: 5rem;
+  }
   .content {
     display: flex;
     align-items: center;

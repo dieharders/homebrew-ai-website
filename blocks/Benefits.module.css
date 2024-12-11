@@ -78,12 +78,17 @@
   max-height: 18rem;
   width: 50vw;
   height: 50vw;
-  background: radial-gradient(ellipse at center, #ffec99 25%, transparent 70%);
+  background: radial-gradient(
+    ellipse at center,
+    var(--accent-normal) 25%,
+    transparent 70%
+  );
 }
 
 .benefit-content {
   margin-top: 24px;
   text-align: center;
+  overflow: hidden;
 }
 
 .benefit-title {

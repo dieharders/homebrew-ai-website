@@ -24,7 +24,7 @@
 }
 
 .container-background-accent-alt-1 {
-  background: linear-gradient(90deg, #fff9db, #ffec99);
+  background: linear-gradient(90deg, var(--accent-light), var(--accent-normal));
   color: var(--section-accent-text-color);
 }
 

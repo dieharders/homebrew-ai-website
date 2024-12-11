@@ -126,7 +126,7 @@
 
 .btn {
   color: var(--text);
-  background: #ffd43b;
+  background: var(--accent-btn);
   max-width: max-content;
   align-self: center;
   text-wrap: wrap;
@@ -136,12 +136,12 @@
 }
 
 .btn:active {
-  background: #fab005;
+  background: var(--accent-dark);
   top: 0px;
   box-shadow: none;
 }
 
 .btn:hover {
   top: -3px;
-  box-shadow: 0 3px 0 #0002, 0 3px 0 #fab005;
+  box-shadow: 0 3px 0 #0002, 0 3px 0 var(--accent-dark);
 }

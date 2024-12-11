@@ -105,14 +105,14 @@
 
 .container-type-primary.container-location-highlight {
   color: var(--button);
-  background: var(--section-accent-color);
+  background: var(--accent-btn);
 }
 .container-type-primary.container-location-highlight:hover {
   top: -3px;
-  box-shadow: 0 3px 0 #0002, 0 3px 0 #fab005;
+  box-shadow: 0 3px 0 #0002, 0 3px 0 var(--accent-dark);
 }
 .container-type-primary.container-location-highlight:active {
   top: 0px;
   box-shadow: none;
-  background: var(--section-accent-color);
+  background: var(--accent-btn);
 }

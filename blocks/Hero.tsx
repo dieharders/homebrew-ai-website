@@ -22,13 +22,6 @@ export default function Hero(p: {
 
   return (
     <Section id={p.id} className={className}>
-      {/* Title */}
-      {/* <div className={styles.header}>
-        <div className={styles.title}>{p.title}</div>
-        <p className={styles.subtitle}>{p.subtitle}</p>
-        {p.children && <div className={styles.children}>{p.children}</div>}
-      </div> */}
-
       <div className={styles.header}>
         <div className={styles.illustrationContainer}>
           {/* Illustration */}
@@ -52,25 +45,6 @@ export default function Hero(p: {
         </div>
         {p.children && <div className={styles.children}>{p.children}</div>}
       </div>
-
-      {/* Logo Poster */}
-      {/* <div className={styles.logoGroup}>
-        <Image src={ObrewLogo} alt="obrew logo" height={384} />
-        <Image src={WatchSVG} alt="watch illustration" height={320} />
-      </div> */}
-
-      {/* Poster */}
-      {/* <div className={styles.overflow}>
-        <a
-          href="http://www.youtube.com/@OpenBrewAi"
-          target="_blank"
-          className={styles.posterContainer}
-        >
-          <img src={poster.src} className={styles.illustration} />
-          <img src={phone.src} className={styles.phone} />
-          <img src={watch.src} className={styles.watch} />
-        </a>
-      </div> */}
     </Section>
   );
 }

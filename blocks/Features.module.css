@@ -27,7 +27,6 @@
   background-color: transparent;
   padding: 0.25rem;
   font-size: 4rem;
-  text-align: left;
   text-align: center;
   align-self: center;
 }
@@ -55,9 +54,11 @@
   width: 100%;
   margin: 0;
   padding: 1rem;
-  background-color: #fff9db;
-  border-radius: 2rem;
-  background: radial-gradient(ellipse at center, #fff9db 0%, transparent 85%);
+  background: radial-gradient(
+    ellipse at center,
+    var(--accent-light) 0%,
+    transparent 85%
+  );
   overflow: hidden;
   /* box-shadow: violet 0px 5px 15px; */
   /* box-shadow: #ffec99 0px 2px 8px 0px; */

@@ -14,7 +14,6 @@
   --background-alternate: #fafafa;
   --section-separator-color: #ddd;
   --section-separator-width: 0.5px;
-  --section-accent-color: #ffd43b;
   --section-accent-text-color: hsl(160, 100%, 5%);
 
   --text: #333;
@@ -22,6 +21,10 @@
   --text-accent: #fff;
   --text-accent-shade: #fffa;
   --accent: #eee;
+  --accent-light: #fff9db;
+  --accent-normal: #ffec99;
+  --accent-btn: #ffd43b;
+  --accent-dark: #fab005;
   --button: #444;
 
   --illustration: #dddd;
