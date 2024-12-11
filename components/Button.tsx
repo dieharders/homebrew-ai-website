@@ -1,10 +1,13 @@
 import styles from './Button.module.css';
 import { cx } from '../utils/common';
 
+export type T_Location = 'body' | 'accent' | 'highlight';
+
 export default function Button(p: {
-  size?: 'large' | 'normal',
+  size?: 'xl' | 'large' | 'normal' | 'small',
   type?: 'primary' | 'secondary' | 'custom',
-  location?: 'body' | 'accent',
+  location?: T_Location,
+  title?: string,
   href?: string,
   onClick?(): void,
   className?: string,
@@ -24,7 +27,7 @@ export default function Button(p: {
 
   if (p.href) {
     return (
-      <a className={className} href={p.href} target="_blank" onClick={p.onClick}>
+      <a className={className} href={p.href} target="_blank" title={p.title || ""} onClick={p.onClick}>
         {p.children}
       </a>
     )

@@ -30,7 +30,10 @@ export default function Highlights(p: {
         {p.highlights.map((item, i) => {
           return (
             <li key={item.title} className={styles.highlight}>
-              <div className={styles['highlight-illustration']} style={item.illustration} />
+              <div className={styles['illustration-container']}>
+                <div className={styles['highlight-spotlight']}></div>
+                <div className={styles['highlight-illustration']} style={item.illustration}></div>
+              </div>
               <div className={styles['highlight-content']}>
                 <h3 className={styles['highlight-title']}>{item.title}</h3>
                 <p className={styles['highlight-text']}>{item.text}</p>

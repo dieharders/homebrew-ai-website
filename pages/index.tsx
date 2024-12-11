@@ -1,4 +1,3 @@
-import styles from './index.module.css';
 import Head from 'next/head'
 import Benefits from '../blocks/Benefits';
 import Break from '../blocks/Break';
@@ -10,22 +9,21 @@ import Hero from '../blocks/Hero';
 import Highlights from '../blocks/Highlights';
 import Notice from '../components/Notice';
 import SubscribeInput from '../components/SubscribeInput';
-import Button from '../components/Button';
 import data from '../global/global.json';
 import { inter, geist_sans } from 'fonts/fonts';
-import benefitPosterImageA from 'public/benefit-private.png';
-import benefitPosterImageB from 'public/benefit-tools.png';
-import benefitPosterImageC from 'public/benefit-unlimited.png';
-import highlightPosterImageA from 'public/highlight-doc.png';
-import highlightPosterImageB from 'public/highlight-jobs.png';
+import benefitPosterImageA from 'public/is-for.png';
+import benefitPosterImageB from 'public/can-do.svg';
+import benefitPosterImageC from 'public/what-is.svg';
+import highlightPosterImageA from 'public/use-cases.svg';
+import highlightPosterImageB from 'public/workflows.svg';
 import highlightPosterImageC from 'public/highlight-model.png';
-import epiloguePosterImage from 'public/acceleration.png';
-import breakPosterImage from 'public/nopay.jpg';
-import oneclickPosterImage from 'public/one-click.png';
-import Roadmap from '@/blocks/Roadmap';
+import epiloguePosterImage from 'public/badge.png';
+import breakPosterImage from 'public/no-pay.svg';
+import helperPosterImage from 'public/worker.svg';
+import docsImage from 'public/icons/docs.png';
+import oneclickPosterImage from 'public/cursor.svg';
 
 export default function Home() {
-  const downloadLink = "https://github.com/dieharders/ai-text-server/releases/latest/download/ObrewServer.WIN.Setup.exe"
   const imgStyle = {
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
@@ -34,164 +32,171 @@ export default function Home() {
   const benefitPosterAStyle = {
     backgroundImage: `url(${benefitPosterImageA.src})`,
     ...imgStyle,
+    backgroundColor: 'transparent',
     backgroundSize: 'contain',
   }
   const benefitPosterBStyle = {
     backgroundImage: `url(${benefitPosterImageB.src})`,
     ...imgStyle,
+    backgroundColor: 'transparent',
     backgroundSize: 'contain',
   }
   const benefitPosterCStyle = {
     backgroundImage: `url(${benefitPosterImageC.src})`,
     ...imgStyle,
+    backgroundColor: 'transparent',
     backgroundSize: 'contain',
   }
   const highlightPosterA = {
     backgroundImage: `url(${highlightPosterImageA.src})`,
     ...imgStyle,
+    minHeight: '24rem',
+    backgroundColor: 'transparent',
+    backgroundSize: 'contain',
   }
   const highlightPosterB = {
     backgroundImage: `url(${highlightPosterImageB.src})`,
     ...imgStyle,
+    minHeight: '20rem',
+    backgroundColor: 'transparent',
+    backgroundSize: 'contain',
   }
   const highlightPosterC = {
     backgroundImage: `url(${highlightPosterImageC.src})`,
     ...imgStyle,
+    minHeight: '20rem',
+    backgroundColor: 'transparent',
+    backgroundSize: 'contain',
   }
   const epiloguePoster = {
     backgroundImage: `url(${epiloguePosterImage.src})`,
     ...imgStyle,
+    backgroundColor: 'transparent',
+    backgroundSize: 'contain',
   }
   const breakPoster = {
     backgroundImage: `url(${breakPosterImage.src})`,
     ...imgStyle,
+    backgroundColor: 'transparent',
+    backgroundSize: 'contain',
+  }
+  const helperPoster = {
+    backgroundImage: `url(${helperPosterImage.src})`,
+    ...imgStyle,
+    backgroundColor: 'transparent',
     backgroundSize: 'contain',
   }
   const oneclickPoster = {
     backgroundImage: `url(${oneclickPosterImage.src})`,
     ...imgStyle,
+    backgroundColor: 'transparent',
+    backgroundSize: 'contain',
+  }
+  const docsPoster = {
+    backgroundImage: `url(${docsImage.src})`,
+    ...imgStyle,
+    backgroundColor: 'transparent',
     backgroundSize: 'contain',
   }
 
   return (
     <div className={`${geist_sans.className}`}>
       <Head>
-        <title>Obrew - Fast, private Ai for the masses</title>
+        <title>Obrew - Free, private Ai for the masses</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href="https://www.openbrewai.com" />
       </Head>
 
       <Notice id="subscribed">Thank you for subscribing!</Notice>
-      <Header id="top" title={`🍺 ${data.product}`} />
+      <Header id="top" title={`${data.product}`} />
 
       <main>
         <Hero
-          title={<h1>Unlimited Ai anywhere</h1>}
+          title={<h1 style={{ fontSize: '3rem' }}>Personal Ai</h1>}
           subtitle={data.subheadline}
           className={inter.className}
-        >
-          <Button
-            className={styles.btn}
-            href={downloadLink}
-            onClick={() => { }}
-            size="large"
-            type="custom"
-            location="body"
-          >
-            👏 Download for Windows
-          </Button>
-          <p style={{ marginTop: '2rem', color: 'var(--text-shade)', textAlign: 'center' }}>
-            <a
-              style={{ textDecoration: 'underline' }}
-              href="https://github.com/dieharders/ai-text-server/releases"
-              target="_blank"
-            >
-              Obrew Engine on Github</a> | Free & Open Source
-          </p>
-        </Hero>
+        ></Hero>
+
+        <Break
+          title="Stop paying API bills"
+          subtitle="Ditch the subscriptions. Build and run Ai all day long for free!"
+          location="highlight"
+          background="accent-alt-2"
+          // action="Download Now"
+          illustration={breakPoster}
+          onActionClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        />
 
         <Benefits
           background="alternate"
           title={data.benefits.headline}
           subtitle={data.benefits.subheadline}
           benefits={[
-            { illustration: benefitPosterAStyle, title: 'Data stays private 💻', text: 'Everything you upload or type is stored on your device. Data stays private.' },
-            { illustration: benefitPosterCStyle, title: 'Free unlimited Ai 🌟', text: 'Have large workloads or just want to run Ai all day long? You can for free!' },
-            { illustration: benefitPosterBStyle, title: 'Moddable 🧰', text: 'Create your own tools and bots easily, no code needed.' },
+            { illustration: benefitPosterAStyle, title: 'Who is this for?', text: 'Everyone. Engineers can customize. Power users get unlimited responses.' },
+            { illustration: benefitPosterCStyle, title: 'What is it?', text: 'Obrew provides a range of intuitive tools that speeds up production of Ai apps.' },
+            { illustration: benefitPosterBStyle, title: 'What can it do?', text: 'Friendly "recipe" menus are provided for crafting your ideas.' },
           ]}
         />
 
         <Break
-          title="Stop paying API bills"
-          subtitle="Ditch the subscriptions. Build and run Ai all day long for free!"
-          action="Download Now"
-          illustration={breakPoster}
-          onActionClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          title="Tutorials"
+          location="accent"
+          background="accent-alt-1"
+          subtitle="How-to's and helpful examples on our Youtube page."
+          action="Browse resources"
+          illustration={helperPoster}
+          actionHref="http://www.youtube.com/@OpenBrewAi"
         />
 
         <Highlights
-          title="The Ai Engine for makers"
-          subtitle="Obrew is like a game engine for Ai tools. It has everything you need to build Ai apps and services."
+          title="The Ai Engine for Creators"
+          subtitle="Obrew is an Ai meta-framework that provides tools for common problems like long term memory and hallucinations."
           highlights={[
-            { illustration: highlightPosterA, title: 'Prevent hallucinations', text: 'We give creators tools to optimize and debug everything in their knowledge base.' },
+            { illustration: highlightPosterA, title: 'Use cases', text: 'Domain knowledge co-pilots, customer service chatbot, compliance assistants, document extraction, and advanced search.' },
             { illustration: highlightPosterB, title: 'Build workflows with natural language', text: "Obrew gives you the ability to build advanced systems to automate your tasks. It's as easy as writing a todo list." },
-            { illustration: highlightPosterC, title: 'Download models 🤗', text: 'Choose from thousands of models, inspect their descriptions then download to your device.' },
+            { illustration: highlightPosterC, title: 'Download Ai models', text: 'Easily search from thousands of open-source models, view their features and download to your device.' },
           ]}
+        />
+
+        <Break
+          title="Easy to use"
+          subtitle="Check out the docs to discover what you can do."
+          action="Read Docs"
+          location="highlight"
+          background="accent-alt-2"
+          illustration={docsPoster}
+          actionHref="https://github.com/dieharders/ai-text-server"
         />
 
         <Features
           background="alternate"
-          title="Feature list"
-          subtitle="Obrew is built to be moddable like a video game. Dont see a feature? Mod it yourself!"
+          title="Features"
+          subtitle="Smart tools for every job."
           features={[
-            { icon: '🚚', title: 'Easy install', text: 'No need to install any additional software.' },
-            { icon: '🦾', title: 'Run any model', text: 'Open-source, quantized models from Huggingface. Supports CPU & GPU.' },
-            { icon: '🚫', title: 'No limits or tracking', text: 'Create without boundaries. Your output wont be censored or used for training.' },
-            { icon: '💬', title: 'Chat history', text: 'All threads, logs and metadata are stored in plain text on your device.' },
-            { icon: '🔍', title: 'Search & discuss', text: 'Have a discussion with your data (RAG). Find what you need based on a description.' },
-            { icon: '🤬', title: 'Unrestricted', text: 'Get answers to any request, uncensored. No more "Sorry, I cannot answer that".' },
-            { icon: '🤖', title: 'Agents', text: 'Build and deploy Ai to perform tasks and interact with the world.' },
-            { icon: '✨', title: 'Workflows', text: 'Write tasks in natural language and automate them.' },
-            { icon: '🔑', title: 'API access', text: 'We provide an extensive api for all your needs. Obrew Studio is built on it!' },
+            { icon: '/icons/truck.png', title: 'Easy Install', text: 'All-in-one app. No need for additional software.' },
+            { icon: '/icons/robot-arm.png', title: 'Run Any Model', text: 'Download any quantized model. Supports CPU/GPU.' },
+            { icon: '/icons/off-limits.png', title: 'No Limits', text: 'Work without boundaries. No daily limits or throttling.' },
+            { icon: '/icons/toolbox.png', title: 'Moddable', text: 'Designed to be hacked. Write or add your own custom tools.' },
+            { icon: '/icons/lock.png', title: 'Data Privacy', text: 'Everything stays on device. Prevent exposure and leaks.' },
+            { icon: '/icons/face-censored.png', title: 'Unrestricted', text: 'Get objective answers to requests, uncensored.' },
+            { icon: '/icons/robot-face.png', title: 'Agents', text: 'Build Ai to perform tasks on your behalf in the real world.' },
+            { icon: '/icons/clipboard.png', title: 'Workflows', text: 'Write tasks in natural language and automate them.' },
+            { icon: '/icons/key.png', title: 'API Access', text: 'We provide an extensive api for all your needs.' },
             // { icon: '👨‍👩‍👧‍👧', title: 'Community resources', text: 'Users can share their workflows, bots, tools with others.' },
           ]}
         />
 
         <Break
           title="One-click installer"
-          subtitle="Don't spend time installing endless plugins and 3rd party software. Get up and running fast."
+          subtitle="Everything you need in one app. Get setup fast."
           action="Download Now"
           illustration={oneclickPoster}
           onActionClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         />
 
-        <Roadmap
-          background="normal"
-          title="Roadmap"
-          subtitle="This is a list of expected progress by the end of this year."
-        >
-          {
-            [
-              '✅ Run open source models locally for free',
-              '✅ Download models from HuggingFace',
-              '✅ Build custom bots (like GPT store)',
-              '✅ Streaming Web UI interface',
-              '✅ Chat with your documents (RAG)',
-              '✅ Inspect & optimize document chunking for RAG',
-              '✅ Save chat history locally',
-              '✅ Build agents with access to tools',
-              '❌ Create workflows and execute jobs',
-              '❌ Javascript/Typescript client library',
-              '❌ Source citations from chat responses',
-              '❌ Support cloud model providers (OpenAi, Gemini)',
-              '❌ Import/Share configs, extensions, tools from community',
-            ]
-          }
-        </Roadmap>
-
         <Epilogue
-          title="Build Your Future"
-          subtitle1="Start with Obrew today"
+          title=""
+          subtitle1=""
           subtitle2="Get notified of product updates"
           illustration={epiloguePoster}
         >
@@ -203,7 +208,7 @@ export default function Home() {
       </main>
 
       <Footer
-        title={`🍺 ${data.product}`}
+        title={`${data.product}`}
       />
     </div >
   )
