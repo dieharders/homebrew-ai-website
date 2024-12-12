@@ -1,5 +1,6 @@
 import styles from './Features.module.css';
-import Section from '../components/Section';
+import Section from '@/components/Section';
+import { lilita_one } from 'fonts/fonts';
 import { cx } from '../utils/common';
 import Image from 'next/image';
 
@@ -28,7 +29,7 @@ export default function Features(p: {
       background={p.background}
     >
       <div className={styles.header}>
-        <h2 className={styles.title}>{p.title}</h2>
+        <h2 className={cx(lilita_one.className, styles.title)}>{p.title}</h2>
         <p className={styles.subtitle}>{p.subtitle}</p>
       </div>
 

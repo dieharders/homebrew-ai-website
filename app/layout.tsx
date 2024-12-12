@@ -1,6 +1,6 @@
 import cardWide from 'public/social-card-wide.png';
 import type { Metadata, Viewport } from 'next';
-import { lilita_one, comic_shanns } from 'fonts/fonts';
+import { comic_shanns } from 'fonts/fonts';
 import '@/global/global.css';
 
 export const viewport: Viewport = {
@@ -37,7 +37,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${lilita_one.variable, comic_shanns.variable}`}>
+    // This makes the font available globally via its' css var
+    <html lang="en" className={`${comic_shanns.variable}`}>
       <body>{children}</body>
     </html>
   )

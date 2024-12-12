@@ -15,10 +15,10 @@
 }
 
 .subtitle {
-  font-size: var(--body-font-size);
-  font-weight: var(--body-font-weight);
-  line-height: var(--body-line-height);
-  letter-spacing: var(--body-letter-spacing);
+  font-size: var(--subtitle-font-size);
+  font-weight: var(--subtitle-font-weight);
+  line-height: var(--subtitle-line-height);
+  letter-spacing: var(--subtitle-letter-spacing);
   text-align: center;
   color: var(--text-shade);
 }

@@ -17,9 +17,9 @@ export default function Header(p: {
     <header id={id} className={cx(styles.container, p.className)}>
       <div className={styles.content}>
         <div className={styles.titleGroup} title={p.title}>
-          <div className={styles.title}>{p.title}</div>
+          {p.title && <div className={styles.title}>{p.title}</div>}
           <a
-            style={{ color: 'var(--text-shade)', fontWeight: 'lighter', textDecoration: 'underline' }}
+            style={{ color: 'var(--text)', fontWeight: 'bold', textDecoration: 'underline' }}
             href="https://studio.openbrewai.com"
             title="Download Obrew Studio"
             target="_blank"

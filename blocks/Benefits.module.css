@@ -101,6 +101,10 @@
 
 .benefit-text {
   color: var(--text-shade);
+  font-size: var(--subtitle-font-size);
+  font-weight: var(--subtitle-font-weight);
+  line-height: var(--subtitle-line-height);
+  letter-spacing: var(--subtitle-letter-spacing);
 }
 
 @media screen and (min-width: 1050px) {

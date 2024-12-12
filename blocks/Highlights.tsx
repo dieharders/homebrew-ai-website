@@ -1,5 +1,6 @@
 import styles from './Highlights.module.css';
-import Section from '../components/Section';
+import Section from '@/components/Section';
+import { lilita_one } from 'fonts/fonts';
 import { cx } from '../utils/common';
 
 export default function Highlights(p: {
@@ -22,7 +23,7 @@ export default function Highlights(p: {
   return (
     <Section id={p.id} className={className} background={p.background}>
       <div className={styles.header}>
-        <h2 className={styles.title}>{p.title}</h2>
+        <h2 className={cx(lilita_one.className, styles.title)}>{p.title}</h2>
         <p className={styles.subtitle}>{p.subtitle}</p>
       </div>
 
