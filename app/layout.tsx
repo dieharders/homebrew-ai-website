@@ -7,11 +7,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Obrew - Free & personal Ai for the masses',
     description: 'Run personalized Generative Ai on your device and own your tech stack. No subscriptions or limits. Find out how to speed up Ai production.',
+    type: "website",
     images: [
       {
-        url: 'https://openbrewai.com/public/logo-obrew.svg',
-        width: 400,
-        height: 400,
+        url: 'https://openbrewai.com/public/social-card.png',
+        // width: 400,
+        // height: 400,
       },
     ],
   },
