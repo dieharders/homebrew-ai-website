@@ -1,4 +1,5 @@
 'use client'
+// @TODO Remove and make child components 'use client'
 
 import Benefits from '../blocks/Benefits';
 import Break from '../blocks/Break';
