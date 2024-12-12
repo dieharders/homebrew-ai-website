@@ -23,7 +23,7 @@ export default function Epilogue(p: {
         <h2 className={styles.title}>{p.title}</h2>
         <h4 className={styles.subtitle1}>{p.subtitle1}</h4>
         {p.children}
-        <h5 className={styles.subtitle2}>{p.subtitle2}</h5>
+        <p className={styles.subtitle2}>{p.subtitle2}</p>
       </div>
     </Section>
   );
