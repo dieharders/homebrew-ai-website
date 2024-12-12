@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import ogImage from 'public/social-card.png'
 import '@/global/global.css';
 
 export const metadata: Metadata = {
@@ -10,9 +11,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: 'https://openbrewai.com/public/social-card.png',
-        // width: 400,
-        // height: 400,
+        url: ogImage.src,
+        alt: "Obrew logo and title",
+        width: ogImage.width,
+        height: ogImage.height,
       },
     ],
   },
