@@ -102,7 +102,9 @@ export default function Home() {
 
   return (
     <div className={`${geist_sans.className}`}>
+      {/* @TODO Not working, replace with a landing page for success/failure */}
       <Notice id="subscribed">Thank you for subscribing!</Notice>
+
       <Header id="top" title={`${data.product}`} />
 
       <main>
