@@ -1,4 +1,5 @@
-import Head from 'next/head'
+'use client'
+
 import Benefits from '../blocks/Benefits';
 import Break from '../blocks/Break';
 import Epilogue from '../blocks/Epilogue';
@@ -101,12 +102,6 @@ export default function Home() {
 
   return (
     <div className={`${geist_sans.className}`}>
-      <Head>
-        <title>Obrew - Free, private Ai for the masses</title>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href="https://www.openbrewai.com" />
-      </Head>
-
       <Notice id="subscribed">Thank you for subscribing!</Notice>
       <Header id="top" title={`${data.product}`} />
 

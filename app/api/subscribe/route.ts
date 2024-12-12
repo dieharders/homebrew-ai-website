@@ -2,10 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 
 const { MAILCHIMP_DC, MAILCHIMP_LIST_ID, MAILCHIMP_API_KEY } = process.env;
 
-export default async function subscribe(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async function GET(req: NextApiRequest, res: NextApiResponse) {
   // Validate props
   // @TODO Redirect to specific email landing page for either "failure" or "success"
   if (!MAILCHIMP_DC || !MAILCHIMP_LIST_ID || !MAILCHIMP_API_KEY)
