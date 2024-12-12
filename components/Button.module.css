@@ -1,25 +1,26 @@
 .container {
   position: relative;
-  display: inline-block;
   border-radius: 0.5rem;
   font-weight: 500;
   display: inline-flex;
   align-items: center;
-  transition: .1s;
+  transition: 0.1s;
   top: 0;
   border: none;
   cursor: pointer;
   user-select: none;
   text-align: center;
   line-height: normal;
-  text-wrap: nowrap;
+  text-wrap: wrap;
   overflow: hidden;
 }
 
-.container-size-large {
-  height: 48px;
-  padding: 0 24px;
-  font-size: 16px;
+.container-size-small {
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 0.25rem;
+  font-size: 0.5rem;
 }
 
 .container-size-normal {
@@ -28,6 +29,20 @@
   height: 32px;
   padding: 0 12px;
   font-size: 14px;
+}
+
+.container-size-large {
+  height: 48px;
+  padding: 0 24px;
+  font-size: 16px;
+}
+
+.container-size-xl {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 24px;
+  font-size: var(--h3-font-size);
 }
 
 .container-type-primary.container-location-body {
@@ -84,4 +99,20 @@
 .container-type-secondary.container-location-accent:active {
   top: 0px;
   box-shadow: none;
+}
+
+/* colorful */
+
+.container-type-primary.container-location-highlight {
+  color: var(--button);
+  background: var(--accent-btn);
+}
+.container-type-primary.container-location-highlight:hover {
+  top: -3px;
+  box-shadow: 0 3px 0 #0002, 0 3px 0 var(--accent-dark);
+}
+.container-type-primary.container-location-highlight:active {
+  top: 0px;
+  box-shadow: none;
+  background: var(--accent-btn);
 }

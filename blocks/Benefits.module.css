@@ -1,9 +1,9 @@
-.container {}
+.container {
+}
 
 .header {
   max-width: var(--section-header-max-width);
   margin: 0 auto;
-  margin-bottom: 64px;
 }
 
 .title {
@@ -25,36 +25,74 @@
 }
 
 .benefits {
-  list-style: none;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 8rem;
   padding: 0;
   margin: 0;
 }
 
 .benefit {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   max-width: var(--list-item-max-width);
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
-.benefit:not(:last-child) {
-  margin-bottom: 48px;
+
+.illustration-container {
+  display: block;
+  position: relative;
+  align-self: center;
 }
 
 .benefit-illustration {
-  height: 200px;
-  background: white;
-  border-radius: 8px;
+  position: relative;
+  max-width: 18rem;
+  max-height: 18rem;
+  width: 50vw;
+  height: 50vw;
+
+  /* border-radius: 8px; */
+  /* background: white; */
+
   /* box-shadow: 0 4px 4px var(--section-separator-color); */
-  box-shadow: violet 0px 2px 8px 0px;
-  outline-color: var(--text-shade);
-  outline-width: 2px;
-  outline-style: solid;
+  /* box-shadow: violet 0px 2px 8px 0px; */
+
+  /* outline-color: violet; */
+  /* outline-width: 2px; */
+  /* outline-style: solid; */
+}
+
+.spotlight {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0;
+  max-width: 18rem;
+  max-height: 18rem;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(
+    ellipse at center,
+    var(--accent-normal) 25%,
+    transparent 70%
+  );
 }
 
 .benefit-content {
   margin-top: 24px;
+  text-align: center;
+  overflow: hidden;
 }
 
 .benefit-title {
-  font-size: var(--h3-font-size);
+  font-size: var(--h2-font-size);
   font-weight: var(--h3-font-weight);
   line-height: var(--h3-line-height);
   letter-spacing: var(--h3-letter-spacing);
@@ -65,17 +103,23 @@
   color: var(--text-shade);
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1050px) {
   .benefits {
     display: flex;
     align-items: stretch;
     justify-content: stretch;
+    flex-direction: row;
+    gap: 4rem;
   }
   .benefit {
     flex: 1 1 0;
-    margin-right: 64px;
-}
-  .benefit:last-child {
-    margin-right: 0;
+  }
+  .benefit-illustration {
+    width: 18rem;
+    height: 18rem;
+  }
+  .spotlight {
+    width: 18rem;
+    height: 18rem;
   }
 }

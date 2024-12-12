@@ -9,32 +9,48 @@
 .content {
   position: relative;
   display: flex;
+  width: 100%;
+  flex-wrap: wrap;
   padding: 1.25rem;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   gap: 1rem;
   align-items: center;
-  justify-content: space-between;
   background: var(--background-alternate);
   box-shadow: 0 2px 2px var(--section-separator-color);
+}
+
+.titleGroup {
+  display: block;
+  position: relative;
+  justify-self: flex-start;
+  align-self: center;
+  flex-grow: 1;
+  overflow: hidden;
 }
 
 .title {
   font-size: 1.25rem;
   font-weight: 600;
-  justify-self: flex-start;
-  align-self: stretch;
 }
 
 .links {
   display: flex;
-  padding-top: 0.25rem;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: stretch;
-  justify-content: flex-end;
-  align-self: flex-start; /* or "stretch" takes up vertical space */
-  gap: 1rem;
+  align-self: center;
+  gap: 1.25rem;
   overflow: hidden;
   white-space: nowrap;
+  height: 100%;
+}
+
+.btn {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  width: fit-content;
+  height: fit-content;
+  padding: 0;
 }

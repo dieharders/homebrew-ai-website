@@ -1,7 +1,9 @@
-.container {}
+.container {
+}
 
 .content {
   text-align: center;
+  overflow: hidden;
 }
 
 .header {
@@ -10,7 +12,7 @@
 }
 
 .title {
-  font-size: var(--h3-font-size);
+  font-size: var(--h2-font-size);
   font-weight: var(--h3-font-weight);
   line-height: var(--h3-line-height);
   letter-spacing: var(--h3-letter-spacing);
@@ -19,22 +21,26 @@
 }
 
 .subtitle {
-  font-size: var(--body-font-size);
+  font-size: var(--h3-font-size);
   font-weight: var(--body-font-weight);
-  line-height: var(--body-line-height);
+  line-height: 1.75rem;
   letter-spacing: var(--body-letter-spacing);
   color: var(--text-shade);
 }
 
 .illustration {
-  width: 128px;
-  height: 80px;
+  /* width: 5rem; */
+  height: 5rem;
   background: white;
   border-radius: 8px;
   margin: 0 auto;
 }
 
 @media screen and (min-width: 800px) {
+  .illustration {
+    width: 5rem;
+    height: 5rem;
+  }
   .content {
     display: flex;
     align-items: center;

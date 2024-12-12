@@ -3,11 +3,16 @@
   display: flex;
   align-items: stretch;
   box-shadow: 0 4px 18px #0002;
-  border-radius: 7px;
+  border-radius: 12px;
+  border: dashed #343a40;
+  border-width: 0.25rem;
   padding: 0.5rem;
   background: #fffd;
   overflow: hidden;
   gap: 0.25rem;
+  outline-style: solid;
+  outline-color: white;
+  outline-width: normal;
 }
 
 .input {
@@ -27,14 +32,10 @@
   background: var(--illustration);
 }
 
-.foo {
-  position: absolute;
-  z-index: -1;
-}
-
 .button {
-  flex: 0 0 auto;
-  padding: 12px 24px;
+  height: 2.5rem;
+  font-weight: bold;
+  align-self: center;
 }
 
 .subscribe {

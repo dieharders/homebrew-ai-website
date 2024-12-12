@@ -13,4 +13,5 @@
   margin: 0 auto;
   align-items: center;
   justify-content: space-between;
+  overflow: hidden;
 }

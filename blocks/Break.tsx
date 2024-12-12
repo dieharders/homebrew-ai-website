@@ -1,7 +1,7 @@
 import styles from './Break.module.css';
-import Section from '../components/Section';
+import Section, { T_Background } from '../components/Section';
 import { cx } from '../utils/common';
-import Button from '../components/Button';
+import Button, { T_Location } from '../components/Button';
 
 export default function Break(p: {
   id?: string,
@@ -10,6 +10,8 @@ export default function Break(p: {
   subtitle: string,
   action?: string,
   actionHref?: string,
+  location?: T_Location,
+  background?: T_Background,
   illustration: any
   onActionClick?(): void,
 }) {
@@ -19,7 +21,7 @@ export default function Break(p: {
   );
 
   return (
-    <Section id={p.id} className={className} size="narrow" background="accent-alt">
+    <Section id={p.id} className={className} size="narrow" background={p.background || "accent-alt-1"}>
       <div className={styles.content}>
         {/* Poster */}
         <div className={styles.illustration} style={p.illustration} />
@@ -27,7 +29,7 @@ export default function Break(p: {
           <h1 className={styles.title}>{p.title}</h1>
           <p className={styles.subtitle}>{p.subtitle}</p>
         </div>
-        {p.action && <Button href={p.actionHref} onClick={p.onActionClick} size="large" location="accent">{p.action}</Button>}
+        {p.action && <Button href={p.actionHref} onClick={p.onActionClick} size="xl" type="primary" location={p.location || "accent"}>{p.action}</Button>}
       </div>
     </Section>
   );

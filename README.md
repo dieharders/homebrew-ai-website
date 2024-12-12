@@ -1,8 +1,8 @@
-# 🍺 OpenBrewAi website
+# OpenBrewAi website
 
 This website is the home of the Obrew suite of products.
 
-## Usage
+## Getting Started
 
 Install dependencies:
 
@@ -28,7 +28,11 @@ Export a static HTML version:
 pnpm export
 ```
 
-Deploy by pushing to [Github](https://github.com), and importing the project into [Vercel](https://vercel.com).
+## Deploy
+
+- Push to [Github](https://github.com).
+
+- Import the project into [Vercel](https://vercel.com).
 
 ## Configuration
 

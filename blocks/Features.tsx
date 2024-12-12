@@ -1,6 +1,7 @@
 import styles from './Features.module.css';
 import Section from '../components/Section';
 import { cx } from '../utils/common';
+import Image from 'next/image';
 
 export default function Features(p: {
   id?: string,
@@ -36,7 +37,7 @@ export default function Features(p: {
           return (
             <li key={item.title} className={styles.feature}>
               {item?.illustration && <div className={styles['feature-illustration']} style={item?.illustration} />}
-              {item?.icon && <div className={styles.icon}>{item?.icon}</div>}
+              {item?.icon && <Image className={styles.icon} src={item?.icon} alt="icon" width={100} height={100} />}
               <div className={styles['feature-content']}>
                 <h3 className={styles['feature-title']}>{item.title}</h3>
                 <p className={styles['feature-text']}>{item.text}</p>
