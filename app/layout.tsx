@@ -1,6 +1,13 @@
-import type { Metadata } from 'next';
 import cardWide from 'public/social-card-wide.png';
+import type { Metadata, Viewport } from 'next';
+import { lilita_one, comic_shanns } from 'fonts/fonts';
 import '@/global/global.css';
+
+export const viewport: Viewport = {
+  initialScale: 1,
+  width: 'device-width',
+  themeColor: '#ffec99',
+}
 
 export const metadata: Metadata = {
   title: 'Obrew - Free & personal Ai for the masses',
@@ -8,7 +15,6 @@ export const metadata: Metadata = {
   applicationName: 'Obrew Studio',
   keywords: ['desktop-app', 'ai', 'localai', 'text-generation', 'inference-engine'],
   twitter: { card: 'summary', images: [{ url: cardWide.src }] },
-  themeColor: '#ffec99',
   openGraph: {
     title: 'Obrew - Free & personal Ai for the masses',
     description: 'Run personalized Generative Ai on your device and own your tech stack. No subscriptions or limits. Find out how to speed up Ai production.',
@@ -31,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${lilita_one.variable, comic_shanns.variable}`}>
       <body>{children}</body>
     </html>
   )
