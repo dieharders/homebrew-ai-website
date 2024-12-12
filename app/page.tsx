@@ -12,7 +12,6 @@ import Highlights from '../blocks/Highlights';
 import Notice from '../components/Notice';
 import SubscribeInput from '../components/SubscribeInput';
 import data from '../global/global.json';
-import { inter, geist_sans } from 'fonts/fonts';
 import benefitPosterImageA from 'public/is-for.png';
 import benefitPosterImageB from 'public/can-do.svg';
 import benefitPosterImageC from 'public/what-is.svg';
@@ -102,17 +101,16 @@ export default function Home() {
   }
 
   return (
-    <div className={`${geist_sans.className}`}>
+    <div>
       {/* @TODO Not working, replace with a landing page for success/failure */}
       <Notice id="subscribed">Thank you for subscribing!</Notice>
 
-      <Header id="top" title={`${data.product}`} />
+      <Header id="top" title="" />
 
       <main>
         <Hero
-          title={<h1 style={{ fontSize: '3rem' }}>Personal Ai</h1>}
+          title=""
           subtitle={data.subheadline}
-          className={inter.className}
         ></Hero>
 
         <Break
@@ -131,8 +129,8 @@ export default function Home() {
           subtitle={data.benefits.subheadline}
           benefits={[
             { illustration: benefitPosterAStyle, title: 'Who is this for?', text: 'Everyone. Engineers can customize. Power users get unlimited responses.' },
-            { illustration: benefitPosterCStyle, title: 'What is it?', text: 'Obrew provides a range of intuitive tools that speeds up production of Ai apps.' },
-            { illustration: benefitPosterBStyle, title: 'What can it do?', text: 'Generate text, images (coming soon), deploy agents or serve as a backend.' },
+            { illustration: benefitPosterCStyle, title: 'What is it?', text: 'Obrew provides a range of intuitive tools that speeds production of Ai apps.' },
+            { illustration: benefitPosterBStyle, title: 'What can it do?', text: 'Generate text, images (coming soon), deploy agents or serve as a backend for apps.' },
           ]}
         />
 
@@ -141,13 +139,13 @@ export default function Home() {
           location="accent"
           background="accent-alt-1"
           subtitle="How-to's and helpful examples on our Youtube page."
-          action="Browse resources"
+          action="Browse Resources"
           illustration={helperPoster}
           actionHref="http://www.youtube.com/@OpenBrewAi"
         />
 
         <Highlights
-          title="The Ai Engine for Creators"
+          title="THE Ai ENGINE FOR CREATORS"
           subtitle="Obrew is an Ai meta-framework that provides tools for common problems like long term memory and hallucinations."
           highlights={[
             { illustration: highlightPosterA, title: 'Use cases', text: 'Domain knowledge co-pilots, customer service chatbot, compliance assistants, document extraction, and advanced search.' },
@@ -168,7 +166,7 @@ export default function Home() {
 
         <Features
           background="alternate"
-          title="Features"
+          title="FEATURES"
           subtitle="Smart tools for every job."
           features={[
             { icon: '/icons/truck.png', title: 'Easy Install', text: 'All-in-one app. No need for additional software.' },

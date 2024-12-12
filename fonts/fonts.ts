@@ -1,43 +1,25 @@
-import { Inter, Roboto_Mono } from "next/font/google";
+import { Lilita_One } from "next/font/google";
 import localFont from "next/font/local";
-// import { GeistSans, GeistMono } from "geist/font";
 
-export const inter = Inter({
+// Google fonts (hosted)
+
+// Does not support css var
+export const lilita_one = Lilita_One({
+  style: "normal",
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
+  weight: "400",
 });
 
-export const roboto_mono = Roboto_Mono({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-roboto",
-});
+// Local fonts (downloaded)
 
-export const geist_sans = localFont({
+// https://github.com/shannpersand/comic-shanns
+export const comic_shanns = localFont({
   src: [
     {
-      path: "GeistSans/Geist-Regular.otf",
+      path: "ComicShanns/comic_shanns.otf",
       weight: "400",
     },
-    {
-      path: "GeistSans/Geist-Bold.otf",
-      weight: "700",
-    },
   ],
-  variable: "--font-geist-sans",
-});
-
-export const geist_mono = localFont({
-  src: [
-    {
-      path: "GeistMono/GeistMono-Regular.otf",
-      weight: "400",
-    },
-    {
-      path: "GeistMono/GeistMono-Bold.otf",
-      weight: "700",
-    },
-  ],
-  variable: "--font-geist-mono",
+  variable: "--font-comic-shanns",
 });

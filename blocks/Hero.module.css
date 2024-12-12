@@ -51,18 +51,20 @@
 .titleContainer {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2.5rem;
   align-items: center;
+  justify-content: center;
   max-width: 25rem;
   width: 100%;
 }
 
 .illustrationContainer {
+  position: relative;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1.5rem;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   width: 100%;
 }
@@ -96,12 +98,13 @@
 }
 
 .subtitle {
-  font-size: var(--subtitle-font-size);
+  font-size: var(--h2-font-size);
   font-weight: var(--subtitle-font-weight);
   line-height: var(--subtitle-line-height);
   letter-spacing: var(--subtitle-letter-spacing);
   text-align: center;
   color: var(--text-shade);
+  white-space: pre-wrap;
 }
 
 .children {

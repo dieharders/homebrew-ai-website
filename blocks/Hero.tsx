@@ -1,22 +1,23 @@
 import { ReactNode } from 'react';
 import styles from './Hero.module.css';
-import Section from '../components/Section';
+import Section from '@/components/Section';
+import Button from '@/components/Button';
 import ObrewLogo from 'public/logo-obrew.svg';
 import ClapLogo from 'public/icons/clap.png';
-import Button from '../components/Button';
 import Image from 'next/image';
+import { lilita_one } from 'fonts/fonts';
 import { cx } from '../utils/common';
 
 export default function Hero(p: {
   id?: string,
   className?: string,
-  title: ReactNode,
+  title?: ReactNode | string,
   subtitle: string,
-  children?: React.ReactNode,
+  children?: ReactNode,
 }) {
   const className = cx(
     styles.container,
-    p.className,
+    p.className
   );
   const downloadLink = "https://github.com/dieharders/ai-text-server/releases/latest/download/ObrewServer.WIN.Setup.exe"
 
@@ -29,7 +30,7 @@ export default function Hero(p: {
             <Image src={ObrewLogo} alt="Obrew Studio" height={384} />
           </div>
           <div className={styles.titleContainer}>
-            <div className={styles.title}>{p.title}</div>
+            {p.title && <h1 className={cx(styles.title, lilita_one.className)}>{p.title}</h1>}
             <p className={styles.subtitle}>{p.subtitle}</p>
             <Button
               className={styles.btn}
