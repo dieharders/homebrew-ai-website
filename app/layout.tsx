@@ -1,20 +1,24 @@
 import type { Metadata } from 'next';
-import ogImage from 'public/social-card.png'
+import cardWide from 'public/social-card-wide.png';
 import '@/global/global.css';
 
 export const metadata: Metadata = {
   title: 'Obrew - Free & personal Ai for the masses',
   description: 'Run personalized Generative Ai on your device and own your tech stack. No subscriptions or limits. Find out how to speed up Ai production.',
+  applicationName: 'Obrew Studio',
+  keywords: ['desktop-app', 'ai', 'localai', 'text-generation', 'inference-engine'],
+  twitter: { card: 'summary', images: [{ url: cardWide.src }] },
+  themeColor: '#ffec99',
   openGraph: {
     title: 'Obrew - Free & personal Ai for the masses',
     description: 'Run personalized Generative Ai on your device and own your tech stack. No subscriptions or limits. Find out how to speed up Ai production.',
     type: "website",
     images: [
       {
-        url: ogImage.src,
+        url: cardWide.src,
         alt: "Obrew logo and title",
-        width: ogImage.width,
-        height: ogImage.height,
+        width: cardWide.width,
+        height: cardWide.height,
       },
     ],
   },
