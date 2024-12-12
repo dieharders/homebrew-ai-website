@@ -25,17 +25,28 @@
     ],
     "baseUrl": "./",
     "paths": {
-      "@/components/*": ["components/*"],
-      "@/pages/*": ["pages/*"],
-      "@/blocks/*": ["blocks/*"],
-      "@/utils/*": ["utils/*"],
-      "@/global/*": ["global/*"],
+      "@/components/*": [
+        "components/*"
+      ],
+      "@/pages/*": [
+        "pages/*"
+      ],
+      "@/blocks/*": [
+        "blocks/*"
+      ],
+      "@/utils/*": [
+        "utils/*"
+      ],
+      "@/global/*": [
+        "global/*"
+      ]
     }
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
