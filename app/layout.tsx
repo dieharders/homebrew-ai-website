@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-// import cardBadge from 'public/social-card-badge.png';
 import cardWide from 'public/social-card-wide.png';
 import '@/global/global.css';
 
