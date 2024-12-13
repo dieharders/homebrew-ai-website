@@ -21,6 +21,7 @@ import docsImage from 'public/icons/docs.png';
 import oneclickPosterImage from 'public/cursor.svg';
 
 export default function Home() {
+  const downloadLink = "https://github.com/dieharders/ai-text-server/releases/latest/download/ObrewServer.WIN.Setup.exe"
   const imgStyle = {
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
@@ -106,6 +107,7 @@ export default function Home() {
         <Hero
           title=""
           subtitle={data.subheadline}
+          link={downloadLink}
         ></Hero>
 
         <Break
@@ -180,6 +182,7 @@ export default function Home() {
           title="One-click installer"
           subtitle="Everything you need in one app. Get started fast."
           action="Download Now"
+          actionHref={downloadLink}
           illustration={oneclickPoster}
         />
 

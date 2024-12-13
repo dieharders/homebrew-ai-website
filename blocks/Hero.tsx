@@ -15,13 +15,13 @@ export default function Hero(p: {
   className?: string,
   title?: ReactNode | string,
   subtitle: string,
+  link?: string,
   children?: ReactNode,
 }) {
   const className = cx(
     styles.container,
     p.className
   );
-  const downloadLink = "https://github.com/dieharders/ai-text-server/releases/latest/download/ObrewServer.WIN.Setup.exe"
 
   return (
     <Section id={p.id} className={className}>
@@ -36,7 +36,7 @@ export default function Hero(p: {
             <p className={styles.subtitle}>{p.subtitle}</p>
             <Button
               className={styles.btn}
-              href={downloadLink}
+              href={p.link}
               onClick={() => { }}
               size="large"
               type="primary"
