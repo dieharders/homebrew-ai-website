@@ -2,12 +2,18 @@
   border-top: solid var(--section-separator-width) var(--section-separator-color);
 } */
 
-.container-size-normal {
-  padding: 12rem var(--page-padding);
-}
-
+.container-size-normal,
 .container-size-narrow {
-  padding: 2rem var(--page-padding);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.container-size-normal {
+  padding-top: 12rem;
+  padding-bottom: 12rem;
+}
+.container-size-narrow {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .container-background-normal {
@@ -38,4 +44,12 @@
   max-width: var(--page-max-width);
   margin: 0 auto;
   width: 100%;
+}
+
+@media screen and (min-width: 450px) {
+  .container-size-narrow,
+  .container-size-normal {
+    padding-left: var(--page-padding);
+    padding-right: var(--page-padding);
+  }
 }
