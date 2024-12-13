@@ -1,3 +1,5 @@
+'use client'
+
 import styles from './Break.module.css';
 import Section, { T_Background } from '../components/Section';
 import { cx } from '../utils/common';
@@ -13,7 +15,6 @@ export default function Break(p: {
   location?: T_Location,
   background?: T_Background,
   illustration: any
-  onActionClick?(): void,
 }) {
   const className = cx(
     styles.container,
@@ -29,7 +30,7 @@ export default function Break(p: {
           <h1 className={styles.title}>{p.title}</h1>
           <p className={styles.subtitle}>{p.subtitle}</p>
         </div>
-        {p.action && <Button href={p.actionHref} onClick={p.onActionClick} size="xl" type="primary" location={p.location || "accent"}>{p.action}</Button>}
+        {p.action && <Button href={p.actionHref} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} size="xl" type="primary" location={p.location || "accent"}>{p.action}</Button>}
       </div>
     </Section>
   );

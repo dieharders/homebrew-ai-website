@@ -6,19 +6,25 @@ const { MAILCHIMP_DC, MAILCHIMP_LIST_ID, MAILCHIMP_API_KEY } = process.env;
 export async function GET(req: NextRequest, res: NextResponse) {
   const searchParams = req.nextUrl.searchParams;
   const emailParam = searchParams.get("email");
-  // Validate props
-  // @TODO Redirect to specific email landing page for either "failure" or "success"
-  if (!MAILCHIMP_DC || !MAILCHIMP_LIST_ID || !MAILCHIMP_API_KEY)
-    redirect("/#failed");
-  // if (!MAILCHIMP_DC) throw "Error: `MAILCHIMP_DC` is required";
-  // if (!MAILCHIMP_LIST_ID) throw "Error: `MAILCHIMP_LIST_ID` is required";
-  // if (!MAILCHIMP_API_KEY) throw "Error: `MAILCHIMP_API_KEY` is required";
+  let errMsg;
 
-  // Validate email, @TODO validate email correctly
-  if (!emailParam) redirect("/#failed");
-  // throw "Error: `email` is required";
+  // Validate props
+  // Redirect to specific email landing page for either "failure" or "success"
+  if (!MAILCHIMP_DC) errMsg = "Error: `MAILCHIMP_DC` is required";
+  if (!MAILCHIMP_LIST_ID) errMsg = "Error: `MAILCHIMP_LIST_ID` is required";
+  if (!MAILCHIMP_API_KEY) errMsg = "Error: `MAILCHIMP_API_KEY` is required";
+  if (errMsg) redirect(`/subscribe/fail?error=${encodeURIComponent(errMsg)}`);
+
+  // Validate email using double opt-in
+  if (!emailParam)
+    redirect(
+      `/subscribe/fail?error=${encodeURIComponent(
+        "Error: an email is required."
+      )}`
+    );
 
   const url = `https://${MAILCHIMP_DC}.api.mailchimp.com/3.0/lists/${MAILCHIMP_LIST_ID}/members/`;
+  const subStatus = "subscribed";
 
   await fetch(url, {
     mode: "no-cors",
@@ -29,9 +35,9 @@ export async function GET(req: NextRequest, res: NextResponse) {
     },
     body: JSON.stringify({
       email_address: emailParam,
-      status: "subscribed",
+      status: subStatus,
     }),
   });
 
-  redirect("/#subscribed");
+  redirect(`/subscribe/success?status=${encodeURIComponent(subStatus)}`);
 }

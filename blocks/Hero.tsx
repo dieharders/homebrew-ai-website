@@ -1,3 +1,5 @@
+'use client'
+
 import { ReactNode } from 'react';
 import styles from './Hero.module.css';
 import Section from '@/components/Section';

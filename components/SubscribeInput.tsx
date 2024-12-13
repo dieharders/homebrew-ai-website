@@ -1,3 +1,5 @@
+'use client'
+
 import styles from './SubscribeInput.module.css';
 import Button from './Button';
 import { cx } from '../utils/common';
