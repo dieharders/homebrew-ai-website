@@ -1,17 +1,13 @@
-'use client'
-// @TODO Remove and make child components 'use client'
-
-import Benefits from '../blocks/Benefits';
-import Break from '../blocks/Break';
-import Epilogue from '../blocks/Epilogue';
-import Features from '../blocks/Features';
-import Footer from '../blocks/Footer';
-import Header from '../blocks/Header';
-import Hero from '../blocks/Hero';
-import Highlights from '../blocks/Highlights';
-import Notice from '../components/Notice';
-import SubscribeInput from '../components/SubscribeInput';
-import data from '../global/global.json';
+import data from '@/global/global.json';
+import Benefits from '@/blocks/Benefits';
+import Break from '@/blocks/Break';
+import Epilogue from '@/blocks/Epilogue';
+import Features from '@/blocks/Features';
+import Footer from '@/blocks/Footer';
+import Header from '@/blocks/Header';
+import Hero from '@/blocks/Hero';
+import Highlights from '@/blocks/Highlights';
+import SubscribeInput from '@/components/SubscribeInput';
 import benefitPosterImageA from 'public/is-for.png';
 import benefitPosterImageB from 'public/can-do.svg';
 import benefitPosterImageC from 'public/what-is.svg';
@@ -102,9 +98,6 @@ export default function Home() {
 
   return (
     <div>
-      {/* @TODO Not working, replace with a landing page for success/failure */}
-      <Notice id="subscribed">Thank you for subscribing!</Notice>
-
       <Header id="top" title="" />
 
       <main>
@@ -118,9 +111,8 @@ export default function Home() {
           subtitle="Ditch the subscriptions. Build and run Ai all day long for free!"
           location="highlight"
           background="accent-alt-2"
-          // action="Download Now"
+          action=""
           illustration={breakPoster}
-          onActionClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         />
 
         <Benefits
@@ -178,7 +170,7 @@ export default function Home() {
             { icon: '/icons/robot-face.png', title: 'Agents', text: 'Build Ai to perform tasks on your behalf in the real world.' },
             { icon: '/icons/clipboard.png', title: 'Workflows', text: 'Write tasks in natural language and automate them.' },
             { icon: '/icons/key.png', title: 'API Access', text: 'We provide an extensive api for all your needs.' },
-            // { icon: '👨‍👩‍👧‍👧', title: 'Community resources', text: 'Users can share their workflows, bots, tools with others.' },
+            // { icon: '👨‍👩‍👧‍👧', title: 'Community Resources', text: 'Users can share their workflows, bots, tools with others.' },
           ]}
         />
 
@@ -187,7 +179,6 @@ export default function Home() {
           subtitle="Everything you need in one app. Get setup fast."
           action="Download Now"
           illustration={oneclickPoster}
-          onActionClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         />
 
         <Epilogue
