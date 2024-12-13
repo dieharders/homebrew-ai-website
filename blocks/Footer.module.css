@@ -1,12 +1,21 @@
 .container {
-  height: var(--page-header-height);
-  margin-top: calc(-1 * var(--page-header-height));
-  padding: 16px var(--page-padding);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-height: 100px;
+  min-height: var(--page-header-height);
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: var(--page-padding);
+  padding-right: var(--page-padding);
   color: var(--text-accent);
+  background-color: var(--background-alternate);
 }
 
 .content {
   color: var(--text);
+  width: 100%;
   height: 100%;
   display: flex;
   max-width: var(--page-max-width);

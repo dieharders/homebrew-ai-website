@@ -8,7 +8,7 @@
   --list-item-max-width: 450px;
 
   --background: #fff;
-  --background-alternate: #fafafa;
+  --background-alternate: #f8f9fa;
   --section-separator-color: #ddd;
   --section-separator-width: 0.5px;
   --section-accent-text-color: hsl(160, 100%, 5%);
@@ -73,6 +73,7 @@ body {
   line-height: var(--body-line-height);
   letter-spacing: var(--body-letter-spacing);
   color: var(--text);
+  background-color: var(--background-alternate);
   -webkit-font-smoothing: antialiased;
   width: 100%;
   height: 100%;

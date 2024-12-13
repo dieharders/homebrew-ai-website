@@ -1,4 +1,6 @@
 .container {
+  /* gives room for glow */
+  padding-top: 20rem;
   padding-bottom: 140px !important;
   overflow: hidden;
 }
@@ -80,6 +82,6 @@
   background: radial-gradient(
     ellipse at center,
     var(--accent-normal) 0%,
-    transparent 85%
+    transparent 70%
   );
 }

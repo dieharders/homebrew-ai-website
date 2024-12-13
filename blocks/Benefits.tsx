@@ -35,7 +35,7 @@ export default function Benefits(p: {
                 <div className={styles['benefit-illustration']} style={item.illustration}></div>
               </div>
               <div className={styles['benefit-content']}>
-                <h3 className={styles['benefit-title']}>{item.title}</h3>
+                <h1 className={styles['benefit-title']}>{item.title}</h1>
                 <p className={styles['benefit-text']}>{item.text}</p>
               </div>
             </li>

@@ -1,5 +1,5 @@
 import styles from './Epilogue.module.css';
-import Section from '../components/Section';
+import Section, { T_Background } from '@/components/Section';
 import { cx } from '../utils/common';
 
 export default function Epilogue(p: {
@@ -9,6 +9,7 @@ export default function Epilogue(p: {
   subtitle1: string,
   subtitle2: string,
   illustration: any,
+  background?: T_Background,
   children?: React.ReactNode,
 }) {
   const className = cx(
@@ -17,7 +18,7 @@ export default function Epilogue(p: {
   );
 
   return (
-    <Section id={p.id} className={className} background="accent">
+    <Section id={p.id} className={className} background={p.background}>
       <div className={styles.illustrationContainer}>
         <div className={styles.glow}></div>
         <div className={styles.illustration} style={p.illustration}></div>

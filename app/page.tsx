@@ -108,6 +108,7 @@ export default function Home() {
           title=""
           subtitle={data.subheadline}
           link={downloadLink}
+          background="alternate"
         ></Hero>
 
         <Break
@@ -124,16 +125,16 @@ export default function Home() {
           title={data.benefits.headline}
           subtitle={data.benefits.subheadline}
           benefits={[
-            { illustration: benefitPosterAStyle, title: 'Who is this for?', text: 'Everyone. Engineers can customize. Power users get unlimited responses.' },
+            { illustration: benefitPosterAStyle, title: 'Who is this for?', text: 'Engineers can customize. Power users get unlimited responses. Anyone can create.' },
             { illustration: benefitPosterCStyle, title: 'What is it?', text: 'Obrew provides a range of intuitive tools that speeds production of Ai apps.' },
-            { illustration: benefitPosterBStyle, title: 'What can it do?', text: 'Generate text, images (coming soon), deploy agents or serve as a backend for apps.' },
+            { illustration: benefitPosterBStyle, title: 'What can it do?', text: 'Generate text and images (coming soon), deploy agents or serve as a backend for apps.' },
           ]}
         />
 
         <Break
           title="Tutorials"
-          location="accent"
-          background="accent-alt-1"
+          location="highlight"
+          background="accent-alt-2"
           subtitle="How-to's and helpful examples on our Youtube page."
           action="Browse Resources"
           illustration={helperPoster}
@@ -142,7 +143,8 @@ export default function Home() {
 
         <Highlights
           title="THE Ai ENGINE FOR CREATORS"
-          subtitle="Obrew is an Ai meta-framework that provides tools for common problems like long term memory and hallucinations."
+          subtitle="Obrew is a meta-framework that provides tools for common problems like long term memory and hallucinations."
+          background="alternate"
           highlights={[
             { illustration: highlightPosterA, title: 'Use cases', text: 'Domain knowledge co-pilots, customer service chatbot, compliance assistants, document extraction, and advanced search.' },
             { illustration: highlightPosterB, title: 'Build workflows with natural language', text: "Obrew gives you the ability to build advanced systems to automate your tasks. It's as easy as writing a todo list." },
@@ -191,6 +193,7 @@ export default function Home() {
           subtitle1=""
           subtitle2="Get notified of product updates"
           illustration={epiloguePoster}
+          background="alternate"
         >
           <SubscribeInput
             placeholder="your@email.com"
