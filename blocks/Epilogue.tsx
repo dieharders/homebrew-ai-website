@@ -18,7 +18,10 @@ export default function Epilogue(p: {
 
   return (
     <Section id={p.id} className={className} background="accent">
-      <div className={styles.illustration} style={p.illustration} />
+      <div className={styles.illustrationContainer}>
+        <div className={styles.glow}></div>
+        <div className={styles.illustration} style={p.illustration}></div>
+      </div>
       <div className={styles.header}>
         <h2 className={styles.title}>{p.title}</h2>
         <h4 className={styles.subtitle1}>{p.subtitle1}</h4>

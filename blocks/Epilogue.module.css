@@ -1,5 +1,6 @@
 .container {
   padding-bottom: 140px !important;
+  overflow: hidden;
 }
 
 .header {
@@ -53,11 +54,32 @@
   overflow: hidden;
 }
 
-.illustration {
-  width: 100%;
-  max-width: 320px;
-  height: 240px;
+.illustrationContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto;
+}
+
+.illustration {
+  position: relative;
+  width: 100%;
+  height: 240px;
   background: var(--illustration);
-  border-radius: 8px;
+}
+
+.glow {
+  position: absolute;
+  /* Keep centered when resizing */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50rem;
+  height: 50rem;
+  background: radial-gradient(
+    ellipse at center,
+    var(--accent-normal) 0%,
+    transparent 85%
+  );
 }
