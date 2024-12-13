@@ -39,8 +39,8 @@ export default function Hero(p: {
               href={downloadLink}
               onClick={() => { }}
               size="large"
-              type="custom"
-              location="body"
+              type="primary"
+              location="highlight"
             >
               <Image src={ClapLogo} alt="clap" width="32" height="32" />&nbsp;Download for Windows
             </Button>

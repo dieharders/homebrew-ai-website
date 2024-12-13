@@ -31,20 +31,20 @@
   --body-line-height: 1.6;
   --body-letter-spacing: -0.3px;
 
-  --title-font-size: 48px;
+  --title-font-size: 3rem;
   --title-font-weight: 800;
-  --title-line-height: 1;
-  --title-letter-spacing: -2px;
+  --title-line-height: 1.2;
+  --title-letter-spacing: 2px;
 
   --subtitle-font-size: 21px;
   --subtitle-font-weight: 400;
   --subtitle-line-height: 1.5;
   --subtitle-letter-spacing: -0.8px;
 
-  --h1-font-size: 38px;
+  --h1-font-size: 3rem;
   --h1-font-weight: 700;
-  --h1-line-height: 1;
-  --h1-letter-spacing: -1px;
+  --h1-line-height: 1.15;
+  --h1-letter-spacing: 1px;
 
   --h2-font-size: 26px;
   --h2-font-weight: 500;

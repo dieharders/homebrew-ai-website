@@ -54,7 +54,7 @@
   gap: 2.5rem;
   align-items: center;
   justify-content: center;
-  max-width: 25rem;
+  max-width: 28rem;
   width: 100%;
 }
 
@@ -136,15 +136,4 @@
   height: fit-content;
   font-size: 1.25rem;
   padding: 1rem;
-}
-
-.btn:active {
-  background: var(--accent-dark);
-  top: 0px;
-  box-shadow: none;
-}
-
-.btn:hover {
-  top: -3px;
-  box-shadow: 0 3px 0 #0002, 0 3px 0 var(--accent-dark);
 }

@@ -78,6 +78,8 @@ export default function Home() {
     backgroundSize: 'contain',
   }
   const helperPoster = {
+    width: '8rem',
+    height: '8rem',
     backgroundImage: `url(${helperPosterImage.src})`,
     ...imgStyle,
     backgroundColor: 'transparent',
@@ -176,7 +178,7 @@ export default function Home() {
 
         <Break
           title="One-click installer"
-          subtitle="Everything you need in one app. Get setup fast."
+          subtitle="Everything you need in one app. Get started fast."
           action="Download Now"
           illustration={oneclickPoster}
         />
