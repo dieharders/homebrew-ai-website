@@ -1,4 +1,6 @@
 .container {
+  margin-top: 12rem;
+  margin-bottom: 12rem;
 }
 
 .content {
@@ -14,7 +16,7 @@
 .title {
   font-size: var(--h2-font-size);
   font-weight: var(--h3-font-weight);
-  line-height: var(--h3-line-height);
+  /* line-height: var(--h3-line-height); */
   letter-spacing: var(--h3-letter-spacing);
   margin-bottom: 12px;
   color: var(--text);

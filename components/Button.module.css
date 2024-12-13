@@ -27,22 +27,24 @@
   display: inline-flex;
   align-items: center;
   height: 32px;
-  padding: 0 12px;
+  padding: 1px 12px;
   font-size: 14px;
 }
 
 .container-size-large {
   height: 48px;
-  padding: 0 24px;
+  padding: 2px 24px;
   font-size: 16px;
+  line-height: var(--h1-line-height);
 }
 
 .container-size-xl {
   display: inline-flex;
   align-items: center;
   min-height: 48px;
-  padding: 0 24px;
+  padding: 4px 24px;
   font-size: var(--h3-font-size);
+  line-height: var(--h1-line-height);
 }
 
 .container-type-primary.container-location-body {
@@ -50,8 +52,8 @@
   background: var(--button);
 }
 .container-type-primary.container-location-body:hover {
-  top: -3px;
-  box-shadow: 0 3px 0 #0002, 0 3px 0 var(--accent);
+  top: -6px;
+  box-shadow: 0 6px 0 #0002, 0 6px 0 var(--accent);
 }
 .container-type-primary.container-location-body:active {
   top: 0px;
@@ -64,8 +66,8 @@
   background: var(--text-accent);
 }
 .container-type-primary.container-location-accent:hover {
-  top: -3px;
-  box-shadow: 0 3px 0 #0002, 0 3px 0 var(--accent);
+  top: -6px;
+  box-shadow: 0 6px 0 #0002, 0 6px 0 var(--accent);
 }
 .container-type-primary.container-location-accent:active {
   top: 0px;
@@ -79,8 +81,8 @@
   color: var(--button);
 }
 .container-type-secondary.container-location-body:hover {
-  top: -3px;
-  box-shadow: 0 3px 0 var(--button);
+  top: -6px;
+  box-shadow: 0 6px 0 var(--button);
 }
 .container-type-secondary.container-location-body:active {
   top: 0px;
@@ -93,8 +95,8 @@
   color: var(--text-accent);
 }
 .container-type-secondary.container-location-accent:hover {
-  top: -3px;
-  box-shadow: 0 3px 0 var(--text-accent);
+  top: -6px;
+  box-shadow: 0 6px 0 var(--text-accent);
 }
 .container-type-secondary.container-location-accent:active {
   top: 0px;
@@ -108,8 +110,8 @@
   background: var(--accent-btn);
 }
 .container-type-primary.container-location-highlight:hover {
-  top: -3px;
-  box-shadow: 0 3px 0 #0002, 0 3px 0 var(--accent-dark);
+  top: -6px;
+  box-shadow: 0 6px 0 #0002, 0 6px 0 var(--accent-dark);
 }
 .container-type-primary.container-location-highlight:active {
   top: 0px;

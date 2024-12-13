@@ -2,7 +2,7 @@
 
 import { ReactNode } from 'react';
 import styles from './Hero.module.css';
-import Section from '@/components/Section';
+import Section, { T_Background } from '@/components/Section';
 import Button from '@/components/Button';
 import ObrewLogo from 'public/logo-obrew.svg';
 import ClapLogo from 'public/icons/clap.png';
@@ -15,16 +15,17 @@ export default function Hero(p: {
   className?: string,
   title?: ReactNode | string,
   subtitle: string,
+  link?: string,
+  background?: T_Background,
   children?: ReactNode,
 }) {
   const className = cx(
     styles.container,
     p.className
   );
-  const downloadLink = "https://github.com/dieharders/ai-text-server/releases/latest/download/ObrewServer.WIN.Setup.exe"
 
   return (
-    <Section id={p.id} className={className}>
+    <Section id={p.id} className={className} background={p.background || "alternate"}>
       <div className={styles.header}>
         <div className={styles.illustrationContainer}>
           {/* Illustration */}
@@ -36,11 +37,11 @@ export default function Hero(p: {
             <p className={styles.subtitle}>{p.subtitle}</p>
             <Button
               className={styles.btn}
-              href={downloadLink}
+              href={p.link}
               onClick={() => { }}
               size="large"
-              type="custom"
-              location="body"
+              type="primary"
+              location="highlight"
             >
               <Image src={ClapLogo} alt="clap" width="32" height="32" />&nbsp;Download for Windows
             </Button>
