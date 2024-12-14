@@ -1,19 +1,12 @@
 .container {
   display: flex;
   flex-direction: column;
-  padding-top: 8vh !important; /* Override <Section> style */
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding-top: 0;
+  padding-bottom: 0;
   overflow: hidden;
-}
-
-/* Prevents overflow */
-.overflow {
-  position: relative;
-  display: block;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-bottom: 1rem;
-  padding-top: 1rem;
-  width: 100%;
 }
 
 .posterContainer {
@@ -42,7 +35,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: var(--max-poster-width);
   margin: 0;
   overflow: hidden;
 }
@@ -62,7 +54,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 0.5rem;
   align-items: stretch;
   justify-content: center;
   width: 100%;
