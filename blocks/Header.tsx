@@ -21,13 +21,14 @@ export default function Header(p: {
         <div className={styles.titleGroup} title={p.title}>
           {p.title && <div className={styles.title}>{p.title}</div>}
           <a
-            style={{ color: 'var(--text)', fontWeight: 'bold', textDecoration: 'underline' }}
+            className={styles.titleLink}
             href="https://studio.openbrewai.com"
             title="Download Obrew Studio"
             target="_blank"
           >
             Obrew Studio
-          </a><span style={{ color: 'var(--text-shade)', fontWeight: 'lighter' }}> | Free & Open Source</span>
+          </a>
+          <span className={styles.descr}>| Free & Open Source</span>
         </div>
         <div className={styles.links}>
           <Button className={styles.btn} href="http://www.youtube.com/@OpenBrewAi" title="Youtube" onClick={() => { }} size="small" type="custom">

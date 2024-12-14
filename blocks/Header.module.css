@@ -9,24 +9,27 @@
 .content {
   position: relative;
   display: flex;
+  flex-direction: row;
+  max-height: var(--page-header-height);
   width: 100%;
-  flex-wrap: wrap;
   padding: 1.25rem;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-  gap: 1rem;
-  align-items: center;
-  background: var(--background-alternate);
+  gap: 0.5rem;
+  background: var(--background);
   box-shadow: 0 2px 2px var(--section-separator-color);
+  overflow: hidden;
 }
 
 .titleGroup {
-  display: block;
+  display: flex;
+  flex-direction: row;
   position: relative;
-  justify-self: flex-start;
-  align-self: center;
-  flex-grow: 1;
+  align-self: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
   overflow: hidden;
+  gap: 1rem;
 }
 
 .title {
@@ -34,16 +37,31 @@
   font-weight: 600;
 }
 
+.titleLink {
+  color: var(--text);
+  font-weight: bold;
+  text-decoration: underline;
+  text-wrap: nowrap;
+}
+
+.descr {
+  color: var(--text-shade);
+  font-weight: lighter;
+  text-wrap: nowrap;
+}
+
 .links {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  align-items: stretch;
-  align-self: center;
+  flex-wrap: nowrap;
+  flex-grow: 4;
   gap: 1.25rem;
-  overflow: hidden;
+  justify-content: flex-end;
+  align-self: flex-end;
   white-space: nowrap;
   height: 100%;
+  min-width: 150px;
+  overflow: hidden;
 }
 
 .btn {

@@ -3,7 +3,7 @@
   flex-direction: row;
   align-items: center;
   max-height: 100px;
-  min-height: var(--page-header-height);
+  min-height: var(--page-footer-height);
   margin: 0;
   padding-top: 0;
   padding-bottom: 0;
