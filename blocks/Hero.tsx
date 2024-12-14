@@ -24,6 +24,7 @@ export default function Hero(p: {
     p.className
   );
 
+  // @TODO Make this float in the middle of screen until you scroll past
   return (
     <Section id={p.id} className={className} background={p.background || "alternate"}>
       <div className={styles.header}>

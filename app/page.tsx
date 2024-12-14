@@ -14,6 +14,7 @@ import benefitPosterImageC from 'public/what-is.svg';
 import highlightPosterImageA from 'public/use-cases.svg';
 import highlightPosterImageB from 'public/workflows.svg';
 import highlightPosterImageC from 'public/highlight-model.png';
+import highlightPosterImageD from 'public/air-gap.svg';
 import epiloguePosterImage from 'public/badge.png';
 import breakPosterImage from 'public/no-pay.svg';
 import helperPosterImage from 'public/worker.svg';
@@ -42,6 +43,13 @@ export default function Home() {
   const benefitPosterCStyle = {
     backgroundImage: `url(${benefitPosterImageC.src})`,
     ...imgStyle,
+    backgroundColor: 'transparent',
+    backgroundSize: 'contain',
+  }
+  const highlightPosterD = {
+    backgroundImage: `url(${highlightPosterImageD.src})`,
+    ...imgStyle,
+    minHeight: '20rem',
     backgroundColor: 'transparent',
     backgroundSize: 'contain',
   }
@@ -127,7 +135,7 @@ export default function Home() {
           benefits={[
             { illustration: benefitPosterAStyle, title: 'Who is this for?', text: 'Engineers can customize. Power users get unlimited responses. Anyone can create.' },
             { illustration: benefitPosterCStyle, title: 'What is it?', text: 'Obrew provides a range of intuitive tools that speeds production of Ai apps.' },
-            { illustration: benefitPosterBStyle, title: 'What can it do?', text: 'Generate text and images (coming soon), deploy agents or serve as a backend for apps.' },
+            { illustration: benefitPosterBStyle, title: 'What can it do?', text: 'Generate text, code and images (coming soon), deploy agents or serve as a backend for apps.' },
           ]}
         />
 
@@ -149,6 +157,7 @@ export default function Home() {
             { illustration: highlightPosterA, title: 'Use cases', text: 'Domain knowledge co-pilots, customer service chatbot, compliance assistants, document extraction, and advanced search.' },
             { illustration: highlightPosterB, title: 'Build workflows with natural language', text: "Obrew gives you the ability to build advanced systems to automate your tasks. It's as easy as writing a todo list." },
             { illustration: highlightPosterC, title: 'Download Ai models', text: 'Easily search from thousands of open-source models, view their features and download to your device.' },
+            { illustration: highlightPosterD, title: 'In-house Ai', text: 'Run on-premise, in air-gapped environments, or on your own self-managed network. Own your system end-to-end.' },
           ]}
         />
 
