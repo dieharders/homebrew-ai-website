@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  padding-top: 14vh !important; /* Override <Section> style */
+  padding-top: 8vh !important; /* Override <Section> style */
   overflow: hidden;
 }
 
