@@ -13,12 +13,19 @@ export const metadata: Metadata = {
   title: 'Obrew - Free & personal Ai for the masses',
   description: 'Run personalized Generative Ai on your device and own your tech stack. No subscriptions or limits. Find out how to speed up Ai production.',
   applicationName: 'Obrew Studio',
+  metadataBase: new URL(`https://www.openbrewai.com`),
+  alternates: {
+    canonical: './',
+  },
   keywords: ['desktop-app', 'ai', 'localai', 'text-generation', 'inference-engine'],
   twitter: { card: 'summary', images: [{ url: cardWide.src }] },
   openGraph: {
     title: 'Obrew - Free & personal Ai for the masses',
     description: 'Run personalized Generative Ai on your device and own your tech stack. No subscriptions or limits. Find out how to speed up Ai production.',
+    url: 'https://www.openbrewai.com',
+    siteName: 'Obrew',
     type: "website",
+    locale: 'en_US',
     images: [
       {
         url: cardWide.src,
