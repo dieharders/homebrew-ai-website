@@ -1,5 +1,6 @@
-const EXTERNAL_DATA_URL = "https://jsonplaceholder.typicode.com/posts";
+import type { MetadataRoute } from "next";
 
+const EXTERNAL_DATA_URL = "https://jsonplaceholder.typicode.com/posts";
 /**
  * Fetch urls from an external source
  */
@@ -26,19 +27,26 @@ function generateDynamicSiteMap(posts: any[]) {
 /**
  * We manually set the two URLs we know already
  */
-function generateStaticSiteMap() {
-  return `<?xml version="1.0" encoding="UTF-8"?>
-   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-     <url>
-       <loc>https://www.openbrewai.com</loc>
-     </url>
-   </urlset>
- `;
+function generateStaticSiteMap(): MetadataRoute.Sitemap {
+  return [
+    {
+      url: "https://www.openbrewai.com",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 1,
+    },
+    {
+      url: "https://ohmenu.openbrewai.com",
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.8,
+    },
+  ];
 }
 
-function SiteMap() {
-  // getServerSideProps will do the heavy lifting
-}
+// function SiteMap(param: any) {
+//   return getServerSideProps(param); // will do the heavy lifting
+// }
 
 /**
  * This page will hit our API to get data that will allow us to know the URLs of our dynamic pages. We will then write an XML file as the response for /sitemap.xml
@@ -61,4 +69,4 @@ export async function getServerSideProps({ res }: any) {
   };
 }
 
-export default SiteMap;
+export default generateStaticSiteMap;
