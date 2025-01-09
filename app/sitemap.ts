@@ -36,6 +36,12 @@ function generateStaticSiteMap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: "https://studio.openbrewai.com",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: "https://ohmenu.openbrewai.com",
       lastModified: new Date(),
       changeFrequency: "yearly",
@@ -43,10 +49,6 @@ function generateStaticSiteMap(): MetadataRoute.Sitemap {
     },
   ];
 }
-
-// function SiteMap(param: any) {
-//   return getServerSideProps(param); // will do the heavy lifting
-// }
 
 /**
  * This page will hit our API to get data that will allow us to know the URLs of our dynamic pages. We will then write an XML file as the response for /sitemap.xml
