@@ -37,7 +37,7 @@ export default function Header(p: {
           <Button className={styles.btn} href="mailto:openbrewai+support@gmail.com" title="Email" onClick={() => { }} size="small" type="custom">
             <Image src={EmailIcon} alt="Email" height="28" />
           </Button>
-          <Button className={styles.btn} href="https://github.com/dieharders/ai-text-server" title="Github" onClick={() => { }} size="small" type="custom">
+          <Button className={styles.btn} href="https://github.com/dieharders/obrew-studio-server" title="Github" onClick={() => { }} size="small" type="custom">
             <Image src={GithubIcon} alt="Github" height="28" />
           </Button>
         </div>

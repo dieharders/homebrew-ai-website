@@ -168,7 +168,7 @@ export default function Home() {
           location="highlight"
           background="accent-alt-2"
           illustration={docsPoster}
-          actionHref="https://github.com/dieharders/ai-text-server"
+          actionHref="https://github.com/dieharders/obrew-studio-server"
         />
 
         <Features
