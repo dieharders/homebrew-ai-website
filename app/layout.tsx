@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   applicationName: 'Obrew Studio',
   metadataBase: new URL(`https://www.openbrewai.com`),
   alternates: {
-    canonical: './',
+    canonical: 'https://www.openbrewai.com',
   },
   keywords: ['desktop-app', 'ai', 'localai', 'text-generation', 'inference-engine'],
   twitter: { card: 'summary', images: [{ url: cardWide.src }] },
