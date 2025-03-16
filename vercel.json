@@ -1,7 +1,7 @@
 {
   "redirects": [
     {
-      "source": "/index",
+      "source": "/index.*",
       "destination": "/",
       "permanent": true
     }
