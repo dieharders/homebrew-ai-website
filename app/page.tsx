@@ -22,7 +22,7 @@ import docsImage from 'public/icons/docs.png';
 import oneclickPosterImage from 'public/cursor.svg';
 
 export default function Home() {
-  const downloadLink = "https://github.com/dieharders/obrew-studio-server/releases/latest/download/ObrewServer.WIN.Setup.exe"
+  const downloadLink = "https://github.com/dieharders/obrew-studio-server/releases/latest/download/Obrew-Studio.WIN.Setup.zip"
   const imgStyle = {
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
