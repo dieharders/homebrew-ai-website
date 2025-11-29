@@ -1,0 +1,318 @@
+/* Hero Section */
+.heroSection {
+  padding-top: calc(var(--page-header-height) + 3rem);
+  padding-bottom: 2rem;
+}
+
+.header {
+  text-align: center;
+  max-width: var(--section-header-max-width);
+  margin: 0 auto;
+}
+
+.title {
+  font-size: var(--h1-font-size);
+  font-weight: var(--h1-font-weight);
+  line-height: var(--h1-line-height);
+  letter-spacing: var(--h1-letter-spacing);
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: var(--subtitle-font-size);
+  color: var(--text-shade);
+  line-height: var(--subtitle-line-height);
+}
+
+/* Downloads Section */
+.downloadsSection {
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+.cardsContainer {
+  display: grid;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 800px) {
+  .cardsContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Card Base Styles */
+.card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.cardBackground {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 160px;
+  height: 160px;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.creature {
+  width: 100%;
+  height: 100%;
+  transform: translate(20%, -10%);
+}
+
+.cardContent {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 400px;
+}
+
+.cardHeader {
+  margin-bottom: 1.5rem;
+}
+
+.iconGroup {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.platformIcon {
+  width: 28px;
+  height: 28px;
+  opacity: 0.9;
+}
+
+.cardTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.5px;
+}
+
+.cardBadge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cardDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.cardFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 auto 0;
+  font-size: 0.95rem;
+}
+
+.cardFeatures li {
+  padding: 0.4rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.cardFeatures li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.cardButton {
+  margin-top: 1.5rem;
+  width: 100%;
+  text-align: center;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  display: block;
+}
+
+.cardButton:hover {
+  transform: translateY(-2px);
+}
+
+/* Windows CPU Theme - Blue with Bear */
+.cardWindows {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border: 2px solid #90caf9;
+  color: #1565c0;
+}
+
+.cardWindows .cardBackground {
+  color: #1976d2;
+}
+
+.cardWindows .cardBadge {
+  background: #1976d2;
+  color: white;
+}
+
+.cardWindows .cardFeatures li::before {
+  color: #1976d2;
+}
+
+.cardWindows .cardButton {
+  background: #1976d2;
+  color: white;
+  box-shadow: 0 4px 14px rgba(25, 118, 210, 0.4);
+}
+
+.cardWindows .cardButton:hover {
+  background: #1565c0;
+  box-shadow: 0 6px 20px rgba(25, 118, 210, 0.5);
+}
+
+/* Windows GPU Theme - Green with Dragon */
+.cardGpu {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  border: 2px solid #81c784;
+  color: #2e7d32;
+}
+
+.cardGpu .cardBackground {
+  color: #388e3c;
+}
+
+.cardGpu .cardBadge {
+  background: linear-gradient(135deg, #43a047 0%, #76b900 100%);
+  color: white;
+}
+
+.cardGpu .cardFeatures li::before {
+  color: #388e3c;
+}
+
+.cardGpu .cardButton {
+  background: linear-gradient(135deg, #43a047 0%, #76b900 100%);
+  color: white;
+  box-shadow: 0 4px 14px rgba(67, 160, 71, 0.4);
+}
+
+.cardGpu .cardButton:hover {
+  background: linear-gradient(135deg, #388e3c 0%, #689f00 100%);
+  box-shadow: 0 6px 20px rgba(67, 160, 71, 0.5);
+}
+
+/* MacOS Theme - Purple with Phoenix */
+.cardMac {
+  background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+  border: 2px solid #ce93d8;
+  color: #7b1fa2;
+}
+
+.cardMac .cardBackground {
+  color: #9c27b0;
+}
+
+.cardMac .cardBadge {
+  background: linear-gradient(135deg, #9c27b0 0%, #e91e63 100%);
+  color: white;
+}
+
+.cardMac .cardFeatures li::before {
+  color: #9c27b0;
+}
+
+.cardMac .cardButton {
+  background: linear-gradient(135deg, #9c27b0 0%, #e91e63 100%);
+  color: white;
+  box-shadow: 0 4px 14px rgba(156, 39, 176, 0.4);
+}
+
+.cardMac .cardButton:hover {
+  background: linear-gradient(135deg, #7b1fa2 0%, #c2185b 100%);
+  box-shadow: 0 6px 20px rgba(156, 39, 176, 0.5);
+}
+
+/* System Requirements */
+.systemReqs {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background: var(--background-alternate);
+  border-radius: 12px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.systemReqs h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.systemReqs p {
+  font-size: 0.95rem;
+  color: var(--text-shade);
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 799px) {
+  .cardsContainer {
+    max-width: 450px;
+  }
+
+  .cardContent {
+    min-height: auto;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .heroSection {
+    padding-top: calc(var(--page-header-height) + 2rem);
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .cardContent {
+    padding: 1.5rem;
+  }
+
+  .cardBackground {
+    width: 120px;
+    height: 120px;
+  }
+}

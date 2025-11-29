@@ -6,6 +6,7 @@ import Image from 'next/image';
 import EmailIcon from 'public/icon-email.svg';
 import YTIcon from 'public/icon-youtube.svg';
 import GithubIcon from 'public/icon-github.svg';
+import ObrewLogo from 'public/badge.png';
 import { cx } from '@/utils/common';
 
 export default function Header(p: {
@@ -20,13 +21,14 @@ export default function Header(p: {
       <div className={styles.content}>
         <div className={styles.titleGroup} title={p.title}>
           {p.title && <div className={styles.title}>{p.title}</div>}
+          <Image src={ObrewLogo} alt="OpenBrew.AI" height={28} className={styles.logo} />
           <a
             className={styles.titleLink}
-            href="https://studio.openbrewai.com"
-            title="Download Obrew Studio"
-            target="_blank"
+            href="https://openbrew.ai"
+            title="OpenBrew.AI"
+            target="_self"
           >
-            Obrew Studio
+            OpenBrew.AI
           </a>
           <span className={styles.descr}>| Free & Open Source</span>
         </div>

@@ -37,6 +37,10 @@
   font-weight: 600;
 }
 
+.logo {
+  flex-shrink: 0;
+}
+
 .titleLink {
   color: var(--text);
   font-weight: bold;
