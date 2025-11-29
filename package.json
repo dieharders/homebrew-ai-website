@@ -2,6 +2,9 @@
   "name": "openbrewai-website",
   "version": "0.2.4",
   "private": false,
+  "engines": {
+    "node": ">=22.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
