@@ -1,17 +1,14 @@
 import styles from './page.module.css';
 import Header from '@/blocks/Header';
-import Footer from '@/blocks/Footer';
 import Section from '@/components/Section';
 import Button from '@/components/Button';
-import { lilita_one } from 'fonts/fonts';
 import { cx } from '@/utils/common';
-import data from '@/global/global.json';
 
 // Download links
 const DOWNLOADS = {
-  windowsCpu: "https://github.com/dieharders/obrew-studio-server/releases/latest/download/Obrew-Studio.WIN.Setup.zip",
+  windowsCpu: "https://github.com/dieharders/obrew-studio-server/releases/latest/download/Obrew-Studio.WIN.CPU.Setup.zip",
   windowsGpu: "https://github.com/dieharders/obrew-studio-server/releases/latest/download/Obrew-Studio.WIN.CUDA.Setup.zip",
-  macos: "https://github.com/dieharders/obrew-studio-server/releases/latest/download/Obrew-Studio.MAC.Setup.zip",
+  macos: "https://github.com/dieharders/obrew-studio-server/releases/latest/download/Obrew-Studio.macOS.Setup.zip",
 };
 
 // Bear creature for Windows CPU (reliable, sturdy)
