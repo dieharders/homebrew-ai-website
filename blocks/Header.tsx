@@ -24,7 +24,7 @@ export default function Header(p: {
           <Image src={ObrewLogo} alt="OpenBrew.AI" height={28} className={styles.logo} />
           <a
             className={styles.titleLink}
-            href="https://openbrew.ai"
+            href="https://www.openbrew.ai"
             title="OpenBrew.AI"
             target="_self"
           >
