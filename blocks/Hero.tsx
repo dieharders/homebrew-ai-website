@@ -44,7 +44,7 @@ export default function Hero(p: {
               type="primary"
               location="highlight"
             >
-              <Image src={ClapLogo} alt="clap" width="32" height="32" />&nbsp;Download for Windows
+              <Image src={ClapLogo} alt="clap" width="32" height="32" />&nbsp;Download Now
             </Button>
           </div>
         </div>
