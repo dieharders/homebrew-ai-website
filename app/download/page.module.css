@@ -154,7 +154,11 @@
   cursor: pointer;
   transition: all 0.2s ease;
   border: none;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  min-height: 48px;
 }
 
 .cardButton:hover {
