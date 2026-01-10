@@ -4,7 +4,9 @@
   gap: 0.5rem;
   font-weight: 600;
   font-size: 0.95rem;
-  transition: gap var(--transition-smooth), color var(--transition-smooth);
+  transition:
+    gap var(--transition-smooth),
+    color var(--transition-smooth);
 }
 
 .link:hover {
@@ -16,7 +18,7 @@
 }
 
 .default:hover {
-  color: var(--accent-btn);
+  color: #1f2937;
 }
 
 .light {

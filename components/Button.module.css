@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   transition: var(--transition-fast);
-  transition-property: transform, box-shadow, background;
+  transition-property: transform, box-shadow, background, color, border-color;
   top: 0;
   border: none;
   cursor: pointer;
@@ -57,6 +57,7 @@
 
 .container-type-primary.container-location-body:hover {
   transform: translateY(-2px);
+  color: var(--accent-gold-line);
   background: var(--button-hover);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
