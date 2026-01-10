@@ -104,6 +104,10 @@
   margin: 0 0 var(--space-4) 0;
 }
 
+.sidebarButton {
+  width: 100%;
+}
+
 /* Responsive */
 @media screen and (min-width: 900px) {
   .sidebar {

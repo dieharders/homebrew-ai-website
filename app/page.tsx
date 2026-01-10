@@ -197,7 +197,7 @@ export default function Home() {
           secondaryCTA={{ text: 'Watch Demo', href: '#demo' }}
           videoSrc="/openbrew.mp4"
           stats={[
-            { value: '50-150ms', label: 'Response Time' },
+            { value: '24/7', label: 'Up Time' },
             { value: '100%', label: 'On-Device' },
             { value: 'ZERO', label: 'Data Leakage' },
           ]}

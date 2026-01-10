@@ -254,7 +254,7 @@
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
-  max-width: 700px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   position: relative;

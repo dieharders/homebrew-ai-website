@@ -136,8 +136,9 @@ export default function UseCases({
               <Button
                 href={sidebarCTA.buttonHref}
                 type="primary"
-                size="normal"
+                size="large"
                 location="body"
+                className={styles.sidebarButton}
               >
                 {sidebarCTA.buttonText}
               </Button>

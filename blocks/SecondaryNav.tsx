@@ -5,6 +5,8 @@ import { usePathname } from 'next/navigation';
 import styles from './SecondaryNav.module.css';
 import { cx } from '@/utils/common';
 import Button from '@/components/Button';
+import Image from 'next/image';
+import ObrewLogo from 'public/badge.png';
 
 export interface NavItem {
   label: string;
@@ -31,12 +33,18 @@ export default function SecondaryNav({
     <nav className={cx(styles.container, className)}>
       <div className={styles.content}>
         <div className={styles.brand}>
+          {/* FileBuff */}
           <span className={styles.brandIcon}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
               <path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"/>
             </svg>
           </span>
           <span className={styles.brandName}>FileBuff</span>
+          {/* OpenBrew */}
+          <Image src={ObrewLogo} alt="OpenBrew" height={28} className={styles.logo} />
+          <span className={styles.brandName}>
+            OpenBrew
+          </span>
         </div>
         <ul className={styles.navList}>
           {items.map((item) => {

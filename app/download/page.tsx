@@ -57,9 +57,9 @@ export default function DownloadPage() {
         <Section background="dark" className={styles.downloadsSection}>
           {/* Hero Header */}
           <div className={styles.heroHeader}>
-            <h1 className={styles.pageTitle}>Download Obrew</h1>
+            <h1 className={styles.pageTitle}>DOWNLOAD OPENBREW</h1>
             <p className={styles.pageSubtitle}>
-              Choose your platform and start using AI locally. Free forever.
+              Choose your platform and start using AI locally
             </p>
           </div>
 
@@ -156,7 +156,7 @@ export default function DownloadPage() {
 
           {/* System Requirements */}
           <div className={styles.systemReqs}>
-            <h3>System Requirements</h3>
+            <h3>SYSTEM REQUIREMENTS</h3>
             <p>
               4GB RAM minimum &nbsp;•&nbsp; 16GB RAM recommended &nbsp;•&nbsp; 50GB free disk space &nbsp;•&nbsp; 64-bit OS
             </p>
