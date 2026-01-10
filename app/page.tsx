@@ -230,7 +230,7 @@ export default function Home() {
           sidebarCTA={{
             title: "Ready to try?",
             description:
-              "Download FileBuff and start exploring your documents with AI.",
+              "Download FileBuff and explore your documents with AI.",
             buttonText: "Download Now",
             buttonHref: downloadLink,
           }}
