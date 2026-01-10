@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './Button.module.css';
 import { cx } from '../utils/common';
 
@@ -28,11 +29,23 @@ export default function Button(p: {
   );
 
   if (p.href) {
+    // Use Next.js Link for internal navigation (faster client-side routing)
+    const isInternal = p.href.startsWith('/') || p.href.startsWith('#');
+
+    if (isInternal && !p.target) {
+      return (
+        <Link className={className} href={p.href} title={p.title || ""} onClick={p.onClick}>
+          {p.children}
+        </Link>
+      );
+    }
+
+    // Use regular anchor for external links or when target is specified
     return (
       <a className={className} href={p.href} target={p.target} rel={p.rel} title={p.title || ""} onClick={p.onClick}>
         {p.children}
       </a>
-    )
+    );
   }
 
   return (
