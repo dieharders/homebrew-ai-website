@@ -64,11 +64,11 @@ export default function AccordionCard({
       </button>
       <div ref={contentRef} className={styles.content}>
         <div className={styles.contentInner}>
-          {videoSrc && (
+          {videoSrc && expanded && (
             <div className={styles.video}>
               <VideoPlayer
                 src={videoSrc}
-                autoPlay={expanded}
+                autoPlay
                 loop
                 muted
                 controls={false}
