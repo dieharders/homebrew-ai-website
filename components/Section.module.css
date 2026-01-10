@@ -40,12 +40,20 @@
 }
 
 .container-background-accent-alt-1 {
-  background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent-normal) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--accent-light) 0%,
+    var(--accent-normal) 100%
+  );
   color: var(--section-accent-text-color);
 }
 
 .container-background-accent-alt-2 {
-  background: linear-gradient(135deg, var(--background-alternate) 0%, #e9ecef 100%);
+  background: linear-gradient(
+    135deg,
+    var(--background-alternate) 0%,
+    #e9ecef 100%
+  );
   color: var(--section-accent-text-color);
 }
 
@@ -55,7 +63,11 @@
 }
 
 .container-background-dark-navy {
-  background: linear-gradient(160deg, var(--background-dark) 0%, var(--background-dark-alt) 100%);
+  background: linear-gradient(
+    160deg,
+    var(--background-dark) 0%,
+    var(--background-dark-alt) 100%
+  );
   color: var(--text-accent);
 }
 
@@ -87,11 +99,15 @@
 }
 
 .pattern-geometric {
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffd43b' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffd43b' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 .pattern-dots {
-  background-image: radial-gradient(circle, var(--accent-normal) 1px, transparent 1px);
+  background-image: radial-gradient(
+    circle,
+    var(--accent-normal) 1px,
+    transparent 1px
+  );
   background-size: 32px 32px;
   opacity: 0.12;
 }
@@ -112,14 +128,19 @@
 .accent-line-bottom::after,
 .accent-line-both::before,
 .accent-line-both::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   width: 80%;
   max-width: 500px;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--accent-gold-line), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--accent-gold-line),
+    transparent
+  );
   z-index: 2;
 }
 

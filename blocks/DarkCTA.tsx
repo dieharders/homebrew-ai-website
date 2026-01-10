@@ -1,7 +1,7 @@
-import styles from './DarkCTA.module.css';
-import { cx } from '@/utils/common';
-import Section from '@/components/Section';
-import Button from '@/components/Button';
+import styles from "./DarkCTA.module.css";
+import { cx } from "@/utils/common";
+import Section from "@/components/Section";
+import Button from "@/components/Button";
 
 interface DarkCTAProps {
   id?: string;
@@ -28,7 +28,7 @@ export default function DarkCTA({
       background="dark-navy"
       size="wide"
       pattern="geometric"
-      accentLine="top"
+      accentLine="none"
       className={cx(styles.section, className)}
     >
       <div className={styles.container}>
