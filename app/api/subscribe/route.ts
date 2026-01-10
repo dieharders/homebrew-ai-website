@@ -1,9 +1,9 @@
-import type { NextRequest, NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 import { redirect } from "next/navigation";
 
 const { MAILCHIMP_DC, MAILCHIMP_LIST_ID, MAILCHIMP_API_KEY } = process.env;
 
-export async function GET(req: NextRequest, res: NextResponse) {
+export async function GET(req: NextRequest) {
   const searchParams = req.nextUrl.searchParams;
   const emailParam = searchParams.get("email");
   let errMsg;
