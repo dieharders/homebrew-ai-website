@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import styles from './VideoPlayer.module.css';
 import { cx } from '../utils/common';
 
@@ -14,6 +14,7 @@ interface VideoPlayerProps {
   className?: string;
   aspectRatio?: '16/9' | '4/3' | '1/1' | 'auto';
   rounded?: boolean;
+  lazy?: boolean;
 }
 
 export default function VideoPlayer({
@@ -26,10 +27,34 @@ export default function VideoPlayer({
   className,
   aspectRatio = '16/9',
   rounded = true,
+  lazy = false,
 }: VideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = useState(autoPlay);
   const [showControls, setShowControls] = useState(false);
+  const [isVisible, setIsVisible] = useState(!lazy);
+
+  // Lazy loading with Intersection Observer
+  useEffect(() => {
+    if (!lazy || isVisible) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '100px' }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [lazy, isVisible]);
 
   const togglePlay = () => {
     if (videoRef.current) {
@@ -44,6 +69,7 @@ export default function VideoPlayer({
 
   return (
     <div
+      ref={containerRef}
       className={cx(
         styles.container,
         rounded && styles.rounded,
@@ -53,19 +79,22 @@ export default function VideoPlayer({
       onMouseEnter={() => setShowControls(true)}
       onMouseLeave={() => setShowControls(false)}
     >
-      <video
-        ref={videoRef}
-        className={cx(styles.video, aspectRatio === 'auto' && styles.videoAuto)}
-        src={src}
-        poster={poster}
-        autoPlay={autoPlay}
-        loop={loop}
-        muted={muted}
-        controls={controls}
-        playsInline
-        onPlay={() => setIsPlaying(true)}
-        onPause={() => setIsPlaying(false)}
-      />
+      {isVisible && (
+        <video
+          ref={videoRef}
+          className={cx(styles.video, aspectRatio === 'auto' && styles.videoAuto)}
+          src={src}
+          poster={poster}
+          autoPlay={autoPlay}
+          loop={loop}
+          muted={muted}
+          controls={controls}
+          playsInline
+          preload={autoPlay ? 'auto' : 'metadata'}
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
+        />
+      )}
       {!controls && (
         <div
           className={cx(styles.overlay, showControls && styles.overlayVisible)}

@@ -54,6 +54,7 @@ export default function Highlights(p: {
                       loop
                       muted
                       aspectRatio="16/9"
+                      lazy
                     />
                   </div>
                 ) : item.illustration ? (
