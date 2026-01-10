@@ -4,7 +4,9 @@
   width: 100%;
   top: 0;
   z-index: 100;
-  transition: box-shadow var(--transition-smooth), background var(--transition-smooth);
+  transition:
+    box-shadow var(--transition-smooth),
+    background var(--transition-smooth);
 }
 
 .scrolled {
@@ -33,7 +35,7 @@
 .brand {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
   font-weight: 700;
   font-size: 1.1rem;
   color: var(--text);
@@ -83,7 +85,9 @@
   font-weight: 500;
   color: var(--text-shade);
   border-radius: 6px;
-  transition: color var(--transition-smooth), background var(--transition-smooth);
+  transition:
+    color var(--transition-smooth),
+    background var(--transition-smooth);
 }
 
 .navLink:hover {

@@ -67,79 +67,81 @@ export default function HeroBento({
             )}
           </div>
 
-          {/* Feature card - File Search */}
-          <BentoCard
-            variant="light"
-            size="medium"
-            className={styles.featureCard}
-            illustration={
-              <div className={styles.featureIcon}>
-                <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <circle cx="11" cy="11" r="8" />
-                  <path d="M21 21l-4.35-4.35" />
-                </svg>
-              </div>
-            }
-            title="File Search & Synthesis"
-            description="Find anything instantly with AI-powered semantic search across all your documents."
-            link={{ text: "Learn more", href: "#features" }}
-          />
+          <div className={styles.cardGroup}>
+            {/* Feature card - File Search */}
+            <BentoCard
+              variant="light"
+              size="medium"
+              className={styles.featureCard}
+              illustration={
+                <div className={styles.featureIcon}>
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="M21 21l-4.35-4.35" />
+                  </svg>
+                </div>
+              }
+              title="File Search & Synthesis"
+              description="Find anything instantly with AI-powered semantic search across all your documents."
+              link={{ text: "Learn more", href: "#features" }}
+            />
 
-          {/* CTA card - Enterprise */}
-          <BentoCard
-            variant="light"
-            size="medium"
-            className={styles.darkCard}
-            illustration={
-              <div className={styles.darkCardIcon}>
-                <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                </svg>
-              </div>
-            }
-            title="100% On-Device"
-            description="Zero data leakage. Your files never leave your machine. Enterprise-grade security built in."
-            link={{ text: "Security details", href: "#security" }}
-          />
+            {/* CTA card - Enterprise */}
+            <BentoCard
+              variant="light"
+              size="medium"
+              className={styles.darkCard}
+              illustration={
+                <div className={styles.darkCardIcon}>
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                  </svg>
+                </div>
+              }
+              title="100% On-Device"
+              description="Zero data leakage. Your files never leave your machine. Enterprise-grade security built in."
+              link={{ text: "Security details", href: "#security" }}
+            />
 
-          {/* Performance card */}
-          <BentoCard
-            variant="light"
-            size="medium"
-            className={styles.performanceCard}
-            illustration={
-              <div className={styles.performanceIcon}>
-                <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-                </svg>
-              </div>
-            }
-            title="Lightning Fast"
-            description="Instant responses powered by local AI models. No network latency, no waiting."
-            link={{ text: "See benchmarks", href: "#performance" }}
-          />
+            {/* Performance card */}
+            <BentoCard
+              variant="light"
+              size="medium"
+              className={styles.performanceCard}
+              illustration={
+                <div className={styles.performanceIcon}>
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                  </svg>
+                </div>
+              }
+              title="Lightning Fast"
+              description="Instant responses powered by local AI models. No network latency, no waiting."
+              link={{ text: "See benchmarks", href: "#performance" }}
+            />
+          </div>
         </div>
       </div>
     </section>

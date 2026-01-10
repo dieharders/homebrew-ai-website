@@ -2,7 +2,6 @@
   position: relative;
   border-radius: var(--bento-card-radius);
   padding: 1.5rem;
-  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   transition:

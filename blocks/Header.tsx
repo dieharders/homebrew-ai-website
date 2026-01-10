@@ -17,7 +17,7 @@ export interface NavItem {
 
 const defaultNavItems: NavItem[] = [
   { label: "Features", href: "/#features" },
-  { label: "Use Cases", href: "/#use-cases" },
+  { label: "Sponsor", href: "/sponsor" },
   {
     label: "Docs",
     rel: "noopener noreferrer",
@@ -61,48 +61,47 @@ export default function Header(p: {
         <div className={styles.navContent}>
           <div className={styles.brand}>
             {/* FileBuff */}
-            <span
-              style={{
-                position: "relative",
-                display: "inline-block",
-              }}
+            <Link
+              href="https://filebuff.openbrew.ai"
+              style={{ display: "flex", alignItems: "center" }}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <span
                 style={{
-                  position: "absolute",
-                  top: "-8px",
-                  left: "100%",
-                  transform: "translateX(-50%)",
-                  fontSize: "1.15rem",
-                  pointerEvents: "none",
-                  filter: "drop-shadow(0 1px 1px rgba(192, 12, 237, 0.92))",
+                  position: "relative",
+                  display: "inline-block",
                 }}
               >
-                ✨
-              </span>
-              <span
-                className={styles.brandIcon}
-                title="FileBuff"
-                style={{ fontSize: "1rem" }}
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
+                <span
+                  className={styles.brandIcon}
+                  title="FileBuff"
+                  style={{ fontSize: "1rem" }}
                 >
-                  <path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z" />
-                </svg>
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z" />
+                  </svg>
+                </span>
               </span>
-            </span>
+            </Link>
             {/* OpenBrew */}
-            <Image
-              src={ObrewLogo}
-              alt="OpenBrew"
-              height={28}
-              title="OpenBrew"
-              className={styles.logo}
-            />
+            <Link
+              href="https://www.openbrew.ai"
+              style={{ display: "flex", alignItems: "center" }}
+            >
+              <Image
+                src={ObrewLogo}
+                alt="OpenBrew"
+                height={28}
+                title="OpenBrew"
+                className={styles.logo}
+              />
+            </Link>
           </div>
           <ul className={styles.navList}>
             {navItems.map((item) => {
