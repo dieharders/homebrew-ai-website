@@ -11,101 +11,6 @@ const DOWNLOADS = {
   macos: "https://github.com/dieharders/obrew-studio-server/releases/latest/download/Obrew-Studio.macOS.Setup.zip",
 };
 
-// Bear creature for Windows CPU (reliable, sturdy)
-function BearCreature() {
-  return (
-    <svg className={styles.creature} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Ears */}
-      <circle cx="25" cy="25" r="12" fill="currentColor" opacity="0.8" />
-      <circle cx="75" cy="25" r="12" fill="currentColor" opacity="0.8" />
-      <circle cx="25" cy="25" r="6" fill="currentColor" opacity="0.4" />
-      <circle cx="75" cy="25" r="6" fill="currentColor" opacity="0.4" />
-      {/* Head */}
-      <circle cx="50" cy="50" r="35" fill="currentColor" opacity="0.9" />
-      {/* Snout */}
-      <ellipse cx="50" cy="62" rx="14" ry="10" fill="currentColor" opacity="0.5" />
-      {/* Eyes */}
-      <circle cx="38" cy="45" r="5" fill="white" opacity="0.9" />
-      <circle cx="62" cy="45" r="5" fill="white" opacity="0.9" />
-      <circle cx="39" cy="46" r="2.5" fill="#222" />
-      <circle cx="63" cy="46" r="2.5" fill="#222" />
-      {/* Nose */}
-      <ellipse cx="50" cy="58" rx="5" ry="3.5" fill="#222" />
-      {/* Mouth */}
-      <path d="M 45 65 Q 50 70 55 65" stroke="#222" strokeWidth="2" fill="none" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-// Dragon creature for Windows GPU (powerful, gaming)
-function DragonCreature() {
-  return (
-    <svg className={styles.creature} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Horns */}
-      <path d="M 25 35 L 15 10 L 30 30" fill="currentColor" opacity="0.7" />
-      <path d="M 75 35 L 85 10 L 70 30" fill="currentColor" opacity="0.7" />
-      {/* Spikes */}
-      <path d="M 35 20 L 40 5 L 45 20" fill="currentColor" opacity="0.5" />
-      <path d="M 55 20 L 60 5 L 65 20" fill="currentColor" opacity="0.5" />
-      {/* Head */}
-      <ellipse cx="50" cy="50" rx="32" ry="28" fill="currentColor" opacity="0.9" />
-      {/* Snout */}
-      <ellipse cx="50" cy="68" rx="18" ry="12" fill="currentColor" opacity="0.7" />
-      {/* Eyes */}
-      <ellipse cx="35" cy="42" rx="7" ry="5" fill="#111" />
-      <ellipse cx="65" cy="42" rx="7" ry="5" fill="#111" />
-      <ellipse cx="37" cy="42" rx="3" ry="2" fill="#ff6b00" />
-      <ellipse cx="67" cy="42" rx="3" ry="2" fill="#ff6b00" />
-      {/* Nostrils */}
-      <circle cx="43" cy="65" r="3" fill="#111" opacity="0.6" />
-      <circle cx="57" cy="65" r="3" fill="#111" opacity="0.6" />
-      {/* Smoke from nostrils */}
-      <circle cx="40" cy="58" r="2" fill="white" opacity="0.3" />
-      <circle cx="60" cy="58" r="2" fill="white" opacity="0.3" />
-      {/* Scales pattern */}
-      <path d="M 30 55 Q 35 52 40 55" stroke="currentColor" strokeWidth="1.5" fill="none" opacity="0.4" />
-      <path d="M 60 55 Q 65 52 70 55" stroke="currentColor" strokeWidth="1.5" fill="none" opacity="0.4" />
-    </svg>
-  );
-}
-
-// Phoenix creature for MacOS (elegant, premium)
-function PhoenixCreature() {
-  return (
-    <svg className={styles.creature} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Crown feathers */}
-      <path d="M 50 25 L 50 5 L 55 22" fill="currentColor" opacity="0.8" />
-      <path d="M 40 28 L 35 10 L 45 25" fill="currentColor" opacity="0.6" />
-      <path d="M 60 28 L 65 10 L 55 25" fill="currentColor" opacity="0.6" />
-      <path d="M 32 35 L 22 20 L 38 32" fill="currentColor" opacity="0.4" />
-      <path d="M 68 35 L 78 20 L 62 32" fill="currentColor" opacity="0.4" />
-      {/* Head */}
-      <ellipse cx="50" cy="50" rx="28" ry="25" fill="currentColor" opacity="0.9" />
-      {/* Beak */}
-      <path d="M 50 55 L 42 68 L 50 75 L 58 68 Z" fill="#ff9500" opacity="0.9" />
-      <path d="M 50 55 L 50 75" stroke="#cc7000" strokeWidth="1" />
-      {/* Eyes */}
-      <ellipse cx="38" cy="45" rx="6" ry="7" fill="white" opacity="0.95" />
-      <ellipse cx="62" cy="45" rx="6" ry="7" fill="white" opacity="0.95" />
-      <circle cx="39" cy="46" r="3.5" fill="#111" />
-      <circle cx="63" cy="46" r="3.5" fill="#111" />
-      <circle cx="40" cy="45" r="1.5" fill="white" />
-      <circle cx="64" cy="45" r="1.5" fill="white" />
-      {/* Wing hints */}
-      <path d="M 15 60 Q 25 50 30 55" stroke="currentColor" strokeWidth="3" fill="none" opacity="0.5" />
-      <path d="M 85 60 Q 75 50 70 55" stroke="currentColor" strokeWidth="3" fill="none" opacity="0.5" />
-      {/* Flame glow */}
-      <circle cx="50" cy="50" r="30" fill="url(#phoenixGlow)" opacity="0.2" />
-      <defs>
-        <radialGradient id="phoenixGlow">
-          <stop offset="0%" stopColor="white" />
-          <stop offset="100%" stopColor="transparent" />
-        </radialGradient>
-      </defs>
-    </svg>
-  );
-}
-
 // Platform icons
 function WindowsIcon() {
   return (
@@ -149,13 +54,18 @@ export default function DownloadPage() {
     <div>
       <Header id="top" title="" />
       <main>
-        <Section background="normal" className={styles.downloadsSection}>
+        <Section background="dark" className={styles.downloadsSection}>
+          {/* Hero Header */}
+          <div className={styles.heroHeader}>
+            <h1 className={styles.pageTitle}>Download Obrew</h1>
+            <p className={styles.pageSubtitle}>
+              Choose your platform and start using AI locally. Free forever.
+            </p>
+          </div>
+
           <div className={styles.cardsContainer}>
             {/* Windows CPU Card */}
             <div className={cx(styles.card, styles.cardWindows)}>
-              {/* <div className={styles.cardBackground}>
-                <BearCreature />
-              </div> */}
               <div className={styles.cardContent}>
                 <div className={styles.cardHeader}>
                   <div className={styles.iconGroup}>
@@ -166,10 +76,10 @@ export default function DownloadPage() {
                   <span className={styles.cardBadge}>CPU</span>
                 </div>
                 <p className={styles.cardDescription}>
-                  No dedicated GPU required. Runs on any Windows PC or Laptop.
+                  No dedicated GPU required. Runs on any Windows PC or laptop.
                 </p>
                 <ul className={styles.cardFeatures}>
-                  <li>Works on Windows 10/11</li>
+                  <li>Windows 10 / 11</li>
                   <li>No GPU required</li>
                   <li>Lower VRAM usage</li>
                 </ul>
@@ -186,9 +96,6 @@ export default function DownloadPage() {
 
             {/* Windows GPU Card */}
             <div className={cx(styles.card, styles.cardGpu)}>
-              {/* <div className={styles.cardBackground}>
-                <DragonCreature />
-              </div> */}
               <div className={styles.cardContent}>
                 <div className={styles.cardHeader}>
                   <div className={styles.iconGroup}>
@@ -199,11 +106,11 @@ export default function DownloadPage() {
                   <span className={styles.cardBadge}>NVIDIA GPU</span>
                 </div>
                 <p className={styles.cardDescription}>
-                  Accelerate AI with your NVIDIA graphics card enabling faster processing.
+                  Accelerate AI with your NVIDIA graphics card for faster inference.
                 </p>
                 <ul className={styles.cardFeatures}>
                   <li>NVIDIA RTX recommended</li>
-                  <li>GPU Acceleration</li>
+                  <li>CUDA acceleration</li>
                   <li>10x faster than CPU</li>
                 </ul>
                 <Button
@@ -219,19 +126,16 @@ export default function DownloadPage() {
 
             {/* MacOS Card */}
             <div className={cx(styles.card, styles.cardMac)}>
-              {/* <div className={styles.cardBackground}>
-                <PhoenixCreature />
-              </div> */}
               <div className={styles.cardContent}>
                 <div className={styles.cardHeader}>
                   <div className={styles.iconGroup}>
                     <AppleIcon />
                   </div>
-                  <h2 className={styles.cardTitle}>MacOS</h2>
-                  <span className={styles.cardBadge}>Metal • Universal</span>
+                  <h2 className={styles.cardTitle}>macOS</h2>
+                  <span className={styles.cardBadge}>Universal</span>
                 </div>
                 <p className={styles.cardDescription}>
-                  Native Apple Silicon support with Metal acceleration. Works on all Macs.
+                  Native Apple Silicon support with Metal acceleration. Works on Intel too.
                 </p>
                 <ul className={styles.cardFeatures}>
                   <li>Apple M1+ optimized</li>
@@ -250,12 +154,12 @@ export default function DownloadPage() {
             </div>
           </div>
 
+          {/* System Requirements */}
           <div className={styles.systemReqs}>
-            <h3>Download Obrew</h3>
-            <p className={styles.subtitle}>Choose your Operating System and get started.</p>
-            <br />
             <h3>System Requirements</h3>
-            <p>4GB RAM minimum<br />16GB RAM recommended<br />50GB free disk space<br />64-bit OS</p>
+            <p>
+              4GB RAM minimum &nbsp;•&nbsp; 16GB RAM recommended &nbsp;•&nbsp; 50GB free disk space &nbsp;•&nbsp; 64-bit OS
+            </p>
           </div>
         </Section>
       </main>

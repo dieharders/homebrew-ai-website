@@ -1,8 +1,9 @@
 import styles from './Features.module.css';
-import Section from '@/components/Section';
+import Section, { T_Background, T_Pattern } from '@/components/Section';
 import { lilita_one } from 'fonts/fonts';
 import { cx } from '../utils/common';
 import Image from 'next/image';
+import ExploreLink from '@/components/ExploreLink';
 
 export default function Features(p: {
   id?: string,
@@ -13,9 +14,12 @@ export default function Features(p: {
     title: string,
     text: string,
     illustration?: any,
-    icon?: string
+    icon?: string,
+    link?: { text: string; href: string },
   }[],
-  background?: 'normal' | 'alternate',
+  background?: T_Background,
+  pattern?: T_Pattern,
+  accentLine?: 'top' | 'bottom' | 'both' | 'none',
 }) {
   const className = cx(
     styles.container,
@@ -27,8 +31,11 @@ export default function Features(p: {
       id={p.id}
       className={className}
       background={p.background}
+      pattern={p.pattern}
+      accentLine={p.accentLine}
     >
       <div className={styles.header}>
+        <div className={styles.accentLine} />
         <h2 className={cx(lilita_one.className, styles.title)}>{p.title}</h2>
         <p className={styles.subtitle}>{p.subtitle}</p>
       </div>
@@ -42,6 +49,11 @@ export default function Features(p: {
               <div className={styles['feature-content']}>
                 <h3 className={styles['feature-title']}>{item.title}</h3>
                 <p className={styles['feature-text']}>{item.text}</p>
+                {item?.link && (
+                  <ExploreLink href={item.link.href} className={styles['feature-link']}>
+                    {item.link.text}
+                  </ExploreLink>
+                )}
               </div>
             </li>
           );

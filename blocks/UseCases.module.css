@@ -1,0 +1,112 @@
+.header {
+  text-align: left;
+  margin-bottom: var(--space-6);
+}
+
+.accentLine {
+  width: 60px;
+  height: 3px;
+  background: var(--accent-gold-line);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-5);
+}
+
+.title {
+  font-family: var(--font-lilita-one), sans-serif;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin: 0 0 var(--space-3) 0;
+  color: var(--text);
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  color: var(--text-shade);
+  margin: 0 0 var(--space-5) 0;
+  max-width: 550px;
+  line-height: 1.6;
+}
+
+.pills {
+  margin-bottom: 0;
+}
+
+.tabs {
+  margin-bottom: var(--space-6);
+}
+
+.content {
+  display: flex;
+  gap: var(--space-6);
+  align-items: flex-start;
+}
+
+.useCasesList {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.empty {
+  padding: var(--space-6);
+  text-align: center;
+  color: var(--text-shade);
+  background: var(--background);
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--section-separator-color);
+}
+
+/* Sidebar */
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  display: none;
+}
+
+.sidebarCard {
+  background: var(--background);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--section-separator-color);
+  padding: var(--space-5);
+  position: sticky;
+  top: calc(var(--page-header-height) + var(--space-8));
+  box-shadow: var(--shadow-sm);
+}
+
+.sidebarIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent-normal) 100%);
+  color: var(--accent-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+  box-shadow: 0 2px 8px var(--accent-gold-glow);
+}
+
+.sidebarTitle {
+  font-family: var(--font-lilita-one), sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin: 0 0 var(--space-2) 0;
+  color: var(--text);
+  letter-spacing: 0.3px;
+}
+
+.sidebarDescription {
+  font-size: 0.9rem;
+  color: var(--text-shade);
+  line-height: 1.6;
+  margin: 0 0 var(--space-4) 0;
+}
+
+/* Responsive */
+@media screen and (min-width: 900px) {
+  .sidebar {
+    display: block;
+  }
+}

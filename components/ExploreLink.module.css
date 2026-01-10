@@ -1,0 +1,36 @@
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: gap var(--transition-smooth), color var(--transition-smooth);
+}
+
+.link:hover {
+  gap: 0.75rem;
+}
+
+.default {
+  color: var(--accent-dark);
+}
+
+.default:hover {
+  color: var(--accent-btn);
+}
+
+.light {
+  color: var(--text-accent);
+}
+
+.light:hover {
+  color: var(--accent-normal);
+}
+
+.arrow {
+  transition: transform var(--transition-smooth);
+}
+
+.link:hover .arrow {
+  transform: translateX(2px);
+}
