@@ -21,5 +21,6 @@ export const comic_shanns = localFont({
       weight: "400",
     },
   ],
+  display: "swap",
   variable: "--font-comic-shanns",
 });

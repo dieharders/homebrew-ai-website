@@ -67,10 +67,11 @@
   flex-direction: row;
   gap: var(--space-4);
   overflow-x: auto;
-  padding: 1rem 1rem var(--space-2) 1rem;
-  margin: -1rem;
-  margin-bottom: calc(-1 * var(--space-2) + 1rem);
+  padding: var(--space-2) var(--space-1);
+  margin: 0;
   scrollbar-width: thin;
+  /* Prevent Safari from showing scrollbar when content fits */
+  -webkit-overflow-scrolling: touch;
 }
 
 .videoItem {
@@ -170,8 +171,8 @@
     overflow-x: visible;
     overflow-y: auto;
     max-height: 500px;
-    padding: 1rem;
-    margin: -1rem;
+    padding: var(--space-2);
+    margin: 0;
   }
 
   .videoItem {
