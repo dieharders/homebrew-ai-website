@@ -44,7 +44,7 @@
   background: var(--accent-gold-glow);
   /* background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent-normal) 100%); */
   border-radius: var(--radius-md);
-  box-shadow: 0px 0px 12px 12px var(--accent-gold-glow);
+  box-shadow: 0px 0px 24px 12px var(--accent-gold-glow);
 }
 
 .icon img {

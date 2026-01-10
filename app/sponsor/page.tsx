@@ -2,14 +2,7 @@ import styles from "./page.module.css";
 import Header from "@/blocks/Header";
 import Section from "@/components/Section";
 import Button from "@/components/Button";
-import {
-  Search,
-  Workflow,
-  ClipboardList,
-  Sparkles,
-  Plug,
-  Shield,
-} from "lucide-react";
+import { Check } from "lucide-react";
 
 const FILEBUFF_URL = "https://filebuff.openbrew.ai";
 
@@ -18,82 +11,70 @@ export default function SponsorPage() {
     <div>
       <Header id="top" title="" />
       <main>
-        <Section background="dark" className={styles.sponsorSection}>
-          {/* Hero Header */}
-          <div className={styles.heroHeader}>
-            <span className={styles.eyebrow}>Sponsorship</span>
-            <h1 className={styles.pageTitle}>FILEBUFF</h1>
-            <p className={styles.pageSubtitle}>
-              The Intelligence That Stays With You
-            </p>
-            <p className={styles.pageDescription}>
-              Scale your workforce with on-device GenAI. FileBuff is a smart
-              file manager purpose-built for government and defense teams
-              working on large projects.
+        <Section background="normal" className={styles.sponsorSection}>
+          {/* Hero */}
+          <div className={styles.hero}>
+            <span className={styles.badge}>Early Access</span>
+            <h1 className={styles.heroTitle}>FILEBUFF</h1>
+          </div>
+
+          {/* Support Note */}
+          <div className={styles.supportNote}>
+            <p>
+              All paid plans include: Discord access, Email support, GitHub
+              repository access, no data collection, and all future updates.
             </p>
           </div>
 
-          {/* Features Grid */}
-          <div className={styles.featuresGrid}>
-            <FeatureCard
-              icon={<Search />}
-              title="File Search & Synthesis"
-              description="Natural language document search helps you find exactly what you need across your entire organization."
-            />
-            <FeatureCard
-              icon={<Workflow />}
-              title="Workflow Automation"
-              description="Automate time-intensive tasks and streamline your team's processes."
-            />
-            <FeatureCard
-              icon={<ClipboardList />}
-              title="Automatic Audit Trail"
-              description="Complete transparency with built-in tracking of all AI interactions and decisions."
-            />
-            <FeatureCard
-              icon={<Sparkles />}
-              title="Ambient Intelligence"
-              description="Always-on AI assistance that works in the background, ready when you need it."
-            />
-            <FeatureCard
-              icon={<Plug />}
-              title="Seamless Integrations"
-              description="Connect with Teams, Outlook, SharePoint, and your existing infrastructure."
-            />
-            <FeatureCard
-              icon={<Shield />}
-              title="Zero Attack Surface"
-              description="On-device processing means zero external connections, zero data leakage, and zero new vulnerabilities."
-            />
-          </div>
-
-          {/* Value Proposition */}
-          <div className={styles.valueSection}>
-            <h2 className={styles.valueTitle}>Why Sponsor?</h2>
-            <p className={styles.valueText}>
-              Your sponsorship helps us build the next generation of secure,
-              on-device AI tools for teams that handle sensitive information.
-              FileBuff runs entirely within your perimeter—no cloud, no external
-              APIs, no data leaving your network.
-            </p>
-            <div className={styles.statsRow}>
-              <div className={styles.stat}>
-                <span className={styles.statNumber}>0</span>
-                <span className={styles.statLabel}>External Connections</span>
-              </div>
-              <div className={styles.stat}>
-                <span className={styles.statNumber}>0</span>
-                <span className={styles.statLabel}>Data Leakage</span>
-              </div>
-              <div className={styles.stat}>
-                <span className={styles.statNumber}>0</span>
-                <span className={styles.statLabel}>New Attack Surface</span>
-              </div>
+          {/* Pricing Cards */}
+          <div className={styles.pricingCategory}>
+            <div className={styles.pricingCards}>
+              <PricingCard
+                name="Free"
+                price="$0"
+                period="/month"
+                description="For individuals exploring AI-powered file management"
+                features={[
+                  "Unlimited edge AI",
+                  "Community support",
+                  "Basic features",
+                ]}
+              />
+              <PricingCard
+                name="Team"
+                price="$100"
+                period="/month"
+                description="For teams ready to boost productivity"
+                features={[
+                  "5 seat minimum",
+                  "Email support",
+                  "Advanced features",
+                  "Team collaboration",
+                ]}
+                highlighted
+              />
+              <PricingCard
+                name="Enterprise"
+                price="Quote"
+                period=""
+                description="For organizations with specific requirements"
+                features={[
+                  "Unlimited seats",
+                  "Dedicated support",
+                  "Concierge service",
+                  "Custom integrations",
+                ]}
+                ctaText="Contact Sales"
+              />
             </div>
           </div>
 
-          {/* CTA */}
-          <div className={styles.ctaSection}>
+          {/* Final CTA */}
+          <div className={styles.finalCta}>
+            <h3 className={styles.finalCtaTitle}>Ready to get started?</h3>
+            <p className={styles.finalCtaText}>
+              Join the beta and experience secure, on-device AI.
+            </p>
             <Button
               className={styles.ctaButton}
               href={FILEBUFF_URL}
@@ -109,20 +90,54 @@ export default function SponsorPage() {
   );
 }
 
-function FeatureCard({
-  icon,
-  title,
+function PricingCard({
+  name,
+  price,
+  period,
   description,
+  features,
+  highlighted = false,
+  ctaText = "Get Started",
 }: {
-  icon: React.ReactNode;
-  title: string;
+  name: string;
+  price: string;
+  period: string;
   description: string;
+  features: string[];
+  highlighted?: boolean;
+  ctaText?: string;
 }) {
   return (
-    <div className={styles.featureCard}>
-      <div className={styles.featureIcon}>{icon}</div>
-      <h3 className={styles.featureTitle}>{title}</h3>
-      <p className={styles.featureDescription}>{description}</p>
+    <div
+      className={
+        highlighted ? styles.pricingCardHighlighted : styles.pricingCard
+      }
+    >
+      {highlighted && <span className={styles.popularBadge}>Popular</span>}
+      <h4 className={styles.cardName}>{name}</h4>
+      <div className={styles.cardPricing}>
+        <span className={styles.cardPrice}>{price}</span>
+        {period && <span className={styles.cardPeriod}>{period}</span>}
+      </div>
+      <p className={styles.cardDescription}>{description}</p>
+      <ul className={styles.cardFeatures}>
+        {features.map((feature, index) => (
+          <li key={index} className={styles.cardFeature}>
+            <Check className={styles.checkIcon} size={18} />
+            <span>{feature}</span>
+          </li>
+        ))}
+      </ul>
+      <Button
+        className={
+          highlighted ? styles.cardButtonHighlighted : styles.cardButton
+        }
+        href={FILEBUFF_URL}
+        size="normal"
+        type="custom"
+      >
+        {ctaText}
+      </Button>
     </div>
   );
 }

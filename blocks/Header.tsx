@@ -17,7 +17,6 @@ export interface NavItem {
 
 const defaultNavItems: NavItem[] = [
   { label: "Features", href: "/#features" },
-  { label: "Use Cases", href: "/#use-cases" },
   { label: "Sponsor", href: "/sponsor" },
   {
     label: "Docs",
