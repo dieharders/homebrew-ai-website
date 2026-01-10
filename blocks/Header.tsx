@@ -1,15 +1,24 @@
 'use client'
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 import styles from './Header.module.css';
 import { cx } from '@/utils/common';
-import SecondaryNav, { NavItem } from './SecondaryNav';
+import Button from '@/components/Button';
+import ObrewLogo from 'public/badge.png';
+
+export interface NavItem {
+  label: string;
+  href: string;
+  rel?: string
+}
 
 const defaultNavItems: NavItem[] = [
   { label: 'Features', href: '/#features' },
   { label: 'Use Cases', href: '/#use-cases' },
-  { label: 'Docs', href: 'https://github.com/dieharders/obrew-studio-server' },
-  { label: 'Download', href: '/download' },
+  { label: 'Docs', rel: 'noopener noreferrer', href: 'https://github.com/dieharders/obrew-studio-server' },
 ];
 
 export default function Header(p: {
@@ -22,6 +31,7 @@ export default function Header(p: {
   const id = p.id ?? 'top';
   const navItems = p.navItems ?? defaultNavItems;
   const ctaButton = p.ctaButton ?? { text: 'Get Started', href: '/download' };
+  const pathname = usePathname();
 
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -36,7 +46,48 @@ export default function Header(p: {
 
   return (
     <header id={id} className={cx(styles.container, isScrolled && styles.scrolled, p.className)}>
-      <SecondaryNav items={navItems} ctaButton={ctaButton} />
+      <nav className={styles.nav}>
+        <div className={styles.navContent}>
+          <div className={styles.brand}>
+            {/* FileBuff */}
+            <span className={styles.brandIcon} title="FileBuff">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"/>
+              </svg>
+            </span>
+            {/* OpenBrew */}
+            <Image src={ObrewLogo} alt="OpenBrew" height={28} title="OpenBrew" className={styles.logo} />
+          </div>
+          <ul className={styles.navList}>
+            {navItems.map((item) => {
+              const isActive = pathname === item.href ||
+                (item.href !== '/' && pathname.startsWith(item.href));
+              return (
+                <li key={item.href} className={styles.navItem}>
+                  <Link
+                    href={item.href}
+                    className={cx(styles.navLink, isActive && styles.navLinkActive)}
+                    target={item?.rel && "_blank"}
+                    rel={item.rel}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          {ctaButton && (
+            <Button
+              href={ctaButton.href}
+              type="primary"
+              size="small"
+              location="body"
+            >
+              {ctaButton.text}
+            </Button>
+          )}
+        </div>
+      </nav>
     </header>
   );
 }
