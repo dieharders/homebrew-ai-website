@@ -12,7 +12,7 @@ interface VideoPlayerProps {
   muted?: boolean;
   controls?: boolean;
   className?: string;
-  aspectRatio?: '16/9' | '4/3' | '1/1';
+  aspectRatio?: '16/9' | '4/3' | '1/1' | 'auto';
   rounded?: boolean;
 }
 
@@ -49,13 +49,13 @@ export default function VideoPlayer({
         rounded && styles.rounded,
         className
       )}
-      style={{ aspectRatio }}
+      style={aspectRatio !== 'auto' ? { aspectRatio } : undefined}
       onMouseEnter={() => setShowControls(true)}
       onMouseLeave={() => setShowControls(false)}
     >
       <video
         ref={videoRef}
-        className={styles.video}
+        className={cx(styles.video, aspectRatio === 'auto' && styles.videoAuto)}
         src={src}
         poster={poster}
         autoPlay={autoPlay}

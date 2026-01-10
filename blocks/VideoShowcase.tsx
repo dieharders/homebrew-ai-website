@@ -44,12 +44,13 @@ export default function VideoShowcase({
         <div className={styles.videoArea}>
           {activeVideo && (
             <VideoPlayer
+              key={activeVideo.id}
               src={activeVideo.src}
               autoPlay
               loop
               muted
               controls
-              aspectRatio="16/9"
+              aspectRatio="auto"
               className={styles.mainVideo}
             />
           )}

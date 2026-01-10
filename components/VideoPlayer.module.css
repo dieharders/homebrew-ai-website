@@ -16,6 +16,11 @@
   display: block;
 }
 
+.videoAuto {
+  height: auto;
+  object-fit: contain;
+}
+
 .overlay {
   position: absolute;
   inset: 0;

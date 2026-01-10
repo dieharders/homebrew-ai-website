@@ -123,13 +123,13 @@
 /* Highlight / CTA button */
 .container-type-primary.container-location-highlight {
   color: #1a1a2e;
-  background: linear-gradient(135deg, var(--accent-btn) 0%, var(--accent-dark) 100%);
+  background: var(--accent-btn);
   box-shadow: 0 4px 16px var(--accent-gold-glow);
 }
 
 .container-type-primary.container-location-highlight:hover {
   transform: translateY(-2px);
-  background: linear-gradient(135deg, #ffe066 0%, var(--accent-btn) 100%);
+  background: #ffe066;
   box-shadow: 0 6px 20px rgba(255, 212, 59, 0.4);
 }
 
