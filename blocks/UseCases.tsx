@@ -1,13 +1,12 @@
-'use client';
+"use client";
 
-import { useState, useMemo } from 'react';
-import styles from './UseCases.module.css';
-import { cx } from '@/utils/common';
-import Section from '@/components/Section';
-import FilterPills from '@/components/FilterPills';
-import CategoryTabs from '@/components/CategoryTabs';
-import AccordionCard from '@/components/AccordionCard';
-import Button from '@/components/Button';
+import { useState, useMemo } from "react";
+import styles from "./UseCases.module.css";
+import Section from "@/components/Section";
+import FilterPills from "@/components/FilterPills";
+import CategoryTabs from "@/components/CategoryTabs";
+import AccordionCard from "@/components/AccordionCard";
+import Button from "@/components/Button";
 
 interface UseCase {
   id: string;
@@ -49,27 +48,28 @@ export default function UseCases({
   sidebarCTA,
   className,
 }: UseCasesProps) {
-  const [activeGroupId, setActiveGroupId] = useState(filterGroups[0]?.id || '');
-  const [activeCategoryId, setActiveCategoryId] = useState('all');
+  const [activeGroupId, setActiveGroupId] = useState(filterGroups[0]?.id || "");
+  const [activeCategoryId, setActiveCategoryId] = useState("all");
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
   const activeGroup = filterGroups.find((g) => g.id === activeGroupId);
   const categories = [
-    { id: 'all', label: 'All' },
+    { id: "all", label: "All" },
     ...(activeGroup?.categories || []),
   ];
 
   const filteredUseCases = useMemo(() => {
     return useCases.filter((uc) => {
       const matchesGroup = uc.groupId === activeGroupId;
-      const matchesCategory = activeCategoryId === 'all' || uc.categoryId === activeCategoryId;
+      const matchesCategory =
+        activeCategoryId === "all" || uc.categoryId === activeCategoryId;
       return matchesGroup && matchesCategory;
     });
   }, [useCases, activeGroupId, activeCategoryId]);
 
   const handleGroupChange = (id: string) => {
     setActiveGroupId(id);
-    setActiveCategoryId('all');
+    setActiveCategoryId("all");
     setExpandedId(null);
   };
 
@@ -102,7 +102,9 @@ export default function UseCases({
       <div className={styles.content}>
         <div className={styles.useCasesList}>
           {filteredUseCases.length === 0 ? (
-            <p className={styles.empty}>No use cases found for this category.</p>
+            <p className={styles.empty}>
+              No use cases found for this category.
+            </p>
           ) : (
             filteredUseCases.map((useCase) => (
               <AccordionCard
@@ -125,14 +127,12 @@ export default function UseCases({
           <aside className={styles.sidebar}>
             <div className={styles.sidebarCard}>
               <div className={styles.sidebarIcon}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                  <polyline points="7 10 12 15 17 10" />
-                  <line x1="12" y1="15" x2="12" y2="3" />
-                </svg>
+                <img src="/worker.svg" alt="" width="42" height="42" />
               </div>
               <h3 className={styles.sidebarTitle}>{sidebarCTA.title}</h3>
-              <p className={styles.sidebarDescription}>{sidebarCTA.description}</p>
+              <p className={styles.sidebarDescription}>
+                {sidebarCTA.description}
+              </p>
               <Button
                 href={sidebarCTA.buttonHref}
                 type="primary"
