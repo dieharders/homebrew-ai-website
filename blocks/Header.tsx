@@ -90,10 +90,7 @@ export default function Header(p: {
               </span>
             </Link>
             {/* OpenBrew */}
-            <Link
-              href="https://www.openbrew.ai"
-              style={{ display: "flex", alignItems: "center" }}
-            >
+            <Link href="/" style={{ display: "flex", alignItems: "center" }}>
               <Image
                 src={ObrewLogo}
                 alt="OpenBrew"
