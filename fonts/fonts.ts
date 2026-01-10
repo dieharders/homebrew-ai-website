@@ -3,12 +3,12 @@ import localFont from "next/font/local";
 
 // Google fonts (hosted)
 
-// Does not support css var
 export const lilita_one = Lilita_One({
   style: "normal",
   subsets: ["latin"],
   display: "swap",
   weight: "400",
+  variable: "--font-lilita-one",
 });
 
 // Local fonts (downloaded)
@@ -21,5 +21,6 @@ export const comic_shanns = localFont({
       weight: "400",
     },
   ],
+  display: "swap",
   variable: "--font-comic-shanns",
 });

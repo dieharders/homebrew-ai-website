@@ -9,6 +9,8 @@ export default function Button(p: {
   location?: T_Location,
   title?: string,
   href?: string,
+  target?: '_blank' | '_self',
+  rel?: string,
   onClick?(): void,
   className?: string,
   children: React.ReactNode,
@@ -27,7 +29,7 @@ export default function Button(p: {
 
   if (p.href) {
     return (
-      <a className={className} href={p.href} target="_blank" title={p.title || ""} onClick={p.onClick}>
+      <a className={className} href={p.href} target={p.target} rel={p.rel} title={p.title || ""} onClick={p.onClick}>
         {p.children}
       </a>
     )

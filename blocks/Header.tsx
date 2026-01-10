@@ -1,49 +1,143 @@
-'use client'
+"use client";
 
-import styles from './Header.module.css';
-import Button from '@/components/Button';
-import Image from 'next/image';
-import EmailIcon from 'public/icon-email.svg';
-import YTIcon from 'public/icon-youtube.svg';
-import GithubIcon from 'public/icon-github.svg';
-import ObrewLogo from 'public/badge.png';
-import { cx } from '@/utils/common';
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import Image from "next/image";
+import styles from "./Header.module.css";
+import { cx } from "@/utils/common";
+import Button from "@/components/Button";
+import ObrewLogo from "public/badge.png";
+
+export interface NavItem {
+  label: string;
+  href: string;
+  rel?: string;
+}
+
+const defaultNavItems: NavItem[] = [
+  { label: "Features", href: "/#features" },
+  { label: "Use Cases", href: "/#use-cases" },
+  {
+    label: "Docs",
+    rel: "noopener noreferrer",
+    href: "https://github.com/dieharders/obrew-studio-server",
+  },
+];
 
 export default function Header(p: {
-  id?: string,
-  className?: string,
-  title: string,
+  id?: string;
+  className?: string;
+  title: string;
+  navItems?: NavItem[];
+  ctaButton?: { text: string; href: string };
 }) {
-  const id = p.id ?? 'top';
+  const id = p.id ?? "top";
+  const navItems = p.navItems ?? defaultNavItems;
+  const ctaButton = p.ctaButton ?? { text: "Get Started", href: "/download" };
+  const pathname = usePathname();
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header id={id} className={cx(styles.container, p.className)}>
-      <div className={styles.content}>
-        <div className={styles.titleGroup} title={p.title}>
-          {p.title && <div className={styles.title}>{p.title}</div>}
-          <Image src={ObrewLogo} alt="OpenBrew.AI" height={28} className={styles.logo} />
-          <a
-            className={styles.titleLink}
-            href="https://www.openbrew.ai"
-            title="OpenBrew.AI"
-            target="_self"
-          >
-            OpenBrew.AI
-          </a>
-          <span className={styles.descr}>| Free & Open Source</span>
+    <header
+      id={id}
+      className={cx(
+        styles.container,
+        isScrolled && styles.scrolled,
+        p.className
+      )}
+    >
+      <nav className={styles.nav}>
+        <div className={styles.navContent}>
+          <div className={styles.brand}>
+            {/* FileBuff */}
+            <span
+              style={{
+                position: "relative",
+                display: "inline-block",
+              }}
+            >
+              <span
+                style={{
+                  position: "absolute",
+                  top: "-8px",
+                  left: "100%",
+                  transform: "translateX(-50%)",
+                  fontSize: "1.15rem",
+                  pointerEvents: "none",
+                  filter: "drop-shadow(0 1px 1px rgba(192, 12, 237, 0.92))",
+                }}
+              >
+                ✨
+              </span>
+              <span
+                className={styles.brandIcon}
+                title="FileBuff"
+                style={{ fontSize: "1rem" }}
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z" />
+                </svg>
+              </span>
+            </span>
+            {/* OpenBrew */}
+            <Image
+              src={ObrewLogo}
+              alt="OpenBrew"
+              height={28}
+              title="OpenBrew"
+              className={styles.logo}
+            />
+          </div>
+          <ul className={styles.navList}>
+            {navItems.map((item) => {
+              const isActive =
+                pathname === item.href ||
+                (item.href !== "/" && pathname.startsWith(item.href));
+              return (
+                <li key={item.href} className={styles.navItem}>
+                  <Link
+                    href={item.href}
+                    className={cx(
+                      styles.navLink,
+                      isActive && styles.navLinkActive
+                    )}
+                    target={item?.rel && "_blank"}
+                    rel={item.rel}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          {ctaButton && (
+            <Button
+              href={ctaButton.href}
+              type="primary"
+              size="small"
+              location="body"
+            >
+              {ctaButton.text}
+            </Button>
+          )}
         </div>
-        <div className={styles.links}>
-          <Button className={styles.btn} href="http://www.youtube.com/@OpenBrewAi" title="Youtube" onClick={() => { }} size="small" type="custom">
-            <Image src={YTIcon} alt="Youtube" height="28" />
-          </Button>
-          <Button className={styles.btn} href="mailto:openbrewai+support@gmail.com" title="Email" onClick={() => { }} size="small" type="custom">
-            <Image src={EmailIcon} alt="Email" height="28" />
-          </Button>
-          <Button className={styles.btn} href="https://github.com/dieharders/obrew-studio-server" title="Github" onClick={() => { }} size="small" type="custom">
-            <Image src={GithubIcon} alt="Github" height="28" />
-          </Button>
-        </div>
-      </div>
+      </nav>
     </header>
   );
 }
