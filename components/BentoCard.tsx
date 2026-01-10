@@ -1,9 +1,9 @@
-import styles from './BentoCard.module.css';
-import { cx } from '../utils/common';
-import ExploreLink from './ExploreLink';
+import styles from "./BentoCard.module.css";
+import { cx } from "../utils/common";
+import ExploreLink from "./ExploreLink";
 
-export type BentoCardVariant = 'light' | 'dark' | 'accent';
-export type BentoCardSize = 'small' | 'medium' | 'large';
+export type BentoCardVariant = "light" | "dark" | "accent";
+export type BentoCardSize = "small" | "medium" | "large";
 
 interface BentoCardProps {
   variant?: BentoCardVariant;
@@ -17,8 +17,8 @@ interface BentoCardProps {
 }
 
 export default function BentoCard({
-  variant = 'light',
-  size = 'medium',
+  variant = "light",
+  size = "medium",
   className,
   illustration,
   title,
@@ -45,7 +45,7 @@ export default function BentoCard({
         {link && (
           <ExploreLink
             href={link.href}
-            variant={variant === 'dark' ? 'light' : 'default'}
+            variant={variant === "dark" ? "light" : "default"}
             className={styles.link}
           >
             {link.text}

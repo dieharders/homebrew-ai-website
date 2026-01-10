@@ -216,13 +216,8 @@ export default function Home() {
           headline="INTELLIGENCE THAT STAYS WITH YOU"
           tagline="Smart File Manager with on-device AI. Find anything instantly, automate workflows, and keep your data private."
           primaryCTA={{ text: "Download Free", href: downloadLink }}
-          secondaryCTA={{ text: "Watch Demo", href: "#demo" }}
+          secondaryCTA={{ text: "Watch Demos", href: "#demo" }}
           videoSrc="/openbrew.mp4"
-          stats={[
-            { value: "24/7", label: "Up Time" },
-            { value: "100%", label: "On-Device" },
-            { value: "ZERO", label: "Data Leakage" },
-          ]}
         />
 
         {/* Use Cases Section */}
@@ -362,7 +357,7 @@ export default function Home() {
         </Epilogue>
       </main>
 
-      <Footer title="FileBuff by OpenBrew.AI" />
+      <Footer title="FileBuff by OpenBrew" />
     </div>
   );
 }

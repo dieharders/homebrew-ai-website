@@ -5,7 +5,8 @@
   padding: var(--space-9) var(--page-padding) var(--space-7);
   color: var(--text);
   background-color: var(--background);
-  border-top: var(--section-separator-width) solid var(--section-separator-color);
+  border-top: var(--section-separator-width) solid
+    var(--section-separator-color);
 }
 
 .content {
@@ -30,12 +31,16 @@
 .accent {
   width: 4rem;
   height: 4px;
-  background: linear-gradient(135deg, var(--accent-btn) 0%, var(--accent-dark) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--accent-btn) 0%,
+    var(--accent-dark) 100%
+  );
   border-radius: 2px;
 }
 
 .title {
-  font-size: var(--h2-font-size);
+  font-size: 1.75rem;
   font-weight: var(--h2-font-weight);
   line-height: var(--h2-line-height);
   letter-spacing: var(--h2-letter-spacing);
@@ -93,7 +98,8 @@
   max-width: var(--page-max-width);
   margin: var(--space-7) auto 0;
   padding-top: var(--space-5);
-  border-top: var(--section-separator-width) solid var(--section-separator-color);
+  border-top: var(--section-separator-width) solid
+    var(--section-separator-color);
   font-size: 0.875rem;
   color: var(--text-muted);
   text-align: center;

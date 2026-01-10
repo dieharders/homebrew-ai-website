@@ -2,9 +2,12 @@
   position: relative;
   border-radius: var(--bento-card-radius);
   padding: 1.5rem;
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
-  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+  transition:
+    transform var(--transition-smooth),
+    box-shadow var(--transition-smooth);
 }
 
 .card:hover {
@@ -34,7 +37,11 @@
 }
 
 .card-accent {
-  background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent-normal) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--accent-light) 0%,
+    var(--accent-normal) 100%
+  );
   color: var(--text);
   box-shadow: var(--shadow-card);
 }
