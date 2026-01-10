@@ -130,16 +130,24 @@
 }
 
 .cardBadge {
-  display: inline-block;
-  padding: 0.35rem 0.85rem;
-  border-radius: 6px;
-  font-size: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.8px;
   background: rgba(255, 212, 59, 0.15);
   color: var(--accent-btn);
   border: 1px solid rgba(255, 212, 59, 0.25);
+}
+
+.badgeIcon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
 }
 
 .cardDescription {
