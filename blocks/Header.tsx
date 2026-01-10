@@ -16,12 +16,10 @@ export default function Header(p: {
   id?: string,
   className?: string,
   title: string,
-  showSecondaryNav?: boolean,
   navItems?: NavItem[],
   ctaButton?: { text: string; href: string },
 }) {
   const id = p.id ?? 'top';
-  const showSecondaryNav = p.showSecondaryNav ?? true;
   const navItems = p.navItems ?? defaultNavItems;
   const ctaButton = p.ctaButton ?? { text: 'Get Started', href: '/download' };
 

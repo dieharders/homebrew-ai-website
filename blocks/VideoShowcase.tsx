@@ -50,7 +50,7 @@ export default function VideoShowcase({
               loop
               muted
               controls
-              aspectRatio="auto"
+              aspectRatio="4/3"
               className={styles.mainVideo}
             />
           )}
