@@ -74,7 +74,7 @@ export default function VideoShowcase({
                 <video
                   src={video.src}
                   muted
-                  preload="none"
+                  preload="metadata"
                   className={styles.thumbnailVideo}
                 />
                 <div className={styles.playIcon}>

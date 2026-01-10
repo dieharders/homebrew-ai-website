@@ -214,7 +214,7 @@ export default function Home() {
         {/* Hero Bento Section */}
         <HeroBento
           headline="INTELLIGENCE THAT STAYS WITH YOU"
-          tagline="Smart File Manager with on-device AI. Find anything instantly, automate workflows, and keep your data private."
+          tagline="An AI-powered Smart File Manager running on your device. Find anything instantly, automate workflows, and keep your data private."
           primaryCTA={{ text: "Download Free", href: downloadLink }}
           secondaryCTA={{ text: "Watch Demos", href: "#demo" }}
           videoSrc="/openbrew.mp4"
