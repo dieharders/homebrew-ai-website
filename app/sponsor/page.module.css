@@ -44,7 +44,7 @@
   font-size: 1.35rem;
   color: var(--accent-btn);
   margin: 0 0 1.25rem 0;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .heroDescription {
@@ -277,7 +277,7 @@
   padding: 0.875rem 1.5rem;
   border-radius: 10px;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
   border-style: solid;

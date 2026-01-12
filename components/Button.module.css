@@ -1,7 +1,7 @@
 .container {
   position: relative;
   border-radius: var(--radius-md);
-  font-weight: 600;
+  font-weight: 700;
   display: inline-flex;
   align-items: center;
   justify-content: center;
