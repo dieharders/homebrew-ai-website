@@ -234,7 +234,7 @@
 }
 
 .cardDescription {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--text-secondary, #555);
   line-height: 1.5;
   margin: 0 0 1.75rem 0;
@@ -253,7 +253,7 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: inherit;
   padding: 0.625rem 0;
   border-bottom: 1px solid rgba(128, 128, 128, 0.15);

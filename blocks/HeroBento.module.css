@@ -151,7 +151,7 @@
   align-items: center;
   padding: var(--space-4) var(--space-5);
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--text);
   background: var(--background);
 }

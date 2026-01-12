@@ -3,7 +3,7 @@
   align-items: center;
   gap: 0.5rem;
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 1rem;
   transition:
     gap var(--transition-smooth),
     color var(--transition-smooth);
