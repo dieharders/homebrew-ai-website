@@ -8,7 +8,7 @@
   transition: var(--transition-fast);
   transition-property: transform, box-shadow, background, color, border-color;
   top: 0;
-  border: none;
+  /* border: none; */
   cursor: pointer;
   user-select: none;
   text-align: center;
