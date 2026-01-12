@@ -1,7 +1,6 @@
 'use client';
 
-import styles from './FilterPills.module.css';
-import { cx } from '../utils/common';
+import { cn } from '../utils/common';
 
 interface FilterOption {
   id: string;
@@ -22,11 +21,19 @@ export default function FilterPills({
   className,
 }: FilterPillsProps) {
   return (
-    <div className={cx(styles.container, className)}>
+    <div className={cn(
+      "inline-flex bg-background-alternate rounded-full p-1 gap-1",
+      className
+    )}>
       {options.map((option) => (
         <button
           key={option.id}
-          className={cx(styles.pill, option.id === activeId && styles.active)}
+          className={cn(
+            "py-2 px-5 border-none rounded-full text-sm font-medium cursor-pointer",
+            "bg-transparent text-text-shade transition-all duration-300 ease-out whitespace-nowrap",
+            "hover:text-text hover:bg-white/50",
+            option.id === activeId && "bg-accent-btn text-text shadow-sm hover:bg-accent-btn hover:text-text"
+          )}
           onClick={() => onChange(option.id)}
           type="button"
         >

@@ -1,6 +1,5 @@
-import styles from './Benefits.module.css';
 import Section from '../components/Section';
-import { cx } from '../utils/common';
+import { cn } from '../utils/common';
 
 export default function Benefits(p: {
   id?: string,
@@ -14,33 +13,53 @@ export default function Benefits(p: {
   }[],
   background?: 'normal' | 'alternate',
 }) {
-  const className = cx(
-    styles.container,
-    p.className,
-  );
-
   return (
-    <Section id={p.id} className={className} background={p.background}>
-      <div className={styles.header}>
-        <h2 className={styles.title}>{p.title}</h2>
-        <p className={styles.subtitle}>{p.subtitle}</p>
+    <Section id={p.id} className={p.className} background={p.background}>
+      <div className="max-w-[700px] mx-auto">
+        <h2 className={cn(
+          "text-[clamp(2.25rem,5vw,3rem)] font-bold leading-[1.15] tracking-wide",
+          "text-center mb-4"
+        )}>
+          {p.title}
+        </h2>
+        <p className="text-base font-normal leading-[1.6] tracking-tight text-center text-text-shade">
+          {p.subtitle}
+        </p>
       </div>
 
-      <ul className={styles.benefits}>
-        {p.benefits.map((item, i) => {
-          return (
-            <li key={item.title} className={styles.benefit}>
-              <div className={styles['illustration-container']}>
-                <div className={styles['spotlight']}></div>
-                <div className={styles['benefit-illustration']} style={item.illustration}></div>
-              </div>
-              <div className={styles['benefit-content']}>
-                <h1 className={styles['benefit-title']}>{item.title}</h1>
-                <p className={styles['benefit-text']}>{item.text}</p>
-              </div>
-            </li>
-          );
-        })}
+      <ul className={cn(
+        "relative flex flex-col flex-nowrap items-center gap-32 p-0 m-0",
+        "lg:flex-row lg:items-stretch lg:justify-stretch lg:gap-16"
+      )}>
+        {p.benefits.map((item) => (
+          <li
+            key={item.title}
+            className={cn(
+              "relative flex flex-col max-w-[450px] w-full m-0 p-0",
+              "lg:flex-1"
+            )}
+          >
+            <div className="block relative self-center">
+              <div className={cn(
+                "absolute block left-0 top-0 max-w-72 max-h-72 w-[50vw] h-[50vw]",
+                "bg-[radial-gradient(ellipse_at_center,var(--accent-normal)_25%,transparent_70%)]",
+                "lg:w-72 lg:h-72"
+              )} />
+              <div
+                className="relative max-w-72 max-h-72 w-[50vw] h-[50vw] lg:w-72 lg:h-72"
+                style={item.illustration}
+              />
+            </div>
+            <div className="mt-6 text-center overflow-hidden">
+              <h1 className="text-[clamp(1.5rem,3vw,1.75rem)] font-semibold tracking-tight mb-2">
+                {item.title}
+              </h1>
+              <p className="text-text-shade text-xl font-normal leading-[1.6] tracking-tight">
+                {item.text}
+              </p>
+            </div>
+          </li>
+        ))}
       </ul>
     </Section>
   );
