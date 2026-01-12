@@ -1,3 +1,6 @@
+/* TailwindCSS v4 */
+@import "tailwindcss";
+
 :root {
   /* Spacing Scale (8px base) */
   --space-1: 0.25rem;   /* 4px */
