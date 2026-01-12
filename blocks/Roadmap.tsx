@@ -1,6 +1,5 @@
-import styles from './Roadmap.module.css';
 import Section from '../components/Section';
-import { cx } from '../utils/common';
+import { cn } from '../utils/common';
 import { ReactNode } from 'react';
 
 export default function Features(p: {
@@ -11,27 +10,34 @@ export default function Features(p: {
   children?: ReactNode[],
   background?: 'normal' | 'alternate',
 }) {
-  const className = cx(
-    styles.container,
-    p.className,
-  );
-
   return (
     <Section
       id={p.id}
-      className={className}
+      className={cn("flex flex-col", p.className)}
       background={p.background}
     >
-      <div className={styles.header}>
-        <h2 className={styles.title}>{p.title}</h2>
-        <p className={styles.subtitle}>{p.subtitle}</p>
+      <div className="max-w-[700px] mx-auto mb-16">
+        <h2 className={cn(
+          "text-[clamp(2.25rem,5vw,3rem)] font-bold leading-[1.15] tracking-wide",
+          "text-center mb-4"
+        )}>
+          {p.title}
+        </h2>
+        <p className="text-base font-normal leading-[1.6] tracking-tight text-center text-text-shade">
+          {p.subtitle}
+        </p>
       </div>
 
-      {p?.children &&
-        <div className={styles.childrenContainer}>
-          {p?.children.map((i, ind) => <div key={ind} className={styles.child}>{i}</div>)}
+      {p?.children && (
+        <div className={cn(
+          "text-text text-xl mb-2 flex flex-col gap-4",
+          "items-center justify-start text-left w-full max-w-fit"
+        )}>
+          {p?.children.map((i, ind) => (
+            <div key={ind} className="w-full">{i}</div>
+          ))}
         </div>
-      }
+      )}
     </Section>
   );
 }

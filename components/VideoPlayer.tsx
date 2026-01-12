@@ -1,8 +1,7 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
-import styles from './VideoPlayer.module.css';
-import { cx } from '../utils/common';
+import { cn } from '../utils/common';
 
 interface VideoPlayerProps {
   src: string;
@@ -70,9 +69,9 @@ export default function VideoPlayer({
   return (
     <div
       ref={containerRef}
-      className={cx(
-        styles.container,
-        rounded && styles.rounded,
+      className={cn(
+        "relative w-full bg-black overflow-hidden",
+        rounded && "rounded-2xl",
         className
       )}
       style={aspectRatio !== 'auto' ? { aspectRatio } : undefined}
@@ -82,7 +81,10 @@ export default function VideoPlayer({
       {isVisible && (
         <video
           ref={videoRef}
-          className={cx(styles.video, aspectRatio === 'auto' && styles.videoAuto)}
+          className={cn(
+            "w-full h-full object-cover block",
+            aspectRatio === 'auto' && "h-auto object-contain"
+          )}
           src={src}
           poster={poster}
           autoPlay={autoPlay}
@@ -97,10 +99,23 @@ export default function VideoPlayer({
       )}
       {!controls && (
         <div
-          className={cx(styles.overlay, showControls && styles.overlayVisible)}
+          className={cn(
+            "absolute inset-0 flex items-center justify-center",
+            "bg-black/30 opacity-0 transition-opacity duration-300 ease-out cursor-pointer",
+            showControls && "opacity-100"
+          )}
           onClick={togglePlay}
         >
-          <button className={styles.playButton} aria-label={isPlaying ? 'Pause' : 'Play'}>
+          <button
+            className={cn(
+              "w-16 h-16 rounded-full bg-accent-btn text-text border-none",
+              "flex items-center justify-center cursor-pointer",
+              "transition-all duration-300 ease-out shadow-[0_4px_20px_rgba(0,0,0,0.3)]",
+              "hover:scale-110 hover:shadow-[0_6px_30px_rgba(0,0,0,0.4)]",
+              "active:scale-95"
+            )}
+            aria-label={isPlaying ? 'Pause' : 'Play'}
+          >
             {isPlaying ? (
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <rect x="6" y="4" width="4" height="16" rx="1" />

@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import styles from './ExploreLink.module.css';
-import { cx } from '../utils/common';
+import { cn } from '../utils/common';
 
 interface ExploreLinkProps {
   href: string;
@@ -8,6 +7,11 @@ interface ExploreLinkProps {
   className?: string;
   variant?: 'default' | 'light';
 }
+
+const variantClasses = {
+  default: "text-accent-dark hover:text-gray-800",
+  light: "text-text-accent hover:text-accent-normal",
+};
 
 export default function ExploreLink({
   href,
@@ -18,11 +22,16 @@ export default function ExploreLink({
   return (
     <Link
       href={href}
-      className={cx(styles.link, styles[variant], className)}
+      className={cn(
+        "group inline-flex items-center gap-2 font-semibold text-[0.95rem]",
+        "transition-all duration-300 ease-out hover:gap-3",
+        variantClasses[variant],
+        className
+      )}
     >
       <span>{children}</span>
       <svg
-        className={styles.arrow}
+        className="transition-transform duration-300 ease-out group-hover:translate-x-0.5"
         width="16"
         height="16"
         viewBox="0 0 16 16"
