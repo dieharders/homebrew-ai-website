@@ -3,7 +3,9 @@
   border-radius: var(--radius-lg);
   border: 1px solid var(--section-separator-color);
   overflow: hidden;
-  transition: box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+  transition:
+    box-shadow var(--transition-smooth),
+    border-color var(--transition-smooth);
 }
 
 .card:hover {
@@ -61,7 +63,11 @@
 }
 
 .expanded .icon {
-  background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent-normal) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--accent-light) 0%,
+    var(--accent-normal) 100%
+  );
   color: var(--accent-dark);
 }
 

@@ -8,11 +8,9 @@
   transition: var(--transition-fast);
   transition-property: transform, box-shadow, background, color, border-color;
   top: 0;
-  /* border: none; */
   cursor: pointer;
   user-select: none;
   text-align: center;
-  line-height: 1.4;
   white-space: nowrap;
   overflow: hidden;
 }

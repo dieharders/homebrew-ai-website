@@ -91,6 +91,7 @@
   font-weight: 600;
   white-space: nowrap;
   color: var(--text);
+  /* line-height: 1; */
 }
 
 .copyright {
