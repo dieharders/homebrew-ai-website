@@ -49,7 +49,7 @@ export default function Home() {
     filterGroups: [
       {
         id: "function",
-        label: "By Function",
+        label: "Domain",
         categories: [
           { id: "search", label: "Search & Discovery" },
           { id: "automation", label: "Workflow Automation" },
@@ -59,7 +59,7 @@ export default function Home() {
       },
       {
         id: "industry",
-        label: "By Industry",
+        label: "Industry",
         categories: [
           { id: "enterprise", label: "Enterprise" },
           { id: "legal", label: "Legal" },
@@ -304,7 +304,7 @@ export default function Home() {
         <DarkCTA
           label="Next steps"
           title="READY TO TRANSFORM YOUR WORK?"
-          subtitle="Join thousands of users who trust FileBuff for secure, on-device AI. Free to download, no subscription required."
+          subtitle="Join thousands of users who trust OpenBrew for secure, on-device AI. Free to download, no subscription required."
           primaryButton={{ text: "Download Free", href: downloadLink }}
           secondaryButton={{
             text: "View Documentation",

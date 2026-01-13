@@ -95,8 +95,10 @@ export default function Header(p: {
                 src={ObrewLogo}
                 alt="OpenBrew"
                 height={28}
+                width={28}
                 title="OpenBrew"
                 className={styles.logo}
+                unoptimized
               />
             </Link>
           </div>

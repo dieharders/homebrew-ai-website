@@ -13,7 +13,7 @@
 .hero {
   text-align: center;
   max-width: 700px;
-  margin: 0 auto 2rem auto;
+  margin: 0 auto 0 auto;
   position: relative;
   z-index: 1;
 }
@@ -33,7 +33,7 @@
 
 .heroTitle {
   font-family: var(--font-lilita-one), sans-serif;
-  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-size: clamp(4rem, 6vw, 4.5rem);
   font-weight: 400;
   letter-spacing: 2px;
   color: inherit;
@@ -44,7 +44,7 @@
   font-size: 1.35rem;
   color: var(--accent-btn);
   margin: 0 0 1.25rem 0;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .heroDescription {
@@ -234,7 +234,7 @@
 }
 
 .cardDescription {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--text-secondary, #555);
   line-height: 1.5;
   margin: 0 0 1.75rem 0;
@@ -253,7 +253,7 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: inherit;
   padding: 0.625rem 0;
   border-bottom: 1px solid rgba(128, 128, 128, 0.15);
@@ -277,7 +277,7 @@
   padding: 0.875rem 1.5rem;
   border-radius: 10px;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
   border-style: solid;
@@ -322,7 +322,7 @@
 .supportNote {
   text-align: center;
   max-width: 700px;
-  margin: 0 auto 4rem auto;
+  margin: 2.5rem auto 4rem auto;
   padding: 2.5rem 2.5rem;
   background: rgba(128, 128, 128, 0.06);
   border-radius: 12px;
