@@ -135,15 +135,22 @@ export default function PurchasePage() {
         <div className="mx-auto grid min-h-[600px] w-full max-w-6xl lg:grid-cols-2">
           {/* Left Column - Order Summary */}
           <div className="order-1 bg-white px-6 py-8 lg:order-1 lg:bg-[var(--background-alternate)] lg:px-12 lg:py-10 lg:pr-16">
-            {/* Back Link with Brand */}
-            <div className="mb-10 flex items-center gap-4">
+            {/* Back Link */}
+            <div className="mb-10">
               <Link
                 href="/sponsor"
-                className="flex size-8 items-center justify-center rounded-full bg-gray-100 transition-colors hover:bg-gray-200"
+                className="flex size-10 items-center justify-center rounded-full bg-gray-100 transition-colors hover:bg-gray-200"
               >
-                <ArrowLeft size={16} className="text-gray-600" />
+                <ArrowLeft size={20} className="text-gray-600" />
               </Link>
-              <div className="flex items-center gap-2">
+            </div>
+
+            {/* Pay Header */}
+            <div className="mb-8">
+              <div className="mb-4 flex items-center justify-between">
+                <span className="text-xl text-gray-600">
+                  Pay to Openbrew.ai
+                </span>
                 <div className="flex size-12 items-center justify-center rounded-lg bg-[var(--accent-btn)]">
                   <Image
                     src="/cup-icon.svg"
@@ -152,15 +159,7 @@ export default function PurchasePage() {
                     height={36}
                   />
                 </div>
-                <span className="font-lilita text-lg text-gray-700">
-                  Openbrew.ai
-                </span>
               </div>
-            </div>
-
-            {/* Pay Header */}
-            <div className="mb-8">
-              <p className="mb-2 text-sm text-gray-500">Pay Openbrew</p>
               <h1 className="font-lilita text-4xl text-[var(--text)] lg:text-5xl">
                 ${total.toFixed(2)}
               </h1>
@@ -172,7 +171,7 @@ export default function PurchasePage() {
               <div className="flex items-start justify-between">
                 <div className="flex flex-col gap-1">
                   <p className="font-lilita text-lg font-medium text-gray-900">
-                    OPENBREW TEAM
+                    TEAM LICENSE
                   </p>
                   <p className="text-sm text-gray-500">
                     Qty {seats} &middot; ${pricePerSeat}/seat
