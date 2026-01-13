@@ -4,7 +4,7 @@ import Section from "@/components/Section";
 import Button from "@/components/Button";
 import { Check } from "lucide-react";
 
-const FILEBUFF_URL = "https://filebuff.openbrew.ai";
+const OPENBREW_URL = "/download";
 
 export default function SponsorPage() {
   return (
@@ -44,6 +44,7 @@ export default function SponsorPage() {
                 price="$100"
                 period="/month"
                 description="For teams ready to boost productivity and speed"
+                ctaText="Purchase"
                 features={[
                   "5 seat minimum",
                   "Email support",
@@ -51,6 +52,7 @@ export default function SponsorPage() {
                   "Team collaboration",
                 ]}
                 highlighted
+                href="/sponsor/purchase"
               />
               <PricingCard
                 name="ENTERPRISE"
@@ -99,6 +101,7 @@ function PricingCard({
   features,
   highlighted = false,
   ctaText = "Get Started",
+  href = OPENBREW_URL,
 }: {
   name: string;
   price: string;
@@ -107,6 +110,7 @@ function PricingCard({
   features: string[];
   highlighted?: boolean;
   ctaText?: string;
+  href?: string;
 }) {
   return (
     <div
@@ -133,7 +137,7 @@ function PricingCard({
         className={
           highlighted ? styles.cardButtonHighlighted : styles.cardButton
         }
-        href={FILEBUFF_URL}
+        href={href}
         size="large"
         type="custom"
       >
