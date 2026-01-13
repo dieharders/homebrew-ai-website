@@ -47,7 +47,7 @@
   display: flex;
   width: 100%;
   flex-direction: column;
-  gap: 4rem;
+  gap: 3rem;
 }
 
 /* Headline area */
@@ -219,16 +219,11 @@
 @media screen and (min-width: 1100px) {
   .gridHeader {
     flex-direction: row;
-    gap: 8rem;
   }
 
   .videoCard {
     flex: 1;
     width: auto;
-  }
-
-  .headline {
-    font-size: 4rem;
   }
 
   .tagline {
