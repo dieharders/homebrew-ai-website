@@ -1,10 +1,6 @@
-/* TailwindCSS v4 */
-@import "tailwindcss";
-
-@theme {
-  --font-lilita: "Lilita One", sans-serif;
-  --font-comic-mono: "Comic Mono", monospace;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   /* Spacing Scale (8px base) */
