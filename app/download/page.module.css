@@ -8,10 +8,14 @@
 
 /* Subtle background pattern */
 .downloadsSection::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle at 1px 1px, rgba(255, 212, 59, 0.03) 1px, transparent 0);
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(255, 212, 59, 0.03) 1px,
+    transparent 0
+  );
   background-size: 40px 40px;
   pointer-events: none;
 }
@@ -62,7 +66,9 @@
   position: relative;
   border-radius: 20px;
   overflow: hidden;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s ease;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
@@ -75,13 +81,20 @@
 
 /* Card accent glow on hover */
 .card::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   border-radius: 20px;
   padding: 1px;
-  background: linear-gradient(135deg, transparent 0%, rgba(255, 212, 59, 0.2) 50%, transparent 100%);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    rgba(255, 212, 59, 0.2) 50%,
+    transparent 100%
+  );
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   mask-composite: exclude;
   -webkit-mask-composite: xor;
   opacity: 0;
@@ -136,7 +149,7 @@
   padding: 0.5rem 1rem;
   border-radius: 8px;
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.8px;
   background: rgba(255, 212, 59, 0.15);
@@ -151,7 +164,7 @@
 }
 
 .cardDescription {
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 1.25rem;
   color: rgba(255, 255, 255, 0.7);
@@ -180,8 +193,10 @@
   width: 16px;
   height: 16px;
   background: var(--accent-btn);
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E") no-repeat center;
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E") no-repeat center;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E")
+    no-repeat center;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E")
+    no-repeat center;
 }
 
 .cardButton {
@@ -191,7 +206,7 @@
   padding: 1rem 1.5rem;
   border-radius: 10px;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
   border: none;
@@ -200,7 +215,11 @@
   align-items: center;
   height: auto;
   min-height: 52px;
-  background: linear-gradient(135deg, var(--accent-btn) 0%, var(--accent-dark) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--accent-btn) 0%,
+    var(--accent-dark) 100%
+  );
   color: #1a1a2e;
   box-shadow: 0 4px 16px rgba(255, 212, 59, 0.25);
 }
@@ -213,7 +232,11 @@
 
 /* Card Variants - Subtle differentiation */
 .cardWindows {
-  background: linear-gradient(145deg, rgba(59, 130, 246, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+  background: linear-gradient(
+    145deg,
+    rgba(59, 130, 246, 0.08) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
 }
 
 .cardWindows .platformIcon {
@@ -227,7 +250,11 @@
 }
 
 .cardGpu {
-  background: linear-gradient(145deg, rgba(34, 197, 94, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+  background: linear-gradient(
+    145deg,
+    rgba(34, 197, 94, 0.08) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
 }
 
 .cardGpu .platformIcon {
@@ -241,7 +268,11 @@
 }
 
 .cardMac {
-  background: linear-gradient(145deg, rgba(168, 85, 247, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+  background: linear-gradient(
+    145deg,
+    rgba(168, 85, 247, 0.08) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
 }
 
 .cardMac .platformIcon {
@@ -279,7 +310,7 @@
 }
 
 .systemReqs p {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.6);
   margin: 0;
   line-height: 1.8;

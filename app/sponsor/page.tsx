@@ -14,37 +14,36 @@ export default function SponsorPage() {
         <Section background="normal" className={styles.sponsorSection}>
           {/* Hero */}
           <div className={styles.hero}>
-            <span className={styles.badge}>Early Access</span>
-            <h1 className={styles.heroTitle}>FILEBUFF</h1>
+            <h1 className={styles.heroTitle}>OPENBREW</h1>
           </div>
-
           {/* Support Note */}
           <div className={styles.supportNote}>
+            <span className={styles.badge}>Early Access</span>
             <p>
               All paid plans include: Discord access, Email support, GitHub
               repository access, no data collection, and all future updates.
             </p>
           </div>
-
           {/* Pricing Cards */}
           <div className={styles.pricingCategory}>
             <div className={styles.pricingCards}>
               <PricingCard
-                name="Free"
+                name="HOBBY"
                 price="$0"
                 period="/month"
-                description="For individuals exploring AI-powered file management"
+                description="For individuals exploring on-device AI for personal use"
                 features={[
                   "Unlimited edge AI",
                   "Community support",
                   "Basic features",
+                  "Single user",
                 ]}
               />
               <PricingCard
-                name="Team"
+                name="TEAM"
                 price="$100"
                 period="/month"
-                description="For teams ready to boost productivity"
+                description="For teams ready to boost productivity and speed"
                 features={[
                   "5 seat minimum",
                   "Email support",
@@ -54,7 +53,7 @@ export default function SponsorPage() {
                 highlighted
               />
               <PricingCard
-                name="Enterprise"
+                name="ENTERPRISE"
                 price="Quote"
                 period=""
                 description="For organizations with specific requirements"
@@ -69,11 +68,13 @@ export default function SponsorPage() {
             </div>
           </div>
 
+
+
           {/* Final CTA */}
-          <div className={styles.finalCta}>
+          {/* <div className={styles.finalCta}>
             <h3 className={styles.finalCtaTitle}>Ready to get started?</h3>
             <p className={styles.finalCtaText}>
-              Join the beta and experience secure, on-device AI.
+              Join the beta and experience private, on-device AI.
             </p>
             <Button
               className={styles.ctaButton}
@@ -83,7 +84,7 @@ export default function SponsorPage() {
             >
               Learn More About FileBuff
             </Button>
-          </div>
+          </div> */}
         </Section>
       </main>
     </div>
@@ -133,7 +134,7 @@ function PricingCard({
           highlighted ? styles.cardButtonHighlighted : styles.cardButton
         }
         href={FILEBUFF_URL}
-        size="normal"
+        size="large"
         type="custom"
       >
         {ctaText}

@@ -13,27 +13,27 @@
 .hero {
   text-align: center;
   max-width: 700px;
-  margin: 0 auto 2rem auto;
+  margin: 0 auto 0 auto;
   position: relative;
   z-index: 1;
 }
 
 .badge {
   display: inline-block;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   background: var(--accent-btn);
-  padding: 0.5rem 1.25rem;
+  padding: 0.625rem 1.5rem;
   border-radius: 100px;
   margin-bottom: 1.5rem;
-  color: #1f2937;
+  color: var(--text);
 }
 
 .heroTitle {
   font-family: var(--font-lilita-one), sans-serif;
-  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-size: clamp(4rem, 6vw, 4.5rem);
   font-weight: 400;
   letter-spacing: 2px;
   color: inherit;
@@ -44,7 +44,7 @@
   font-size: 1.35rem;
   color: var(--accent-btn);
   margin: 0 0 1.25rem 0;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .heroDescription {
@@ -198,7 +198,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: var(--text-accent);
+  color: var(--text-shade);
   background: var(--accent-btn);
   padding: 0.375rem 1rem;
   border-radius: 100px;
@@ -234,7 +234,7 @@
 }
 
 .cardDescription {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--text-secondary, #555);
   line-height: 1.5;
   margin: 0 0 1.75rem 0;
@@ -253,7 +253,7 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: inherit;
   padding: 0.625rem 0;
   border-bottom: 1px solid rgba(128, 128, 128, 0.15);
@@ -277,17 +277,20 @@
   padding: 0.875rem 1.5rem;
   border-radius: 10px;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
-  border: 2px solid var(--text-primary, #1a1a1a);
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--text-primary);
   background: transparent;
-  color: var(--text-primary, #1a1a1a);
+  color: var(--text-shade);
 }
 
 .cardButton:hover {
   border-color: var(--accent-btn);
   background: var(--accent-btn);
+  color: var(--text-primary);
 }
 
 .cardButtonHighlighted {
@@ -300,32 +303,43 @@
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
   border: none;
   background: var(--accent-btn);
-  color: var(--text-accent);
+  color: var(--text-shade);
 }
 
 .cardButtonHighlighted:hover {
-  filter: brightness(1.1);
+  background: #ffe066;
   transform: translateY(-1px);
-  color: #1f2937;
+  color: var(--text);
 }
 
 /* Support Note */
 .supportNote {
   text-align: center;
   max-width: 700px;
-  margin: 0 auto 4rem auto;
-  padding: 1.25rem 2rem;
+  margin: 2.5rem auto 4rem auto;
+  padding: 2.5rem 2.5rem;
   background: rgba(128, 128, 128, 0.06);
   border-radius: 12px;
   position: relative;
   z-index: 1;
 }
 
+.supportNote .badge {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 0;
+}
+
 .supportNote p {
-  font-size: 0.95rem;
+  font-size: 1.15rem;
   color: var(--text-secondary, #555);
   margin: 0;
   line-height: 1.6;
@@ -367,14 +381,14 @@
   transition: all 0.2s ease;
   border: none;
   background: var(--accent-btn);
-  color: var(--text-accent);
+  color: var(--text-shade);
 }
 
 .ctaButton:hover {
   transform: translateY(-2px);
   filter: brightness(1.1);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  color: #1f2937;
+  color: var(--text-primary);
 }
 
 /* ========================================

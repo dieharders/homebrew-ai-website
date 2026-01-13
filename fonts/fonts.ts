@@ -13,14 +13,18 @@ export const lilita_one = Lilita_One({
 
 // Local fonts (downloaded)
 
-// https://github.com/shannpersand/comic-shanns
-export const comic_shanns = localFont({
+// https://github.com/dtinth/comic-mono-font
+export const comic_mono = localFont({
   src: [
     {
-      path: "ComicShanns/comic_shanns.otf",
+      path: "comic-mono/webfonts/comic-mono-latin-400-normal.woff2",
       weight: "400",
+    },
+    {
+      path: "comic-mono/webfonts/comic-mono-latin-700-normal.woff2",
+      weight: "700",
     },
   ],
   display: "swap",
-  variable: "--font-comic-shanns",
+  variable: "--font-comic-mono",
 });

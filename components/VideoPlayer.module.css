@@ -1,7 +1,7 @@
 .container {
   position: relative;
   width: 100%;
-  background: #000;
+  background: transparent;
   overflow: hidden;
 }
 
@@ -48,7 +48,9 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+  transition:
+    transform var(--transition-smooth),
+    box-shadow var(--transition-smooth);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
