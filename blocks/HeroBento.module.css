@@ -62,8 +62,8 @@
 
 .headline {
   font-family: var(--font-lilita-one), sans-serif;
-  font-size: clamp(2.5rem, 6vw, 3.75rem);
-  font-weight: 400;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
   line-height: 1.1;
   letter-spacing: 0.5px;
   margin: 0 0 var(--space-5) 0;
