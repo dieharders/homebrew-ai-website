@@ -1,24 +1,57 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import {
   ArrowLeft,
-  CreditCard,
   Lock,
   Check,
-  Mail,
-  User,
-  MapPin,
-  Building,
   ChevronDown,
-  ShieldCheck,
+  CreditCard,
 } from "lucide-react";
 
+// Card brand SVG components
+const VisaIcon = () => (
+  <svg viewBox="0 0 38 24" width="32" height="20" xmlns="http://www.w3.org/2000/svg">
+    <rect fill="#fff" width="38" height="24" rx="3" />
+    <path d="M15.3 15.6h-2.4l1.5-9.2h2.4l-1.5 9.2zm-4.7 0l-2.3-6.3-.3 1.4-.8-4.3h-2.6l-.1.3c1.3.3 2.2.7 2.9 1.2l2.1 7.7h2.5l3.8-9.2h-2.5l-2.7 9.2zm16.9-9.2h-2l-.3 1.4-2.1-1.1c-.3-.2-.7-.3-1.1-.3-1.2 0-2.6 1.2-2.6 3.5 0 2.2 1.3 3.4 2.6 3.4.4 0 .8-.1 1.1-.3l2.1-1.1.3 1.4h2l1.5-6.9h-1.5zm-3.9 5.1c-.6 0-1.2-.5-1.2-1.6s.6-1.6 1.2-1.6c.6 0 1.2.5 1.2 1.6s-.6 1.6-1.2 1.6zm10.2-5.4c-.5-.2-1.3-.3-2.2-.3-2.5 0-4.2 1.3-4.2 3.2 0 1.4 1.3 2.2 2.3 2.6 1 .5 1.4.8 1.4 1.2 0 .6-.8 1-1.6 1-.8 0-1.7-.1-2.4-.5l-.3-.2-.4 2.2c.6.3 1.7.5 2.9.5 2.6 0 4.3-1.3 4.3-3.3 0-1.1-.7-2-2.2-2.7-.9-.4-1.5-.7-1.5-1.2 0-.4.5-.8 1.5-.8.7 0 1.4.1 1.9.4l.2.1.3-2.2z" fill="#1a1f71" />
+  </svg>
+);
+
+const MastercardIcon = () => (
+  <svg viewBox="0 0 38 24" width="32" height="20" xmlns="http://www.w3.org/2000/svg">
+    <rect fill="#fff" width="38" height="24" rx="3" />
+    <circle fill="#eb001b" cx="15" cy="12" r="7" />
+    <circle fill="#f79e1b" cx="23" cy="12" r="7" />
+    <path fill="#ff5f00" d="M19 5.8c1.7 1.3 2.8 3.4 2.8 5.7s-1.1 4.4-2.8 5.7c-1.7-1.3-2.8-3.4-2.8-5.7s1.1-4.4 2.8-5.7z" />
+  </svg>
+);
+
+const AmexIcon = () => (
+  <svg viewBox="0 0 38 24" width="32" height="20" xmlns="http://www.w3.org/2000/svg">
+    <rect fill="#006fcf" width="38" height="24" rx="3" />
+    <path d="M8.5 11.3l-.7-1.8h-1l1.3 3.2h.8l1.3-3.2h-1l-.7 1.8zm3.1 1.4h2.4v-.7h-1.6v-.6h1.6v-.7h-1.6v-.5h1.6v-.7h-2.4v3.2zm3.4 0h.8v-1.2h.8l.7 1.2h1l-.8-1.3c.4-.2.7-.5.7-1 0-.7-.5-1.1-1.3-1.1h-1.9v3.4zm.8-2.7h.9c.3 0 .5.2.5.4 0 .3-.2.5-.5.5h-.9v-.9zm3.1 2.7h.8v-3.2h-.8v3.2zm1.8 0h.8v-1.3l1.3 1.3h1.1l-1.5-1.4 1.4-1.8h-1.1l-1.2 1.6v-1.6h-.8v3.2zm5.1 0h.8l.3-.8h1.4l.3.8h.9l-1.4-3.2h-.9l-1.4 3.2zm1.4-1.5l.4-1.1.4 1.1h-.8zm3.2 1.5h.8v-2.4l1.5 2.4h.8v-3.2h-.8v2.2l-1.4-2.2h-.9v3.2z" fill="#fff" />
+  </svg>
+);
+
+const DiscoverIcon = () => (
+  <svg viewBox="0 0 38 24" width="32" height="20" xmlns="http://www.w3.org/2000/svg">
+    <rect fill="#fff" width="38" height="24" rx="3" />
+    <path d="M27 12c0 3.3-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6 6 2.7 6 6z" fill="#f47216" />
+    <path d="M3 9.5h1.6c1.3 0 2.2.9 2.2 2.2s-.9 2.2-2.2 2.2H3v-4.4zm.8 3.7h.7c.9 0 1.4-.6 1.4-1.5s-.5-1.5-1.4-1.5h-.7v3zm4.2.7h.8v-4.4h-.8v4.4zm2.3-1.6c0 .5.4.8 1.1.9l.6.1c.4.1.6.2.6.4 0 .3-.3.4-.7.4-.5 0-.8-.2-.9-.5h-.8c.1.7.7 1.2 1.7 1.2.9 0 1.6-.4 1.6-1.1 0-.6-.4-.9-1.2-1l-.5-.1c-.4-.1-.6-.2-.6-.4 0-.2.2-.4.6-.4.4 0 .7.2.8.5h.8c-.1-.7-.7-1.1-1.6-1.1-.9 0-1.5.5-1.5 1.1zm5.4 1.4c-.5 0-.9-.3-1-1h2.6c0-.1 0-.3 0-.4 0-1.2-.7-1.9-1.6-1.9s-1.8.8-1.8 2 .7 2 1.7 2c.9 0 1.5-.5 1.7-1.2h-.8c-.1.3-.4.5-.8.5zm-.1-2.6c.4 0 .7.3.8.9h-1.7c.2-.6.5-.9.9-.9zm6.9 2.8l-1.2-4.4h-.9l1.7 4.4h.8l1.7-4.4h-.9l-1.2 4.4zm3.3 0h2.4v-.7h-1.6v-.9h1.5v-.7h-1.5v-.9h1.6v-.7h-2.4v4.4zm3.4 0h.8v-1.6h.6l1 1.6h1l-1.1-1.7c.5-.2.9-.6.9-1.2 0-.8-.6-1.3-1.4-1.3h-1.8v4.2zm.8-3.5h.8c.4 0 .6.2.6.6s-.2.6-.6.6h-.8v-1.2z" fill="#231f20" />
+  </svg>
+);
+
 export default function PurchasePage() {
-  const [paymentMethod, setPaymentMethod] = useState<"card" | "paypal">("card");
   const [seats, setSeats] = useState(5);
   const [cardNumber, setCardNumber] = useState("");
+  const [expiry, setExpiry] = useState("");
+  const [cvc, setCvc] = useState("");
+  const [email, setEmail] = useState("");
+  const [nameOnCard, setNameOnCard] = useState("");
+  const [country, setCountry] = useState("US");
+  const [saveInfo, setSaveInfo] = useState(false);
 
   const pricePerSeat = 100;
   const subtotal = seats * pricePerSeat;
@@ -37,6 +70,15 @@ export default function PurchasePage() {
     return parts.length ? parts.join(" ") : v;
   };
 
+  // Format expiry as MM / YY
+  const formatExpiry = (value: string) => {
+    const v = value.replace(/\s+/g, "").replace(/[^0-9]/gi, "");
+    if (v.length >= 2) {
+      return v.slice(0, 2) + " / " + v.slice(2, 4);
+    }
+    return v;
+  };
+
   // Detect card type from number
   const getCardType = (number: string) => {
     const cleaned = number.replace(/\s/g, "");
@@ -50,426 +92,304 @@ export default function PurchasePage() {
   const cardType = getCardType(cardNumber);
 
   return (
-    <div className="min-h-screen bg-[var(--background-alternate)]">
-      {/* Header */}
-      <header className="border-b border-gray-200 bg-white">
-        <div className="mx-auto max-w-5xl px-6 py-4">
-          <Link
-            href="/sponsor"
-            className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            <ArrowLeft size={16} />
-            Back to plans
-          </Link>
-        </div>
-      </header>
+    <div className="min-h-screen bg-[var(--background-alternate)] flex flex-col">
+      {/* Main Content */}
+      <main className="flex-1 flex items-start lg:items-center py-8 lg:py-12">
+        <div className="w-full max-w-6xl mx-auto grid lg:grid-cols-2 min-h-[600px]">
+          {/* Left Column - Order Summary */}
+          <div className="bg-white lg:bg-[var(--background-alternate)] px-6 py-8 lg:px-12 lg:py-10 lg:pr-16 order-2 lg:order-1">
+            {/* Back Link with Brand */}
+            <div className="flex items-center gap-4 mb-10">
+              <Link
+                href="/sponsor"
+                className="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+              >
+                <ArrowLeft size={16} className="text-gray-600" />
+              </Link>
+              <div className="flex items-center gap-2">
+                <div className="w-12 h-12 bg-[var(--accent-btn)] rounded-lg flex items-center justify-center">
+                  <Image
+                    src="/cup-icon.svg"
+                    alt="Openbrew"
+                    width={36}
+                    height={36}
+                  />
+                </div>
+                <span className="font-lilita text-md text-gray-700">Openbrew.ai</span>
+              </div>
+            </div>
 
-      <main className="mx-auto max-w-5xl px-6 py-12">
-        <div className="grid lg:grid-cols-[1fr,400px] gap-12">
-          {/* Left Column - Payment Form */}
-          <div className="order-2 lg:order-1">
-            <h1 className="font-lilita text-3xl mb-8 text-[var(--text)]">
-              Complete your purchase
-            </h1>
-
-            {/* Payment Method Selection */}
+            {/* Pay Header */}
             <div className="mb-8">
-              <h2 className="text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
-                Payment Method
-              </h2>
-              <div className="grid grid-cols-2 gap-3">
-                <button
-                  onClick={() => setPaymentMethod("card")}
-                  className={`h-14 flex items-center justify-center gap-2.5 px-4 rounded-xl border-2 transition-all ${
-                    paymentMethod === "card"
-                      ? "border-[var(--accent-btn)] bg-[var(--accent-light)]"
-                      : "border-gray-200 bg-white hover:border-gray-300"
-                  }`}
-                >
-                  <CreditCard size={20} className="flex-shrink-0" />
-                  <span className="font-medium leading-none">Credit Card</span>
-                </button>
-                <button
-                  onClick={() => setPaymentMethod("paypal")}
-                  className={`h-14 flex items-center justify-center gap-0.5 px-4 rounded-xl border-2 transition-all ${
-                    paymentMethod === "paypal"
-                      ? "border-[var(--accent-btn)] bg-[var(--accent-light)]"
-                      : "border-gray-200 bg-white hover:border-gray-300"
-                  }`}
-                >
-                  <span className="font-bold text-[#003087] text-base leading-none">
-                    Pay
-                  </span>
-                  <span className="font-bold text-[#009cde] text-base leading-none">
-                    Pal
-                  </span>
-                </button>
-              </div>
+              <p className="text-gray-500 text-sm mb-2">Pay Openbrew</p>
+              <h1 className="font-lilita text-4xl lg:text-5xl text-[var(--text)]">
+                ${total.toFixed(2)}
+              </h1>
             </div>
 
-            {/* Card Details Form */}
-            {paymentMethod === "card" && (
-              <div className="space-y-6 mb-8">
-                <h2 className="text-sm font-semibold text-gray-700 uppercase tracking-wide">
-                  Card Details
-                </h2>
-
-                {/* Email Field */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Email
-                  </label>
-                  <div className="relative">
-                    <Mail
-                      size={18}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
-                    />
-                    <input
-                      type="email"
-                      placeholder="you@company.com"
-                      className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:border-[var(--accent-btn)] focus:ring-2 focus:ring-[var(--accent-gold-glow)] transition-all"
-                    />
-                  </div>
-                </div>
-
-                {/* Cardholder Name */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Cardholder Name
-                  </label>
-                  <div className="relative">
-                    <User
-                      size={18}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
-                    />
-                    <input
-                      type="text"
-                      placeholder="John Smith"
-                      className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:border-[var(--accent-btn)] focus:ring-2 focus:ring-[var(--accent-gold-glow)] transition-all"
-                    />
-                  </div>
-                </div>
-
-                {/* Card Number */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Card Number
-                  </label>
-                  <div className="relative">
-                    <CreditCard
-                      size={18}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
-                    />
-                    <input
-                      type="text"
-                      placeholder="1234 5678 9012 3456"
-                      value={cardNumber}
-                      onChange={(e) =>
-                        setCardNumber(formatCardNumber(e.target.value))
-                      }
-                      maxLength={19}
-                      className="w-full pl-11 pr-16 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:border-[var(--accent-btn)] focus:ring-2 focus:ring-[var(--accent-gold-glow)] transition-all font-mono tracking-wider"
-                    />
-                    {/* Card Type Badge */}
-                    {cardType && (
-                      <span className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-semibold uppercase text-gray-500 bg-gray-100 px-2 py-1 rounded">
-                        {cardType}
-                      </span>
-                    )}
-                  </div>
-                </div>
-
-                {/* Expiry & CVC Row */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Expiry Date
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="MM / YY"
-                      maxLength={7}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:border-[var(--accent-btn)] focus:ring-2 focus:ring-[var(--accent-gold-glow)] transition-all text-center font-mono tracking-wider"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      CVC
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="123"
-                      maxLength={4}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:border-[var(--accent-btn)] focus:ring-2 focus:ring-[var(--accent-gold-glow)] transition-all text-center font-mono tracking-wider"
-                    />
-                  </div>
-                </div>
-
-                {/* Billing Address Section */}
-                <div className="pt-2">
-                  <h2 className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-4">
-                    Billing Address
-                  </h2>
-
-                  {/* Country Dropdown */}
-                  <div className="mb-3">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Country
-                    </label>
-                    <div className="relative">
-                      <select className="w-full px-4 py-3 pr-10 rounded-xl border border-gray-200 bg-white focus:outline-none focus:border-[var(--accent-btn)] focus:ring-2 focus:ring-[var(--accent-gold-glow)] transition-all appearance-none cursor-pointer">
-                        <option value="US">United States</option>
-                        <option value="CA">Canada</option>
-                        <option value="GB">United Kingdom</option>
-                        <option value="AU">Australia</option>
-                        <option value="DE">Germany</option>
-                        <option value="FR">France</option>
-                        <option value="JP">Japan</option>
-                        <option value="other">Other</option>
-                      </select>
-                      <ChevronDown
-                        size={18}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Street Address */}
-                  <div className="mb-3">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Street Address
-                    </label>
-                    <div className="relative">
-                      <MapPin
-                        size={18}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
-                      />
-                      <input
-                        type="text"
-                        placeholder="123 Main Street"
-                        className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:border-[var(--accent-btn)] focus:ring-2 focus:ring-[var(--accent-gold-glow)] transition-all"
-                      />
-                    </div>
-                  </div>
-
-                  {/* City, State, ZIP Row */}
-                  <div className="grid grid-cols-6 gap-3">
-                    <div className="col-span-3">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        City
-                      </label>
-                      <div className="relative">
-                        <Building
-                          size={18}
-                          className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
-                        />
-                        <input
-                          type="text"
-                          placeholder="San Francisco"
-                          className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:border-[var(--accent-btn)] focus:ring-2 focus:ring-[var(--accent-gold-glow)] transition-all"
-                        />
-                      </div>
-                    </div>
-                    <div className="col-span-1">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        State
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="CA"
-                        maxLength={2}
-                        className="w-full px-3 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:border-[var(--accent-btn)] focus:ring-2 focus:ring-[var(--accent-gold-glow)] transition-all text-center uppercase"
-                      />
-                    </div>
-                    <div className="col-span-2">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        ZIP Code
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="94102"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:border-[var(--accent-btn)] focus:ring-2 focus:ring-[var(--accent-gold-glow)] transition-all"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* PayPal Message */}
-            {paymentMethod === "paypal" && (
-              <div className="mb-8 p-8 bg-white rounded-xl border border-gray-200">
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 bg-[#003087]/10 rounded-full flex items-center justify-center mb-4">
-                    <ShieldCheck size={32} className="text-[#003087]" />
-                  </div>
-                  <h3 className="font-lilita text-lg text-gray-900 mb-2">
-                    Secure PayPal Checkout
-                  </h3>
-                  <p className="text-gray-600 text-sm max-w-xs">
-                    You will be redirected to PayPal to complete your purchase
-                    securely. No card details required.
+            {/* Line Items */}
+            <div className="border-t border-gray-200 pt-6 space-y-5">
+              {/* Team Plan Item */}
+              <div className="flex justify-between items-start">
+                <div className="flex flex-col gap-1">
+                  <p className="font-lilita text-gray-900 text-lg font-medium">OPENBREW TEAM</p>
+                  <p className="text-gray-500 text-sm">
+                    Qty {seats} &middot; ${pricePerSeat}/seat
                   </p>
                 </div>
-              </div>
-            )}
-
-            {/* Submit Button */}
-            <button className="w-full h-14 px-6 bg-[var(--accent-btn)] hover:bg-[#ffe066] active:bg-[#f5c800] text-[var(--text)] font-bold rounded-xl transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2.5 text-base leading-none">
-              <Lock size={18} className="flex-shrink-0" />
-              <span>
-                {paymentMethod === "paypal"
-                  ? `Continue to PayPal · $${total.toFixed(2)}`
-                  : `Pay $${total.toFixed(2)}`}
-              </span>
-            </button>
-
-            {/* Security Note */}
-            <div className="mt-4 flex items-center justify-center gap-4 text-xs text-gray-400 leading-none">
-              <span className="flex items-center gap-1.5">
-                <Lock size={12} className="flex-shrink-0" />
-                <span>SSL Encrypted</span>
-              </span>
-              <span className="w-1 h-1 bg-gray-300 rounded-full flex-shrink-0" />
-              <span className="flex items-center gap-1.5">
-                <ShieldCheck size={12} className="flex-shrink-0" />
-                <span>Secure Payment</span>
-              </span>
-            </div>
-          </div>
-
-          {/* Right Column - Order Summary */}
-          <div className="order-1 lg:order-2">
-            <div className="bg-white rounded-2xl border border-gray-200 p-6 lg:sticky lg:top-8">
-              {/* Product Info */}
-              <div className="flex items-start gap-4 pb-6 border-b border-gray-100">
-                <div className="w-14 h-14 bg-[var(--accent-btn)] rounded-xl flex items-center justify-center flex-shrink-0">
-                  <span className="font-lilita text-2xl text-[var(--text)] leading-none">
-                    O
-                  </span>
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-lilita text-lg text-[var(--text)] leading-tight">
-                    OPENBREW TEAM
-                  </h3>
-                  <p className="text-sm text-gray-500 mt-1 leading-none">
-                    Monthly subscription
-                  </p>
-                  <span className="inline-flex items-center mt-2.5 px-2.5 py-1 bg-[var(--accent-light)] text-xs font-semibold rounded-full text-[var(--text)] leading-none">
-                    Popular
-                  </span>
-                </div>
+                <p className="text-gray-900 font-medium tabular-nums">
+                  ${subtotal.toFixed(2)}
+                </p>
               </div>
 
-              {/* Seat Selection */}
-              <div className="py-6 border-b border-gray-100">
-                <label className="block text-sm font-medium text-gray-700 mb-3 leading-none">
-                  Number of seats
-                </label>
-                <div className="inline-flex items-center gap-2">
+              {/* Seat Selector */}
+              <div className="flex items-center gap-4 py-1">
+                <span className="text-sm text-gray-600">Seats:</span>
+                <div className="inline-flex items-center border border-gray-200 rounded-lg overflow-hidden bg-white">
                   <button
                     onClick={() => setSeats(Math.max(5, seats - 1))}
                     disabled={seats <= 5}
-                    className="w-10 h-10 rounded-lg border border-gray-200 flex items-center justify-center text-xl leading-none font-medium hover:bg-gray-50 hover:border-gray-300 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:border-gray-200 transition-all active:scale-95"
+                    className="cursor-pointer w-10 h-10 flex items-center justify-center text-gray-600 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors text-lg"
                   >
-                    <span className="relative -top-px">−</span>
+                    −
                   </button>
-                  <div className="w-14 h-10 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-200">
-                    <span className="text-lg font-semibold tabular-nums leading-none">
-                      {seats}
-                    </span>
-                  </div>
+                  <span className="w-12 h-10 flex items-center justify-center text-sm font-semibold tabular-nums border-x border-gray-200 bg-gray-50">
+                    {seats}
+                  </span>
                   <button
                     onClick={() => setSeats(seats + 1)}
-                    className="w-10 h-10 rounded-lg border border-gray-200 flex items-center justify-center text-xl leading-none font-medium hover:bg-gray-50 hover:border-gray-300 transition-all active:scale-95"
+                    className="cursor-pointer w-10 h-10 flex items-center justify-center text-gray-600 hover:bg-gray-50 transition-colors text-lg"
                   >
-                    <span className="relative -top-px">+</span>
+                    +
                   </button>
                 </div>
-                <p className="mt-2.5 text-xs text-gray-500 leading-none">
-                  Minimum 5 seats
-                </p>
+                <span className="text-xs text-gray-400">min 5</span>
+              </div>
+            </div>
+
+            {/* Subtotal & Tax */}
+            <div className="border-t border-gray-200 mt-6 pt-5 space-y-3">
+              <div className="flex justify-between text-sm">
+                <span className="text-gray-500">Subtotal</span>
+                <span className="text-gray-900 tabular-nums">${subtotal.toFixed(2)}</span>
+              </div>
+              <div className="flex justify-between text-sm">
+                <span className="text-gray-500">Estimated tax</span>
+                <span className="text-gray-900 tabular-nums">${tax.toFixed(2)}</span>
+              </div>
+            </div>
+
+            {/* Total Due */}
+            <div className="border-t border-gray-200 mt-5 pt-5">
+              <div className="flex justify-between items-center">
+                <span className="text-gray-900 font-semibold text-base">Total due</span>
+                <span className="font-lilita text-2xl text-[var(--text)] tabular-nums">
+                  ${total.toFixed(2)}
+                </span>
+              </div>
+            </div>
+
+            {/* Features List */}
+            <div className="mt-10 pt-6 border-t border-gray-200">
+              <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-4">
+                Included
+              </p>
+              <ul className="space-y-3 mt-2">
+                {[
+                  "Discord access",
+                  "Email support",
+                  "GitHub repository access",
+                  "No data collection",
+                  "All future updates",
+                ].map((feature) => (
+                  <li
+                    key={feature}
+                    className="flex items-center gap-3 text-sm text-gray-600"
+                  >
+                    <span className="w-5 h-5 rounded bg-[var(--accent-light)] flex items-center justify-center flex-shrink-0">
+                      <Check size={14} className="text-[var(--accent-dark)]" strokeWidth={3} />
+                    </span>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Powered By Footer */}
+            <div className="mt-10 pt-6 border-t border-gray-100 flex items-center gap-4 text-xs text-gray-400">
+              <span>
+                Powered by{" "}
+                <span className="font-semibold text-gray-500">stripe</span>
+              </span>
+              <span className="text-gray-300">|</span>
+              <Link href="#" className="hover:text-gray-600 transition-colors">
+                Terms
+              </Link>
+              <Link href="#" className="hover:text-gray-600 transition-colors">
+                Privacy
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Column - Payment Form */}
+          <div className="bg-white px-6 py-8 lg:px-12 lg:py-10 lg:pl-16 order-1 lg:order-2 lg:border-l border-gray-200">
+            <h2 className="text-xl font-semibold text-gray-900 mb-8">
+              Pay with card
+            </h2>
+
+            <div className="space-y-6">
+              {/* Email Field */}
+              <div>
+                <label className="block text-sm font-medium text-gray-600 mb-2">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[var(--accent-btn)] focus:ring-2 focus:ring-[var(--accent-gold-glow)] transition-all"
+                />
               </div>
 
-              {/* Price Breakdown */}
-              <div className="py-6 space-y-3">
-                <div className="flex justify-between items-center text-sm">
-                  <span className="text-gray-600 leading-none">
-                    {seats} seats × ${pricePerSeat}/mo
-                  </span>
-                  <span className="text-gray-900 font-medium tabular-nums leading-none">
-                    ${subtotal.toFixed(2)}
-                  </span>
-                </div>
-                <div className="flex justify-between items-center text-sm">
-                  <span className="text-gray-600 leading-none">Estimated tax</span>
-                  <span className="text-gray-900 font-medium tabular-nums leading-none">
-                    ${tax.toFixed(2)}
-                  </span>
+              {/* Card Information */}
+              <div>
+                <label className="block text-sm font-medium text-gray-600 mb-2">
+                  Card information
+                </label>
+                <div className="border border-gray-300 rounded-lg overflow-hidden focus-within:border-[var(--accent-btn)] focus-within:ring-2 focus-within:ring-[var(--accent-gold-glow)] transition-all">
+                  {/* Card Number Row */}
+                  <div className="relative">
+                    <input
+                      type="text"
+                      placeholder="1234 1234 1234 1234"
+                      value={cardNumber}
+                      onChange={(e) => setCardNumber(formatCardNumber(e.target.value))}
+                      maxLength={19}
+                      className="w-full px-4 py-3 pr-36 border-0 bg-white text-gray-900 placeholder-gray-400 focus:outline-none font-mono text-sm tracking-wider"
+                    />
+                    {/* Card Brand Icons */}
+                    <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1.5">
+                      <div className={`transition-opacity ${cardType === "visa" ? "opacity-100" : "opacity-25"}`}>
+                        <VisaIcon />
+                      </div>
+                      <div className={`transition-opacity ${cardType === "mastercard" ? "opacity-100" : "opacity-25"}`}>
+                        <MastercardIcon />
+                      </div>
+                      <div className={`transition-opacity ${cardType === "amex" ? "opacity-100" : "opacity-25"}`}>
+                        <AmexIcon />
+                      </div>
+                      <div className={`transition-opacity ${cardType === "discover" ? "opacity-100" : "opacity-25"}`}>
+                        <DiscoverIcon />
+                      </div>
+                    </div>
+                  </div>
+                  {/* Expiry & CVC Row */}
+                  <div className="flex border-t border-gray-300">
+                    <input
+                      type="text"
+                      placeholder="MM / YY"
+                      value={expiry}
+                      onChange={(e) => setExpiry(formatExpiry(e.target.value))}
+                      maxLength={7}
+                      className="flex-1 px-4 py-3 border-0 border-r border-gray-300 bg-white text-gray-900 placeholder-gray-400 focus:outline-none font-mono text-sm tracking-wider"
+                    />
+                    <div className="relative flex-1">
+                      <input
+                        type="text"
+                        placeholder="CVC"
+                        value={cvc}
+                        onChange={(e) => setCvc(e.target.value.replace(/\D/g, "").slice(0, 4))}
+                        maxLength={4}
+                        className="w-full px-4 py-3 pr-12 border-0 bg-white text-gray-900 placeholder-gray-400 focus:outline-none font-mono text-sm tracking-wider"
+                      />
+                      <CreditCard size={18} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Total */}
-              <div className="pt-4 border-t border-gray-200">
-                <div className="flex justify-between items-center">
-                  <span className="font-semibold text-gray-900 leading-none">
-                    Total due today
-                  </span>
-                  <span className="font-lilita text-2xl text-[var(--accent-dark)] leading-none tabular-nums">
-                    ${total.toFixed(2)}
-                  </span>
-                </div>
-                <p className="mt-2 text-xs text-gray-500 leading-none">
-                  Billed monthly
-                </p>
+              {/* Name on Card */}
+              <div>
+                <label className="block text-sm font-medium text-gray-600 mb-2">
+                  Name on card
+                </label>
+                <input
+                  type="text"
+                  value={nameOnCard}
+                  onChange={(e) => setNameOnCard(e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[var(--accent-btn)] focus:ring-2 focus:ring-[var(--accent-gold-glow)] transition-all"
+                />
               </div>
 
-              {/* Features */}
-              <div className="mt-6 pt-6 border-t border-gray-100">
-                <h4 className="text-sm font-semibold text-gray-700 mb-4 leading-none">
-                  Included with Team plan
-                </h4>
-                <ul className="space-y-3">
-                  {[
-                    "5 seat minimum",
-                    "Email support",
-                    "Advanced features",
-                    "Team collaboration",
-                    "All future updates",
-                  ].map((feature) => (
-                    <li
-                      key={feature}
-                      className="flex items-center gap-2.5 text-sm text-gray-600 leading-none"
-                    >
-                      <span className="w-5 h-5 rounded-full bg-[var(--accent-light)] flex items-center justify-center flex-shrink-0">
-                        <Check
-                          size={12}
-                          className="text-[var(--accent-dark)]"
-                          strokeWidth={3}
-                        />
-                      </span>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+              {/* Country/Region */}
+              <div>
+                <label className="block text-sm font-medium text-gray-600 mb-2">
+                  Country or region
+                </label>
+                <div className="relative">
+                  <select
+                    value={country}
+                    onChange={(e) => setCountry(e.target.value)}
+                    className="w-full px-4 py-3 pr-12 rounded-lg border border-gray-300 bg-white text-gray-900 focus:outline-none focus:border-[var(--accent-btn)] focus:ring-2 focus:ring-[var(--accent-gold-glow)] transition-all appearance-none cursor-pointer"
+                  >
+                    <option value="US">United States</option>
+                    <option value="CA">Canada</option>
+                    <option value="GB">United Kingdom</option>
+                    <option value="AU">Australia</option>
+                    <option value="DE">Germany</option>
+                    <option value="FR">France</option>
+                    <option value="JP">Japan</option>
+                    <option value="RU">Russia</option>
+                    <option value="other">Other</option>
+                  </select>
+                  <ChevronDown
+                    size={18}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
+                  />
+                </div>
               </div>
+
+              {/* Save Info Checkbox */}
+              <div className="flex items-start gap-3 py-3 px-4 bg-gray-50 rounded-lg border border-gray-200">
+                <input
+                  type="checkbox"
+                  id="saveInfo"
+                  checked={saveInfo}
+                  onChange={(e) => setSaveInfo(e.target.checked)}
+                  className="w-5 h-5 mt-0.5 rounded border-gray-300 text-[var(--accent-btn)] focus:ring-[var(--accent-btn)] cursor-pointer"
+                />
+                <label htmlFor="saveInfo" className="cursor-pointer flex-1">
+                  <span className="text-sm font-medium text-gray-700 block">
+                    Save my info for secure 1-click checkout
+                  </span>
+                  <span className="text-xs text-gray-500 block mt-1">
+                    Pay faster on Openbrew and thousands of sites.
+                  </span>
+                </label>
+              </div>
+
+              {/* Pay Button */}
+              <button className="w-full h-14 px-6 mt-2 bg-[var(--accent-btn)] hover:bg-[#ffe066] active:bg-[#f5c800] text-[var(--text)] font-bold rounded-lg transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2.5 text-base">
+                <Lock size={18} />
+                <span>Pay</span>
+              </button>
             </div>
           </div>
         </div>
       </main>
 
       {/* Mobile Sticky Footer */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-3 shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-5 py-4 shadow-[0_-4px_24px_rgba(0,0,0,0.1)]">
         <div className="flex items-center justify-between gap-4 max-w-5xl mx-auto">
-          <div className="flex flex-col gap-0.5">
-            <p className="text-xs text-gray-500 leading-none">Total due today</p>
-            <p className="font-lilita text-xl text-[var(--accent-dark)] leading-none">
+          <div className="flex flex-col gap-1">
+            <p className="text-xs text-gray-500 font-medium">Total due</p>
+            <p className="font-lilita text-2xl text-[var(--text)]">
               ${total.toFixed(2)}
             </p>
           </div>
-          <button className="h-12 px-6 bg-[var(--accent-btn)] hover:bg-[#ffe066] active:bg-[#f5c800] text-[var(--text)] font-bold rounded-xl transition-all shadow-md flex items-center justify-center gap-2 text-sm leading-none">
-            <Lock size={16} className="flex-shrink-0" />
-            <span>{paymentMethod === "paypal" ? "PayPal" : "Pay Now"}</span>
+          <button className="h-12 px-8 bg-[var(--accent-btn)] hover:bg-[#ffe066] active:bg-[#f5c800] text-[var(--text)] font-bold rounded-lg transition-all shadow-md flex items-center justify-center gap-2 text-base">
+            <Lock size={16} />
+            <span>Pay</span>
           </button>
         </div>
       </div>
