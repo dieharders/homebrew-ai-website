@@ -81,10 +81,13 @@
 }
 
 .navLink {
-  display: block;
-  padding: 0.5rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 1rem;
   font-size: 1rem;
   font-weight: 500;
+  line-height: 1;
   color: var(--text-shade);
   border-radius: 6px;
   transition:
@@ -119,7 +122,8 @@
   }
 
   .navLink {
-    padding: 0.5rem 0.75rem;
+    height: 32px;
+    padding: 0 0.75rem;
     font-size: 0.85rem;
   }
 }

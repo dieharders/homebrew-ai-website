@@ -4,6 +4,7 @@
   gap: 0.5rem;
   font-weight: 700;
   font-size: 1rem;
+  line-height: 1;
   transition:
     gap var(--transition-smooth),
     color var(--transition-smooth);
