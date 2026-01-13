@@ -84,7 +84,7 @@
   cursor: pointer;
   text-align: left;
   flex-shrink: 0;
-  width: 180px;
+  width: 128px;
   opacity: 0.65;
   transition: opacity var(--transition-smooth);
 }

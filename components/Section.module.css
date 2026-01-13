@@ -12,17 +12,17 @@
 
 .container-size-normal {
   padding-top: var(--space-10);
-  padding-bottom: var(--space-10);
+  padding-bottom: 4rem;
 }
 
 .container-size-narrow {
   padding-top: var(--space-6);
-  padding-bottom: var(--space-6);
+  padding-bottom: 4rem;
 }
 
 .container-size-wide {
   padding-top: var(--space-9);
-  padding-bottom: var(--space-9);
+  padding-bottom: 4rem;
 }
 
 /* Background variants */
@@ -167,11 +167,11 @@
 @media screen and (min-width: 800px) {
   .container-size-normal {
     padding-top: var(--space-10);
-    padding-bottom: var(--space-10);
+    padding-bottom: 4rem;
   }
 
   .container-size-wide {
     padding-top: var(--space-10);
-    padding-bottom: var(--space-10);
+    padding-bottom: 4rem;
   }
 }
