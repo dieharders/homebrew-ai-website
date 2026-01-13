@@ -16,7 +16,6 @@ export default function SponsorPage() {
           <div className={styles.hero}>
             <h1 className={styles.heroTitle}>OPENBREW</h1>
           </div>
-
           {/* Support Note */}
           <div className={styles.supportNote}>
             <span className={styles.badge}>Early Access</span>
@@ -25,7 +24,6 @@ export default function SponsorPage() {
               repository access, no data collection, and all future updates.
             </p>
           </div>
-
           {/* Pricing Cards */}
           <div className={styles.pricingCategory}>
             <div className={styles.pricingCards}>
@@ -70,8 +68,10 @@ export default function SponsorPage() {
             </div>
           </div>
 
+
+
           {/* Final CTA */}
-          <div className={styles.finalCta}>
+          {/* <div className={styles.finalCta}>
             <h3 className={styles.finalCtaTitle}>Ready to get started?</h3>
             <p className={styles.finalCtaText}>
               Join the beta and experience private, on-device AI.
@@ -84,7 +84,7 @@ export default function SponsorPage() {
             >
               Learn More About FileBuff
             </Button>
-          </div>
+          </div> */}
         </Section>
       </main>
     </div>

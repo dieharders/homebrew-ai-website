@@ -13,7 +13,7 @@
 .hero {
   text-align: center;
   max-width: 700px;
-  margin: 0 auto 2rem auto;
+  margin: 0 auto -1rem auto;
   position: relative;
   z-index: 1;
 }
@@ -33,7 +33,7 @@
 
 .heroTitle {
   font-family: var(--font-lilita-one), sans-serif;
-  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-size: clamp(4rem, 6vw, 4.5rem);
   font-weight: 400;
   letter-spacing: 2px;
   color: inherit;
@@ -322,7 +322,7 @@
 .supportNote {
   text-align: center;
   max-width: 700px;
-  margin: 0 auto 4rem auto;
+  margin: 2.5rem auto 4rem auto;
   padding: 2.5rem 2.5rem;
   background: rgba(128, 128, 128, 0.06);
   border-radius: 12px;
