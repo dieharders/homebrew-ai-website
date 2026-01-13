@@ -32,7 +32,8 @@
   font-family: var(--font-lilita-one), sans-serif;
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 400;
-  letter-spacing: 1px;
+  line-height: 1;
+  /* letter-spacing: 1px; */
   color: #fff;
   margin: 0 0 1rem 0;
 }

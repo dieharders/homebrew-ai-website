@@ -226,6 +226,7 @@
   font-size: 2.75rem;
   color: var(--accent-btn);
   line-height: 1;
+  text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.7);
 }
 
 .cardPeriod {
