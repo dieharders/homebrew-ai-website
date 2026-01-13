@@ -97,7 +97,7 @@ export default function PurchasePage() {
       <main className="flex-1 flex items-start lg:items-center py-8 lg:py-12">
         <div className="w-full max-w-6xl mx-auto grid lg:grid-cols-2 min-h-[600px]">
           {/* Left Column - Order Summary */}
-          <div className="bg-white lg:bg-[var(--background-alternate)] px-6 py-8 lg:px-12 lg:py-10 lg:pr-16 order-2 lg:order-1">
+          <div className="bg-white lg:bg-[var(--background-alternate)] px-6 py-8 lg:px-12 lg:py-10 lg:pr-16 order-1 lg:order-1">
             {/* Back Link with Brand */}
             <div className="flex items-center gap-4 mb-10">
               <Link
@@ -232,7 +232,7 @@ export default function PurchasePage() {
           </div>
 
           {/* Right Column - Payment Form */}
-          <div className="bg-white px-6 py-8 lg:px-12 lg:py-10 lg:pl-16 order-1 lg:order-2 lg:border-l border-gray-200">
+          <div className="bg-white px-6 py-8 lg:px-12 lg:py-10 lg:pl-16 order-2 lg:order-2 lg:border-l border-gray-200">
             <h2 className="text-xl font-semibold text-gray-900 mb-8">
               Pay with card
             </h2>
@@ -369,7 +369,7 @@ export default function PurchasePage() {
               </div>
 
               {/* Pay Button */}
-              <button className="w-full h-14 px-6 mt-2 bg-[var(--accent-btn)] hover:bg-[#ffe066] active:bg-[#f5c800] text-[var(--text)] font-bold rounded-lg transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2.5 text-base">
+              <button className="cursor-pointer w-full h-14 px-6 mt-2 bg-[var(--accent-btn)] hover:bg-[#ffe066] active:bg-[#f5c800] text-[var(--text)] font-bold rounded-lg transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2.5 text-base">
                 <Lock size={18} />
                 <span>Pay</span>
               </button>
@@ -387,7 +387,7 @@ export default function PurchasePage() {
               ${total.toFixed(2)}
             </p>
           </div>
-          <button className="h-12 px-8 bg-[var(--accent-btn)] hover:bg-[#ffe066] active:bg-[#f5c800] text-[var(--text)] font-bold rounded-lg transition-all shadow-md flex items-center justify-center gap-2 text-base">
+          <button className="cursor-pointer h-12 px-8 bg-[var(--accent-btn)] hover:bg-[#ffe066] active:bg-[#f5c800] text-[var(--text)] font-bold rounded-lg transition-all shadow-md flex items-center justify-center gap-2 text-base">
             <Lock size={16} />
             <span>Pay</span>
           </button>
