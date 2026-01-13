@@ -1,8 +1,9 @@
+import Image from "next/image";
+import { Check } from "lucide-react";
 import styles from "./page.module.css";
 import Header from "@/blocks/Header";
 import Section from "@/components/Section";
 import Button from "@/components/Button";
-import { Check } from "lucide-react";
 
 const OPENBREW_URL = "/download";
 
@@ -23,6 +24,13 @@ export default function SponsorPage() {
               All paid plans include: Discord access, Email support, GitHub
               repository access, no data collection, and all future updates.
             </p>
+            <Image
+              src="/cup-icon.svg"
+              alt=""
+              width={128}
+              height={128}
+              className={styles.heroIcon}
+            />
           </div>
           {/* Pricing Cards */}
           <div className={styles.pricingCategory}>
@@ -43,7 +51,7 @@ export default function SponsorPage() {
                 name="TEAM"
                 price="$100"
                 period="/month"
-                description="For teams ready to boost productivity and speed"
+                description="For teams ready to boost speed and productivity"
                 ctaText="Purchase"
                 features={[
                   "5 seat minimum included",

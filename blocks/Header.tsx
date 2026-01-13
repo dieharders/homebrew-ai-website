@@ -17,7 +17,7 @@ export interface NavItem {
 
 const defaultNavItems: NavItem[] = [
   // { label: "Features", href: "/#features" },
-  { label: "Sponsor", href: "/sponsor" },
+  { label: "Early Access", href: "/sponsor" },
   {
     label: "Docs",
     rel: "noopener noreferrer",
