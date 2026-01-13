@@ -154,14 +154,12 @@ h5,
 h6,
 p {
   color: var(--text);
-  margin: 0;
 }
 
 button,
-input {
+input,
+select {
   color: inherit;
   font-family: inherit;
   font-size: inherit;
-  margin: 0;
-  padding: 0;
 }
