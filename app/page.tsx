@@ -295,8 +295,6 @@ export default function Home() {
         {/* Video Showcase */}
         <VideoShowcase
           id="demo"
-          title="SEE FILEBUFF IN ACTION"
-          subtitle="Watch how FileBuff transforms the way you work with documents."
           videos={videos}
         />
 

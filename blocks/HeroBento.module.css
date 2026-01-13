@@ -47,7 +47,7 @@
   display: flex;
   width: 100%;
   flex-direction: column;
-  gap: 4rem;
+  gap: 3rem;
 }
 
 /* Headline area */
@@ -62,8 +62,8 @@
 
 .headline {
   font-family: var(--font-lilita-one), sans-serif;
-  font-size: clamp(2.5rem, 6vw, 3.75rem);
-  font-weight: 400;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
   line-height: 1.1;
   letter-spacing: 0.5px;
   margin: 0 0 var(--space-5) 0;
@@ -219,16 +219,11 @@
 @media screen and (min-width: 1100px) {
   .gridHeader {
     flex-direction: row;
-    gap: 8rem;
   }
 
   .videoCard {
     flex: 1;
     width: auto;
-  }
-
-  .headline {
-    font-size: 4rem;
   }
 
   .tagline {

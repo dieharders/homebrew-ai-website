@@ -15,16 +15,12 @@ interface Video {
 
 interface VideoShowcaseProps {
   id?: string;
-  title: string;
-  subtitle?: string;
   videos: Video[];
   className?: string;
 }
 
 export default function VideoShowcase({
   id,
-  title,
-  subtitle,
   videos,
   className,
 }: VideoShowcaseProps) {
@@ -36,8 +32,8 @@ export default function VideoShowcase({
     <Section id={id} background="normal" size="normal" className={className}>
       <div className={styles.header}>
         <div className={styles.accentLine} />
-        <h2 className={styles.title}>{title}</h2>
-        {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
+        <h2 className={styles.title}>{activeVideo?.title}</h2>
+        {activeVideo && <p className={styles.subtitle}>{activeVideo.description}</p>}
       </div>
 
       <div className={styles.content}>
@@ -53,12 +49,6 @@ export default function VideoShowcase({
               aspectRatio="4/3"
               className={styles.mainVideo}
             />
-          )}
-          {activeVideo && (
-            <div className={styles.videoInfo}>
-              <h3 className={styles.videoTitle}>{activeVideo.title}</h3>
-              <p className={styles.videoDescription}>{activeVideo.description}</p>
-            </div>
           )}
         </div>
 
