@@ -332,7 +332,7 @@
 
 .supportNote .badge {
   position: absolute;
-  top: -16px;
+  top: -20px;
   left: 50%;
   transform: translateX(-50%);
   margin-bottom: 0;
