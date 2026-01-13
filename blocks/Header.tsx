@@ -63,7 +63,7 @@ export default function Header(p: {
             {/* FileBuff */}
             <Link
               href="https://filebuff.openbrew.ai"
-              style={{ display: "flex", alignItems: "center" }}
+              style={{ display: "flex", alignItems: "center", height: "100%" }}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -71,16 +71,13 @@ export default function Header(p: {
                 style={{
                   position: "relative",
                   display: "inline-block",
+                  height: "100%",
                 }}
               >
-                <span
-                  className={styles.brandIcon}
-                  title="FileBuff"
-                  style={{ fontSize: "1rem" }}
-                >
+                <span className={styles.brandIcon} title="FileBuff">
                   <svg
-                    width="20"
-                    height="20"
+                    width="70%"
+                    height="70%"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                   >
@@ -90,12 +87,15 @@ export default function Header(p: {
               </span>
             </Link>
             {/* OpenBrew */}
-            <Link href="/" style={{ display: "flex", alignItems: "center" }}>
+            <Link
+              href="/"
+              style={{ display: "flex", alignItems: "center", height: "100%" }}
+            >
               <Image
                 src={ObrewLogo}
                 alt="OpenBrew"
-                height={28}
-                width={28}
+                height={0}
+                width={0}
                 title="OpenBrew"
                 className={styles.logo}
                 unoptimized
