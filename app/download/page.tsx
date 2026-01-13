@@ -69,7 +69,7 @@ export default function DownloadPage() {
                   </span>
                 </div>
                 <p className={styles.cardDescription}>
-                  No dedicated GPU required. Runs on any Windows PC or laptop.
+                  No dedicated GPU required. Runs on Windows PC or laptop.
                 </p>
                 <ul className={styles.cardFeatures}>
                   <li>Windows 10 / 11</li>
@@ -101,7 +101,7 @@ export default function DownloadPage() {
                   </span>
                 </div>
                 <p className={styles.cardDescription}>
-                  Accelerate AI with discreet graphics for faster inference.
+                  Accelerate AI with inference with discreet graphics.
                 </p>
                 <ul className={styles.cardFeatures}>
                   <li>NVIDIA RTX recommended</li>
