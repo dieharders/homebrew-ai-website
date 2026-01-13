@@ -46,7 +46,7 @@ export default function SponsorPage() {
                 description="For teams ready to boost productivity and speed"
                 ctaText="Purchase"
                 features={[
-                  "5 seat minimum",
+                  "5 seat minimum included",
                   "Email support",
                   "Advanced features",
                   "Team collaboration",
@@ -66,11 +66,10 @@ export default function SponsorPage() {
                   "Custom integrations",
                 ]}
                 ctaText="Contact Sales"
+                href="/#contact"
               />
             </div>
           </div>
-
-
 
           {/* Final CTA */}
           {/* <div className={styles.finalCta}>
@@ -118,7 +117,7 @@ function PricingCard({
         highlighted ? styles.pricingCardHighlighted : styles.pricingCard
       }
     >
-      {highlighted && <span className={styles.popularBadge}>Popular</span>}
+      {highlighted && <span className={styles.popularBadge}>Beta</span>}
       <h4 className={styles.cardName}>{name}</h4>
       <div className={styles.cardPricing}>
         <span className={styles.cardPrice}>{price}</span>

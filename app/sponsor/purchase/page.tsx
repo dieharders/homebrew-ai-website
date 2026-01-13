@@ -90,7 +90,7 @@ export default function PurchasePage() {
   const [country, setCountry] = useState("US");
   const [saveInfo, setSaveInfo] = useState(false);
 
-  const pricePerSeat = 100;
+  const pricePerSeat = 20;
   const subtotal = seats * pricePerSeat;
   const tax = subtotal * 0.1;
   const total = subtotal + tax;

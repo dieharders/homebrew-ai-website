@@ -293,10 +293,7 @@ export default function Home() {
         />
 
         {/* Video Showcase */}
-        <VideoShowcase
-          id="demo"
-          videos={videos}
-        />
+        <VideoShowcase id="demo" videos={videos} />
 
         {/* Dark CTA Section */}
         <DarkCTA
@@ -345,13 +342,14 @@ export default function Home() {
 
         {/* Newsletter Epilogue */}
         <Epilogue
+          id="contact"
           title=""
           subtitle1=""
           subtitle2="Get notified of product updates"
           illustration={epiloguePoster}
           background="normal"
         >
-          <SubscribeInput placeholder="your@email.com" actionText="Subscribe" />
+          <SubscribeInput placeholder="your@email.com" actionText="Contact" />
         </Epilogue>
       </main>
 

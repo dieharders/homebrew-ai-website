@@ -16,7 +16,7 @@ export interface NavItem {
 }
 
 const defaultNavItems: NavItem[] = [
-  { label: "Features", href: "/#features" },
+  // { label: "Features", href: "/#features" },
   { label: "Sponsor", href: "/sponsor" },
   {
     label: "Docs",
@@ -54,7 +54,7 @@ export default function Header(p: {
       className={cx(
         styles.container,
         isScrolled && styles.scrolled,
-        p.className
+        p.className,
       )}
     >
       <nav className={styles.nav}>
@@ -113,7 +113,7 @@ export default function Header(p: {
                     href={item.href}
                     className={cx(
                       styles.navLink,
-                      isActive && styles.navLinkActive
+                      isActive && styles.navLinkActive,
                     )}
                     target={item?.rel && "_blank"}
                     rel={item.rel}
@@ -128,7 +128,7 @@ export default function Header(p: {
             <Button
               href={ctaButton.href}
               type="primary"
-              size="small"
+              size="normal"
               location="body"
             >
               {ctaButton.text}
