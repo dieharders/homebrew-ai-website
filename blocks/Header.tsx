@@ -34,7 +34,7 @@ export default function Header(p: {
 }) {
   const id = p.id ?? "top";
   const navItems = p.navItems ?? defaultNavItems;
-  const ctaButton = p.ctaButton ?? { text: "Get Started", href: "/download" };
+  const ctaButton = p.ctaButton ?? { text: "Free", href: "/download" };
   const pathname = usePathname();
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -131,7 +131,16 @@ export default function Header(p: {
               size="normal"
               location="body"
             >
-              {ctaButton.text}
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                style={{ marginRight: "0.5rem" }}
+              >
+                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
+              </svg>
+              <p className="text-[1.15rem] text-inherit">{ctaButton.text}</p>
             </Button>
           )}
         </div>
