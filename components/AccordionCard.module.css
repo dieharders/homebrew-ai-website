@@ -100,3 +100,31 @@
 .description p:last-child {
   margin-bottom: 0;
 }
+
+.readMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: var(--space-3);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent-dark);
+  text-decoration: none;
+  transition:
+    gap var(--transition-smooth),
+    color var(--transition-smooth);
+}
+
+.readMore:hover {
+  gap: 0.75rem;
+  color: #1f2937;
+}
+
+.readMoreArrow {
+  transition: transform var(--transition-smooth);
+}
+
+.readMore:hover .readMoreArrow {
+  transform: translateX(2px);
+}

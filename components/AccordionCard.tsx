@@ -11,6 +11,7 @@ interface AccordionCardProps {
   expanded: boolean;
   onToggle: () => void;
   videoSrc?: string;
+  readMoreHref?: string;
   children?: React.ReactNode;
   className?: string;
 }
@@ -21,6 +22,7 @@ export default function AccordionCard({
   expanded,
   onToggle,
   videoSrc,
+  readMoreHref,
   children,
   className,
 }: AccordionCardProps) {
@@ -77,6 +79,24 @@ export default function AccordionCard({
             </div>
           )}
           {children && <div className={styles.description}>{children}</div>}
+          {readMoreHref && (
+            <a href={readMoreHref} target="_blank" rel="noopener noreferrer" className={styles.readMore}>
+              <span>Read more</span>
+              <svg
+                className={styles.readMoreArrow}
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M3 8h10M9 4l4 4-4 4" />
+              </svg>
+            </a>
+          )}
         </div>
       </div>
     </div>
