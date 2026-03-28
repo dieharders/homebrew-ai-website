@@ -16,6 +16,7 @@ interface UseCase {
   description: string;
   expandedContent?: string;
   videoSrc?: string;
+  readMoreHref?: string;
 }
 
 interface FilterGroup {
@@ -49,27 +50,26 @@ export default function UseCases({
   className,
 }: UseCasesProps) {
   const [activeGroupId, setActiveGroupId] = useState(filterGroups[0]?.id || "");
-  const [activeCategoryId, setActiveCategoryId] = useState("all");
+  const [activeCategoryId, setActiveCategoryId] = useState(
+    filterGroups[0]?.categories[0]?.id || ""
+  );
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
   const activeGroup = filterGroups.find((g) => g.id === activeGroupId);
-  const categories = [
-    { id: "all", label: "All" },
-    ...(activeGroup?.categories || []),
-  ];
+  const categories = activeGroup?.categories || [];
 
   const filteredUseCases = useMemo(() => {
     return useCases.filter((uc) => {
       const matchesGroup = uc.groupId === activeGroupId;
-      const matchesCategory =
-        activeCategoryId === "all" || uc.categoryId === activeCategoryId;
+      const matchesCategory = uc.categoryId === activeCategoryId;
       return matchesGroup && matchesCategory;
     });
   }, [useCases, activeGroupId, activeCategoryId]);
 
   const handleGroupChange = (id: string) => {
     setActiveGroupId(id);
-    setActiveCategoryId("all");
+    const newGroup = filterGroups.find((g) => g.id === id);
+    setActiveCategoryId(newGroup?.categories[0]?.id || "");
     setExpandedId(null);
   };
 
@@ -116,6 +116,7 @@ export default function UseCases({
                   setExpandedId(expandedId === useCase.id ? null : useCase.id)
                 }
                 videoSrc={useCase.videoSrc}
+                readMoreHref={useCase.readMoreHref}
               >
                 {useCase.expandedContent && <p>{useCase.expandedContent}</p>}
               </AccordionCard>

@@ -65,6 +65,7 @@ export default function Home() {
           { id: "legal", label: "Legal" },
           { id: "healthcare", label: "Healthcare" },
           { id: "research", label: "Research" },
+          { id: "defense", label: "Defense" },
         ],
       },
     ],
@@ -164,14 +165,37 @@ export default function Home() {
           "Rapidly review contracts, find relevant clauses, and identify risks. FileBuff helps legal teams process documents faster while maintaining accuracy.",
       },
       {
+        id: "healthcare-admin",
+        categoryId: "healthcare",
+        groupId: "industry",
+        title: "Healthcare Workflow Automation",
+        description:
+          "Eliminate administrative bottlenecks with on-device AI that keeps patient data secure.",
+        expandedContent:
+          "Automate documentation, staffing reconciliation, compliance audits, and credential tracking — saving $340K+ per department annually. 100% on-device processing means full HIPAA compliance by architecture, not policy.",
+        readMoreHref: "/case-study/healthcare.pdf",
+      },
+      {
+        id: "defense-logistics",
+        categoryId: "defense",
+        groupId: "industry",
+        title: "Logistics & Supply Chain",
+        description:
+          "Scale DoD logistics with on-device AI that keeps sensitive data secure.",
+        expandedContent:
+          "Automate inventory reconciliation, vendor analysis, and supply chain coordination across disconnected systems. 83–96% time savings on core tasks and $542K+ annual savings per project — all with 100% on-device processing for CUI compliance.",
+        readMoreHref: "/case-study/defense.pdf",
+      },
+      {
         id: "research-lit",
         categoryId: "research",
         groupId: "industry",
-        title: "Research Literature Review",
+        title: "Research Review",
         description:
           "Synthesize findings across papers, reports, and research documents.",
         expandedContent:
           "Quickly survey literature, extract key findings, and identify gaps. Perfect for academics, R&D teams, and market researchers.",
+        readMoreHref: "/case-study/research.pdf",
       },
     ],
   };
@@ -302,8 +326,10 @@ export default function Home() {
           subtitle="Join thousands of users who trust OpenBrew for secure, on-device AI. Free to download, no subscription required."
           primaryButton={{ text: "Download Free", href: downloadLink }}
           secondaryButton={{
-            text: "View Documentation",
-            href: "https://github.com/dieharders/obrew-studio-server",
+            text: "View Capabilities",
+            href: "/capability-statement.pdf",
+            // text: "View Documentation",
+            // href: "https://github.com/dieharders/obrew-studio-server",
           }}
         />
 
