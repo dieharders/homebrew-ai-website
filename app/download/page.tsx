@@ -153,8 +153,8 @@ export default function DownloadPage() {
           <div className={styles.systemReqs}>
             <h3>SYSTEM REQUIREMENTS</h3>
             <p>
-              4GB RAM minimum &nbsp;•&nbsp; 16GB RAM recommended &nbsp;•&nbsp;
-              50GB free disk space &nbsp;•&nbsp; 64-bit OS
+              8GB RAM minimum &nbsp;•&nbsp; 32GB RAM recommended &nbsp;•&nbsp;
+              60GB free disk space &nbsp;•&nbsp; 64-bit OS
             </p>
           </div>
         </Section>

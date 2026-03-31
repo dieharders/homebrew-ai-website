@@ -266,17 +266,17 @@ export default function Home() {
           background="normal"
           pattern="dots"
           title="FEATURES"
-          subtitle="Smart tools for every job. Everything you need to manage files intelligently."
+          subtitle="Everything you need to manage your projects with AI or build AI native apps with the Obrew platform."
           features={[
             {
               icon: "/icons/truck.png",
               title: "Easy Install",
-              text: "All-in-one app. No additional software required.",
+              text: "All-in-one app, no setup required.",
             },
             {
               icon: "/icons/robot-arm.png",
               title: "Run Any Model",
-              text: "Download any quantized model. Supports CPU/GPU.",
+              text: "Download any public model. Supports CPU/GPU.",
             },
             {
               icon: "/icons/off-limits.png",
@@ -290,7 +290,7 @@ export default function Home() {
             },
             {
               icon: "/icons/lock.png",
-              title: "Data Privacy",
+              title: "100% Private Data",
               text: "Everything stays on device. Prevent exposure and leaks.",
             },
             {
@@ -323,11 +323,12 @@ export default function Home() {
         <DarkCTA
           label="Next steps"
           title="READY TO TRANSFORM YOUR WORK?"
-          subtitle="Join thousands of users who trust OpenBrew for secure, on-device AI. Free to download, no subscription required."
+          subtitle="Stop sending your sensitive data out to the world. Get 100% private AI all day long. Free to download, no subscription required."
           primaryButton={{ text: "Download Free", href: downloadLink }}
           secondaryButton={{
-            text: "View Capabilities",
+            text: "Read White Paper",
             href: "/capability-statement.pdf",
+            target: "_blank",
             // text: "View Documentation",
             // href: "https://github.com/dieharders/obrew-studio-server",
           }}
@@ -379,7 +380,7 @@ export default function Home() {
         </Epilogue>
       </main>
 
-      <Footer title="FileBuff by OpenBrew" />
+      <Footer title="OpenBrew.ai" />
     </div>
   );
 }
