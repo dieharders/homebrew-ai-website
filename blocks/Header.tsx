@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -38,6 +38,8 @@ export default function Header(p: {
   const pathname = usePathname();
 
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,6 +49,17 @@ export default function Header(p: {
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    const handleClick = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [isMenuOpen]);
 
   return (
     <header
@@ -59,49 +72,66 @@ export default function Header(p: {
     >
       <nav className={styles.nav}>
         <div className={styles.navContent}>
-          <div className={styles.brand}>
-            {/* FileBuff */}
-            <Link
-              href="https://filebuff.openbrew.ai"
-              style={{ display: "flex", alignItems: "center", height: "100%" }}
-              target="_blank"
-              rel="noopener noreferrer"
+          <div className="relative shrink-0" ref={menuRef}>
+            <button
+              className="flex size-9 cursor-pointer items-center justify-center rounded-md border-none bg-transparent text-[var(--text)] transition-colors hover:bg-[var(--background-alternate)]"
+              onClick={() => setIsMenuOpen((v) => !v)}
+              aria-label="Open apps menu"
+              aria-expanded={isMenuOpen}
             >
-              <span
-                style={{
-                  position: "relative",
-                  display: "inline-block",
-                  height: "100%",
-                }}
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="currentColor"
               >
-                <span className={styles.brandIcon} title="FileBuff">
-                  <svg
-                    width="70%"
-                    height="70%"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
+                <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z" />
+              </svg>
+            </button>
+
+            {isMenuOpen && (
+              <div className="absolute left-0 top-[calc(100%+0.5rem)] z-[200] flex min-w-[200px] flex-col gap-1 rounded-xl bg-white p-2 shadow-[0_4px_24px_rgba(0,0,0,0.12),0_1px_4px_rgba(0,0,0,0.08)]">
+                <Link
+                  href="https://filebuff.openbrew.ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-[var(--text-shade)] no-underline transition-colors hover:bg-[var(--background-alternate)] hover:text-[var(--text)]"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <span
+                    className="flex size-9 shrink-0 items-center justify-center rounded-md bg-[var(--accent-btn)] text-[var(--text)]"
+                    title="FileBuff"
                   >
-                    <path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z" />
-                  </svg>
-                </span>
-              </span>
-            </Link>
-            {/* OpenBrew */}
-            <Link
-              href="/"
-              style={{ display: "flex", alignItems: "center", height: "100%" }}
-            >
-              <Image
-                src={ObrewLogo}
-                alt="OpenBrew"
-                height={0}
-                width={0}
-                title="OpenBrew"
-                className={styles.logo}
-                unoptimized
-              />
-            </Link>
+                    <svg
+                      width="70%"
+                      height="70%"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z" />
+                    </svg>
+                  </span>
+                  <span className="text-base font-semibold">FileBuff</span>
+                </Link>
+                <Link
+                  href="/"
+                  className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-[var(--text-shade)] no-underline transition-colors hover:bg-[var(--background-alternate)] hover:text-[var(--text)]"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <Image
+                    src={ObrewLogo}
+                    alt="OBrew"
+                    height={0}
+                    width={0}
+                    className="h-9 w-auto shrink-0"
+                    unoptimized
+                  />
+                  <span className="text-base font-semibold">OBrew Engine</span>
+                </Link>
+              </div>
+            )}
           </div>
+
           <ul className={styles.navList}>
             {navItems.map((item) => {
               const isActive =
@@ -130,13 +160,14 @@ export default function Header(p: {
               type="primary"
               size="normal"
               location="body"
+              className="shrink-0 p-1"
             >
               <svg
                 width="20"
                 height="20"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                style={{ marginRight: "0.5rem" }}
+                className="mr-2 shrink-0"
               >
                 <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
               </svg>
