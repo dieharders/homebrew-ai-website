@@ -39,18 +39,8 @@ export default function Header(p: {
   const ctaButton = p.ctaButton ?? { text: "Free", href: "/download" };
   const pathname = usePathname();
 
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     if (!isMenuOpen) return;
@@ -300,11 +290,7 @@ export default function Header(p: {
   return (
     <header
       id={id}
-      className={cx(
-        styles.container,
-        isScrolled && styles.scrolled,
-        p.className,
-      )}
+      className={cx(styles.container, styles.scrolled, p.className)}
     >
       <nav className={styles.nav}>
         <div className={styles.navContent}>
