@@ -40,11 +40,17 @@ export default function Header(p: {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!isMenuOpen) return;
     const handleClick = (e: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+      const target = e.target as Node;
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(target) &&
+        (!mobileMenuRef.current || !mobileMenuRef.current.contains(target))
+      ) {
         setIsMenuOpen(false);
       }
     };
@@ -321,7 +327,7 @@ export default function Header(p: {
                 {createPortal(
                   <div
                     className="fixed inset-0 z-[9999] flex flex-col bg-white p-4 sm:hidden"
-                    ref={menuRef}
+                    ref={mobileMenuRef}
                   >
                     <button
                       className="mb-4 flex size-9 cursor-pointer items-center justify-center self-end rounded-md border-none bg-transparent text-[var(--text)]"
