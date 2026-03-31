@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useRef, useEffect } from 'react';
-import styles from './AccordionCard.module.css';
-import { cx } from '../utils/common';
-import VideoPlayer from './VideoPlayer';
+import { useRef, useEffect } from "react";
+import styles from "./AccordionCard.module.css";
+import { cx } from "../utils/common";
+import VideoPlayer from "./VideoPlayer";
 
 interface AccordionCardProps {
   title: string;
@@ -31,9 +31,10 @@ export default function AccordionCard({
   useEffect(() => {
     if (contentRef.current) {
       if (expanded) {
-        contentRef.current.style.maxHeight = contentRef.current.scrollHeight + 'px';
+        contentRef.current.style.maxHeight =
+          contentRef.current.scrollHeight + "px";
       } else {
-        contentRef.current.style.maxHeight = '0px';
+        contentRef.current.style.maxHeight = "0px";
       }
     }
   }, [expanded]);
@@ -60,7 +61,7 @@ export default function AccordionCard({
             strokeWidth="2"
             strokeLinecap="round"
           >
-            <path d={expanded ? 'M5 12.5l5-5 5 5' : 'M5 7.5l5 5 5-5'} />
+            <path d={expanded ? "M5 12.5l5-5 5 5" : "M5 7.5l5 5 5-5"} />
           </svg>
         </span>
       </button>
@@ -80,8 +81,13 @@ export default function AccordionCard({
           )}
           {children && <div className={styles.description}>{children}</div>}
           {readMoreHref && (
-            <a href={readMoreHref} target="_blank" rel="noopener noreferrer" className={styles.readMore}>
-              <span>Read more</span>
+            <a
+              href={readMoreHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.readMore}
+            >
+              <span>Read case study</span>
               <svg
                 className={styles.readMoreArrow}
                 width="16"
