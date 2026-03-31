@@ -550,6 +550,10 @@
 }
 
 @media screen and (max-width: 767px) {
+  .supportNote {
+    flex-direction: column-reverse;
+  }
+
   .hero {
     margin-bottom: 2.5rem;
   }
