@@ -38,8 +38,9 @@
 
 .content {
   display: flex;
+  flex-direction: column;
   gap: var(--space-6);
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 .useCasesList {
@@ -60,9 +61,8 @@
 
 /* Sidebar */
 .sidebar {
-  width: 280px;
+  width: 100%;
   flex-shrink: 0;
-  display: none;
 }
 
 .sidebarCard {
@@ -70,8 +70,6 @@
   border-radius: var(--radius-lg);
   border: 1px solid var(--section-separator-color);
   padding: var(--space-5);
-  position: sticky;
-  top: calc(var(--page-header-height) + var(--space-8));
   box-shadow: var(--shadow-sm);
 }
 
@@ -121,7 +119,17 @@
 
 /* Responsive */
 @media screen and (min-width: 900px) {
+  .content {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
   .sidebar {
-    display: block;
+    width: 280px;
+  }
+
+  .sidebarCard {
+    position: sticky;
+    top: calc(var(--page-header-height) + var(--space-8));
   }
 }
