@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -61,6 +62,53 @@ export default function Header(p: {
     return () => document.removeEventListener("mousedown", handleClick);
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    const isMobile = window.matchMedia("(max-width: 639px)").matches;
+    if (!isMobile) return;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
+  const appLinks = () => (
+    <>
+      <Link
+        href="https://filebuff.openbrew.ai"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-[var(--text-shade)] no-underline transition-colors hover:bg-[var(--background-alternate)] hover:text-[var(--text)]"
+        onClick={() => setIsMenuOpen(false)}
+      >
+        <span
+          className="flex size-9 shrink-0 items-center justify-center rounded-md bg-[var(--accent-btn)] text-[var(--text)]"
+          title="FileBuff"
+        >
+          <svg width="70%" height="70%" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z" />
+          </svg>
+        </span>
+        <span className="text-base font-semibold">FileBuff</span>
+      </Link>
+      <Link
+        href="/download"
+        className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-[var(--text-shade)] no-underline transition-colors hover:bg-[var(--background-alternate)] hover:text-[var(--text)]"
+        onClick={() => setIsMenuOpen(false)}
+      >
+        <Image
+          src={ObrewLogo}
+          alt="OBrew Engine"
+          height={0}
+          width={0}
+          className="h-9 w-auto shrink-0"
+          unoptimized
+        />
+        <span className="text-base font-semibold">OBrew Engine</span>
+      </Link>
+    </>
+  );
+
   return (
     <header
       id={id}
@@ -90,45 +138,36 @@ export default function Header(p: {
             </button>
 
             {isMenuOpen && (
-              <div className="absolute left-0 top-[calc(100%+0.5rem)] z-[200] flex min-w-[200px] flex-col gap-1 rounded-xl bg-white p-2 shadow-[0_4px_24px_rgba(0,0,0,0.12),0_1px_4px_rgba(0,0,0,0.08)]">
-                <Link
-                  href="https://filebuff.openbrew.ai"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-[var(--text-shade)] no-underline transition-colors hover:bg-[var(--background-alternate)] hover:text-[var(--text)]"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <span
-                    className="flex size-9 shrink-0 items-center justify-center rounded-md bg-[var(--accent-btn)] text-[var(--text)]"
-                    title="FileBuff"
+              <>
+                {/* Desktop dropdown */}
+                <div className="absolute left-0 top-[calc(100%+0.5rem)] z-[200] hidden min-w-[200px] flex-col gap-1 rounded-xl bg-white p-2 shadow-[0_4px_24px_rgba(0,0,0,0.12),0_1px_4px_rgba(0,0,0,0.08)] sm:flex">
+                  {appLinks()}
+                </div>
+                {/* Mobile fullscreen via portal */}
+                {createPortal(
+                  <div
+                    className="fixed inset-0 z-[9999] flex flex-col bg-white p-4 sm:hidden"
+                    ref={menuRef}
                   >
-                    <svg
-                      width="70%"
-                      height="70%"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
+                    <button
+                      className="mb-4 flex size-9 cursor-pointer items-center justify-center self-end rounded-md border-none bg-transparent text-[var(--text)]"
+                      onClick={() => setIsMenuOpen(false)}
+                      aria-label="Close menu"
                     >
-                      <path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z" />
-                    </svg>
-                  </span>
-                  <span className="text-base font-semibold">FileBuff</span>
-                </Link>
-                <Link
-                  href="/"
-                  className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-[var(--text-shade)] no-underline transition-colors hover:bg-[var(--background-alternate)] hover:text-[var(--text)]"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <Image
-                    src={ObrewLogo}
-                    alt="OBrew"
-                    height={0}
-                    width={0}
-                    className="h-9 w-auto shrink-0"
-                    unoptimized
-                  />
-                  <span className="text-base font-semibold">OBrew Engine</span>
-                </Link>
-              </div>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                      </svg>
+                    </button>
+                    {appLinks()}
+                  </div>,
+                  document.body,
+                )}
+              </>
             )}
           </div>
 
