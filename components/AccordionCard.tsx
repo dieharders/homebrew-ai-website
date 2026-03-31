@@ -24,7 +24,7 @@ export default function AccordionCard({
   onToggle,
   videoSrc,
   readMoreHref,
-  readMoreLabel = "Read case study",
+  readMoreLabel = "Read more",
   children,
   className,
 }: AccordionCardProps) {
