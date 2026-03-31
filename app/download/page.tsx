@@ -50,7 +50,7 @@ export default function DownloadPage() {
           <div className={styles.heroHeader}>
             <h1 className={styles.pageTitle}>DOWNLOAD OPENBREW</h1>
             <p className={styles.pageSubtitle}>
-              Choose your platform and start using AI locally
+              Choose your platform and start using private AI on your device
             </p>
           </div>
 

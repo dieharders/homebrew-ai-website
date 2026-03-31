@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import styles from "./Header.module.css";
 import { cx } from "@/utils/common";
-import Button from "@/components/Button";
 import ObrewLogo from "public/badge.png";
 
 export interface NavItem {
@@ -21,7 +20,7 @@ const defaultNavItems: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Early Access", href: "/sponsor" },
   {
-    label: "Docs",
+    label: "Github",
     rel: "noopener noreferrer",
     href: "https://github.com/dieharders/obrew-studio-server",
   },
@@ -85,7 +84,7 @@ export default function Header(p: {
         <span className="text-base font-semibold">OpenBrew</span>
       </Link>
       <p className="px-3 pb-1 pt-2 text-xs font-semibold uppercase tracking-wider text-[var(--text-shade)] opacity-60">
-        Apps
+        AI Apps
       </p>
       <Link
         href="https://filebuff.openbrew.ai"
@@ -96,7 +95,7 @@ export default function Header(p: {
       >
         <span
           className="flex size-9 shrink-0 items-center justify-center rounded-md bg-amber-100"
-          title="FileBuff"
+          title="FileBuff: Project Intelligence on Demand"
         >
           <svg width="70%" height="70%" viewBox="0 0 24 24">
             {/* Folder body */}
@@ -369,24 +368,25 @@ export default function Header(p: {
             })}
           </ul>
           {ctaButton && (
-            <Button
+            <Link
               href={ctaButton.href}
-              type="primary"
-              size="normal"
-              location="body"
-              className="shrink-0 p-1"
+              className={cx(
+                "group ml-auto inline-flex shrink-0 items-center rounded-md border-2 border-current px-4 text-base font-bold text-black no-underline transition-[color,background] duration-200 hover:bg-[var(--background-alternate)]",
+                pathname === ctaButton.href && styles.navLinkActive,
+              )}
+              style={{ height: 36 }}
             >
               <svg
-                width="20"
-                height="20"
+                width="18"
+                height="18"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                className="mr-2 shrink-0"
+                className="mr-2 shrink-0 transition-transform duration-200 group-hover:translate-y-0.5"
               >
                 <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
               </svg>
-              <p className="text-[1.15rem] text-inherit">{ctaButton.text}</p>
-            </Button>
+              {ctaButton.text}
+            </Link>
           )}
         </div>
       </nav>
