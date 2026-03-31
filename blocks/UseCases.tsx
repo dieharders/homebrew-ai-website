@@ -54,7 +54,13 @@ export default function UseCases({
   const [activeCategoryId, setActiveCategoryId] = useState(
     filterGroups[0]?.categories[0]?.id || "",
   );
-  const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [expandedId, setExpandedId] = useState<string | null>(
+    useCases.find(
+      (uc) =>
+        uc.groupId === filterGroups[0]?.id &&
+        uc.categoryId === filterGroups[0]?.categories[0]?.id,
+    )?.id || null,
+  );
 
   const activeGroup = filterGroups.find((g) => g.id === activeGroupId);
   const categories = activeGroup?.categories || [];
@@ -70,13 +76,22 @@ export default function UseCases({
   const handleGroupChange = (id: string) => {
     setActiveGroupId(id);
     const newGroup = filterGroups.find((g) => g.id === id);
-    setActiveCategoryId(newGroup?.categories[0]?.id || "");
-    setExpandedId(null);
+    const firstCategoryId = newGroup?.categories[0]?.id || "";
+    setActiveCategoryId(firstCategoryId);
+    setExpandedId(
+      useCases.find(
+        (uc) => uc.groupId === id && uc.categoryId === firstCategoryId,
+      )?.id || null,
+    );
   };
 
   const handleCategoryChange = (id: string) => {
     setActiveCategoryId(id);
-    setExpandedId(null);
+    setExpandedId(
+      useCases.find(
+        (uc) => uc.groupId === activeGroupId && uc.categoryId === id,
+      )?.id || null,
+    );
   };
 
   return (
