@@ -312,6 +312,7 @@ export default function Header(p: {
             <button
               className="flex size-9 cursor-pointer items-center justify-center rounded-md border-none bg-transparent text-[var(--text)] transition-colors hover:bg-[var(--background-alternate)]"
               onClick={() => setIsMenuOpen((v) => !v)}
+              title="More apps"
               aria-label="Open apps menu"
               aria-expanded={isMenuOpen}
             >
