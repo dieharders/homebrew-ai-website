@@ -175,6 +175,7 @@ export default function Home() {
         expandedContent:
           "Automate documentation, staffing reconciliation, compliance audits, and credential tracking — saving $340K+ per department annually. 100% on-device processing means full HIPAA compliance by architecture, not policy.",
         readMoreHref: "/case-study/healthcare.pdf",
+        readMoreLabel: "Read use case",
       },
       {
         id: "defense-logistics",
@@ -186,6 +187,7 @@ export default function Home() {
         expandedContent:
           "Automate inventory reconciliation, vendor analysis, and supply chain coordination across disconnected systems. 83–96% time savings on core tasks and $542K+ annual savings per project — all with 100% on-device processing for CUI compliance.",
         readMoreHref: "/case-study/defense.pdf",
+        readMoreLabel: "Read case study",
       },
       {
         id: "research-lit",
@@ -197,6 +199,7 @@ export default function Home() {
         expandedContent:
           "Quickly survey literature, extract key findings, and identify gaps. Perfect for academics, R&D teams, and market researchers.",
         readMoreHref: "/case-study/research.pdf",
+        readMoreLabel: "Read use case",
       },
     ],
   };

@@ -17,6 +17,7 @@ interface UseCase {
   expandedContent?: string;
   videoSrc?: string;
   readMoreHref?: string;
+  readMoreLabel?: string;
 }
 
 interface FilterGroup {
@@ -117,6 +118,7 @@ export default function UseCases({
                 }
                 videoSrc={useCase.videoSrc}
                 readMoreHref={useCase.readMoreHref}
+                readMoreLabel={useCase.readMoreLabel}
               >
                 {useCase.expandedContent && <p>{useCase.expandedContent}</p>}
               </AccordionCard>
