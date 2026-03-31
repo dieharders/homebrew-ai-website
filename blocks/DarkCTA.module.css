@@ -1,8 +1,32 @@
 .section {
   position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/paper-bg.jpg") center / cover no-repeat;
+  filter: blur(6px);
+  z-index: 0;
+}
+
+.section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(26, 26, 46, 0.35) 0%,
+    rgba(22, 33, 62, 0.35) 100%
+  );
+  z-index: 0;
 }
 
 .container {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
