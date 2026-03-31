@@ -7,6 +7,7 @@ export const lilita_one = Lilita_One({
   style: "normal",
   subsets: ["latin"],
   display: "swap",
+  preload: false,
   weight: "400",
   variable: "--font-lilita-one",
 });
@@ -26,5 +27,6 @@ export const comic_mono = localFont({
     },
   ],
   display: "swap",
+  preload: false,
   variable: "--font-comic-mono",
 });
