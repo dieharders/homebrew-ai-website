@@ -1,4 +1,4 @@
-# Case Study: Eliminate Administrative Bottlenecks in Healthcare with Workflow Automation
+# Use Case: Eliminate Administrative Bottlenecks in Healthcare with Workflow Automation
 
 **OpenBrew.ai** | Website: https://www.openbrew.ai | Contact: sorob@openbrew.ai
 

@@ -1,4 +1,4 @@
-# Case Study: Accelerating Discovery with Personal AI
+# Use Case: Accelerating Discovery with Personal AI
 
 **OpenBrew.ai** | Website: https://www.openbrew.ai | Contact: sorob@openbrew.ai
 
@@ -6,11 +6,11 @@
 
 ## The Problem
 
-National laboratories like SLAC National Accelerator Laboratory sit at the frontier of human knowledge. The science is extraordinary. The operational reality behind it is not.
+National laboratories like SLAC National Accelerator Laboratory are saddled with extraordinary scales of data creation as well as admin work.
 
-### The Administrative Tax on Discovery
+### The Administrative Tax
 
-Across U.S. research institutions, scientists spend **42–45% of their time on administrative tasks** rather than doing science. This has remained stubbornly consistent for nearly two decades.
+Across U.S. research institutions, scientists spend **42–45% of their time on administrative tasks** rather than doing science.
 
 - **22% of research time** consumed by pre-award administration (grant proposals, compliance documentation, budgeting)
 - **20% of research time** consumed by post-award administration (progress reporting, financial management, personnel coordination)
@@ -19,7 +19,7 @@ Across U.S. research institutions, scientists spend **42–45% of their time on 
 
 For a principal investigator running multiple funded projects, this means nearly half of every week is spent on forms, reports, emails, meetings, and documentation.
 
-### The Data Deluge
+### Large Scale Data Handling
 
 SLAC's scientific instruments generate data at scales that are difficult to comprehend. The existing catalog already spans **60+ petabytes** of research data that scientists must navigate.
 
@@ -27,27 +27,26 @@ The human-scale work that surrounds the science — finding relevant results acr
 
 ### Why Cloud AI Introduces Unacceptable Risk
 
-Cloud-based AI assistants (ChatGPT, Copilot, Gemini) could help with administrative synthesis, document search, and drafting — but national laboratory environments carry constraints that make cloud AI problematic:
+Cloud-based AI assistants (ChatGPT, Copilot, Gemini) could help — but national laboratory environments carry constraints:
 
 - Export-controlled research
 - Pre-publication sensitivity
 - DOE data management requirements
 - Institutional policy on data handling
-- Unauthorized AI use is already happening
 
 The result: researchers who desperately need AI assistance to reclaim their time are either blocked from using it entirely, or using it unsanctioned through consumer tools that offer zero data protection.
 
-## Our Solution
+## The Solution
 
-**FileBuff** provides AI-powered research productivity — document search, synthesis, workflow automation, and intelligent communications — with **100% on-device processing**. No research data, proposals, experimental notes, or institutional communications ever leave the device. No cloud AI subscriptions. No third-party data exposure. No new compliance surface.
+**FileBuff** provides AI-powered research productivity — document search, workflow automation, and automated communications — with **100% on-device processing**. No research data, proposals, experimental notes, or institutional communications ever leave the device. No cloud AI subscriptions. No third-party data exposure. No new compliance surface.
 
 ### How It Works for Research Teams
 
-FileBuff integrates with the Microsoft 365 ecosystem (Outlook, Teams, SharePoint, Calendar) used across SLAC and Stanford, delivering capabilities tailored to the research lifecycle:
+FileBuff integrates with the Microsoft 365 ecosystem (Outlook, Teams, SharePoint, Calendar) to deliver capabilities tailored to the research lifecycle:
 
 **1. Intelligent Search Across All Research Data**
 
-Researchers query across all organizational data sources in plain English. FileBuff's agentic search discovers, previews, extracts, and synthesizes answers — with source citations — across project files, SharePoint document libraries, email archives, and Teams conversations.
+Researchers query across all organizational data sources in plain English. FileBuff's agentic search discovers sources and builds answers — with source citations — across project files, documentations, email archives, chat conversations and more.
 
 Examples at SLAC:
 
@@ -62,26 +61,26 @@ What takes hours of manual searching across different systems returns in **minut
 
 FileBuff's visual workflow builder enables lab managers, PIs, and technicians to automate repetitive operational processes — through drag-and-drop or plain language description:
 
-- **Weekly experiment status reports** — Automatically aggregate data from run logs, pull recent results from shared drives, compile into a formatted status report, and email to the collaboration list every Monday at 0700
+- **Weekly experiment status reports** — Automatically aggregate data from run logs, pull recent results from shared drives, compile into a formatted status report, and email to the collaboration list every Monday morning
 - **Equipment maintenance tracking** — Monitor calibration schedules and maintenance logs across instruments, flag overdue items, generate compliance reports for safety review
 - **Publication and conference tracking** — Monitor submission deadlines, reviewer feedback, revision due dates, and conference registration windows across the group's active manuscripts
 - **Onboarding workflows** — When a new postdoc or student joins, automatically compile required safety training documentation, lab access forms, computing account requests, and orientation materials
 
-**3. Document Processing and Synthesis at Scale**
+**3. Document Processing at Scale**
 
 Upload hundreds of papers, proposals, reports, or technical documents. FileBuff embeds and indexes them for instant querying.
 
 The AI reads everything, synthesizes across all documents, and returns sourced answers — turning days of literature review into minutes.
 
-**4. Intelligent Communications**
+**4. Automatic Communications**
 
-The AI drafts emails, schedules meetings with availability checking, creates calendar events, and monitors incoming communications:
+Your personal AI drafts emails, schedules and checks availability for meetings, creates calendar events, and monitors incoming communications:
 
-- **Email triage** — Summarize 100+ daily emails, detect action items, suggest responses in appropriate tone, flag deadlines
+- **Email triage** — Summarize daily emails, detect action items, suggest responses in appropriate tone, flag deadlines
 - **Meeting preparation** — Pull relevant documents and recent activity before scheduled meetings, generate agenda drafts
 - **Collaboration coordination** — Draft status updates from project data, schedule cross-timezone meetings with distributed collaborators, send automated reminders for deliverables
 
-A group leader reviewing their inbox gets AI-generated summaries and suggested responses, spending minutes instead of hours on email — freeing an hour or more each day for actual scientific work.
+A team leader reviewing their inbox gets suggested responses and action items, spending minutes instead of hours on reading email — freeing hours each day for actual scientific work.
 
 **5. Complete Audit Trail**
 
@@ -96,20 +95,20 @@ Every action — human and AI — is logged with full attribution. This supports
 
 ### Operational Performance
 
-| Metric                                     | Result            |
-| ------------------------------------------ | ----------------- |
-| End-to-end workflow (70+ files)            | **2.2 minutes**   |
-| Semantic search across 500+ documents      | **minutes**       |
-| AI-drafted email with project context      | **10–17 seconds** |
-| Meeting scheduling with availability check | **14 seconds**    |
+| Metric                                     | Result      |
+| ------------------------------------------ | ----------- |
+| End-to-end workflow (70+ files)            | **minutes** |
+| Semantic search across 500+ documents      | **minutes** |
+| AI-drafted email with project context      | **seconds** |
+| Meeting scheduling with availability check | **seconds** |
 
 ### Projected Impact Across a Research Division
 
-| Metric                               | Per Researcher | 50-Person Division | 200-Person Directorate |
-| ------------------------------------ | -------------- | ------------------ | ---------------------- |
-| Admin hours recovered per week       | 10–15 hrs      | 500–750 hrs        | 2,000–3,000 hrs        |
-| Admin hours recovered per year       | 500–750 hrs    | 25,000–37,500 hrs  | 100,000–150,000 hrs    |
-| Equivalent FTEs returned to research | ~0.3 FTE       | ~15 FTEs           | ~60 FTEs               |
+| Metric                               | Per Researcher  | 50-Person Division | 200-Person Directorate |
+| ------------------------------------ | --------------- | ------------------ | ---------------------- |
+| Admin hours recovered per week       | **10–15 hrs**   | 500–750 hrs        | 2,000–3,000 hrs        |
+| Admin hours recovered per year       | **500–750 hrs** | 25,000–37,500 hrs  | 100,000–150,000 hrs    |
+| Equivalent FTEs returned to research | **~0.3 FTE**    | ~15 FTEs           | ~60 FTEs               |
 
 At a fully loaded cost of ~$200,000 per researcher-year (salary, benefits, overhead), recovering 15 FTE-equivalents of research time across a 50-person division represents **$3 million in annual productivity recovered** — without hiring a single additional person.
 
@@ -145,8 +144,6 @@ The DOE's Genesis Mission aims to create a secure, integrated scientific discove
 ## The Bottom Line
 
 Scientists at SLAC and national laboratories worldwide lose nearly half their working time to administration — searching for documents, writing reports, coordinating teams, managing compliance, and processing email. Cloud AI could help but introduces unacceptable risk for export-controlled, pre-publication, and DOE-governed research data.
-
-FileBuff returns **10–15 hours per researcher per week** to actual science — with 83–96% time savings on administrative tasks, automated workflows, and instant synthesis across hundreds of documents.
 
 ## Sources
 

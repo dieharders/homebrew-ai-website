@@ -124,3 +124,7 @@ FileBuff delivers ease of deployment, security, and modularity out of the box.
 - [DoD's AI Acceleration Strategy — Nextgov/FCW](https://www.nextgov.com/ideas/2026/02/dods-ai-acceleration-strategy/411135/)
 - [Pentagon Rolls Out Major Reforms of R&D, AI — Breaking Defense](https://breakingdefense.com/2026/01/pentagon-rolls-out-major-reforms-of-rd-ai/)
 - ['Accelerate Like Hell': Hegseth Moves to Reshape DOD's AI and Tech Hubs — DefenseScoop](https://defensescoop.com/2026/01/13/hegseth-ai-tech-hubs-reorganization-dod-dow/)
+
+## Scan for link to this PDF
+
+<img src="qr-code-defense.png" alt="QR Code">
