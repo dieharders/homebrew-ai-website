@@ -27,7 +27,7 @@ export default function DarkCTA({
       id={id}
       background="dark-navy"
       size="wide"
-      pattern="geometric"
+      pattern="none"
       accentLine="none"
       className={cx(styles.section, className)}
     >

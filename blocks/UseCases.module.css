@@ -75,16 +75,27 @@
   box-shadow: var(--shadow-sm);
 }
 
+.sidebarHeader {
+  display: flex;
+  align-items: end;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
 .sidebarIcon {
   width: 48px;
   height: 48px;
   border-radius: var(--radius-md);
-  background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent-normal) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--accent-light) 0%,
+    var(--accent-normal) 100%
+  );
   color: var(--accent-dark);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: var(--space-4);
+  flex-shrink: 0;
   box-shadow: 0 2px 8px var(--accent-gold-glow);
 }
 
@@ -92,7 +103,7 @@
   font-family: var(--font-lilita-one), sans-serif;
   font-size: 1.1rem;
   font-weight: 400;
-  margin: 0 0 var(--space-2) 0;
+  margin: 0;
   color: var(--text);
   letter-spacing: 0.3px;
 }

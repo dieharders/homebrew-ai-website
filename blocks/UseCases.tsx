@@ -17,6 +17,7 @@ interface UseCase {
   expandedContent?: string;
   videoSrc?: string;
   readMoreHref?: string;
+  readMoreLabel?: string;
 }
 
 interface FilterGroup {
@@ -51,9 +52,15 @@ export default function UseCases({
 }: UseCasesProps) {
   const [activeGroupId, setActiveGroupId] = useState(filterGroups[0]?.id || "");
   const [activeCategoryId, setActiveCategoryId] = useState(
-    filterGroups[0]?.categories[0]?.id || ""
+    filterGroups[0]?.categories[0]?.id || "",
   );
-  const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [expandedId, setExpandedId] = useState<string | null>(
+    useCases.find(
+      (uc) =>
+        uc.groupId === filterGroups[0]?.id &&
+        uc.categoryId === filterGroups[0]?.categories[0]?.id,
+    )?.id || null,
+  );
 
   const activeGroup = filterGroups.find((g) => g.id === activeGroupId);
   const categories = activeGroup?.categories || [];
@@ -69,13 +76,22 @@ export default function UseCases({
   const handleGroupChange = (id: string) => {
     setActiveGroupId(id);
     const newGroup = filterGroups.find((g) => g.id === id);
-    setActiveCategoryId(newGroup?.categories[0]?.id || "");
-    setExpandedId(null);
+    const firstCategoryId = newGroup?.categories[0]?.id || "";
+    setActiveCategoryId(firstCategoryId);
+    setExpandedId(
+      useCases.find(
+        (uc) => uc.groupId === id && uc.categoryId === firstCategoryId,
+      )?.id || null,
+    );
   };
 
   const handleCategoryChange = (id: string) => {
     setActiveCategoryId(id);
-    setExpandedId(null);
+    setExpandedId(
+      useCases.find(
+        (uc) => uc.groupId === activeGroupId && uc.categoryId === id,
+      )?.id || null,
+    );
   };
 
   return (
@@ -117,6 +133,7 @@ export default function UseCases({
                 }
                 videoSrc={useCase.videoSrc}
                 readMoreHref={useCase.readMoreHref}
+                readMoreLabel={useCase.readMoreLabel}
               >
                 {useCase.expandedContent && <p>{useCase.expandedContent}</p>}
               </AccordionCard>
@@ -127,10 +144,12 @@ export default function UseCases({
         {sidebarCTA && (
           <aside className={styles.sidebar}>
             <div className={styles.sidebarCard}>
-              <div className={styles.sidebarIcon}>
-                <img src="/worker.svg" alt="" width="42" height="42" />
+              <div className={styles.sidebarHeader}>
+                <div className={styles.sidebarIcon}>
+                  <img src="/worker.svg" alt="" width="42" height="42" />
+                </div>
+                <h3 className={styles.sidebarTitle}>{sidebarCTA.title}</h3>
               </div>
-              <h3 className={styles.sidebarTitle}>{sidebarCTA.title}</h3>
               <p className={styles.sidebarDescription}>
                 {sidebarCTA.description}
               </p>

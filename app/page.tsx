@@ -14,6 +14,7 @@ import epiloguePosterImage from "public/badge.png";
 
 export default function Home() {
   const downloadLink = "/download";
+  const whitePaperLink = "/capability-statement.pdf";
 
   const imgStyle = {
     backgroundRepeat: "no-repeat",
@@ -49,9 +50,9 @@ export default function Home() {
     filterGroups: [
       {
         id: "function",
-        label: "Domain",
+        label: "Features",
         categories: [
-          { id: "search", label: "Search & Discovery" },
+          { id: "search", label: "Search & Discover" },
           { id: "automation", label: "Workflow Automation" },
           { id: "security", label: "Audit & Compliance" },
           { id: "integration", label: "Integrations" },
@@ -95,7 +96,7 @@ export default function Home() {
         id: "workflow-auto",
         categoryId: "automation",
         groupId: "function",
-        title: "Automated Workflows",
+        title: "Automate Tasks",
         description:
           "Define tasks in natural language and let AI execute them automatically.",
         expandedContent:
@@ -106,7 +107,7 @@ export default function Home() {
         id: "daily-briefings",
         categoryId: "automation",
         groupId: "function",
-        title: "Automated Daily Briefings",
+        title: "Automate Daily Briefings",
         description:
           "Generate summaries and reports from your documents automatically.",
         expandedContent:
@@ -137,17 +138,17 @@ export default function Home() {
         id: "email-integration",
         categoryId: "integration",
         groupId: "function",
-        title: "Email & Calendar Integration",
+        title: "Email, Meetings, Calendar, Chats",
         description:
-          "Connect with Outlook, Gmail, and calendar systems for unified search.",
+          "Connect with Microsoft 365 apps, calendar systems, file storage.",
         expandedContent:
-          "Search across emails, attachments, and calendar events alongside your files. FileBuff creates a unified knowledge base from all your information sources.",
+          "Search across emails, chat conversations, calendar events as well as files. FileBuff creates a unified knowledge base from all your organization's information sources.",
       },
       {
         id: "enterprise-doc",
         categoryId: "enterprise",
         groupId: "industry",
-        title: "Enterprise Document Management",
+        title: "Document Management",
         description:
           "Manage large document libraries with AI-powered organization and search.",
         expandedContent:
@@ -158,7 +159,7 @@ export default function Home() {
         id: "legal-discovery",
         categoryId: "legal",
         groupId: "industry",
-        title: "Legal Document Discovery",
+        title: "Document Discovery",
         description:
           "Accelerate e-discovery and contract review with AI-powered analysis.",
         expandedContent:
@@ -168,34 +169,37 @@ export default function Home() {
         id: "healthcare-admin",
         categoryId: "healthcare",
         groupId: "industry",
-        title: "Healthcare Workflow Automation",
+        title: "Automate Admin Tasks",
         description:
           "Eliminate administrative bottlenecks with on-device AI that keeps patient data secure.",
         expandedContent:
           "Automate documentation, staffing reconciliation, compliance audits, and credential tracking — saving $340K+ per department annually. 100% on-device processing means full HIPAA compliance by architecture, not policy.",
         readMoreHref: "/case-study/healthcare.pdf",
+        readMoreLabel: "Read use case",
       },
       {
         id: "defense-logistics",
         categoryId: "defense",
         groupId: "industry",
-        title: "Logistics & Supply Chain",
+        title: "Automate Supply Chain",
         description:
           "Scale DoD logistics with on-device AI that keeps sensitive data secure.",
         expandedContent:
           "Automate inventory reconciliation, vendor analysis, and supply chain coordination across disconnected systems. 83–96% time savings on core tasks and $542K+ annual savings per project — all with 100% on-device processing for CUI compliance.",
         readMoreHref: "/case-study/defense.pdf",
+        readMoreLabel: "Read case study",
       },
       {
         id: "research-lit",
         categoryId: "research",
         groupId: "industry",
-        title: "Research Review",
+        title: "Document Review",
         description:
           "Synthesize findings across papers, reports, and research documents.",
         expandedContent:
           "Quickly survey literature, extract key findings, and identify gaps. Perfect for academics, R&D teams, and market researchers.",
         readMoreHref: "/case-study/research.pdf",
+        readMoreLabel: "Read use case",
       },
     ],
   };
@@ -248,15 +252,15 @@ export default function Home() {
         <UseCases
           id="use-cases"
           title="DISCOVER WHAT FILEBUFF CAN DO"
-          subtitle="Explore use cases tailored to your workflow and industry."
+          subtitle="Explore use cases tailored to your work and industry."
           filterGroups={useCasesData.filterGroups}
           useCases={useCasesData.useCases}
           sidebarCTA={{
-            title: "Ready to try?",
+            title: "Find out more",
             description:
-              "Download FileBuff and explore your documents with AI.",
-            buttonText: "Download Now",
-            buttonHref: downloadLink,
+              "See what makes OpenBrew different. Available for immediate procurement.",
+            buttonText: "Read White Paper",
+            buttonHref: whitePaperLink,
           }}
         />
 
@@ -325,13 +329,6 @@ export default function Home() {
           title="READY TO TRANSFORM YOUR WORK?"
           subtitle="Stop sending your sensitive data out to the world. Get 100% private AI all day long. Free to download, no subscription required."
           primaryButton={{ text: "Download Free", href: downloadLink }}
-          secondaryButton={{
-            text: "Read White Paper",
-            href: "/capability-statement.pdf",
-            target: "_blank",
-            // text: "View Documentation",
-            // href: "https://github.com/dieharders/obrew-studio-server",
-          }}
         />
 
         {/* Highlights with Video */}

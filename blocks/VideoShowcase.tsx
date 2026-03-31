@@ -45,7 +45,7 @@ export default function VideoShowcase({
               autoPlay
               loop
               muted
-              controls
+              controls={false}
               aspectRatio="4/3"
               className={styles.mainVideo}
             />
