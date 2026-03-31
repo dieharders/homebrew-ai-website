@@ -328,6 +328,7 @@ export default function Home() {
           secondaryButton={{
             text: "View Capabilities",
             href: "/capability-statement.pdf",
+            target: "_blank",
             // text: "View Documentation",
             // href: "https://github.com/dieharders/obrew-studio-server",
           }}

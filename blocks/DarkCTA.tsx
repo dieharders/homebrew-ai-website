@@ -9,7 +9,7 @@ interface DarkCTAProps {
   title: string;
   subtitle?: string;
   primaryButton: { text: string; href: string };
-  secondaryButton?: { text: string; href: string };
+  secondaryButton?: { text: string; href: string; target?: '_blank' | '_self' };
   className?: string;
 }
 
@@ -49,6 +49,7 @@ export default function DarkCTA({
           {secondaryButton && (
             <Button
               href={secondaryButton.href}
+              target={secondaryButton.target}
               type="secondary"
               size="large"
               location="accent"
