@@ -14,6 +14,7 @@ import epiloguePosterImage from "public/badge.png";
 
 export default function Home() {
   const downloadLink = "/download";
+  const whitePaperLink = "/capability-statement.pdf";
 
   const imgStyle = {
     backgroundRepeat: "no-repeat",
@@ -252,11 +253,11 @@ export default function Home() {
           filterGroups={useCasesData.filterGroups}
           useCases={useCasesData.useCases}
           sidebarCTA={{
-            title: "Ready to try?",
+            title: "Find out more",
             description:
-              "Download FileBuff and explore your documents with AI.",
-            buttonText: "Download Now",
-            buttonHref: downloadLink,
+              "See what makes OpenBrew different. Available for immediate procurement.",
+            buttonText: "Read White Paper",
+            buttonHref: whitePaperLink,
           }}
         />
 
@@ -325,13 +326,6 @@ export default function Home() {
           title="READY TO TRANSFORM YOUR WORK?"
           subtitle="Stop sending your sensitive data out to the world. Get 100% private AI all day long. Free to download, no subscription required."
           primaryButton={{ text: "Download Free", href: downloadLink }}
-          secondaryButton={{
-            text: "Read White Paper",
-            href: "/capability-statement.pdf",
-            target: "_blank",
-            // text: "View Documentation",
-            // href: "https://github.com/dieharders/obrew-studio-server",
-          }}
         />
 
         {/* Highlights with Video */}
