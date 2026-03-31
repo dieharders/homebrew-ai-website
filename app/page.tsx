@@ -50,9 +50,9 @@ export default function Home() {
     filterGroups: [
       {
         id: "function",
-        label: "Domain",
+        label: "Features",
         categories: [
-          { id: "search", label: "Search & Discovery" },
+          { id: "search", label: "Search & Discover" },
           { id: "automation", label: "Workflow Automation" },
           { id: "security", label: "Audit & Compliance" },
           { id: "integration", label: "Integrations" },
@@ -96,7 +96,7 @@ export default function Home() {
         id: "workflow-auto",
         categoryId: "automation",
         groupId: "function",
-        title: "Automated Workflows",
+        title: "Automate Tasks",
         description:
           "Define tasks in natural language and let AI execute them automatically.",
         expandedContent:
@@ -107,7 +107,7 @@ export default function Home() {
         id: "daily-briefings",
         categoryId: "automation",
         groupId: "function",
-        title: "Automated Daily Briefings",
+        title: "Automate Daily Briefings",
         description:
           "Generate summaries and reports from your documents automatically.",
         expandedContent:
@@ -138,17 +138,17 @@ export default function Home() {
         id: "email-integration",
         categoryId: "integration",
         groupId: "function",
-        title: "Email & Calendar Integration",
+        title: "Email, Meetings, Calendar, Chats",
         description:
-          "Connect with Outlook, Gmail, and calendar systems for unified search.",
+          "Connect with Microsoft 365 apps, calendar systems, file storage.",
         expandedContent:
-          "Search across emails, attachments, and calendar events alongside your files. FileBuff creates a unified knowledge base from all your information sources.",
+          "Search across emails, chat conversations, calendar events as well as files. FileBuff creates a unified knowledge base from all your organization's information sources.",
       },
       {
         id: "enterprise-doc",
         categoryId: "enterprise",
         groupId: "industry",
-        title: "Enterprise Document Management",
+        title: "Document Management",
         description:
           "Manage large document libraries with AI-powered organization and search.",
         expandedContent:
@@ -159,7 +159,7 @@ export default function Home() {
         id: "legal-discovery",
         categoryId: "legal",
         groupId: "industry",
-        title: "Legal Document Discovery",
+        title: "Document Discovery",
         description:
           "Accelerate e-discovery and contract review with AI-powered analysis.",
         expandedContent:
@@ -169,7 +169,7 @@ export default function Home() {
         id: "healthcare-admin",
         categoryId: "healthcare",
         groupId: "industry",
-        title: "Healthcare Workflow Automation",
+        title: "Automate Admin Tasks",
         description:
           "Eliminate administrative bottlenecks with on-device AI that keeps patient data secure.",
         expandedContent:
@@ -180,7 +180,7 @@ export default function Home() {
         id: "defense-logistics",
         categoryId: "defense",
         groupId: "industry",
-        title: "Logistics & Supply Chain",
+        title: "Automate Supply Chain",
         description:
           "Scale DoD logistics with on-device AI that keeps sensitive data secure.",
         expandedContent:
@@ -191,7 +191,7 @@ export default function Home() {
         id: "research-lit",
         categoryId: "research",
         groupId: "industry",
-        title: "Research Review",
+        title: "Document Review",
         description:
           "Synthesize findings across papers, reports, and research documents.",
         expandedContent:
@@ -249,7 +249,7 @@ export default function Home() {
         <UseCases
           id="use-cases"
           title="DISCOVER WHAT FILEBUFF CAN DO"
-          subtitle="Explore use cases tailored to your workflow and industry."
+          subtitle="Explore use cases tailored to your work and industry."
           filterGroups={useCasesData.filterGroups}
           useCases={useCasesData.useCases}
           sidebarCTA={{

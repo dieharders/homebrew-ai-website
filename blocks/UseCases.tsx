@@ -51,7 +51,7 @@ export default function UseCases({
 }: UseCasesProps) {
   const [activeGroupId, setActiveGroupId] = useState(filterGroups[0]?.id || "");
   const [activeCategoryId, setActiveCategoryId] = useState(
-    filterGroups[0]?.categories[0]?.id || ""
+    filterGroups[0]?.categories[0]?.id || "",
   );
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
@@ -127,10 +127,12 @@ export default function UseCases({
         {sidebarCTA && (
           <aside className={styles.sidebar}>
             <div className={styles.sidebarCard}>
-              <div className={styles.sidebarIcon}>
-                <img src="/worker.svg" alt="" width="42" height="42" />
+              <div className={styles.sidebarHeader}>
+                <div className={styles.sidebarIcon}>
+                  <img src="/worker.svg" alt="" width="42" height="42" />
+                </div>
+                <h3 className={styles.sidebarTitle}>{sidebarCTA.title}</h3>
               </div>
-              <h3 className={styles.sidebarTitle}>{sidebarCTA.title}</h3>
               <p className={styles.sidebarDescription}>
                 {sidebarCTA.description}
               </p>
