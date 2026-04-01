@@ -243,7 +243,7 @@ export default function Home() {
         {/* Hero Bento Section */}
         <HeroBento
           headline="PROJECT INTELLIGENCE ON DEMAND"
-          tagline="Your personal, AI-powered, virtual project manager running on your device. Find anything instantly, automate workflows, and keep your data private."
+          tagline="Your personal project assistant, connected to everything, running 24/7. Find anything instantly, automate your work, keep data private."
           primaryCTA={{ text: "Download Free", href: downloadLink }}
           secondaryCTA={{ text: "Watch Demos", href: "#demo" }}
           videoSrc="/openbrew.mp4"

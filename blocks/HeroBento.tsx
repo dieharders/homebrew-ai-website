@@ -88,8 +88,8 @@ export default function HeroBento({
                   </svg>
                 </div>
               }
-              title="File Search & Synthesis"
-              description="Find anything instantly with AI-powered semantic search across all your documents."
+              title="Search with Language"
+              description="Find anything instantly by talking to AI across all your documents. No more database commands."
               link={{ text: "Learn more", href: "#features" }}
             />
 
@@ -113,8 +113,8 @@ export default function HeroBento({
                   </svg>
                 </div>
               }
-              title="100% On-Device"
-              description="Zero data leakage. Your files never leave your machine. Enterprise-grade security built in."
+              title="24/7 Private AI"
+              description="Information stays secure. Your files never leave your machine. Admin panel provides access control."
               link={{ text: "Security details", href: "#security" }}
             />
 
@@ -137,9 +137,9 @@ export default function HeroBento({
                   </svg>
                 </div>
               }
-              title="Lightning Fast"
-              description="Instant responses powered by local AI models. No network latency, no waiting."
-              link={{ text: "See benchmarks", href: "#performance" }}
+              title="Automate Your Tools"
+              description="Build workflows to automate your work. Draft email, setup meetings, process instrument data."
+              link={{ text: "See how", href: "#performance" }}
             />
           </div>
         </div>
