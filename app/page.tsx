@@ -143,6 +143,7 @@ export default function Home() {
           "Connect with Microsoft 365 apps, calendar systems, file storage.",
         expandedContent:
           "Search across emails, chat conversations, calendar events as well as files. FileBuff creates a unified knowledge base from all your organization's information sources.",
+        videoSrc: "/draft-email.mp4",
       },
       {
         id: "enterprise-doc",
