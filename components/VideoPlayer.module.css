@@ -21,6 +21,10 @@
   object-fit: contain;
 }
 
+.video:fullscreen {
+  object-fit: contain;
+}
+
 .overlay {
   position: absolute;
   inset: 0;
@@ -60,5 +64,34 @@
 }
 
 .playButton:active {
+  transform: scale(0.95);
+}
+
+.fullscreenButton {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent-btn);
+  color: var(--text);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    transform var(--transition-smooth),
+    box-shadow var(--transition-smooth);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.fullscreenButton:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.fullscreenButton:active {
   transform: scale(0.95);
 }
