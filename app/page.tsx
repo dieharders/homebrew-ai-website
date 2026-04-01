@@ -335,17 +335,17 @@ export default function Home() {
         {/* Highlights with Video */}
         <Highlights
           title="POWERED BY OPENBREW"
-          subtitle="FileBuff runs on the OpenBrew engine - a meta-framework providing tools for common AI challenges like long-term memory and hallucination prevention."
+          subtitle="Killer apps like FileBuff run on the OpenBrew engine - a platform providing composable Lego blocks for common AI challenges like long-term memory and tool use."
           background="alternate"
           highlights={[
             {
-              title: "FLEXIBLE USE-CASES",
-              text: "From domain knowledge co-pilots to customer service chatbots, compliance assistants to document extraction. Build what you need.",
+              title: "FLEXIBLE",
+              text: "From domain knowledge copilots to customer data retrieval agents, compliance workflows to document processing at scale. Build what you need.",
               illustration: highlightPosterA,
               link: { text: "Explore use cases", href: "#use-cases" },
             },
             {
-              title: "BUILD WORKFLOWS IN NATURAL LANGUAGE",
+              title: "BUILD WORKFLOWS WITH LANGUAGE",
               text: "Create automation systems to handle repetitive tasks. It's as easy as writing a todo list.",
               videoSrc: "/filebuff-workflow.mp4",
               link: { text: "See how it works", href: "#demo" },
@@ -357,7 +357,7 @@ export default function Home() {
               link: { text: "Learn about security", href: "#features" },
             },
             {
-              title: "SELF-HOST",
+              title: "KEEP DATA PRIVATE",
               text: "Deploy on-premise, in air-gapped environments, or on your self-managed network. Own your AI infrastructure end-to-end.",
               illustration: highlightPosterB,
               link: { text: "View requirements", href: downloadLink },
