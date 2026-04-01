@@ -19,11 +19,6 @@ const defaultNavItems: NavItem[] = [
   // { label: "Features", href: "/#features" },
   { label: "Home", href: "/" },
   { label: "Early Access", href: "/sponsor" },
-  {
-    label: "Github",
-    rel: "noopener noreferrer",
-    href: "https://github.com/dieharders/obrew-studio-server",
-  },
 ];
 
 export default function Header(p: {
