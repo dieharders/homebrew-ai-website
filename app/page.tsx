@@ -62,7 +62,7 @@ export default function Home() {
         id: "industry",
         label: "Industry",
         categories: [
-          { id: "enterprise", label: "Enterprise" },
+          { id: "financial", label: "Financial" },
           { id: "legal", label: "Legal" },
           { id: "healthcare", label: "Healthcare" },
           { id: "research", label: "Research" },
@@ -146,8 +146,8 @@ export default function Home() {
         videoSrc: "/draft-email.mp4",
       },
       {
-        id: "enterprise-doc",
-        categoryId: "enterprise",
+        id: "financial-doc",
+        categoryId: "financial",
         groupId: "industry",
         title: "Document Management",
         description:
