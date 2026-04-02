@@ -165,6 +165,7 @@ export default function Home() {
           "Accelerate e-discovery and contract review with AI-powered analysis.",
         expandedContent:
           "Rapidly review contracts, find relevant clauses, and identify risks. FileBuff helps legal teams process documents faster while maintaining accuracy.",
+        videoSrc: "/project-files.mp4",
       },
       {
         id: "healthcare-admin",
@@ -175,6 +176,7 @@ export default function Home() {
           "Eliminate administrative bottlenecks with on-device AI that keeps patient data secure.",
         expandedContent:
           "Automate documentation, staffing reconciliation, compliance audits, and credential tracking — saving $340K+ per department annually. 100% on-device processing means full HIPAA compliance by architecture, not policy.",
+        videoSrc: "/auto-email.mp4",
         readMoreHref: "/case-study/healthcare.pdf",
         readMoreLabel: "Read use case",
       },
@@ -187,6 +189,7 @@ export default function Home() {
           "Scale DoD logistics with on-device AI that keeps sensitive data secure.",
         expandedContent:
           "Automate inventory reconciliation, vendor analysis, and supply chain coordination across disconnected systems. 83–96% time savings on core tasks and $542K+ annual savings per project — all with 100% on-device processing for CUI compliance.",
+        videoSrc: "/auto-workflow.mp4",
         readMoreHref: "/case-study/defense.pdf",
         readMoreLabel: "Read case study",
       },
@@ -199,6 +202,7 @@ export default function Home() {
           "Synthesize findings across papers, reports, and research documents.",
         expandedContent:
           "Quickly survey literature, extract key findings, and identify gaps. Perfect for academics, R&D teams, and market researchers.",
+        videoSrc: "/slash-commands.mp4",
         readMoreHref: "/case-study/research.pdf",
         readMoreLabel: "Read use case",
       },
