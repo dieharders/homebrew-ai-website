@@ -67,6 +67,13 @@ export default function VideoPlayer({
     }
   };
 
+  const toggleFullscreen = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (videoRef.current) {
+      videoRef.current.requestFullscreen();
+    }
+  };
+
   return (
     <div
       ref={containerRef}
@@ -111,6 +118,15 @@ export default function VideoPlayer({
                 <path d="M8 5v14l11-7z" />
               </svg>
             )}
+          </button>
+          <button
+            className={styles.fullscreenButton}
+            aria-label="Toggle fullscreen"
+            onClick={toggleFullscreen}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3 3h6v2H5v4H3V3zm12 0h6v6h-2V5h-4V3zM3 15h2v4h4v2H3v-6zm16 0h2v6h-6v-2h4v-4z" />
+            </svg>
           </button>
         </div>
       )}

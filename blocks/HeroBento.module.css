@@ -19,6 +19,10 @@
   .cardGroup {
     flex-direction: row;
   }
+
+  .cardGroup > * {
+    flex: 1;
+  }
 }
 
 .pattern {

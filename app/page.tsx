@@ -62,7 +62,7 @@ export default function Home() {
         id: "industry",
         label: "Industry",
         categories: [
-          { id: "enterprise", label: "Enterprise" },
+          { id: "financial", label: "Financial" },
           { id: "legal", label: "Legal" },
           { id: "healthcare", label: "Healthcare" },
           { id: "research", label: "Research" },
@@ -143,10 +143,11 @@ export default function Home() {
           "Connect with Microsoft 365 apps, calendar systems, file storage.",
         expandedContent:
           "Search across emails, chat conversations, calendar events as well as files. FileBuff creates a unified knowledge base from all your organization's information sources.",
+        videoSrc: "/draft-email.mp4",
       },
       {
-        id: "enterprise-doc",
-        categoryId: "enterprise",
+        id: "financial-doc",
+        categoryId: "financial",
         groupId: "industry",
         title: "Document Management",
         description:
@@ -164,6 +165,7 @@ export default function Home() {
           "Accelerate e-discovery and contract review with AI-powered analysis.",
         expandedContent:
           "Rapidly review contracts, find relevant clauses, and identify risks. FileBuff helps legal teams process documents faster while maintaining accuracy.",
+        videoSrc: "/project-files.mp4",
       },
       {
         id: "healthcare-admin",
@@ -174,6 +176,7 @@ export default function Home() {
           "Eliminate administrative bottlenecks with on-device AI that keeps patient data secure.",
         expandedContent:
           "Automate documentation, staffing reconciliation, compliance audits, and credential tracking — saving $340K+ per department annually. 100% on-device processing means full HIPAA compliance by architecture, not policy.",
+        videoSrc: "/auto-email.mp4",
         readMoreHref: "/case-study/healthcare.pdf",
         readMoreLabel: "Read use case",
       },
@@ -186,6 +189,7 @@ export default function Home() {
           "Scale DoD logistics with on-device AI that keeps sensitive data secure.",
         expandedContent:
           "Automate inventory reconciliation, vendor analysis, and supply chain coordination across disconnected systems. 83–96% time savings on core tasks and $542K+ annual savings per project — all with 100% on-device processing for CUI compliance.",
+        videoSrc: "/auto-workflow.mp4",
         readMoreHref: "/case-study/defense.pdf",
         readMoreLabel: "Read case study",
       },
@@ -198,6 +202,7 @@ export default function Home() {
           "Synthesize findings across papers, reports, and research documents.",
         expandedContent:
           "Quickly survey literature, extract key findings, and identify gaps. Perfect for academics, R&D teams, and market researchers.",
+        videoSrc: "/slash-commands.mp4",
         readMoreHref: "/case-study/research.pdf",
         readMoreLabel: "Read use case",
       },
@@ -242,7 +247,7 @@ export default function Home() {
         {/* Hero Bento Section */}
         <HeroBento
           headline="PROJECT INTELLIGENCE ON DEMAND"
-          tagline="Your personal, AI-powered, virtual project manager running on your device. Find anything instantly, automate workflows, and keep your data private."
+          tagline="Your personal project assistant, connected to everything, running 24/7. Find anything instantly, automate your work, keep data private."
           primaryCTA={{ text: "Download Free", href: downloadLink }}
           secondaryCTA={{ text: "Watch Demos", href: "#demo" }}
           videoSrc="/openbrew.mp4"
@@ -334,17 +339,17 @@ export default function Home() {
         {/* Highlights with Video */}
         <Highlights
           title="POWERED BY OPENBREW"
-          subtitle="FileBuff runs on the OpenBrew engine - a meta-framework providing tools for common AI challenges like long-term memory and hallucination prevention."
+          subtitle="Killer apps like FileBuff run on the OpenBrew engine - a platform providing composable Lego blocks for common AI challenges like long-term memory and tool use."
           background="alternate"
           highlights={[
             {
-              title: "FLEXIBLE USE-CASES",
-              text: "From domain knowledge co-pilots to customer service chatbots, compliance assistants to document extraction. Build what you need.",
+              title: "FLEXIBLE",
+              text: "From domain knowledge copilots to customer data retrieval agents, compliance workflows to document processing at scale. Build what you need.",
               illustration: highlightPosterA,
               link: { text: "Explore use cases", href: "#use-cases" },
             },
             {
-              title: "BUILD WORKFLOWS IN NATURAL LANGUAGE",
+              title: "BUILD WORKFLOWS WITH LANGUAGE",
               text: "Create automation systems to handle repetitive tasks. It's as easy as writing a todo list.",
               videoSrc: "/filebuff-workflow.mp4",
               link: { text: "See how it works", href: "#demo" },
@@ -356,7 +361,7 @@ export default function Home() {
               link: { text: "Learn about security", href: "#features" },
             },
             {
-              title: "SELF-HOST",
+              title: "KEEP DATA PRIVATE",
               text: "Deploy on-premise, in air-gapped environments, or on your self-managed network. Own your AI infrastructure end-to-end.",
               illustration: highlightPosterB,
               link: { text: "View requirements", href: downloadLink },
