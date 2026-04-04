@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- Background rounded square (sky-100) -->
+  <rect width="64" height="64" rx="10" fill="#e0f2fe"/>
+  <!-- Icon content scaled to 70% centered (24x24 -> ~44.8px, offset ~9.6) -->
+  <g transform="translate(9.6, 9.6) scale(1.867)">
+    <!-- Paper body -->
+    <path
+      d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6z"
+      fill="#38bdf8"
+      stroke="#1a1a1a"
+      stroke-width="1.2"
+      stroke-linejoin="round"
+    />
+    <!-- Folded corner -->
+    <path
+      d="M14 2v6h6"
+      fill="#bae6fd"
+      stroke="#1a1a1a"
+      stroke-width="1.2"
+      stroke-linejoin="round"
+    />
+    <!-- Eyes -->
+    <circle cx="9" cy="13" r="1.4" fill="#1a1a1a"/>
+    <circle cx="15" cy="13" r="1.4" fill="#1a1a1a"/>
+    <!-- Eye shine -->
+    <circle cx="9.5" cy="12.5" r="0.5" fill="white"/>
+    <circle cx="15.5" cy="12.5" r="0.5" fill="white"/>
+    <!-- Smile -->
+    <path
+      d="M9.5 16.5Q12 18.5 14.5 16.5"
+      fill="none"
+      stroke="#1a1a1a"
+      stroke-width="1.2"
+      stroke-linecap="round"
+    />
+  </g>
+</svg>

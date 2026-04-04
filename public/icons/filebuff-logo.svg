@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24">
+  <!-- Folder body -->
+  <path
+    d="M20 6h-8l-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"
+    fill="#fbbf24"
+    stroke="#1a1a1a"
+    stroke-width="1.2"
+    stroke-linejoin="round"
+  />
+  <!-- Tab highlight -->
+  <path
+    d="M4 4h6l2 2H4z"
+    fill="#fcd34d"
+    stroke="#1a1a1a"
+    stroke-width="1.2"
+    stroke-linejoin="round"
+  />
+  <!-- Eyes -->
+  <circle cx="9" cy="12" r="1.4" fill="#1a1a1a"/>
+  <circle cx="15" cy="12" r="1.4" fill="#1a1a1a"/>
+  <!-- Eye shine -->
+  <circle cx="9.5" cy="11.5" r="0.5" fill="white"/>
+  <circle cx="15.5" cy="11.5" r="0.5" fill="white"/>
+  <!-- Smile -->
+  <path
+    d="M9.5 15.5Q12 17.5 14.5 15.5"
+    fill="none"
+    stroke="#1a1a1a"
+    stroke-width="1.2"
+    stroke-linecap="round"
+  />
+</svg>

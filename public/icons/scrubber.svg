@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- Background rounded square (purple-100) -->
+  <rect width="64" height="64" rx="10" fill="#f3e8ff"/>
+  <!-- Icon content scaled to 70% centered (24x24 -> ~44.8px, offset ~9.6) -->
+  <g transform="translate(9.6, 9.6) scale(1.867)">
+    <!-- Screen body -->
+    <rect
+      x="2" y="5" width="16" height="14" rx="2"
+      fill="#c084fc"
+      stroke="#1a1a1a"
+      stroke-width="1.2"
+      stroke-linejoin="round"
+    />
+    <!-- Lens -->
+    <path
+      d="M18 9l4-3v12l-4-3V9z"
+      fill="#d8b4fe"
+      stroke="#1a1a1a"
+      stroke-width="1.2"
+      stroke-linejoin="round"
+    />
+    <!-- Eyes -->
+    <circle cx="7" cy="11" r="1.4" fill="#1a1a1a"/>
+    <circle cx="13" cy="11" r="1.4" fill="#1a1a1a"/>
+    <!-- Eye shine -->
+    <circle cx="7.5" cy="10.5" r="0.5" fill="white"/>
+    <circle cx="13.5" cy="10.5" r="0.5" fill="white"/>
+    <!-- Smile -->
+    <path
+      d="M7.5 14.5Q10 16.5 12.5 14.5"
+      fill="none"
+      stroke="#1a1a1a"
+      stroke-width="1.2"
+      stroke-linecap="round"
+    />
+  </g>
+</svg>
