@@ -250,7 +250,7 @@ export default function Home() {
           tagline="Your personal project assistant, connected to everything, running 24/7. Find anything instantly, automate your work, keep data private."
           primaryCTA={{ text: "Download Free", href: downloadLink }}
           secondaryCTA={{ text: "Watch Demos", href: "#demo" }}
-          videoSrc="/openbrew.mp4"
+          videoSrc="/promo.mp4"
         />
 
         {/* Use Cases Section */}
