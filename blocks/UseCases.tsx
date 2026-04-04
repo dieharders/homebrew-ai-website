@@ -155,6 +155,8 @@ export default function UseCases({
               </p>
               <Button
                 href={sidebarCTA.buttonHref}
+                target="_blank"
+                rel="noopener noreferrer"
                 type="primary"
                 size="large"
                 location="body"
