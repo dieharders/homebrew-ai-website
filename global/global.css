@@ -4,8 +4,7 @@
 @source "../components";
 
 @theme {
-  --font-lilita: "Lilita One", sans-serif;
-  --font-comic-mono: "Comic Mono", monospace;
+  --font-lilita: var(--font-lilita-one);
 }
 
 :root {

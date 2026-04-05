@@ -24,7 +24,9 @@
       "@/pages/*": ["./pages/*"],
       "@/blocks/*": ["./blocks/*"],
       "@/utils/*": ["./utils/*"],
-      "@/global/*": ["./global/*"]
+      "@/global/*": ["./global/*"],
+      "fonts/*": ["./fonts/*"],
+      "public/*": ["./public/*"]
     }
   },
   "include": [
