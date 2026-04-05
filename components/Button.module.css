@@ -1,6 +1,6 @@
 .container {
   position: relative;
-  border-radius: var(--radius-md);
+  border-radius: var(--ui-radius-md);
   font-weight: 700;
   line-height: 1;
   display: inline-flex;
@@ -22,7 +22,7 @@
   height: 32px;
   padding: 0 var(--space-3);
   font-size: 0.8rem;
-  border-radius: var(--radius-sm);
+  border-radius: var(--ui-radius-sm);
 }
 
 .container-size-normal {
