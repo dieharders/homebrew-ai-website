@@ -19,13 +19,12 @@
         "name": "next"
       }
     ],
-    "baseUrl": "./",
     "paths": {
-      "@/components/*": ["components/*"],
-      "@/pages/*": ["pages/*"],
-      "@/blocks/*": ["blocks/*"],
-      "@/utils/*": ["utils/*"],
-      "@/global/*": ["global/*"]
+      "@/components/*": ["./components/*"],
+      "@/pages/*": ["./pages/*"],
+      "@/blocks/*": ["./blocks/*"],
+      "@/utils/*": ["./utils/*"],
+      "@/global/*": ["./global/*"]
     }
   },
   "include": [
