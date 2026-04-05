@@ -1,8 +1,20 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@source "../app";
+@source "../blocks";
+@source "../components";
+
+@theme {
+  --font-lilita: var(--font-lilita-one);
+}
 
 :root {
+  /* Border Radius Scale */
+  --ui-radius-sm: 6px;
+  --ui-radius-md: 10px;
+  --ui-radius-lg: 16px;
+  --ui-radius-xl: 20px;
+  --ui-radius-2xl: 24px;
+
   /* Spacing Scale (8px base) */
   --space-1: 0.25rem; /* 4px */
   --space-2: 0.5rem; /* 8px */
@@ -57,14 +69,8 @@
   --border-color: rgba(0, 0, 0, 0.08);
   --border-color-dark: rgba(255, 255, 255, 0.1);
 
-  /* Border Radius Scale */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --radius-xl: 20px;
-  --radius-2xl: 24px;
   --bento-gap: 1.5rem;
-  --bento-card-radius: var(--radius-lg);
+  --bento-card-radius: var(--ui-radius-lg);
 
   /* Transitions */
   --transition-fast: 0.15s ease;

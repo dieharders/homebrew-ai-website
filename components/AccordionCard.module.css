@@ -1,6 +1,6 @@
 .card {
   background: var(--background);
-  border-radius: var(--radius-lg);
+  border-radius: var(--ui-radius-lg);
   border: 1px solid var(--section-separator-color);
   overflow: hidden;
   transition:
@@ -83,7 +83,7 @@
 
 .video {
   margin-bottom: var(--space-4);
-  border-radius: var(--radius-md);
+  border-radius: var(--ui-radius-md);
   overflow: hidden;
 }
 

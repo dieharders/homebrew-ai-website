@@ -148,7 +148,7 @@ export default function UseCases({
                 <div className={styles.sidebarIcon}>
                   <img src="/worker.svg" alt="" width="42" height="42" />
                 </div>
-                <h3 className={styles.sidebarTitle}>{sidebarCTA.title}</h3>
+                <h2 className={styles.sidebarTitle}>{sidebarCTA.title}</h2>
               </div>
               <p className={styles.sidebarDescription}>
                 {sidebarCTA.description}

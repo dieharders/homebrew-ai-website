@@ -13,7 +13,7 @@
   width: 60px;
   height: 3px;
   background: var(--accent-gold-line);
-  border-radius: var(--radius-sm);
+  border-radius: var(--ui-radius-sm);
   margin: 0 auto var(--space-5) auto;
 }
 
@@ -121,7 +121,7 @@
 .highlight-video {
   position: relative;
   z-index: 1;
-  border-radius: var(--radius-lg);
+  border-radius: var(--ui-radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-card);
   border: 1px solid var(--section-separator-color);

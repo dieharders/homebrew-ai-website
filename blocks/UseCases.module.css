@@ -7,7 +7,7 @@
   width: 60px;
   height: 3px;
   background: var(--accent-gold-line);
-  border-radius: var(--radius-sm);
+  border-radius: var(--ui-radius-sm);
   margin-bottom: var(--space-5);
 }
 
@@ -55,7 +55,7 @@
   text-align: center;
   color: var(--text-shade);
   background: var(--background);
-  border-radius: var(--radius-lg);
+  border-radius: var(--ui-radius-lg);
   border: 1px dashed var(--section-separator-color);
 }
 
@@ -67,7 +67,7 @@
 
 .sidebarCard {
   background: var(--background);
-  border-radius: var(--radius-lg);
+  border-radius: var(--ui-radius-lg);
   border: 1px solid var(--section-separator-color);
   padding: var(--space-5);
   box-shadow: var(--shadow-sm);
@@ -83,7 +83,7 @@
 .sidebarIcon {
   width: 48px;
   height: 48px;
-  border-radius: var(--radius-md);
+  border-radius: var(--ui-radius-md);
   background: linear-gradient(
     135deg,
     var(--accent-light) 0%,
@@ -99,7 +99,7 @@
 
 .sidebarTitle {
   font-family: var(--font-lilita-one), sans-serif;
-  font-size: 1.1rem;
+  font-size: var(--h2-font-size);
   font-weight: 400;
   margin: 0;
   color: var(--text);
