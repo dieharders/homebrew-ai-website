@@ -99,7 +99,7 @@
 
 .sidebarTitle {
   font-family: var(--font-lilita-one), sans-serif;
-  font-size: var(--h2-font-size);
+  font-size: 1.75rem;
   font-weight: 400;
   margin: 0;
   color: var(--text);
