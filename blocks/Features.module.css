@@ -9,7 +9,7 @@
   width: 60px;
   height: 3px;
   background: var(--accent-gold-line);
-  border-radius: var(--radius-sm);
+  border-radius: var(--ui-radius-sm);
   margin: 0 auto var(--space-5) auto;
 }
 
@@ -46,7 +46,7 @@
     var(--accent-gold-glow) 0%,
     transparent 80%
   );
-  border-radius: var(--radius-md);
+  border-radius: var(--ui-radius-md);
   padding: var(--space-2);
   filter: blur(0);
   position: relative;
@@ -91,7 +91,7 @@
   text-align: center;
   padding: var(--space-6);
   background: var(--background);
-  border-radius: var(--radius-lg);
+  border-radius: var(--ui-radius-lg);
   border: 1px solid var(--section-separator-color);
   transition: var(--transition-smooth);
   transition-property: transform, box-shadow, border-color;
@@ -107,7 +107,7 @@
   width: 100%;
   height: 10rem;
   background: var(--illustration);
-  border-radius: var(--radius-lg);
+  border-radius: var(--ui-radius-lg);
 }
 
 .feature-content {

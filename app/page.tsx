@@ -52,7 +52,7 @@ export default function Home() {
         id: "function",
         label: "Features",
         categories: [
-          { id: "search", label: "Search & Discover" },
+          { id: "search", label: "AI Search" },
           { id: "automation", label: "Workflow Automation" },
           { id: "security", label: "Audit & Compliance" },
           { id: "integration", label: "Integrations" },
@@ -75,7 +75,7 @@ export default function Home() {
         id: "doc-search",
         categoryId: "search",
         groupId: "function",
-        title: "Document Search & Synthesis",
+        title: "Private Document Search",
         description:
           "Find relevant information across thousands of documents instantly using natural language.",
         expandedContent:

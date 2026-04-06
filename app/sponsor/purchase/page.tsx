@@ -149,7 +149,7 @@ export default function PurchasePage() {
             <div className="mb-8">
               <div className="mb-4 flex items-center justify-between">
                 <span className="text-xl text-gray-600">
-                  Pay to Openbrew.ai
+                  Pay to OpenBrew.ai
                 </span>
                 <div className="flex size-12 items-center justify-center rounded-lg bg-[var(--accent-btn)]">
                   <Image
@@ -177,7 +177,7 @@ export default function PurchasePage() {
                     Qty {seats} &middot; ${pricePerSeat}/seat
                   </p>
                 </div>
-                <p className="font-medium tabular-nums text-gray-900">
+                <p className="font-medium text-gray-900 tabular-nums">
                   ${subtotal.toFixed(2)}
                 </p>
               </div>
@@ -211,13 +211,13 @@ export default function PurchasePage() {
             <div className="mt-6 space-y-3 border-t border-gray-200 pt-5">
               <div className="flex justify-between text-sm">
                 <span className="text-gray-500">Subtotal</span>
-                <span className="tabular-nums text-gray-900">
+                <span className="text-gray-900 tabular-nums">
                   ${subtotal.toFixed(2)}
                 </span>
               </div>
               <div className="flex justify-between text-sm">
                 <span className="text-gray-500">Estimated tax</span>
-                <span className="tabular-nums text-gray-900">
+                <span className="text-gray-900 tabular-nums">
                   ${tax.toFixed(2)}
                 </span>
               </div>
@@ -229,7 +229,7 @@ export default function PurchasePage() {
                 <span className="text-base font-semibold text-gray-900">
                   Total due
                 </span>
-                <span className="font-lilita text-2xl tabular-nums text-[var(--text)]">
+                <span className="font-lilita text-2xl text-[var(--text)] tabular-nums">
                   ${total.toFixed(2)}
                 </span>
               </div>
@@ -237,7 +237,7 @@ export default function PurchasePage() {
 
             {/* Features List */}
             <div className="mt-10 border-t border-gray-200 pt-6">
-              <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-500">
+              <p className="mb-4 text-xs font-semibold tracking-wider text-gray-500 uppercase">
                 Included
               </p>
               <ul className="mt-2 space-y-3">
@@ -297,7 +297,7 @@ export default function PurchasePage() {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 transition-all placeholder:text-gray-400 focus:border-[var(--accent-btn)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-gold-glow)]"
+                  className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 transition-all placeholder:text-gray-400 focus:border-[var(--accent-btn)] focus:ring-2 focus:ring-[var(--accent-gold-glow)] focus:outline-none"
                 />
               </div>
 
@@ -320,7 +320,7 @@ export default function PurchasePage() {
                       className="w-full border-0 bg-white px-4 py-3 pr-36 font-mono text-sm tracking-wider text-gray-900 placeholder:text-gray-400 focus:outline-none"
                     />
                     {/* Card Brand Icons */}
-                    <div className="absolute right-3 top-1/2 flex -translate-y-1/2 items-center gap-1.5">
+                    <div className="absolute top-1/2 right-3 flex -translate-y-1/2 items-center gap-1.5">
                       <div
                         className={`transition-opacity ${cardType === "visa" ? "opacity-100" : "opacity-25"}`}
                       >
@@ -366,7 +366,7 @@ export default function PurchasePage() {
                       />
                       <CreditCard
                         size={18}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"
+                        className="absolute top-1/2 right-4 -translate-y-1/2 text-gray-400"
                       />
                     </div>
                   </div>
@@ -382,7 +382,7 @@ export default function PurchasePage() {
                   type="text"
                   value={nameOnCard}
                   onChange={(e) => setNameOnCard(e.target.value)}
-                  className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 transition-all placeholder:text-gray-400 focus:border-[var(--accent-btn)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-gold-glow)]"
+                  className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 transition-all placeholder:text-gray-400 focus:border-[var(--accent-btn)] focus:ring-2 focus:ring-[var(--accent-gold-glow)] focus:outline-none"
                 />
               </div>
 
@@ -395,7 +395,7 @@ export default function PurchasePage() {
                   <select
                     value={country}
                     onChange={(e) => setCountry(e.target.value)}
-                    className="w-full cursor-pointer appearance-none rounded-lg border border-gray-300 bg-white px-4 py-3 pr-12 text-gray-900 transition-all focus:border-[var(--accent-btn)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-gold-glow)]"
+                    className="w-full cursor-pointer appearance-none rounded-lg border border-gray-300 bg-white px-4 py-3 pr-12 text-gray-900 transition-all focus:border-[var(--accent-btn)] focus:ring-2 focus:ring-[var(--accent-gold-glow)] focus:outline-none"
                   >
                     <option value="US">United States</option>
                     <option value="CA">Canada</option>
@@ -409,7 +409,7 @@ export default function PurchasePage() {
                   </select>
                   <ChevronDown
                     size={18}
-                    className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"
+                    className="pointer-events-none absolute top-1/2 right-4 -translate-y-1/2 text-gray-400"
                   />
                 </div>
               </div>
