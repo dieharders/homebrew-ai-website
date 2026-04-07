@@ -35,6 +35,22 @@ export default function VideoPlayer({
   const [showControls, setShowControls] = useState(false);
   const [isVisible, setIsVisible] = useState(!lazy);
 
+  // Resume playback when page becomes visible again (e.g. after mobile sleep)
+  useEffect(() => {
+    if (!autoPlay) return;
+
+    const handleVisibilityChange = () => {
+      const video = videoRef.current;
+      if (!video) return;
+      if (document.visibilityState === 'visible' && isPlaying) {
+        video.play().catch(() => {});
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+  }, [autoPlay, isPlaying]);
+
   // Lazy loading with Intersection Observer
   useEffect(() => {
     if (!lazy || isVisible) return;
