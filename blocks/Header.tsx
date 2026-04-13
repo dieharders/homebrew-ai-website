@@ -18,6 +18,7 @@ export interface NavItem {
 const defaultNavItems: NavItem[] = [
   // { label: "Features", href: "/#features" },
   { label: "Home", href: "/" },
+  { label: "Jobs", href: "/jobs" },
   { label: "Early Access", href: "/sponsor" },
 ];
 

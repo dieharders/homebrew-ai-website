@@ -23,6 +23,7 @@
       "@/components/*": ["./components/*"],
       "@/pages/*": ["./pages/*"],
       "@/blocks/*": ["./blocks/*"],
+      "@/data/*": ["./data/*"],
       "@/utils/*": ["./utils/*"],
       "@/global/*": ["./global/*"],
       "fonts/*": ["./fonts/*"],
