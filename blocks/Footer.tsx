@@ -12,7 +12,7 @@ const links = [
   {
     icon: Mail,
     label: "Contact us",
-    href: "mailto:openbrewai+support@gmail.com",
+    href: "mailto:sorob+support@openbrew.ai",
   },
   {
     icon: Github,
@@ -33,7 +33,9 @@ export default function Footer(p: {
       <div className={styles.content}>
         <div className={styles.heading}>
           <div className={styles.accent} />
-          <h2 className={cx(styles.title, lilita_one.className)}>GET IN TOUCH</h2>
+          <h2 className={cx(styles.title, lilita_one.className)}>
+            GET IN TOUCH
+          </h2>
         </div>
         <div className={styles.cards}>
           {links.map((link) => (

@@ -75,7 +75,7 @@ export default async function JobDetailPage({
                 </div>
                 <div className="flex shrink-0 gap-[var(--space-3)]">
                   <Button
-                    href="mailto:openbrewai+jobs@gmail.com"
+                    href="mailto:sorob+jobs@openbrew.ai"
                     size="large"
                     type="primary"
                     location="body"
@@ -194,7 +194,7 @@ export default async function JobDetailPage({
                 contribute to OpenBrew.ai.
               </p>
               <Button
-                href="mailto:openbrewai+jobs@gmail.com"
+                href="mailto:sorob+jobs@openbrew.ai"
                 size="large"
                 type="primary"
                 location="body"
