@@ -31,8 +31,8 @@ export default function JobsPage() {
               Build the future of personal AI
             </h1>
             <p className="mx-auto mb-[var(--space-6)] max-w-[600px] text-[clamp(1rem,2vw,1.2rem)] leading-relaxed text-[var(--text-shade)]">
-              Join a small, high-impact team shipping AI products that run
-              anywhere — on an old laptop or powerful desktop.
+              Join a small team shipping AI products that run anywhere — old
+              laptops, browsers or powerful desktops and servers.
             </p>
             <Button href="/company" size="large" type="primary" location="body">
               About the Company

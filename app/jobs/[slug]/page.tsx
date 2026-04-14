@@ -68,7 +68,8 @@ export default async function JobDetailPage({
                     {job.title}
                   </h1>
                   <p className="mt-1 text-sm text-[var(--text-shade)]">
-                    {job.salary} | Team: {job.team}
+                    {job.salary}
+                    {job.equity ? ` | ${job.equity}` : ""} | Team: {job.team}
                   </p>
                 </div>
               </div>
@@ -126,7 +127,7 @@ export default async function JobDetailPage({
                 What you&apos;ll do
               </h2>
               <hr className="mb-[var(--space-5)] border-[var(--border-color)]" />
-              <ul className="flex flex-col gap-[var(--space-3)] pl-5 text-[var(--text-shade)]">
+              <ul className="flex list-disc flex-col gap-[var(--space-3)] pl-5 text-[var(--text-shade)]">
                 {job.responsibilities.map((item) => (
                   <li key={item} className="leading-relaxed">
                     {item}
@@ -141,7 +142,7 @@ export default async function JobDetailPage({
                 Qualifications
               </h2>
               <hr className="mb-[var(--space-5)] border-[var(--border-color)]" />
-              <ul className="flex flex-col gap-[var(--space-3)] pl-5 text-[var(--text-shade)]">
+              <ul className="flex list-disc flex-col gap-[var(--space-3)] pl-5 text-[var(--text-shade)]">
                 {job.qualifications.map((item) => (
                   <li key={item} className="leading-relaxed">
                     {item}
@@ -157,7 +158,7 @@ export default async function JobDetailPage({
                   Nice to have
                 </h2>
                 <hr className="mb-[var(--space-5)] border-[var(--border-color)]" />
-                <ul className="flex flex-col gap-[var(--space-3)] pl-5 text-[var(--text-shade)]">
+                <ul className="flex list-disc flex-col gap-[var(--space-3)] pl-5 text-[var(--text-shade)]">
                   {job.niceToHave.map((item) => (
                     <li key={item} className="leading-relaxed">
                       {item}
@@ -174,7 +175,7 @@ export default async function JobDetailPage({
                   Benefits
                 </h2>
                 <hr className="mb-[var(--space-5)] border-[var(--border-color)]" />
-                <ul className="flex flex-col gap-[var(--space-3)] pl-5 text-[var(--text-shade)]">
+                <ul className="flex list-disc flex-col gap-[var(--space-3)] pl-5 text-[var(--text-shade)]">
                   {job.benefits.map((item) => (
                     <li key={item} className="leading-relaxed">
                       {item}
