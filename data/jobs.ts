@@ -51,7 +51,7 @@ export const jobs: Job[] = [
       "Write tests and documentation for critical orchestration and pipeline paths",
     ],
     qualifications: [
-      "Applicant MUST be a U.S. citizen and must reside in U.S while performing work",
+      "Applicant MUST be a U.S. citizen and reside in the U.S. while performing work",
       "3+ years of professional software engineering frontend experience",
       "Strong proficiency in TypeScript and React",
       "Experience building orchestration layers or middleware that connect multiple services",
@@ -100,7 +100,7 @@ export const jobs: Job[] = [
       "Ensure accessibility, cross-browser compatibility, and responsive design across all application surfaces",
     ],
     qualifications: [
-      "Applicant MUST be a U.S. citizen and must reside in U.S while performing work",
+      "Applicant MUST be a U.S. citizen and reside in the U.S. while performing work",
       "3+ years of professional frontend development experience",
       "Expert-level TypeScript and React knowledge",
       "Experience building and maintaining design systems or component libraries",
@@ -149,7 +149,7 @@ export const jobs: Job[] = [
       "Design data models and manage database schemas (SQLite, PostgreSQL, vector DBs) at the platform level",
     ],
     qualifications: [
-      "Applicant MUST be a U.S. citizen and must reside in U.S while performing work",
+      "Applicant MUST be a U.S. citizen and reside in the U.S. while performing work",
       "3+ years of backend engineering experience",
       "Strong proficiency in Python and/or TypeScript",
       "Experience building and optimizing data processing or inference pipelines",
@@ -199,7 +199,7 @@ export const jobs: Job[] = [
       "Evaluate build-vs-buy decisions for core infrastructure components",
     ],
     qualifications: [
-      "Applicant MUST be a U.S. citizen and must reside in U.S while performing work",
+      "Applicant MUST be a U.S. citizen and reside in the U.S. while performing work",
       "7+ years of software engineering experience, with 3+ years in a senior/lead role",
       "Deep expertise in platform architecture — designing runtimes, API surfaces, and plugin/extension systems",
       "Strong proficiency in Python and/or C++",
@@ -253,7 +253,7 @@ export const jobs: Job[] = [
       "Manage payroll, benefits administration, and HR operations",
     ],
     qualifications: [
-      "Applicant MUST be a U.S. citizen and must reside in U.S while performing work",
+      "Applicant MUST be a U.S. citizen and reside in the U.S. while performing work",
       "4+ years of experience in operations, finance, or business management",
       "Strong financial modeling, forecasting, and Excel/spreadsheet skills",
       "Experience managing vendor contracts, procurement, and accounts payable/receivable",
