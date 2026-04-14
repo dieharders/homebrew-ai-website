@@ -57,36 +57,24 @@ export default async function JobDetailPage({
         {/* Job header card */}
         <div className="bg-[var(--background-alternate)] pb-[var(--space-8)]">
           <div className="mx-auto max-w-[var(--page-max-width)] px-[var(--page-padding)]">
-            <div className="rounded-[var(--ui-radius-xl)] border border-[var(--border-color)] bg-[var(--background)] p-[var(--space-6)] shadow-[var(--shadow-card)] sm:p-[var(--space-7)]">
-              <div className="flex flex-col gap-[var(--space-5)] sm:flex-row sm:items-start sm:justify-between">
-                <div className="flex items-start gap-[var(--space-5)]">
-                  {/* Icon */}
-                  <div className="flex size-14 shrink-0 items-center justify-center rounded-[var(--ui-radius-md)] bg-gradient-to-br from-[var(--accent-light)] to-[var(--accent-normal)] shadow-[0_2px_8px_var(--accent-gold-glow)]">
-                    <JobIcon icon={job.icon} size={26} />
-                  </div>
-                  <div>
-                    <h1 className="m-0 text-xl leading-tight font-bold text-[var(--text)] sm:text-2xl">
-                      {job.title}
-                    </h1>
-                    <p className="mt-1 text-sm text-[var(--text-shade)]">
-                      {job.salary} &bull; Team: {job.team}
-                    </p>
-                  </div>
+            <div className="grid grid-cols-1 gap-[var(--space-5)] rounded-[var(--ui-radius-xl)] border border-[var(--border-color)] bg-[var(--background)] p-[var(--space-6)] shadow-[var(--shadow-card)] sm:grid-cols-[1fr_auto] sm:p-[var(--space-7)]">
+              <div className="flex items-start gap-[var(--space-5)] sm:col-start-1 sm:row-start-1">
+                {/* Icon */}
+                <div className="flex size-14 shrink-0 items-center justify-center rounded-[var(--ui-radius-md)] bg-gradient-to-br from-[var(--accent-light)] to-[var(--accent-normal)] shadow-[0_2px_8px_var(--accent-gold-glow)]">
+                  <JobIcon icon={job.icon} size={26} />
                 </div>
-                <div className="flex shrink-0 gap-[var(--space-3)]">
-                  <Button
-                    href="mailto:sorob+jobs@openbrew.ai"
-                    size="large"
-                    type="primary"
-                    location="body"
-                  >
-                    Apply
-                  </Button>
+                <div>
+                  <h1 className="m-0 text-xl leading-tight font-bold text-[var(--text)] sm:text-2xl">
+                    {job.title}
+                  </h1>
+                  <p className="mt-1 text-sm text-[var(--text-shade)]">
+                    {job.salary} | Team: {job.team}
+                  </p>
                 </div>
               </div>
 
               {/* Tags */}
-              <div className="mt-[var(--space-5)] flex flex-wrap gap-[var(--space-3)]">
+              <div className="flex flex-wrap gap-[var(--space-3)] sm:col-start-1 sm:row-start-2">
                 {[
                   { icon: "location", label: job.location },
                   { icon: "time", label: job.type },
@@ -101,6 +89,18 @@ export default async function JobDetailPage({
                     {tag.label}
                   </span>
                 ))}
+              </div>
+
+              {/* Apply button */}
+              <div className="flex shrink-0 gap-[var(--space-3)] sm:col-start-2 sm:row-start-1 sm:justify-self-end">
+                <Button
+                  href="mailto:sorob+jobs@openbrew.ai"
+                  size="large"
+                  type="primary"
+                  location="body"
+                >
+                  Apply
+                </Button>
               </div>
             </div>
           </div>
