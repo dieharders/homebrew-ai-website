@@ -199,7 +199,7 @@ export default async function JobDetailPage({
                 type="primary"
                 location="body"
               >
-                APPLY NOW
+                Apply Now
               </Button>
             </section>
           </div>

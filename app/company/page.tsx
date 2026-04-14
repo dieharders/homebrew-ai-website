@@ -54,7 +54,7 @@ export default function CompanyPage() {
             <div className="flex flex-col gap-[var(--space-4)] leading-relaxed [&_p]:!text-[var(--text-shade)]">
               <p className="m-0">
                 AI is transforming every job, but most of the value created is
-                trapped by a handful of industries. We believe the future of AI
+                captured by a handful of companies. We believe the future of AI
                 is on your hardware, under your control, using your data in
                 privacy.
               </p>
@@ -120,8 +120,8 @@ export default function CompanyPage() {
                 clear updates matter more than Slack presence.
               </p>
               <p className="m-0">
-                Move fast and ship with quality. Ship things you read and
-                understand.
+                Move fast and ship with quality. Ship things you have read and
+                understood.
               </p>
               <p className="m-0">
                 Stay curious. The AI landscape changes daily.
