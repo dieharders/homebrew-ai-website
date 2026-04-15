@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/blocks/Header";
 import Button from "@/components/Button";
+import ExploreLink from "@/components/ExploreLink";
 import JobIcon from "@/components/JobIcon";
 import { jobs, getJobBySlug } from "@/data/jobs";
 
@@ -42,12 +42,9 @@ export default async function JobDetailPage({
         <div className="bg-[var(--background-alternate)] pt-[calc(var(--page-header-height)+var(--space-5))] pb-[var(--space-5)]">
           <div className="mx-auto max-w-[var(--page-max-width)] px-[var(--page-padding)]">
             <nav className="flex items-center gap-2 text-sm text-[var(--text-muted)]">
-              <Link
-                href="/jobs"
-                className="text-[var(--accent-dark)] no-underline hover:underline"
-              >
-                ← Jobs
-              </Link>
+              <ExploreLink href="/jobs" reverse>
+                Jobs
+              </ExploreLink>
               <span>/</span>
               <span className="text-[var(--text-shade)]">{job.title}</span>
             </nav>

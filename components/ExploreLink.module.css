@@ -37,3 +37,11 @@
 .link:hover .arrow {
   transform: translateX(2px);
 }
+
+.arrowReverse {
+  transform: rotate(180deg);
+}
+
+.link:hover .arrowReverse {
+  transform: rotate(180deg) translateX(2px);
+}
