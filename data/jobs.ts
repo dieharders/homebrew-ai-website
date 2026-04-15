@@ -38,7 +38,7 @@ export const jobs: Job[] = [
     location: "On-Site",
     salary: "$90K - $105K",
     equity: null,
-    experience: "3+ years",
+    experience: "3+ years XP",
     postedDate: "2026-04-10",
     shortDescription:
       "Own the orchestration layer that connects AI models to product features — wiring inference pipelines, vector stores, and agent workflows into a cohesive harness.",
@@ -85,7 +85,7 @@ export const jobs: Job[] = [
     location: "On-Site",
     salary: "$90K - $105K",
     equity: null,
-    experience: "3+ years",
+    experience: "3+ years XP",
     postedDate: "2026-04-08",
     shortDescription:
       "Own the interface layer of our AI products — build the screens, interactions, and design systems that make complex AI feel simple and intuitive.",
@@ -135,7 +135,7 @@ export const jobs: Job[] = [
     location: "On-Site",
     salary: "$90K - $110K",
     equity: null,
-    experience: "3+ years",
+    experience: "3+ years XP",
     postedDate: "2026-04-12",
     shortDescription:
       "Build out the core AI engine — the native application powering model inference, embedding pipelines, and the APIs that all OpenBrew applications depend on.",
@@ -184,7 +184,7 @@ export const jobs: Job[] = [
     location: "Remote",
     salary: "$150K - $200K",
     equity: "1% equity",
-    experience: "7+ years",
+    experience: "7+ years XP",
     postedDate: "2026-04-05",
     shortDescription:
       "Own the architecture of the Obrew core platform — define how the runtime, inference layer, API surface, and plugin system fit together from desktop to enterprise.",
@@ -240,7 +240,7 @@ export const jobs: Job[] = [
     location: "Remote",
     salary: "$125K - $180K",
     equity: "1% equity",
-    experience: "4+ years",
+    experience: "4+ years XP",
     postedDate: "2026-04-01",
     shortDescription:
       "Build and run OpenBrew.ai's business operations — budgets, vendor contracts, government procurement, and financial reporting as the company scales.",

@@ -46,7 +46,7 @@ export default async function JobDetailPage({
                 href="/jobs"
                 className="text-[var(--accent-dark)] no-underline hover:underline"
               >
-                Jobs
+                ← Jobs
               </Link>
               <span>/</span>
               <span className="text-[var(--text-shade)]">{job.title}</span>
