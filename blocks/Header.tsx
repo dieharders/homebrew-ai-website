@@ -66,7 +66,7 @@ export default function Header(p: {
 
   const appLinks = () => (
     <>
-      <p className="mt-2 px-3 pb-1 pt-2 text-xs font-semibold uppercase tracking-wider text-[var(--text-shade)] opacity-60">
+      <p className="mt-2 px-3 pt-2 pb-1 text-xs font-semibold tracking-wider text-[var(--text-shade)] uppercase opacity-60">
         AI Core
       </p>
       <Link
@@ -85,7 +85,7 @@ export default function Header(p: {
         />
         <span className="text-base font-semibold">OpenBrew</span>
       </Link>
-      <p className="px-3 pb-1 pt-2 text-xs font-semibold uppercase tracking-wider text-[var(--text-shade)] opacity-60">
+      <p className="px-3 pt-2 pb-1 text-xs font-semibold tracking-wider text-[var(--text-shade)] uppercase opacity-60">
         AI Apps
       </p>
       <Link
@@ -180,16 +180,18 @@ export default function Header(p: {
             />
           </svg>
         </span>
-        <span className="text-base font-semibold">Scrubber</span>
+        <span className="text-base font-semibold">ViewBuff</span>
       </Link>
       <Link
-        href="/"
+        href="https://motionbuff.openbrew.ai"
+        target="_blank"
+        rel="noopener noreferrer"
         className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-[var(--text-shade)] no-underline transition-colors hover:bg-[var(--background-alternate)] hover:text-[var(--text)]"
         onClick={() => setIsMenuOpen(false)}
       >
         <span
           className="flex size-9 shrink-0 items-center justify-center rounded-md bg-orange-100"
-          title="Coming Soon..."
+          title="MotionBuff: Presentation videos from a prompt"
         >
           <svg width="70%" height="70%" viewBox="0 0 24 24">
             {/* Screen/board */}
@@ -239,7 +241,7 @@ export default function Header(p: {
             />
           </svg>
         </span>
-        <span className="text-base font-semibold">Prezzy</span>
+        <span className="text-base font-semibold">MotionBuff</span>
       </Link>
       <Link
         href="/"
@@ -316,7 +318,7 @@ export default function Header(p: {
             {isMenuOpen && (
               <>
                 {/* Desktop dropdown */}
-                <div className="absolute left-0 top-[calc(100%+0.5rem)] z-[200] hidden min-w-[200px] flex-col gap-1 rounded-xl bg-white p-2 shadow-[0_4px_24px_rgba(0,0,0,0.12),0_1px_4px_rgba(0,0,0,0.08)] sm:flex">
+                <div className="absolute top-[calc(100%+0.5rem)] left-0 z-[200] hidden min-w-[200px] flex-col gap-1 rounded-xl bg-white p-2 shadow-[0_4px_24px_rgba(0,0,0,0.12),0_1px_4px_rgba(0,0,0,0.08)] sm:flex">
                   {appLinks()}
                 </div>
                 {/* Mobile fullscreen via portal */}
