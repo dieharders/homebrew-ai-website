@@ -29,7 +29,6 @@ export default function SponsorPage() {
               alt=""
               width={128}
               height={128}
-              style={{ width: 128, height: "auto" }}
               className={styles.heroIcon}
               priority
             />
