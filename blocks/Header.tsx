@@ -315,38 +315,45 @@ export default function Header(p: {
               </svg>
             </button>
 
-            {isMenuOpen && (
-              <>
-                {/* Desktop dropdown */}
-                <div className="absolute top-[calc(100%+0.5rem)] left-0 z-[200] hidden min-w-[200px] flex-col gap-1 rounded-xl bg-white p-2 shadow-[0_4px_24px_rgba(0,0,0,0.12),0_1px_4px_rgba(0,0,0,0.08)] sm:flex">
-                  {appLinks()}
-                </div>
-                {/* Mobile fullscreen via portal */}
-                {createPortal(
-                  <div
-                    className="fixed inset-0 z-[9999] flex flex-col bg-white p-4 sm:hidden"
-                    ref={mobileMenuRef}
+            {/* Always in the DOM so the app links ship in the server-rendered
+                HTML. Googlebot never clicks the menu button, so a subtree
+                mounted only while the menu is open is invisible to it — that
+                is what kept the subdomains undiscovered. Show/hide is
+                CSS-only. */}
+            <div
+              className={cx(
+                "absolute top-[calc(100%+0.5rem)] left-0 z-[200] min-w-[200px] flex-col gap-1 rounded-xl bg-white p-2 shadow-[0_4px_24px_rgba(0,0,0,0.12),0_1px_4px_rgba(0,0,0,0.08)]",
+                isMenuOpen ? "hidden sm:flex" : "hidden",
+              )}
+            >
+              {appLinks()}
+            </div>
+
+            {/* Mobile fullscreen via portal */}
+            {isMenuOpen &&
+              createPortal(
+                <div
+                  className="fixed inset-0 z-[9999] flex flex-col bg-white p-4 sm:hidden"
+                  ref={mobileMenuRef}
+                >
+                  <button
+                    className="mb-4 flex size-9 cursor-pointer items-center justify-center self-end rounded-md border-none bg-transparent text-[var(--text)]"
+                    onClick={() => setIsMenuOpen(false)}
+                    aria-label="Close menu"
                   >
-                    <button
-                      className="mb-4 flex size-9 cursor-pointer items-center justify-center self-end rounded-md border-none bg-transparent text-[var(--text)]"
-                      onClick={() => setIsMenuOpen(false)}
-                      aria-label="Close menu"
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
                     >
-                      <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                      >
-                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                      </svg>
-                    </button>
-                    {appLinks()}
-                  </div>,
-                  document.body,
-                )}
-              </>
-            )}
+                      <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                    </svg>
+                  </button>
+                  {appLinks()}
+                </div>,
+                document.body,
+              )}
           </div>
 
           <ul className={styles.navList}>

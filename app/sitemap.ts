@@ -1,74 +1,53 @@
 import type { MetadataRoute } from "next";
 
-const EXTERNAL_DATA_URL = "https://jsonplaceholder.typicode.com/posts";
-/**
- * Fetch urls from an external source
- */
-function generateDynamicSiteMap(posts: any[]) {
-  return `<?xml version="1.0" encoding="UTF-8"?>
-   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-     <!--We manually set the two URLs we know already-->
-     <url>
-       <loc>https://openbrewai.com</loc>
-     </url>
-     ${posts
-       ?.map(({ id }) => {
-         return `
-       <url>
-           <loc>${`${EXTERNAL_DATA_URL}/${id}`}</loc>
-       </url>
-     `;
-       })
-       .join("")}
-   </urlset>
- `;
-}
+const SITE = "https://www.openbrew.ai";
 
 /**
- * We manually set the two URLs we know already
+ * The app subdomains are separate deployments that nothing else links to in
+ * crawlable markup, so listing them here is Google's main route to finding
+ * them. Cross-host entries are only honored when every host is verified in
+ * Search Console — a DNS-verified Domain property on openbrew.ai covers all
+ * of these at once.
  */
-function generateStaticSiteMap(): MetadataRoute.Sitemap {
+const APP_SUBDOMAINS = [
+  "https://filebuff.openbrew.ai",
+  "https://motionbuff.openbrew.ai",
+];
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const lastModified = new Date();
+
   return [
+    { url: SITE, lastModified, changeFrequency: "monthly", priority: 1 },
     {
-      url: "https://www.openbrewai.com",
-      lastModified: new Date(),
+      url: `${SITE}/download`,
+      lastModified,
       changeFrequency: "monthly",
-      priority: 1,
+      priority: 0.9,
     },
     {
-      url: "https://studio.openbrewai.com",
-      lastModified: new Date(),
+      url: `${SITE}/sponsor`,
+      lastModified,
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.6,
     },
     {
-      url: "https://ohmenu.openbrewai.com",
-      lastModified: new Date(),
+      url: `${SITE}/jobs`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
+    {
+      url: `${SITE}/company`,
+      lastModified,
       changeFrequency: "yearly",
-      priority: 0.8,
+      priority: 0.5,
     },
+    ...APP_SUBDOMAINS.map((url) => ({
+      url,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
   ];
 }
-
-/**
- * This page will hit our API to get data that will allow us to know the URLs of our dynamic pages. We will then write an XML file as the response for /sitemap.xml
- */
-export async function getServerSideProps({ res }: any) {
-  // We make an API call to gather the URLs for our site
-  // const request = await fetch(EXTERNAL_DATA_URL);
-  // const posts = await request.json();
-
-  // We generate the XML sitemap with the posts data
-  const sitemap = generateStaticSiteMap();
-
-  res.setHeader("Content-Type", "text/xml");
-  // we send the XML to the browser
-  res.write(sitemap);
-  res.end();
-
-  return {
-    props: {},
-  };
-}
-
-export default generateStaticSiteMap;
