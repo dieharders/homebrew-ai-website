@@ -18,8 +18,8 @@ export interface NavItem {
 const defaultNavItems: NavItem[] = [
   // { label: "Features", href: "/#features" },
   { label: "Home", href: "/" },
+  { label: "Purchase", href: "/buy" },
   { label: "Jobs", href: "/jobs" },
-  { label: "Early Access", href: "/sponsor" },
 ];
 
 export default function Header(p: {

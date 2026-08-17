@@ -80,8 +80,11 @@ const DiscoverIcon = () => (
   </svg>
 );
 
+const MIN_SEATS = 10;
+const PRICE_PER_SEAT = 100;
+
 export default function PurchasePage() {
-  const [seats, setSeats] = useState(5);
+  const [seats, setSeats] = useState(MIN_SEATS);
   const [cardNumber, setCardNumber] = useState("");
   const [expiry, setExpiry] = useState("");
   const [cvc, setCvc] = useState("");
@@ -90,7 +93,7 @@ export default function PurchasePage() {
   const [country, setCountry] = useState("US");
   const [saveInfo, setSaveInfo] = useState(false);
 
-  const pricePerSeat = 20;
+  const pricePerSeat = PRICE_PER_SEAT;
   const subtotal = seats * pricePerSeat;
   const tax = subtotal * 0.1;
   const total = subtotal + tax;
@@ -138,7 +141,7 @@ export default function PurchasePage() {
             {/* Back Link */}
             <div className="mb-10">
               <Link
-                href="/sponsor"
+                href="/"
                 className="flex size-10 items-center justify-center rounded-full bg-gray-100 transition-colors hover:bg-gray-200"
               >
                 <ArrowLeft size={20} className="text-gray-600" />
@@ -187,8 +190,8 @@ export default function PurchasePage() {
                 <span className="text-sm text-gray-600">Seats:</span>
                 <div className="inline-flex items-center overflow-hidden rounded-lg border border-gray-200 bg-white">
                   <button
-                    onClick={() => setSeats(Math.max(5, seats - 1))}
-                    disabled={seats <= 5}
+                    onClick={() => setSeats(Math.max(MIN_SEATS, seats - 1))}
+                    disabled={seats <= MIN_SEATS}
                     className="flex size-10 cursor-pointer items-center justify-center text-lg font-bold text-gray-600 transition-colors hover:bg-gray-50 hover:text-gray-900 disabled:cursor-not-allowed disabled:opacity-40"
                   >
                     <Minus size={16} />
@@ -203,7 +206,7 @@ export default function PurchasePage() {
                     <Plus size={16} />
                   </button>
                 </div>
-                <span className="text-xs text-gray-400">min 5</span>
+                <span className="text-xs text-gray-400">min {MIN_SEATS}</span>
               </div>
             </div>
 
@@ -242,10 +245,8 @@ export default function PurchasePage() {
               </p>
               <ul className="mt-2 space-y-3">
                 {[
-                  "Discord access",
-                  "Email support",
-                  "GitHub repository access",
-                  "No data collection",
+                  "Access to OpenBrew.ai app suite",
+                  "Technical support",
                   "All future updates",
                 ].map((feature) => (
                   <li

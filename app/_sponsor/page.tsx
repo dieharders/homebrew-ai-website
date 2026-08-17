@@ -51,17 +51,17 @@ export default function SponsorPage() {
               <PricingCard
                 name="TEAM"
                 price="$100"
-                period="/month"
+                period="/seat"
                 description="For teams ready to boost speed and productivity"
                 ctaText="Purchase"
                 features={[
-                  "5 seat minimum included",
+                  "10 seat minimum included",
                   "Email support",
                   "Advanced features",
                   "Team collaboration",
                 ]}
                 highlighted
-                href="/sponsor/purchase"
+                href="/buy"
               />
               <PricingCard
                 name="ENTERPRISE"

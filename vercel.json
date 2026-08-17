@@ -9,6 +9,16 @@
       "source": "/index.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/sponsor",
+      "destination": "/buy",
+      "permanent": true
+    },
+    {
+      "source": "/sponsor/purchase",
+      "destination": "/buy",
+      "permanent": true
     }
   ]
 }
