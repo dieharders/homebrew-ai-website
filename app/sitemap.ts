@@ -26,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${SITE}/sponsor`,
+      url: `${SITE}/buy`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.6,

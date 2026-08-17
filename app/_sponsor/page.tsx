@@ -61,7 +61,7 @@ export default function SponsorPage() {
                   "Team collaboration",
                 ]}
                 highlighted
-                href="/sponsor/purchase"
+                href="/buy"
               />
               <PricingCard
                 name="ENTERPRISE"
