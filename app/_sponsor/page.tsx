@@ -27,8 +27,9 @@ export default function SponsorPage() {
             <Image
               src="/cup-icon.svg"
               alt=""
+              // Matches the SVG's real 326.58x308.33 aspect ratio.
               width={128}
-              height={128}
+              height={121}
               className={styles.heroIcon}
               priority
             />

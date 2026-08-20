@@ -158,8 +158,9 @@ export default function PurchasePage() {
                   <Image
                     src="/cup-icon.svg"
                     alt="Openbrew"
+                    // Matches the SVG's real 326.58x308.33 aspect ratio.
                     width={36}
-                    height={36}
+                    height={34}
                   />
                 </div>
               </div>
