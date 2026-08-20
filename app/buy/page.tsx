@@ -417,7 +417,7 @@ export default function PurchasePage() {
               </div>
 
               {/* Save Info Checkbox */}
-              <div className="flex items-start gap-3 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3">
+              {/* <div className="flex items-start gap-3 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3">
                 <input
                   type="checkbox"
                   id="saveInfo"
@@ -433,7 +433,7 @@ export default function PurchasePage() {
                     Pay faster on Openbrew and thousands of sites.
                   </span>
                 </label>
-              </div>
+              </div> */}
 
               {/* Pay Button */}
               <button className="mt-2 flex h-14 w-full cursor-pointer items-center justify-center gap-2.5 rounded-lg bg-[var(--accent-btn)] px-6 text-base font-bold text-[var(--text)] shadow-md transition-all hover:-translate-y-0.5 hover:bg-[#ffe066] hover:shadow-lg active:translate-y-0 active:bg-[#f5c800]">
