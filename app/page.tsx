@@ -275,7 +275,7 @@ export default function Home() {
           id="apps"
           title="ONE AI-NATIVE SUITE"
           subtitle="OpenBrew.ai is a family of AI-native apps that work together to help manage and automate your projects, write docs, and ship videos."
-          background="accent-alt-1"
+          background="alternate"
         />
 
         {/* Features Grid */}

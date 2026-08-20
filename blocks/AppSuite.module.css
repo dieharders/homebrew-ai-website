@@ -8,10 +8,9 @@
 .accentLine {
   width: 60px;
   height: 3px;
-  background: var(--text);
+  background: var(--accent-gold-line);
   border-radius: var(--ui-radius-sm);
   margin: 0 auto var(--space-5) auto;
-  opacity: 0.35;
 }
 
 .title {
@@ -46,7 +45,35 @@
   list-style: none;
 }
 
+/*
+ * A single accent glow centred behind the whole card grid, rather than
+ * tinting the entire section. Sits at z-index 0 so the opaque cards
+ * (z-index 1) punch through it and it only bleeds out around the edges.
+ */
+.apps::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  max-width: 65rem;
+  max-height: 65rem;
+  width: 90vw;
+  height: 90vw;
+  background: radial-gradient(
+    ellipse at center,
+    var(--accent-normal) 15%,
+    transparent 65%
+  );
+  opacity: 0.65;
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
 .app {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   padding: var(--space-6);
