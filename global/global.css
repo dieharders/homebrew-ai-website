@@ -2,6 +2,7 @@
 @source "../app";
 @source "../blocks";
 @source "../components";
+@source "../data";
 
 @theme {
   --font-lilita: var(--font-lilita-one);

@@ -19,7 +19,8 @@ export const metadata: Metadata = {
     // at the homepage. Resolved against `metadataBase` + the current path.
     canonical: './',
   },
-  keywords: ['desktop-app', 'ai', 'localai', 'text-generation', 'inference-engine'],
+  // Brand terms for the app suite so the homepage ties each app name back to openbrew.ai
+  keywords: ['desktop-app', 'ai', 'localai', 'text-generation', 'inference-engine', 'OpenBrew', 'FileBuff', 'MotionBuff', 'PaperBuff', 'ScreenBuff', 'ai video generator', 'ai document search', 'screen recording'],
   twitter: { card: 'summary', images: [{ url: cardWide.src }] },
   openGraph: {
     title: 'Obrew - Free & personal Ai for the masses',

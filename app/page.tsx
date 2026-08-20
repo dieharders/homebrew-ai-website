@@ -1,6 +1,7 @@
 import Header from "@/blocks/Header";
 import HeroBento from "@/blocks/HeroBento";
 import UseCases from "@/blocks/UseCases";
+import AppSuite from "@/blocks/AppSuite";
 import Features from "@/blocks/Features";
 import VideoShowcase from "@/blocks/VideoShowcase";
 import DarkCTA from "@/blocks/DarkCTA";
@@ -267,6 +268,14 @@ export default function Home() {
             buttonText: "Read White Paper",
             buttonHref: whitePaperLink,
           }}
+        />
+
+        {/* App Suite — links out to each app's subdomain */}
+        <AppSuite
+          id="apps"
+          title="ONE AI-NATIVE SUITE"
+          subtitle="OpenBrew.ai is a family of AI-native apps that work together to help manage and automate your projects, write docs, and ship videos."
+          background="accent-alt-1"
         />
 
         {/* Features Grid */}
