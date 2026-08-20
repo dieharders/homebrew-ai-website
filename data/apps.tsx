@@ -36,7 +36,7 @@ export const APPS: T_App[] = [
     external: true,
     tagline: "Workspace intelligence",
     description:
-      "Search and automate your workspace — documents, email, chats and events — in plain language, then hand off tasks to agents.",
+      "Search and automate your workspace in plain language. Documents, email, chats and events become hand off tasks for agents.",
     icon: <FileBuffIcon />,
     iconBg: "bg-amber-100",
   },
@@ -56,9 +56,9 @@ export const APPS: T_App[] = [
     name: "PaperBuff",
     href: "/",
     external: false,
-    tagline: "Smart Documents",
+    tagline: "Reactive Documents",
     description:
-      "Build and share rich text documents that are genuinely pleasant to read. Beautiful typography and layout applied automatically.",
+      "Edit and share rich text documents that are pleasant to read. Smart documents automatically apply beautiful typography and layout.",
     icon: <PaperBuffIcon />,
     iconBg: "bg-sky-100",
     comingSoon: true,
@@ -68,7 +68,7 @@ export const APPS: T_App[] = [
     name: "ScreenBuff",
     href: "/",
     external: false,
-    tagline: "Smart Screen Recording",
+    tagline: "Smart Screen Recorder",
     description:
       "Record your screen and produce captivating product showcases or ads. Zooms, callouts, cursor polish and pacing, all handled for you.",
     icon: <ScreenBuffIcon />,
