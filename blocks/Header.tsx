@@ -22,6 +22,7 @@ const appLinkClass =
 const defaultNavItems: NavItem[] = [
   // { label: "Features", href: "/#features" },
   { label: "Home", href: "/" },
+  { label: "Apps", href: "/#apps" },
   { label: "Purchase", href: "/buy" },
   { label: "Jobs", href: "/jobs" },
 ];

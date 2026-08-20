@@ -48,7 +48,14 @@ export default function RootLayout({
 }) {
   return (
     // This makes the font available globally via its' css var
-    <html lang="en" className={`${comic_mono.variable} ${lilita_one.variable}`}>
+    // `data-scroll-behavior` tells Next the `scroll-behavior: smooth` in
+    // global.css is intentional, so it suppresses the animation on cross-page
+    // navigations while same-page `#anchor` jumps stay smooth.
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className={`${comic_mono.variable} ${lilita_one.variable}`}
+    >
       <body>{children}</body>
     </html>
   )

@@ -34,6 +34,9 @@
   --page-max-width-wide: 1200px;
   --page-responsive-desktop: 800px;
   --page-header-height: 52px;
+  /* Real height of the sticky header: 36px of content + 0.75rem padding top
+     and bottom. Anchored sections scroll to sit flush beneath it. */
+  --scroll-offset: 60px;
   --page-footer-height: 64px;
   --section-header-max-width: 700px;
   --list-item-max-width: 450px;
@@ -126,6 +129,30 @@
   /* -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility; */
+}
+
+/* Smooth in-page jumps for every `#anchor` link (nav, hero CTAs, ExploreLink).
+   `scroll-padding-top` offsets the sticky header so the target heading isn't
+   hidden behind it. `<html data-scroll-behavior="smooth">` in the root layout
+   lets Next turn this off for cross-page navigations — without it, landing on
+   a new page at a hash would animate from the top. */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--scroll-offset);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Matches the header's own mobile breakpoint, where it shrinks to 32px of
+   content + 0.5rem padding. Keep in sync with Header.module.css. */
+@media screen and (max-width: 620px) {
+  :root {
+    --scroll-offset: 48px;
+  }
 }
 
 html,
