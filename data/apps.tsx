@@ -56,9 +56,9 @@ export const APPS: T_App[] = [
     name: "PaperBuff",
     href: "/",
     external: false,
-    tagline: "Reactive Documents",
+    tagline: "Voice-Assisted Documents",
     description:
-      "Edit and share rich text documents that are pleasant to read. Smart documents automatically apply beautiful typography and layout.",
+      "Use your voice to edit documents that are pleasant to read. Smart documents automatically apply beautiful typography and layout.",
     icon: <PaperBuffIcon />,
     iconBg: "bg-sky-100",
     comingSoon: true,
