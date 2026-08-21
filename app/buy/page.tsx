@@ -246,9 +246,9 @@ export default function PurchasePage() {
               </p>
               <ul className="mt-2 space-y-3">
                 {[
-                  "Access to OpenBrew.ai app suite",
-                  "Technical support",
+                  "All OpenBrew apps",
                   "All future updates",
+                  "Technical support",
                 ].map((feature) => (
                   <li
                     key={feature}
@@ -274,10 +274,16 @@ export default function PurchasePage() {
                 <span className="font-semibold text-gray-500">stripe</span>
               </span>
               <span className="text-gray-300">|</span>
-              <Link href="#" className="transition-colors hover:text-gray-600">
+              <Link
+                href="https://motionbuff.openbrew.ai/terms"
+                className="transition-colors hover:text-gray-600"
+              >
                 Terms
               </Link>
-              <Link href="#" className="transition-colors hover:text-gray-600">
+              <Link
+                href="https://motionbuff.openbrew.ai/privacy"
+                className="transition-colors hover:text-gray-600"
+              >
                 Privacy
               </Link>
             </div>
@@ -293,12 +299,25 @@ export default function PurchasePage() {
               {/* Email Field */}
               <div>
                 <label className="mb-2 block text-sm font-medium text-gray-600">
-                  Email
+                  Contact email
                 </label>
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 transition-all placeholder:text-gray-400 focus:border-[var(--accent-btn)] focus:ring-2 focus:ring-[var(--accent-gold-glow)] focus:outline-none"
+                />
+              </div>
+
+              {/* Name on Card */}
+              <div>
+                <label className="mb-2 block text-sm font-medium text-gray-600">
+                  Name on card
+                </label>
+                <input
+                  type="text"
+                  value={nameOnCard}
+                  onChange={(e) => setNameOnCard(e.target.value)}
                   className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 transition-all placeholder:text-gray-400 focus:border-[var(--accent-btn)] focus:ring-2 focus:ring-[var(--accent-gold-glow)] focus:outline-none"
                 />
               </div>
@@ -375,19 +394,6 @@ export default function PurchasePage() {
                 </div>
               </div>
 
-              {/* Name on Card */}
-              <div>
-                <label className="mb-2 block text-sm font-medium text-gray-600">
-                  Name on card
-                </label>
-                <input
-                  type="text"
-                  value={nameOnCard}
-                  onChange={(e) => setNameOnCard(e.target.value)}
-                  className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 transition-all placeholder:text-gray-400 focus:border-[var(--accent-btn)] focus:ring-2 focus:ring-[var(--accent-gold-glow)] focus:outline-none"
-                />
-              </div>
-
               {/* Country/Region */}
               <div>
                 <label className="mb-2 block text-sm font-medium text-gray-600">
@@ -406,7 +412,6 @@ export default function PurchasePage() {
                     <option value="DE">Germany</option>
                     <option value="FR">France</option>
                     <option value="JP">Japan</option>
-                    <option value="RU">Russia</option>
                     <option value="other">Other</option>
                   </select>
                   <ChevronDown
