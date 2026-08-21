@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import styles from "./Header.module.css";
 import { cx } from "@/utils/common";
+import { scrollToHashOnClick } from "@/utils/hashLink";
 import { APPS } from "@/data/apps";
 import ObrewLogo from "public/badge.png";
 
@@ -200,6 +201,7 @@ export default function Header(p: {
                     )}
                     target={item?.rel && "_blank"}
                     rel={item.rel}
+                    onClick={scrollToHashOnClick(item.href)}
                   >
                     {item.label}
                   </Link>
