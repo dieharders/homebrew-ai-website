@@ -37,7 +37,7 @@ export default function Header(p: {
 }) {
   const id = p.id ?? "top";
   const navItems = p.navItems ?? defaultNavItems;
-  const ctaButton = p.ctaButton ?? { text: "Free", href: "/download" };
+  const ctaButton = p.ctaButton ?? { text: "Download", href: "/download" };
   const pathname = usePathname();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);

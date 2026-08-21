@@ -1,12 +1,22 @@
 .container {
   position: relative;
   min-height: 100vh;
+  /* svh tracks the visible viewport, so mobile browser chrome doesn't push the
+     hero taller than the screen. Falls back to the vh above. */
+  min-height: 100svh;
   display: flex;
   align-items: center;
-  padding: var(--space-10) 0 var(--space-8) 0;
-  padding-bottom: 4rem;
+  /* Tighter on small screens — 8rem of dead space above the headline is a lot
+     of scrolling before anything is visible. Restored at 700px below. */
+  padding: var(--space-7) 0 var(--space-7) 0;
   background: var(--background);
   overflow: hidden;
+}
+
+@media screen and (min-width: 700px) {
+  .container {
+    padding: var(--space-10) 0 4rem 0;
+  }
 }
 
 .cardGroup {
@@ -45,14 +55,24 @@
 .grid {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 2.5rem;
 }
 
 .gridHeader {
   display: flex;
   width: 100%;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2rem;
+}
+
+@media screen and (min-width: 700px) {
+  .grid {
+    gap: 4rem;
+  }
+
+  .gridHeader {
+    gap: 3rem;
+  }
 }
 
 /* Headline area */
@@ -132,18 +152,22 @@
   justify-content: center;
 }
 
-/* Video card */
+/* Video card. Square by design — promo.mp4 is composed for a 1/1 safe area,
+   so the card and the player inside it both stay 1/1 at every breakpoint. */
 .videoCard {
-  grid-column: span 1;
   background: var(--background);
   border-radius: var(--ui-radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-card);
   border: 1px solid var(--section-separator-color);
   transition: box-shadow var(--transition-smooth);
-  width: 100%;
   aspect-ratio: 1 / 1;
-  flex-shrink: 0;
+  /* Stacked layout: a square is the tallest shape there is, so cap it and
+     centre it. Unbounded, it took the full column width and turned into a
+     ~900px slab on tablet-width windows. */
+  width: 100%;
+  max-width: 480px;
+  margin-inline: auto;
 }
 
 .videoCard:hover {
@@ -182,55 +206,30 @@
   box-shadow: 0 2px 8px var(--accent-gold-glow);
 }
 
-/* Responsive: Tablet */
-@media screen and (min-width: 700px) {
+/* Responsive: copy and video side by side.
+   This used to wait until 1100px, which left every window between 700 and
+   1100 — the common laptop range — with a full-width video stacked under the
+   copy. There is room for two columns well before that. */
+@media screen and (min-width: 900px) {
+  .gridHeader {
+    flex-direction: row;
+    align-items: center;
+  }
+
   .headlineArea {
-    grid-column: span 2;
+    flex: 1 1 50%;
   }
 
   .videoCard {
-    grid-column: span 2;
-  }
-
-  .performanceCard {
-    grid-column: span 2;
-  }
-}
-
-/* Responsive: Desktop */
-@media screen and (min-width: 900px) {
-  .container {
-    /* padding: var(--space-10) 0 var(--space-9) 0; */
-  }
-
-  .grid {
-    gap: 4rem;
-  }
-
-  .featureCard {
-    grid-column: 1;
-  }
-
-  .darkCard {
-    grid-column: 2;
-  }
-
-  .performanceCard {
-    grid-column: 3;
+    flex: 1 1 50%;
+    width: auto;
+    max-width: none;
+    margin-inline: 0;
   }
 }
 
 /* Responsive: Large Desktop */
 @media screen and (min-width: 1100px) {
-  .gridHeader {
-    flex-direction: row;
-  }
-
-  .videoCard {
-    flex: 1;
-    width: auto;
-  }
-
   .tagline {
     font-size: 1.25rem;
   }
