@@ -80,7 +80,7 @@ const DiscoverIcon = () => (
   </svg>
 );
 
-const MIN_SEATS = 10;
+const MIN_SEATS = 1;
 const PRICE_PER_SEAT = 100;
 
 export default function PurchasePage() {
@@ -170,11 +170,11 @@ export default function PurchasePage() {
 
             {/* Line Items */}
             <div className="space-y-5 border-t border-gray-200 pt-6">
-              {/* Team Plan Item */}
+              {/* Pro Plan Item */}
               <div className="flex items-start justify-between">
                 <div className="flex flex-col gap-1">
                   <p className="font-lilita text-lg font-medium text-gray-900">
-                    TEAM LICENSE
+                    PRO LICENSE
                   </p>
                   <p className="text-sm text-gray-500">
                     Qty {seats} &middot; ${pricePerSeat}/seat
@@ -206,7 +206,6 @@ export default function PurchasePage() {
                     <Plus size={16} />
                   </button>
                 </div>
-                <span className="text-xs text-gray-400">min {MIN_SEATS}</span>
               </div>
             </div>
 
