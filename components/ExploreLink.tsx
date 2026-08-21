@@ -1,6 +1,9 @@
+'use client';
+
 import Link from 'next/link';
 import styles from './ExploreLink.module.css';
 import { cx } from '../utils/common';
+import { scrollToHashOnClick } from '../utils/hashLink';
 
 interface ExploreLinkProps {
   href: string;
@@ -37,6 +40,7 @@ export default function ExploreLink({
     <Link
       href={href}
       className={cx(styles.link, styles[variant], className)}
+      onClick={scrollToHashOnClick(href)}
     >
       {reverse && arrow}
       <span>{children}</span>

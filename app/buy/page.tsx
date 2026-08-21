@@ -91,7 +91,6 @@ export default function PurchasePage() {
   const [email, setEmail] = useState("");
   const [nameOnCard, setNameOnCard] = useState("");
   const [country, setCountry] = useState("US");
-  const [saveInfo, setSaveInfo] = useState(false);
 
   const pricePerSeat = PRICE_PER_SEAT;
   const subtotal = seats * pricePerSeat;
@@ -158,8 +157,9 @@ export default function PurchasePage() {
                   <Image
                     src="/cup-icon.svg"
                     alt="Openbrew"
+                    // Matches the SVG's real 326.58x308.33 aspect ratio.
                     width={36}
-                    height={36}
+                    height={34}
                   />
                 </div>
               </div>
@@ -245,9 +245,9 @@ export default function PurchasePage() {
               </p>
               <ul className="mt-2 space-y-3">
                 {[
-                  "Access to OpenBrew.ai app suite",
-                  "Technical support",
+                  "All OpenBrew apps",
                   "All future updates",
+                  "Technical support",
                 ].map((feature) => (
                   <li
                     key={feature}
@@ -273,10 +273,16 @@ export default function PurchasePage() {
                 <span className="font-semibold text-gray-500">stripe</span>
               </span>
               <span className="text-gray-300">|</span>
-              <Link href="#" className="transition-colors hover:text-gray-600">
+              <Link
+                href="https://motionbuff.openbrew.ai/terms"
+                className="transition-colors hover:text-gray-600"
+              >
                 Terms
               </Link>
-              <Link href="#" className="transition-colors hover:text-gray-600">
+              <Link
+                href="https://motionbuff.openbrew.ai/privacy"
+                className="transition-colors hover:text-gray-600"
+              >
                 Privacy
               </Link>
             </div>
@@ -292,12 +298,25 @@ export default function PurchasePage() {
               {/* Email Field */}
               <div>
                 <label className="mb-2 block text-sm font-medium text-gray-600">
-                  Email
+                  Contact email
                 </label>
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 transition-all placeholder:text-gray-400 focus:border-[var(--accent-btn)] focus:ring-2 focus:ring-[var(--accent-gold-glow)] focus:outline-none"
+                />
+              </div>
+
+              {/* Name on Card */}
+              <div>
+                <label className="mb-2 block text-sm font-medium text-gray-600">
+                  Name on card
+                </label>
+                <input
+                  type="text"
+                  value={nameOnCard}
+                  onChange={(e) => setNameOnCard(e.target.value)}
                   className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 transition-all placeholder:text-gray-400 focus:border-[var(--accent-btn)] focus:ring-2 focus:ring-[var(--accent-gold-glow)] focus:outline-none"
                 />
               </div>
@@ -374,19 +393,6 @@ export default function PurchasePage() {
                 </div>
               </div>
 
-              {/* Name on Card */}
-              <div>
-                <label className="mb-2 block text-sm font-medium text-gray-600">
-                  Name on card
-                </label>
-                <input
-                  type="text"
-                  value={nameOnCard}
-                  onChange={(e) => setNameOnCard(e.target.value)}
-                  className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 transition-all placeholder:text-gray-400 focus:border-[var(--accent-btn)] focus:ring-2 focus:ring-[var(--accent-gold-glow)] focus:outline-none"
-                />
-              </div>
-
               {/* Country/Region */}
               <div>
                 <label className="mb-2 block text-sm font-medium text-gray-600">
@@ -405,7 +411,6 @@ export default function PurchasePage() {
                     <option value="DE">Germany</option>
                     <option value="FR">France</option>
                     <option value="JP">Japan</option>
-                    <option value="RU">Russia</option>
                     <option value="other">Other</option>
                   </select>
                   <ChevronDown
@@ -413,25 +418,6 @@ export default function PurchasePage() {
                     className="pointer-events-none absolute top-1/2 right-4 -translate-y-1/2 text-gray-400"
                   />
                 </div>
-              </div>
-
-              {/* Save Info Checkbox */}
-              <div className="flex items-start gap-3 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3">
-                <input
-                  type="checkbox"
-                  id="saveInfo"
-                  checked={saveInfo}
-                  onChange={(e) => setSaveInfo(e.target.checked)}
-                  className="mt-0.5 size-5 cursor-pointer rounded border-gray-300 text-[var(--accent-btn)] focus:ring-[var(--accent-btn)]"
-                />
-                <label htmlFor="saveInfo" className="flex-1 cursor-pointer">
-                  <span className="block text-sm font-medium text-gray-700">
-                    Save my info for secure 1-click checkout
-                  </span>
-                  <span className="mt-1 block text-xs text-gray-500">
-                    Pay faster on Openbrew and thousands of sites.
-                  </span>
-                </label>
               </div>
 
               {/* Pay Button */}

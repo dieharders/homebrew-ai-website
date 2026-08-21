@@ -1,6 +1,7 @@
 import Header from "@/blocks/Header";
 import HeroBento from "@/blocks/HeroBento";
 import UseCases from "@/blocks/UseCases";
+import AppSuite from "@/blocks/AppSuite";
 import Features from "@/blocks/Features";
 import VideoShowcase from "@/blocks/VideoShowcase";
 import DarkCTA from "@/blocks/DarkCTA";
@@ -246,10 +247,10 @@ export default function Home() {
       <main>
         {/* Hero Bento Section */}
         <HeroBento
-          headline="PROJECT INTELLIGENCE ON DEMAND"
-          tagline="Your personal project assistant, connected to everything, running 24/7. Find anything instantly, automate your work, keep data private."
+          headline="AI-NATIVE ON YOUR TERMS"
+          tagline="OpenBrew.ai is a suite of AI-native apps for your files, videos, documents and screen recordings. One subscription, many apps, unlimited use."
           primaryCTA={{ text: "Download Free", href: downloadLink }}
-          secondaryCTA={{ text: "Watch Demos", href: "#demo" }}
+          secondaryCTA={{ text: "Explore Apps", href: "#apps" }}
           videoSrc="/promo.mp4"
         />
 
@@ -269,10 +270,18 @@ export default function Home() {
           }}
         />
 
+        {/* App Suite — links out to each app's subdomain */}
+        <AppSuite
+          id="apps"
+          title="ONE AI-NATIVE SUITE"
+          subtitle="OpenBrew.ai is a family of AI-native apps that work together to manage and automate your work."
+          background="alternate"
+        />
+
         {/* Features Grid */}
         <Features
           id="features"
-          background="normal"
+          background="alternate"
           pattern="dots"
           title="FEATURES"
           subtitle="Everything you need to manage your projects with AI or build AI native apps with the Obrew platform."
@@ -376,7 +385,7 @@ export default function Home() {
           subtitle1=""
           subtitle2="Get notified of product updates"
           illustration={epiloguePoster}
-          background="normal"
+          background="alternate"
         >
           <SubscribeInput placeholder="your@email.com" actionText="Contact" />
         </Epilogue>

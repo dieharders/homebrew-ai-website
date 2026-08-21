@@ -23,8 +23,11 @@ export default function JobsPage() {
             <Image
               src="/cup-icon.svg"
               alt="OpenBrew cup logo"
+              // cup-icon.svg is 326.58x308.33, not square. Declaring a square
+              // here disagrees with the height Tailwind's `height: auto`
+              // renders, which trips Next's aspect-ratio warning.
               width={96}
-              height={96}
+              height={91}
               className="mx-auto mb-[var(--space-5)]"
             />
             <h1 className="m-0 mb-[var(--space-5)] font-[family-name:var(--font-lilita-one)] text-[clamp(2rem,5vw,3rem)] leading-[1.15] font-bold text-[var(--text)]">

@@ -1,6 +1,9 @@
+'use client';
+
 import Link from 'next/link';
 import styles from './Button.module.css';
 import { cx } from '../utils/common';
+import { scrollToHashOnClick } from '../utils/hashLink';
 
 export type T_Location = 'body' | 'accent' | 'highlight';
 
@@ -32,9 +35,20 @@ export default function Button(p: {
     // Use Next.js Link for internal navigation (faster client-side routing)
     const isInternal = p.href.startsWith('/') || p.href.startsWith('#');
 
+    const href = p.href;
+
     if (isInternal && !p.target) {
+      // Own the scroll for same-page `#anchor` links so a repeat click still
+      // moves. Only on this branch: a target opens a new tab, so the click
+      // must be left alone.
+      const scrollToHash = scrollToHashOnClick(href);
+      const onClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        scrollToHash(e);
+        p.onClick?.();
+      };
+
       return (
-        <Link className={className} href={p.href} title={p.title || ""} onClick={p.onClick}>
+        <Link className={className} href={href} title={p.title || ""} onClick={onClick}>
           {p.children}
         </Link>
       );
@@ -42,7 +56,7 @@ export default function Button(p: {
 
     // Use regular anchor for external links or when target is specified
     return (
-      <a className={className} href={p.href} target={p.target} rel={p.rel} title={p.title || ""} onClick={p.onClick}>
+      <a className={className} href={href} target={p.target} rel={p.rel} title={p.title || ""} onClick={p.onClick}>
         {p.children}
       </a>
     );
