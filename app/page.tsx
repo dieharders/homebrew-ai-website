@@ -274,7 +274,7 @@ export default function Home() {
         <AppSuite
           id="apps"
           title="ONE AI-NATIVE SUITE"
-          subtitle="OpenBrew.ai is a family of AI-native apps that work together to help manage and automate your projects, write docs, and ship videos."
+          subtitle="OpenBrew.ai is a family of AI-native apps that work together to manage and automate your work."
           background="alternate"
         />
 
