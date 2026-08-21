@@ -36,13 +36,17 @@ export default function Button(p: {
     const isInternal = p.href.startsWith('/') || p.href.startsWith('#');
 
     const href = p.href;
-    const scrollToHash = scrollToHashOnClick(href);
-    const onClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-      scrollToHash(e);
-      p.onClick?.();
-    };
 
     if (isInternal && !p.target) {
+      // Own the scroll for same-page `#anchor` links so a repeat click still
+      // moves. Only on this branch: a target opens a new tab, so the click
+      // must be left alone.
+      const scrollToHash = scrollToHashOnClick(href);
+      const onClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        scrollToHash(e);
+        p.onClick?.();
+      };
+
       return (
         <Link className={className} href={href} title={p.title || ""} onClick={onClick}>
           {p.children}
@@ -52,7 +56,7 @@ export default function Button(p: {
 
     // Use regular anchor for external links or when target is specified
     return (
-      <a className={className} href={href} target={p.target} rel={p.rel} title={p.title || ""} onClick={onClick}>
+      <a className={className} href={href} target={p.target} rel={p.rel} title={p.title || ""} onClick={p.onClick}>
         {p.children}
       </a>
     );

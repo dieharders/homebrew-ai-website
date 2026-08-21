@@ -147,11 +147,13 @@ html {
   }
 }
 
-/* Matches the header's own mobile breakpoint, where it shrinks to 32px of
-   content + 0.5rem padding. Keep in sync with Header.module.css. */
+/* Matches the header's own mobile breakpoint, where the padding drops to
+   0.5rem. The nav links shrink to 32px there, but the 36px apps button and the
+   36px download CTA don't, so the bar is 36px of content + 1rem of padding.
+   Keep in sync with Header.module.css and Header.tsx. */
 @media screen and (max-width: 620px) {
   :root {
-    --scroll-offset: 48px;
+    --scroll-offset: 52px;
   }
 }
 
