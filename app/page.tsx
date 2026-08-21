@@ -281,7 +281,7 @@ export default function Home() {
         {/* Features Grid */}
         <Features
           id="features"
-          background="normal"
+          background="alternate"
           pattern="dots"
           title="FEATURES"
           subtitle="Everything you need to manage your projects with AI or build AI native apps with the Obrew platform."
@@ -385,7 +385,7 @@ export default function Home() {
           subtitle1=""
           subtitle2="Get notified of product updates"
           illustration={epiloguePoster}
-          background="normal"
+          background="alternate"
         >
           <SubscribeInput placeholder="your@email.com" actionText="Contact" />
         </Epilogue>
