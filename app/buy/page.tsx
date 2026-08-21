@@ -91,7 +91,6 @@ export default function PurchasePage() {
   const [email, setEmail] = useState("");
   const [nameOnCard, setNameOnCard] = useState("");
   const [country, setCountry] = useState("US");
-  const [saveInfo, setSaveInfo] = useState(false);
 
   const pricePerSeat = PRICE_PER_SEAT;
   const subtotal = seats * pricePerSeat;
@@ -420,25 +419,6 @@ export default function PurchasePage() {
                   />
                 </div>
               </div>
-
-              {/* Save Info Checkbox */}
-              {/* <div className="flex items-start gap-3 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3">
-                <input
-                  type="checkbox"
-                  id="saveInfo"
-                  checked={saveInfo}
-                  onChange={(e) => setSaveInfo(e.target.checked)}
-                  className="mt-0.5 size-5 cursor-pointer rounded border-gray-300 text-[var(--accent-btn)] focus:ring-[var(--accent-btn)]"
-                />
-                <label htmlFor="saveInfo" className="flex-1 cursor-pointer">
-                  <span className="block text-sm font-medium text-gray-700">
-                    Save my info for secure 1-click checkout
-                  </span>
-                  <span className="mt-1 block text-xs text-gray-500">
-                    Pay faster on Openbrew and thousands of sites.
-                  </span>
-                </label>
-              </div> */}
 
               {/* Pay Button */}
               <button className="mt-2 flex h-14 w-full cursor-pointer items-center justify-center gap-2.5 rounded-lg bg-[var(--accent-btn)] px-6 text-base font-bold text-[var(--text)] shadow-md transition-all hover:-translate-y-0.5 hover:bg-[#ffe066] hover:shadow-lg active:translate-y-0 active:bg-[#f5c800]">
