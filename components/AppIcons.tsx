@@ -14,9 +14,17 @@ const svgProps = {
   height: "70%",
 } as const;
 
+/**
+ * These icons sit next to their app's name, so by default they're decorative
+ * and hidden from assistive tech. A caller that passes a `title` wants it
+ * announced instead — `role="img"` plus the `<title>` child names the icon.
+ */
+const a11yProps = (title?: string) =>
+  title ? ({ role: "img" } as const) : ({ "aria-hidden": true } as const);
+
 export function FileBuffIcon(p: AppIconProps) {
   return (
-    <svg {...svgProps} className={p.className} role="img" aria-hidden="true">
+    <svg {...svgProps} className={p.className} {...a11yProps(p.title)}>
       {p.title && <title>{p.title}</title>}
       {/* Folder body */}
       <path
@@ -54,7 +62,7 @@ export function FileBuffIcon(p: AppIconProps) {
 
 export function ScreenBuffIcon(p: AppIconProps) {
   return (
-    <svg {...svgProps} className={p.className} role="img" aria-hidden="true">
+    <svg {...svgProps} className={p.className} {...a11yProps(p.title)}>
       {p.title && <title>{p.title}</title>}
       {/* Screen body */}
       <rect
@@ -96,7 +104,7 @@ export function ScreenBuffIcon(p: AppIconProps) {
 
 export function MotionBuffIcon(p: AppIconProps) {
   return (
-    <svg {...svgProps} className={p.className} role="img" aria-hidden="true">
+    <svg {...svgProps} className={p.className} {...a11yProps(p.title)}>
       {p.title && <title>{p.title}</title>}
       {/* Screen/board */}
       <rect
@@ -149,7 +157,7 @@ export function MotionBuffIcon(p: AppIconProps) {
 
 export function PaperBuffIcon(p: AppIconProps) {
   return (
-    <svg {...svgProps} className={p.className} role="img" aria-hidden="true">
+    <svg {...svgProps} className={p.className} {...a11yProps(p.title)}>
       {p.title && <title>{p.title}</title>}
       {/* Paper body */}
       <path
