@@ -68,7 +68,7 @@ export default function HeroBento({
           </div>
 
           <div className={styles.cardGroup}>
-            {/* Feature card - File Search */}
+            {/* Feature card - The app suite */}
             <BentoCard
               variant="light"
               size="medium"
@@ -83,14 +83,16 @@ export default function HeroBento({
                     stroke="currentColor"
                     strokeWidth="2"
                   >
-                    <circle cx="11" cy="11" r="8" />
-                    <path d="M21 21l-4.35-4.35" />
+                    <rect x="3" y="3" width="7" height="7" rx="1.5" />
+                    <rect x="14" y="3" width="7" height="7" rx="1.5" />
+                    <rect x="3" y="14" width="7" height="7" rx="1.5" />
+                    <rect x="14" y="14" width="7" height="7" rx="1.5" />
                   </svg>
                 </div>
               }
-              title="Search with Language"
-              description="Find anything instantly by talking to AI across all your documents. No more database commands."
-              link={{ text: "Learn more", href: "#features" }}
+              title="One Engine, Many Apps"
+              description="Tools to automate, design and transform your ideas into results."
+              link={{ text: "See the apps", href: "#apps" }}
             />
 
             {/* CTA card - Enterprise */}
@@ -113,9 +115,9 @@ export default function HeroBento({
                   </svg>
                 </div>
               }
-              title="24/7 Private AI"
-              description="Information stays secure. Your files never leave your machine. Admin panel provides access control."
-              link={{ text: "Security details", href: "#security" }}
+              title="Bring Your Own AI"
+              description="Your agents can use our tools to perform work for you."
+              link={{ text: "More features", href: "#features" }}
             />
 
             {/* Performance card */}
@@ -137,9 +139,9 @@ export default function HeroBento({
                   </svg>
                 </div>
               }
-              title="Automate Your Tools"
-              description="Build workflows to automate your work. Draft email, setup meetings, process instrument data."
-              link={{ text: "See how", href: "#performance" }}
+              title="Automated Workspaces"
+              description="Use workflows to draft email, setup meetings, or process vital data."
+              link={{ text: "Find out how", href: "#use-cases" }}
             />
           </div>
         </div>

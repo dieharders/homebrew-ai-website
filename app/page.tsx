@@ -247,10 +247,10 @@ export default function Home() {
       <main>
         {/* Hero Bento Section */}
         <HeroBento
-          headline="PROJECT INTELLIGENCE ON DEMAND"
-          tagline="Your personal project assistant, connected to everything, running 24/7. Find anything instantly, automate your work, keep data private."
+          headline="AI APPS THAT RUN ON YOUR DEVICE"
+          tagline="OpenBrew.ai is a suite of AI-native apps for your files, videos, documents and screen recordings. One engine, no credits, unlimited use."
           primaryCTA={{ text: "Download Free", href: downloadLink }}
-          secondaryCTA={{ text: "Watch Demos", href: "#demo" }}
+          secondaryCTA={{ text: "Explore the Apps", href: "#apps" }}
           videoSrc="/promo.mp4"
         />
 
