@@ -90,7 +90,7 @@ export default function HeroBento({
                   </svg>
                 </div>
               }
-              title="One Engine, Many Apps"
+              title="AI-Native Tools"
               description="Tools to automate, design and transform your ideas into results."
               link={{ text: "See the apps", href: "#apps" }}
             />

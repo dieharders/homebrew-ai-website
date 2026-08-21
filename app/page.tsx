@@ -250,7 +250,7 @@ export default function Home() {
           headline="AI-NATIVE ON YOUR TERMS"
           tagline="OpenBrew.ai is a suite of AI-native apps for your files, videos, documents and screen recordings. One subscription, many apps, unlimited use."
           primaryCTA={{ text: "Download Free", href: downloadLink }}
-          secondaryCTA={{ text: "Explore the Apps", href: "#apps" }}
+          secondaryCTA={{ text: "Explore Apps", href: "#apps" }}
           videoSrc="/promo.mp4"
         />
 
