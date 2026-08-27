@@ -3,17 +3,17 @@ import type { MetadataRoute } from "next";
 const SITE = "https://www.openbrew.ai";
 
 /**
- * The app subdomains are separate deployments that nothing else links to in
- * crawlable markup, so listing them here is Google's main route to finding
- * them. Cross-host entries are only honored when every host is verified in
- * Search Console — a DNS-verified Domain property on openbrew.ai covers all
- * of these at once.
+ * This sitemap lists www.openbrew.ai URLs ONLY. The app subdomains
+ * (filebuff.openbrew.ai, motionbuff.openbrew.ai) are deliberately absent:
+ * each one now ships its own sitemap, declared in its own robots.txt.
+ *
+ * Do not re-add them here. Cross-host <loc> entries are only honored when
+ * every host is verified with the search engine doing the reading, and that
+ * is not portable across engines — Google accepts them under a DNS-verified
+ * Domain property, but Bing requires each host verified as its own site in
+ * Webmaster Tools and otherwise drops the entries (or flags the whole
+ * sitemap as cross-domain). Same-host sitemaps are honored everywhere.
  */
-const APP_SUBDOMAINS = [
-  "https://filebuff.openbrew.ai",
-  "https://motionbuff.openbrew.ai",
-];
-
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
@@ -43,11 +43,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.5,
     },
-    ...APP_SUBDOMAINS.map((url) => ({
-      url,
-      lastModified,
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    })),
   ];
 }
