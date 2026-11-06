@@ -17,7 +17,7 @@ const links = [
   {
     icon: Github,
     label: "Github",
-    href: "https://github.com/dieharders/obrew-studio-server",
+    href: "https://github.com/dieharders/obrew-cli",
   },
 ];
 
