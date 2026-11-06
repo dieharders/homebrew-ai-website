@@ -19,6 +19,11 @@
       "source": "/sponsor/purchase",
       "destination": "/buy",
       "permanent": true
+    },
+    {
+      "source": "/download",
+      "destination": "/",
+      "permanent": true
     }
   ]
 }

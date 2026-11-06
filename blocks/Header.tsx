@@ -31,11 +31,9 @@ export default function Header(p: {
   className?: string;
   title: string;
   navItems?: NavItem[];
-  ctaButton?: { text: string; href: string };
 }) {
   const id = p.id ?? "top";
   const navItems = p.navItems ?? defaultNavItems;
-  const ctaButton = p.ctaButton;
   const pathname = usePathname();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -188,27 +186,6 @@ export default function Header(p: {
               );
             })}
           </ul>
-          {ctaButton && (
-            <Link
-              href={ctaButton.href}
-              className={cx(
-                "group ml-auto inline-flex shrink-0 items-center rounded-md border-2 border-current px-4 text-base font-bold text-black no-underline transition-[color,background] duration-200 hover:bg-[var(--background-alternate)]",
-                pathname === ctaButton.href && styles.navLinkActive,
-              )}
-              style={{ height: 36 }}
-            >
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="mr-2 shrink-0 transition-transform duration-200 group-hover:translate-y-0.5"
-              >
-                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
-              </svg>
-              {ctaButton.text}
-            </Link>
-          )}
         </div>
       </nav>
     </header>

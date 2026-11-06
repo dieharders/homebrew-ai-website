@@ -148,9 +148,8 @@ html {
 }
 
 /* Matches the header's own mobile breakpoint, where the padding drops to
-   0.5rem. The nav links shrink to 32px there, but the 36px apps button (and the
-   36px CTA, when one is passed) doesn't, so the bar is 36px of content + 1rem
-   of padding.
+   0.5rem. The nav links shrink to 32px there, but the 36px apps button doesn't,
+   so the bar is 36px of content + 1rem of padding.
    Keep in sync with Header.module.css and Header.tsx. */
 @media screen and (max-width: 620px) {
   :root {

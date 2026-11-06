@@ -16,6 +16,7 @@ export default function Hero(p: {
   title?: ReactNode | string;
   subtitle: string;
   link?: string;
+  linkText?: string;
   background?: T_Background;
   children?: ReactNode;
 }) {
@@ -50,7 +51,7 @@ export default function Hero(p: {
               location="highlight"
             >
               <Image src={ClapLogo} alt="clap" width="32" height="32" />
-              &nbsp;Download Now
+              &nbsp;{p.linkText ?? "Get Started"}
             </Button>
           </div>
         </div>

@@ -248,7 +248,8 @@ export default function Home() {
         <HeroBento
           headline="AI-NATIVE ON YOUR TERMS"
           tagline="OpenBrew.ai is a suite of AI-native apps for your files, videos, documents and screen recordings. One subscription, many apps, unlimited use."
-          primaryCTA={{ text: "Explore Apps", href: "#apps" }}
+          primaryCTA={{ text: "Purchase", href: "/buy" }}
+          secondaryCTA={{ text: "Explore Apps", href: "#apps" }}
           videoSrc="/promo.mp4"
         />
 
@@ -339,8 +340,8 @@ export default function Home() {
         <DarkCTA
           label="Next steps"
           title="READY TO TRANSFORM YOUR WORK?"
-          subtitle="Stop sending your sensitive data out to the world. Get 100% private AI all day long. Free to download, no subscription required."
-          primaryButton={{ text: "Explore Apps", href: "#apps" }}
+          subtitle="Stop sending your sensitive data out to the world. Get 100% private AI all day long. One subscription, every app, unlimited use."
+          primaryButton={{ text: "Purchase", href: "/buy" }}
         />
 
         {/* Highlights with Video */}
@@ -371,6 +372,7 @@ export default function Home() {
               title: "KEEP DATA PRIVATE",
               text: "Deploy on-premise, in air-gapped environments, or on your self-managed network. Own your AI infrastructure end-to-end.",
               illustration: highlightPosterB,
+              link: { text: "Contact us", href: "#contact" },
             },
           ]}
         />
