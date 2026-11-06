@@ -14,7 +14,6 @@ import highlightPosterImageB from "public/workflows.svg";
 import epiloguePosterImage from "public/badge.png";
 
 export default function Home() {
-  const downloadLink = "/download";
   const whitePaperLink = "/capability-statement.pdf";
 
   const imgStyle = {
@@ -249,8 +248,7 @@ export default function Home() {
         <HeroBento
           headline="AI-NATIVE ON YOUR TERMS"
           tagline="OpenBrew.ai is a suite of AI-native apps for your files, videos, documents and screen recordings. One subscription, many apps, unlimited use."
-          primaryCTA={{ text: "Download Free", href: downloadLink }}
-          secondaryCTA={{ text: "Explore Apps", href: "#apps" }}
+          primaryCTA={{ text: "Explore Apps", href: "#apps" }}
           videoSrc="/promo.mp4"
         />
 
@@ -342,7 +340,7 @@ export default function Home() {
           label="Next steps"
           title="READY TO TRANSFORM YOUR WORK?"
           subtitle="Stop sending your sensitive data out to the world. Get 100% private AI all day long. Free to download, no subscription required."
-          primaryButton={{ text: "Download Free", href: downloadLink }}
+          primaryButton={{ text: "Explore Apps", href: "#apps" }}
         />
 
         {/* Highlights with Video */}
@@ -373,7 +371,6 @@ export default function Home() {
               title: "KEEP DATA PRIVATE",
               text: "Deploy on-premise, in air-gapped environments, or on your self-managed network. Own your AI infrastructure end-to-end.",
               illustration: highlightPosterB,
-              link: { text: "View requirements", href: downloadLink },
             },
           ]}
         />

@@ -4,12 +4,10 @@ import { useEffect, useState, useRef } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
 import styles from "./Header.module.css";
 import { cx } from "@/utils/common";
 import { scrollToHashOnClick } from "@/utils/hashLink";
 import { APPS } from "@/data/apps";
-import ObrewLogo from "public/badge.png";
 
 export interface NavItem {
   label: string;
@@ -37,7 +35,7 @@ export default function Header(p: {
 }) {
   const id = p.id ?? "top";
   const navItems = p.navItems ?? defaultNavItems;
-  const ctaButton = p.ctaButton ?? { text: "Download", href: "/download" };
+  const ctaButton = p.ctaButton;
   const pathname = usePathname();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -73,25 +71,6 @@ export default function Header(p: {
   const appLinks = () => (
     <>
       <p className="mt-2 px-3 pt-2 pb-1 text-xs font-semibold tracking-wider text-[var(--text-shade)] uppercase opacity-60">
-        AI Core
-      </p>
-      <Link
-        href="/download"
-        className={appLinkClass}
-        onClick={() => setIsMenuOpen(false)}
-      >
-        <Image
-          src={ObrewLogo}
-          alt="OpenBrew"
-          title="Download OpenBrew"
-          height={0}
-          width={0}
-          className="h-9 w-auto shrink-0"
-          unoptimized
-        />
-        <span className="text-base font-semibold">OpenBrew</span>
-      </Link>
-      <p className="px-3 pt-2 pb-1 text-xs font-semibold tracking-wider text-[var(--text-shade)] uppercase opacity-60">
         AI Apps
       </p>
       {APPS.map((app) => (
