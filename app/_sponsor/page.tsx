@@ -5,7 +5,7 @@ import Header from "@/blocks/Header";
 import Section from "@/components/Section";
 import Button from "@/components/Button";
 
-const OPENBREW_URL = "/download";
+const OPENBREW_URL = "/buy";
 
 export default function SponsorPage() {
   return (

@@ -4,12 +4,10 @@ import { useEffect, useState, useRef } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
 import styles from "./Header.module.css";
 import { cx } from "@/utils/common";
 import { scrollToHashOnClick } from "@/utils/hashLink";
 import { APPS } from "@/data/apps";
-import ObrewLogo from "public/badge.png";
 
 export interface NavItem {
   label: string;
@@ -33,11 +31,9 @@ export default function Header(p: {
   className?: string;
   title: string;
   navItems?: NavItem[];
-  ctaButton?: { text: string; href: string };
 }) {
   const id = p.id ?? "top";
   const navItems = p.navItems ?? defaultNavItems;
-  const ctaButton = p.ctaButton ?? { text: "Download", href: "/download" };
   const pathname = usePathname();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -73,25 +69,6 @@ export default function Header(p: {
   const appLinks = () => (
     <>
       <p className="mt-2 px-3 pt-2 pb-1 text-xs font-semibold tracking-wider text-[var(--text-shade)] uppercase opacity-60">
-        AI Core
-      </p>
-      <Link
-        href="/download"
-        className={appLinkClass}
-        onClick={() => setIsMenuOpen(false)}
-      >
-        <Image
-          src={ObrewLogo}
-          alt="OpenBrew"
-          title="Download OpenBrew"
-          height={0}
-          width={0}
-          className="h-9 w-auto shrink-0"
-          unoptimized
-        />
-        <span className="text-base font-semibold">OpenBrew</span>
-      </Link>
-      <p className="px-3 pt-2 pb-1 text-xs font-semibold tracking-wider text-[var(--text-shade)] uppercase opacity-60">
         AI Apps
       </p>
       {APPS.map((app) => (
@@ -209,27 +186,6 @@ export default function Header(p: {
               );
             })}
           </ul>
-          {ctaButton && (
-            <Link
-              href={ctaButton.href}
-              className={cx(
-                "group ml-auto inline-flex shrink-0 items-center rounded-md border-2 border-current px-4 text-base font-bold text-black no-underline transition-[color,background] duration-200 hover:bg-[var(--background-alternate)]",
-                pathname === ctaButton.href && styles.navLinkActive,
-              )}
-              style={{ height: 36 }}
-            >
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="mr-2 shrink-0 transition-transform duration-200 group-hover:translate-y-0.5"
-              >
-                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
-              </svg>
-              {ctaButton.text}
-            </Link>
-          )}
         </div>
       </nav>
     </header>
