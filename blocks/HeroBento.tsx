@@ -90,8 +90,8 @@ export default function HeroBento({
                   </svg>
                 </div>
               }
-              title="AI-Native Tools"
-              description="Tools to automate, design and transform your ideas into results."
+              title="Agent-Native Apps"
+              description="Video, documents, screen recordings and workspace automation, built for agents to drive."
               link={{ text: "See the apps", href: "#apps" }}
             />
 
@@ -116,8 +116,8 @@ export default function HeroBento({
                 </div>
               }
               title="Bring Your Own AI"
-              description="Your agents can use our tools to perform work for you."
-              link={{ text: "More features", href: "#features" }}
+              description="Use a cloud model you already pay for, or a local model through our open-source Obrew CLI."
+              link={{ text: "How it works", href: "#how-it-works" }}
             />
 
             {/* Performance card */}
@@ -139,9 +139,9 @@ export default function HeroBento({
                   </svg>
                 </div>
               }
-              title="Automated Workspaces"
-              description="Use workflows to draft email, setup meetings, or process vital data."
-              link={{ text: "Find out how", href: "#use-cases" }}
+              title="Asset Registry"
+              description="One library of sound, 3D, clips, images and templates that any agent can search and pull from."
+              link={{ text: "Learn more", href: "#registry" }}
             />
           </div>
         </div>

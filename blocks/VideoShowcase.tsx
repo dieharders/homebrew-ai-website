@@ -5,12 +5,15 @@ import styles from './VideoShowcase.module.css';
 import { cx } from '@/utils/common';
 import Section from '@/components/Section';
 import VideoPlayer from '@/components/VideoPlayer';
+import VideoPlaceholder from '@/components/VideoPlaceholder';
 
 interface Video {
   id: string;
   title: string;
   description: string;
-  src: string;
+  /** Omit until the video exists; `placeholderFile` is shown instead. */
+  src?: string;
+  placeholderFile?: string;
 }
 
 interface VideoShowcaseProps {
@@ -38,7 +41,16 @@ export default function VideoShowcase({
 
       <div className={styles.content}>
         <div className={styles.videoArea}>
-          {activeVideo && (
+          {activeVideo && !activeVideo.src && (
+            <VideoPlaceholder
+              key={activeVideo.id}
+              label={activeVideo.title}
+              file={activeVideo.placeholderFile}
+              aspectRatio="4/3"
+              className={styles.mainVideo}
+            />
+          )}
+          {activeVideo?.src && (
             <VideoPlayer
               key={activeVideo.id}
               src={activeVideo.src}
@@ -61,12 +73,14 @@ export default function VideoShowcase({
               type="button"
             >
               <div className={styles.thumbnail}>
-                <video
-                  src={video.src}
-                  muted
-                  preload="metadata"
-                  className={styles.thumbnailVideo}
-                />
+                {video.src && (
+                  <video
+                    src={video.src}
+                    muted
+                    preload="metadata"
+                    className={styles.thumbnailVideo}
+                  />
+                )}
                 <div className={styles.playIcon}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M8 5v14l11-7z" />

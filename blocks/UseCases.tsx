@@ -16,6 +16,9 @@ interface UseCase {
   description: string;
   expandedContent?: string;
   videoSrc?: string;
+  videoPlaceholder?: { label: string; file?: string };
+  /** Which app this use case is for, shown as a tag. */
+  app?: string;
   readMoreHref?: string;
   readMoreLabel?: string;
 }
@@ -125,13 +128,14 @@ export default function UseCases({
             filteredUseCases.map((useCase) => (
               <AccordionCard
                 key={useCase.id}
-                title={useCase.title}
+                title={useCase.app ? `${useCase.app} · ${useCase.title}` : useCase.title}
                 summary={useCase.description}
                 expanded={expandedId === useCase.id}
                 onToggle={() =>
                   setExpandedId(expandedId === useCase.id ? null : useCase.id)
                 }
                 videoSrc={useCase.videoSrc}
+                videoPlaceholder={useCase.videoPlaceholder}
                 readMoreHref={useCase.readMoreHref}
                 readMoreLabel={useCase.readMoreLabel}
               >

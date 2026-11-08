@@ -3,7 +3,7 @@ import styles from "./AppSuite.module.css";
 import Section, { T_Background, T_Pattern } from "@/components/Section";
 import { lilita_one } from "fonts/fonts";
 import { cx } from "../utils/common";
-import { APPS } from "@/data/apps";
+import { APPS, STATUS_LABEL } from "@/data/apps";
 
 const SITE = "https://www.openbrew.ai";
 
@@ -31,7 +31,7 @@ export default function AppSuite(p: {
     name: "OpenBrew.ai",
     url: SITE,
     description:
-      "OpenBrew.ai builds a suite of AI-native apps that run on your own hardware and work together to get work done.",
+      "OpenBrew.ai builds agent-native creative apps for video, documents, screen recordings and workspace automation.",
     makesOffer: APPS.map((app) => ({
       "@type": "Offer",
       itemOffered: {
@@ -85,15 +85,9 @@ export default function AppSuite(p: {
 
               <p className={styles["app-text"]}>{app.description}</p>
 
-              {app.comingSoon ? (
-                <span className={styles["app-badge"]}>Coming soon</span>
-              ) : (
-                <Link
-                  href={app.href}
-                  className={styles["app-link"]}
-                  {...linkProps}
-                >
-                  Visit {app.name}
+              <div className={styles["app-footer"]}>
+                <Link href={`#${app.id}`} className={styles["app-link"]}>
+                  See details
                   <svg
                     width="16"
                     height="16"
@@ -108,7 +102,20 @@ export default function AppSuite(p: {
                     <path d="M5 12h14M13 6l6 6-6 6" />
                   </svg>
                 </Link>
-              )}
+                {app.external ? (
+                  <Link
+                    href={app.href}
+                    className={styles["app-visit"]}
+                    {...linkProps}
+                  >
+                    Visit {app.name}
+                  </Link>
+                ) : (
+                  <span className={styles["app-badge"]}>
+                    {STATUS_LABEL[app.status]}
+                  </span>
+                )}
+              </div>
             </li>
           );
         })}

@@ -1,0 +1,114 @@
+import type { CSSProperties, ReactNode } from "react";
+import Link from "next/link";
+import styles from "./AppSpotlights.module.css";
+import Section from "@/components/Section";
+import { lilita_one } from "fonts/fonts";
+import { cx } from "../utils/common";
+import { APPS, STATUS_LABEL } from "@/data/apps";
+
+/**
+ * One full-width section per app, in `APPS` order, alternating media left and
+ * right. Copy comes from data/apps.tsx; the visual for each app is passed in
+ * from the page (a video, a placeholder, or an animated mock) keyed by app id.
+ *
+ * Each section's id is the app id, so `/#paperbuff` etc. land here — the
+ * header links unreleased apps to exactly that.
+ */
+export default function AppSpotlights(p: {
+  media: Record<string, ReactNode>;
+}) {
+  return (
+    <>
+      {APPS.map((app, i) => {
+        const live = app.status === "live";
+        const flipped = i % 2 === 1;
+
+        return (
+          <Section
+            key={app.id}
+            id={app.id}
+            background={i % 2 === 0 ? "normal" : "alternate"}
+            size="wide"
+          >
+            <article
+              className={cx(styles.spotlight, flipped && styles.flipped)}
+              style={{ "--app-accent": app.accent } as CSSProperties}
+            >
+              <div className={styles.intro}>
+                <div className={styles.identity}>
+                  <span className={cx(styles.icon, app.iconBg)}>{app.icon}</span>
+                  <span className={styles.name}>{app.name}</span>
+                  <span className={cx(styles.status, styles[`status-${app.status}`])}>
+                    {STATUS_LABEL[app.status]}
+                  </span>
+                </div>
+
+                <h2 className={cx(lilita_one.className, styles.headline)}>
+                  {app.headline}
+                </h2>
+                <p className={styles.pitch}>{app.pitch}</p>
+              </div>
+
+              <div className={styles.details}>
+                <dl className={styles.features}>
+                  {app.features.map((f) => (
+                    <div key={f.label} className={styles.feature}>
+                      <dt>
+                        <span className={styles.featureLabel}>{f.label}</span>
+                        <span className={styles.featureTitle}>{f.title}</span>
+                      </dt>
+                      <dd className={styles.featureText}>{f.text}</dd>
+                    </div>
+                  ))}
+                </dl>
+
+                <div className={styles.footer}>
+                  {live ? (
+                    <Link
+                      href={app.href}
+                      target="_blank"
+                      rel="noopener"
+                      className={styles.cta}
+                    >
+                      Try {app.name}
+                      <Arrow />
+                    </Link>
+                  ) : (
+                    <Link href="#contact" className={styles.cta}>
+                      Get notified at launch
+                      <Arrow />
+                    </Link>
+                  )}
+                  <span className={styles.platforms}>{app.platforms}</span>
+                </div>
+              </div>
+
+              <div className={styles.media}>
+                <div className={styles.glow} aria-hidden="true" />
+                <div className={styles.mediaInner}>{p.media[app.id]}</div>
+              </div>
+            </article>
+          </Section>
+        );
+      })}
+    </>
+  );
+}
+
+function Arrow() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M5 12h14M13 6l6 6-6 6" />
+    </svg>
+  );
+}

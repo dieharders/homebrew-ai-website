@@ -150,6 +150,27 @@
   gap: var(--space-3);
 }
 
+.app-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.app-visit {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-fast);
+}
+
+.app-visit:hover {
+  color: var(--text);
+}
+
 .app-badge {
   align-self: flex-start;
   padding: var(--space-1) var(--space-3);

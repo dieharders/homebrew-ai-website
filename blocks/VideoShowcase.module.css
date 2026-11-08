@@ -100,6 +100,8 @@
   aspect-ratio: 1/1;
   border-radius: var(--ui-radius-md);
   overflow: hidden;
+  /* Visible behind placeholder items, which have no video yet. */
+  background: linear-gradient(160deg, var(--background-dark) 0%, #2b2257 100%);
 }
 
 .thumbnailVideo {

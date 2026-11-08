@@ -1,0 +1,213 @@
+/*
+ * Mobile: intro → visual → details, so the visual isn't buried under the
+ * feature list. Desktop: copy in one column, visual beside it, alternating
+ * sides per app.
+ */
+.spotlight {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "intro" "media" "details";
+  gap: var(--space-6);
+}
+
+.intro {
+  grid-area: intro;
+}
+
+.details {
+  grid-area: details;
+}
+
+.media {
+  grid-area: media;
+}
+
+@media screen and (min-width: 960px) {
+  .spotlight {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "intro media" "details media";
+    column-gap: var(--space-8);
+    row-gap: 0;
+  }
+
+  .flipped {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    grid-template-areas: "media intro" "media details";
+  }
+
+  .media {
+    align-self: center;
+  }
+
+  .intro {
+    padding-bottom: var(--space-6);
+  }
+}
+
+.identity {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--ui-radius-md);
+}
+
+.name {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.status {
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.status-live {
+  color: #fff;
+  background: var(--app-accent);
+}
+
+.status-in-progress {
+  color: var(--app-accent);
+  background: color-mix(in srgb, var(--app-accent) 12%, transparent);
+}
+
+.status-soon {
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+  background: var(--background);
+}
+
+.headline {
+  margin: 0 0 var(--space-4);
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.3px;
+  color: var(--text);
+}
+
+/* No bottom margin: the grid gap (mobile) or .intro padding (desktop) spaces it. */
+.pitch {
+  margin: 0;
+  max-width: 56ch;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--text-shade);
+}
+
+.features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5) var(--space-6);
+  margin: 0 0 var(--space-6);
+}
+
+@media screen and (min-width: 560px) {
+  .features {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.feature {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-color);
+}
+
+.feature dt {
+  margin-bottom: var(--space-1);
+}
+
+.featureLabel {
+  display: block;
+  margin-bottom: 2px;
+  font-family: var(--font-comic-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--app-accent);
+}
+
+.featureTitle {
+  display: block;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+.featureText {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--text-shade);
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-5);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--ui-radius-md);
+  font-weight: 700;
+  color: var(--text);
+  background: var(--accent-btn);
+  box-shadow: var(--shadow-sm);
+  transition:
+    gap var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.cta:hover {
+  gap: var(--space-3);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-card);
+}
+
+.platforms {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.media {
+  position: relative;
+  min-width: 0;
+}
+
+.glow {
+  position: absolute;
+  inset: -12%;
+  background: radial-gradient(
+    ellipse at center,
+    color-mix(in srgb, var(--app-accent) 30%, transparent) 0%,
+    transparent 65%
+  );
+  filter: blur(30px);
+  pointer-events: none;
+}
+
+.mediaInner {
+  position: relative;
+}

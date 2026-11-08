@@ -1,0 +1,137 @@
+.header {
+  max-width: var(--section-header-max-width);
+  margin: 0 auto var(--space-7);
+  text-align: center;
+}
+
+.accentLine {
+  width: 60px;
+  height: 3px;
+  margin: 0 auto var(--space-5);
+  border-radius: var(--ui-radius-sm);
+  background: var(--accent-gold-line);
+}
+
+.title {
+  margin: 0 0 var(--space-4);
+  font-size: var(--h1-font-size);
+  font-weight: 400;
+  line-height: var(--h1-line-height);
+  letter-spacing: var(--h1-letter-spacing);
+}
+
+.subtitle {
+  margin: 0 auto;
+  max-width: 620px;
+  font-size: var(--subtitle-font-size);
+  line-height: var(--subtitle-line-height);
+  color: var(--text-shade);
+}
+
+.plans {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media screen and (min-width: 860px) {
+  .plans {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: stretch;
+  }
+}
+
+.plan {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-6);
+  border-radius: var(--ui-radius-lg);
+  border: 1px solid var(--border-color);
+  background: var(--background);
+  box-shadow: var(--shadow-sm);
+}
+
+.featured {
+  border: 2px solid var(--accent-btn);
+  background: linear-gradient(180deg, var(--accent-light) 0%, var(--background) 45%);
+  box-shadow: var(--shadow-card);
+}
+
+.name {
+  font-family: var(--font-comic-mono), ui-monospace, monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+}
+
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin: var(--space-2) 0 var(--space-3);
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.cadence {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.text {
+  margin: 0 0 var(--space-4);
+  color: var(--text-shade);
+}
+
+.includes {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-5);
+  padding: 0;
+  list-style: none;
+  font-size: 0.95rem;
+}
+
+.includes li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.includes li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  font-weight: 800;
+  color: var(--accent-dark);
+}
+
+.cta {
+  display: block;
+  padding: var(--space-3);
+  border-radius: var(--ui-radius-md);
+  border: 1px solid var(--border-color);
+  text-align: center;
+  font-weight: 700;
+  color: var(--text);
+  transition: background var(--transition-fast);
+}
+
+.cta:hover {
+  background: var(--background-alternate);
+}
+
+.featured .cta {
+  border-color: transparent;
+  background: var(--accent-btn);
+}
+
+.featured .cta:hover {
+  background: var(--accent-normal);
+}
