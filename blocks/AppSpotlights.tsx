@@ -70,16 +70,21 @@ export default function AppSpotlights(p: {
                       rel="noopener"
                       className={styles.cta}
                     >
-                      Try {app.name}
-                      <Arrow />
+                      <span className={styles.ctaLabel}>
+                        Try {app.name}
+                        <Arrow />
+                      </span>
+                      <span className={styles.platforms}>{app.platforms}</span>
                     </Link>
                   ) : (
                     <Link href="#contact" className={styles.cta}>
-                      Get notified at launch
-                      <Arrow />
+                      <span className={styles.ctaLabel}>
+                        Get notified at launch
+                        <Arrow />
+                      </span>
+                      <span className={styles.platforms}>{app.platforms}</span>
                     </Link>
                   )}
-                  <span className={styles.platforms}>{app.platforms}</span>
                 </div>
               </div>
 
