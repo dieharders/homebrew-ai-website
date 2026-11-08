@@ -15,6 +15,9 @@ const COMMANDS = [
   "“Add the 3D scan of the reef.”",
 ];
 
+// Longest command, so the hidden sizing copies reserve room for the widest pill.
+const LONGEST_COMMAND = COMMANDS.reduce((a, b) => (b.length > a.length ? b : a));
+
 /**
  * Animated stand-in for PaperBuff: a plain draft is typeset, given a pull
  * quote and then an embedded, rotating 3D figure, one voice command at a time.
@@ -26,8 +29,40 @@ export default function PaperBuffMock() {
   const listening = tick % 2 === 0;
   const applied = listening ? phase - 1 : phase;
 
+  // The page grows and shrinks as each command lands. To keep that from
+  // shoving the rest of the page around, every phase's layout is rendered
+  // invisibly in the same grid cell: the cell sizes to the tallest one at
+  // whatever width it's given, and the live window animates inside it.
   return (
-    <div ref={ref} className={cx(styles.window, styles.pbWindow)} aria-hidden="true">
+    <div ref={ref} className={styles.pbSlot} aria-hidden="true">
+      {COMMANDS.map((_, i) => (
+        <Window
+          key={i}
+          applied={i}
+          listening={false}
+          command={LONGEST_COMMAND}
+          className={styles.pbGhost}
+        />
+      ))}
+      <Window
+        applied={applied}
+        listening={listening}
+        command={COMMANDS[phase]}
+        className={styles.pbLive}
+      />
+    </div>
+  );
+}
+
+function Window(p: {
+  applied: number;
+  listening: boolean;
+  command: string;
+  className?: string;
+}) {
+  const { applied, listening } = p;
+  return (
+    <div className={cx(styles.window, styles.pbWindow, p.className)}>
       <div className={cx(styles.chrome, styles.chromeLight)}>
         <span className={styles.dot} />
         <span className={styles.dot} />
@@ -90,7 +125,7 @@ export default function PaperBuffMock() {
             <i />
             <i />
           </span>
-          <span className={styles.pbCommand}>{COMMANDS[phase]}</span>
+          <span className={styles.pbCommand}>{p.command}</span>
         </div>
       </div>
     </div>

@@ -82,13 +82,9 @@
   background: var(--app-accent);
 }
 
-.status-in-progress {
-  color: var(--app-accent);
-  background: color-mix(in srgb, var(--app-accent) 12%, transparent);
-}
-
-/* Live is a solid pill, in progress a tinted one, coming soon only an outline:
-   each step keeps the app's hue but carries less weight. */
+/* Live is a solid pill; in progress and coming soon are outlined in the app's
+   hue on a plain background. */
+.status-in-progress,
 .status-soon {
   color: var(--app-accent);
   border: 1px solid color-mix(in srgb, var(--app-accent) 40%, transparent);

@@ -425,6 +425,8 @@ export default function Home() {
             filebuff: (
               <VideoPlayer
                 src="/filebuff-dashboard.mp4"
+                // Same shadow as the animated mocks in the other spotlights.
+                className="shadow-[var(--shadow-dark-card)]"
                 autoPlay
                 loop
                 muted
