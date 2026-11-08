@@ -145,7 +145,7 @@ export const APPS: T_App[] = [
     tagline: "Voice-assisted documents",
     description:
       "Talk to your document and it lays itself out. Automatic typography and layout, with 3D and interactive elements embedded right in the page.",
-    headline: "Documents that typeset themselves",
+    headline: "Documents that design themselves",
     pitch:
       "PaperBuff is a document editor you can talk to. Say what you want and the agent writes, restructures and typesets the page. Headings, pull quotes, figures and spacing are handled for you, and pages can hold live 3D models and interactive charts.",
     features: [
