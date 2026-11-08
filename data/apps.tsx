@@ -212,7 +212,8 @@ export const APPS: T_App[] = [
     platforms: "Coming soon · desktop",
     status: "soon",
     icon: <ScreenBuffIcon />,
-    iconBg: "bg-purple-100",
+    // The mark is a full tile of its own, so no tinted backing.
+    iconBg: "bg-transparent",
     accent: "#9333ea",
     comingSoon: true,
   },
