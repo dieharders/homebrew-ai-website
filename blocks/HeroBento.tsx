@@ -140,7 +140,7 @@ export default function HeroBento({
                 </div>
               }
               title="Asset Registry"
-              description="One library of sound, 3D, clips, images and templates that any agent can search and pull from."
+              description="One library of sound, 3D, video, images and templates that any agent can search and pull from."
               link={{ text: "Learn more", href: "#registry" }}
             />
           </div>

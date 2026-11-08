@@ -4,13 +4,7 @@ import { lilita_one } from "fonts/fonts";
 import { cx } from "../utils/common";
 import RegistryMock from "@/components/mocks/RegistryMock";
 
-const CATEGORIES = [
-  { label: "Components", text: "User interfaces and motion templates" },
-  { label: "Sound", text: "Music, effects and voice" },
-  { label: "3D", text: "Models, scenes and shaders" },
-  { label: "Clips", text: "Stock, motion and generated video" },
-  { label: "Images", text: "Photos, icons, graphics and illustrations" },
-];
+const CATEGORIES = ["Components", "Sound", "3D", "Video", "Images"];
 
 /**
  * The asset registry: the shared library every app (and any third-party
@@ -22,29 +16,39 @@ export default function AssetRegistry(p: { id?: string }) {
       <div className={styles.layout}>
         <div>
           <div className={styles.accentLine} />
-          <span className={styles.status}>Planned</span>
+          <div className={styles.identity}>
+            {/* The registry's mark. Decorative: the heading below names it. Loaded as an image,
+                like the app marks, so its gradient ids can't clash with the page's. */}
+            <img
+              src="/icons/registry.svg"
+              alt=""
+              aria-hidden
+              width={44}
+              height={44}
+              className={styles.icon}
+              draggable={false}
+            />
+            <span className={styles.status}>Planned</span>
+          </div>
           <h2 className={cx(lilita_one.className, styles.title)}>
-            AN ASSET REGISTRY BUILT FOR AGENTS
+            THE ASSET REGISTRY BUILT FOR AGENTS
           </h2>
           <p className={styles.lead}>
-            There&apos;s no single, agent-friendly source for creative assets. We&apos;re
-            building it. Agents working in our apps, or in any third-party app,
-            can search the registry and pull what a project needs, already
-            licensed and in the right format.
+            One agent-friendly source for creative assets. Agents can search the
+            registry and pull what a project needs, in the right format and
+            editable.
           </p>
 
           <ul className={styles.categories}>
             {CATEGORIES.map((c) => (
-              <li key={c.label} className={styles.category}>
-                <span className={styles.categoryLabel}>{c.label}</span>
-                <span className={styles.categoryText}>{c.text}</span>
+              <li key={c} className={styles.category}>
+                {c}
               </li>
             ))}
           </ul>
 
           <p className={styles.note}>
-            Agents are first-class citizens: search, licensing and download all
-            happen through an API and MCP, no browser required.
+            Agents have the power to: search, license, download, modify
           </p>
         </div>
 

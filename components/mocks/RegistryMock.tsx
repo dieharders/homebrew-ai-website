@@ -34,7 +34,7 @@ const QUERIES = [
     ],
   },
   {
-    kind: "clips",
+    kind: "video",
     query: "aerial city at dusk, 4k",
     results: [
       { name: "dusk-skyline.mp4", meta: "0:12 · 4k · 24fps", tier: "Pro" },

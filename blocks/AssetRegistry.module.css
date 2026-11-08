@@ -12,26 +12,44 @@
   }
 }
 
+/*
+ * Colours follow the registry mark (public/icons/registry.svg): its four bands — rose, amber,
+ * emerald, sky — and its near-black plate.
+ */
 .accentLine {
   width: 60px;
   height: 3px;
   margin-bottom: var(--space-5);
   border-radius: var(--ui-radius-sm);
-  background: var(--accent-gold-line);
+  background: linear-gradient(90deg, #f43f5e, #fbbf24, #34d399, #60a5fa);
 }
 
+/* the mark and the status pill, side by side like an app spotlight's identity row */
+.identity {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+}
+
+/* the plate's graphite, as a pill */
 .status {
   display: inline-block;
-  margin-bottom: var(--space-3);
   padding: 2px 10px;
   border-radius: 999px;
-  border: 1px solid var(--border-color);
-  background: var(--background);
+  border: 1px solid #2e3242;
+  background: linear-gradient(200deg, #2e3242 0%, #14151d 100%);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.6px;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: #e5e7eb;
 }
 
 .title {
@@ -52,42 +70,41 @@
 }
 
 .categories {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: var(--space-3);
   margin: 0 0 var(--space-5);
   padding: 0;
   list-style: none;
 }
 
-@media screen and (min-width: 520px) {
-  .categories {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
+/* Each category is a pill outlined in one of the mark's band colours, in its order, wrapping
+   round for the fifth. The border is decoration, so it takes the band colour at full brightness;
+   the text stays black. */
 .category {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding: var(--space-3) var(--space-4);
-  border-radius: var(--ui-radius-md);
-  border: 1px solid var(--border-color);
+  --band: #f43f5e;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 2px solid var(--band);
   background: var(--background);
-}
-
-.categoryLabel {
   font-family: var(--font-comic-mono), ui-monospace, monospace;
-  font-size: 0.78rem;
-  font-weight: 700;
+  font-size: 0.85rem;
+  font-weight: 800;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: var(--accent-dark);
+  color: var(--text);
 }
 
-.categoryText {
-  font-size: 0.92rem;
-  color: var(--text-shade);
+.category:nth-child(4n + 2) {
+  --band: #fbbf24;
+}
+
+.category:nth-child(4n + 3) {
+  --band: #34d399;
+}
+
+.category:nth-child(4n + 4) {
+  --band: #60a5fa;
 }
 
 .note {

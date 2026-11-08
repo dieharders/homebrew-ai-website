@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!--
+    The asset registry mark: four wavy bands of colour running diagonally across a black
+    octagon, like streams of light, with a soft glow and a few glints. A sibling of the app
+    marks (motionbuff.svg and the rest): same -14° tilt, same (-15, +15) extrusion direction and
+    the same top-right light. On the dark plate the bands read as light, so instead of a cast
+    shadow they throw a coloured glow.
+
+    The coordinates were computed, not hand-placed. The plate is a convex core polygon rounded
+    outward by a radius, so its swept wall silhouette is exact. The bands run square to the
+    extrusion, so sweeping one only pushes its lower-left edge further out: each band's wall is
+    traced as a single outline. Bands stand 0.9 of the plate's depth, each shifts hue a little
+    along its length, and each one's wall deepens from the face back to the plate. Ids are
+    prefixed `rg` because an inlined copy shares the host document's id space.
+
+    Scale 0.932 fits the tilted, extruded octagon to a 246-unit span, a few units inside the
+    256 box so the edges don't clip when antialiased. The translate re-centres that span.
+  -->
+  <defs>
+    <!-- plate face: near-black, lifting to graphite where the light lands -->
+    <linearGradient id="rgBg" x1="0.21" y1="0.91" x2="0.79" y2="0.09">
+      <stop offset="0" stop-color="#0b0b12" />
+      <stop offset="0.55" stop-color="#171923" />
+      <stop offset="1" stop-color="#2e3242" />
+    </linearGradient>
+
+    <radialGradient id="rgSheen" cx="0.76" cy="0.14" r="0.85">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.14" />
+      <stop offset="0.6" stop-color="#ffffff" stop-opacity="0.03" />
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Plate wall, anchored where the wall starts and ends. Brushed-metal sheen: a bright
+         graphite at the lit upper-left end, a highlight a third of the way round, then falling
+         away to near-black where it turns from the light. -->
+    <linearGradient id="rgTileWall" gradientUnits="userSpaceOnUse"
+                    x1="-60.6" y1="-108.8" x2="42.4" y2="119.7">
+      <stop offset="0" stop-color="#4a4f63" />
+      <stop offset="0.3" stop-color="#6b7189" />
+      <stop offset="0.55" stop-color="#2a2d3a" />
+      <stop offset="1" stop-color="#07070a" />
+    </linearGradient>
+
+    <!-- a fine highlight where the plate's face meets its wall -->
+    <linearGradient id="rgRim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.35" />
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0.12" />
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.04" />
+    </linearGradient>
+
+    <linearGradient id="rgBand0" gradientUnits="userSpaceOnUse" x1="-46.9" y1="-82.5" x2="65" y2="83.6">
+      <stop offset="0" stop-color="#fb7185" />
+      <stop offset="0.5" stop-color="#f43f5e" />
+      <stop offset="1" stop-color="#ec4899" />
+    </linearGradient>
+    <linearGradient id="rgWall0" gradientUnits="userSpaceOnUse" x1="44.7" y1="-20.8" x2="28.3" y2="-11">
+      <stop offset="0" stop-color="#e11d48" />
+      <stop offset="1" stop-color="#881337" />
+    </linearGradient>
+    <linearGradient id="rgBand1" gradientUnits="userSpaceOnUse" x1="-46.9" y1="-82.5" x2="65" y2="83.6">
+      <stop offset="0" stop-color="#fde047" />
+      <stop offset="0.5" stop-color="#fbbf24" />
+      <stop offset="1" stop-color="#fb923c" />
+    </linearGradient>
+    <linearGradient id="rgWall1" gradientUnits="userSpaceOnUse" x1="23.2" y1="-8" x2="6.9" y2="1.9">
+      <stop offset="0" stop-color="#ea8a0c" />
+      <stop offset="1" stop-color="#9a3412" />
+    </linearGradient>
+    <linearGradient id="rgBand2" gradientUnits="userSpaceOnUse" x1="-46.9" y1="-82.5" x2="65" y2="83.6">
+      <stop offset="0" stop-color="#4ade80" />
+      <stop offset="0.5" stop-color="#34d399" />
+      <stop offset="1" stop-color="#2dd4bf" />
+    </linearGradient>
+    <linearGradient id="rgWall2" gradientUnits="userSpaceOnUse" x1="1.8" y1="4.9" x2="-14.6" y2="14.7">
+      <stop offset="0" stop-color="#10b981" />
+      <stop offset="1" stop-color="#064e3b" />
+    </linearGradient>
+    <linearGradient id="rgBand3" gradientUnits="userSpaceOnUse" x1="-46.9" y1="-82.5" x2="65" y2="83.6">
+      <stop offset="0" stop-color="#7dd3fc" />
+      <stop offset="0.5" stop-color="#60a5fa" />
+      <stop offset="1" stop-color="#818cf8" />
+    </linearGradient>
+    <linearGradient id="rgWall3" gradientUnits="userSpaceOnUse" x1="-19.6" y1="17.8" x2="-36" y2="27.6">
+      <stop offset="0" stop-color="#3b82f6" />
+      <stop offset="1" stop-color="#1e3a8a" />
+    </linearGradient>
+
+    <!-- the four band faces -->
+    <path id="rgFace0" d="M20.1 -88.9 L25.1 -83.8 L30 -78.5 L34.5 -73.1 L38.7 -67.4 L42.4 -61.5 L45.7 -55.3 L48.6 -48.9 L51.1 -42.2 L53.4 -35.4 L55.5 -28.5 L57.6 -21.6 L59.8 -14.8 L62.3 -8.1 L65.1 -1.6 L68.2 4.7 L71.8 10.7 L75.9 16.4 L80.3 21.9 L85.1 27.2 L90.1 32.4 L86.2 46.4 L81.1 41.3 L76 36.1 L71.2 30.9 L66.6 25.5 L62.4 19.9 L58.6 14 L55.2 7.8 L52.3 1.4 L49.7 -5.2 L47.4 -12 L45.3 -18.9 L43.2 -25.8 L41 -32.6 L38.6 -39.3 L35.8 -45.9 L32.7 -52.2 L29.2 -58.2 L25.2 -64 L20.8 -69.5 L16.1 -74.8Z" />
+    <path id="rgFace1" d="M-22.2 -98.5 L-17.7 -93.1 L-13 -87.8 L-8 -82.7 L-2.9 -77.6 L2.1 -72.5 L7 -67.3 L11.7 -62 L15.9 -56.4 L19.8 -50.6 L23.2 -44.5 L26.2 -38.2 L28.8 -31.7 L31.2 -25 L33.3 -18.1 L35.4 -11.3 L37.6 -4.4 L39.9 2.3 L42.5 8.8 L45.5 15.2 L48.9 21.2 L52.8 27 L57.1 32.6 L61.7 37.9 L66.6 43.1 L71.6 48.2 L76.7 53.3 L81.7 58.4 L77.3 72.7 L72.6 67.4 L67.7 62.2 L62.7 57.1 L57.6 52.1 L52.6 46.9 L47.9 41.7 L43.5 36.2 L39.4 30.5 L35.8 24.5 L32.6 18.3 L29.9 11.9 L27.4 5.2 L25.2 -1.6 L23.1 -8.4 L21 -15.3 L18.7 -22.1 L16.2 -28.7 L13.4 -35.1 L10.2 -41.3 L6.5 -47.2 L2.4 -52.9 L-2.1 -58.3 L-6.8 -63.6 L-11.8 -68.7 L-16.9 -73.8 L-21.9 -78.9 L-26.8 -84Z" />
+    <path id="rgFace2" d="M-41.1 -82.5 L-36.5 -77.1 L-31.5 -72 L-26.5 -66.9 L-21.4 -61.8 L-16.4 -56.7 L-11.7 -51.4 L-7.3 -45.9 L-3.2 -40.2 L0.4 -34.3 L3.5 -28.1 L6.3 -21.6 L8.8 -15 L11 -8.2 L13.1 -1.3 L15.2 5.5 L17.5 12.3 L19.9 18.9 L22.8 25.4 L26 31.6 L29.7 37.5 L33.8 43.1 L38.2 48.6 L43 53.8 L48 58.9 L53.1 64 L58.1 69.1 L63 74.3 L58.4 88.8 L53.9 83.3 L49.1 78.1 L44.2 72.9 L39.1 67.9 L34 62.8 L29.2 57.6 L24.5 52.2 L20.3 46.7 L16.4 40.9 L13 34.8 L10 28.5 L7.4 21.9 L5 15.2 L2.9 8.4 L0.8 1.5 L-1.4 -5.3 L-3.7 -12 L-6.3 -18.6 L-9.3 -24.9 L-12.8 -31 L-16.6 -36.8 L-20.9 -42.3 L-25.5 -47.7 L-30.4 -52.9 L-35.4 -58 L-40.5 -63 L-45.5 -68.2Z" />
+    <path id="rgFace3" d="M-48.6 -54.6 L-43.6 -49.7 L-38.7 -44.7 L-34 -39.6 L-29.7 -34.3 L-25.6 -28.8 L-22 -23 L-18.8 -17 L-15.9 -10.8 L-13.5 -4.3 L-11.2 2.2 L-9.1 8.9 L-7.1 15.6 L-5 22.3 L-2.7 28.8 L-0.1 35.2 L2.9 41.4 L6.3 47.3 L10 52.9 L14.2 58.4 L18.7 63.6 L14.6 77.7 L9.8 72.7 L5.1 67.5 L0.8 62.2 L-3.2 56.7 L-6.7 50.9 L-9.9 44.8 L-12.6 38.5 L-15.1 32.1 L-17.3 25.5 L-19.3 18.8 L-21.4 12.1 L-23.5 5.4 L-25.9 -1.1 L-28.5 -7.4 L-31.6 -13.5 L-35 -19.4 L-38.9 -25 L-43.1 -30.4 L-47.6 -35.6 L-52.4 -40.7Z" />
+
+    <linearGradient id="rgGlint" gradientUnits="userSpaceOnUse"
+                    x1="-1.2" y1="-121.6" x2="19.4" y2="122.7">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0" />
+      <stop offset="0.36" stop-color="#ffffff" stop-opacity="0" />
+      <stop offset="0.44" stop-color="#ffffff" stop-opacity="0.55" />
+      <stop offset="0.52" stop-color="#ffffff" stop-opacity="0" />
+      <stop offset="0.7" stop-color="#ffffff" stop-opacity="0" />
+      <stop offset="0.75" stop-color="#ffffff" stop-opacity="0.3" />
+      <stop offset="0.8" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+
+    <filter id="rgGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="11" />
+    </filter>
+    <filter id="rgSpark" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="b" />
+      <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+  </defs>
+
+  <g transform="translate(135 121) scale(0.9319) rotate(-14)">
+    <!-- plate: swept silhouette (the wall), then the face, its sheen and its rim highlight -->
+    <path d="M-128.6 -45.6 L-74.7 -99.5 A26 26 0 0 1 -69.7 -103.4 L-69.7 -103.4 L-51.5 -114.3 A26 26 0 0 1 -38.1 -118 L-38.1 -118 L38.1 -118 A26 26 0 0 1 56.5 -110.4 L56.5 -110.4 L110.4 -56.5 A26 26 0 0 1 118 -38.1 L118 -38.1 L118 38.1 A26 26 0 0 1 110.4 56.5 L110.4 56.5 L56.5 110.4 A26 26 0 0 1 51.5 114.3 L51.5 114.3 L33.3 125.2 A26 26 0 0 1 19.9 128.9 L19.9 128.9 L-56.3 128.9 A26 26 0 0 1 -74.7 121.3 L-74.7 121.3 L-128.6 67.4 A26 26 0 0 1 -136.2 49 L-136.2 49 L-136.2 -27.2 A26 26 0 0 1 -128.6 -45.6Z" fill="url(#rgTileWall)" />
+    <path d="M110.4 56.5 L56.5 110.4 A26 26 0 0 1 38.1 118 L38.1 118 L-38.1 118 A26 26 0 0 1 -56.5 110.4 L-56.5 110.4 L-110.4 56.5 A26 26 0 0 1 -118 38.1 L-118 38.1 L-118 -38.1 A26 26 0 0 1 -110.4 -56.5 L-110.4 -56.5 L-56.5 -110.4 A26 26 0 0 1 -38.1 -118 L-38.1 -118 L38.1 -118 A26 26 0 0 1 56.5 -110.4 L56.5 -110.4 L110.4 -56.5 A26 26 0 0 1 118 -38.1 L118 -38.1 L118 38.1 A26 26 0 0 1 110.4 56.5Z" fill="url(#rgBg)" />
+    <path d="M110.4 56.5 L56.5 110.4 A26 26 0 0 1 38.1 118 L38.1 118 L-38.1 118 A26 26 0 0 1 -56.5 110.4 L-56.5 110.4 L-110.4 56.5 A26 26 0 0 1 -118 38.1 L-118 38.1 L-118 -38.1 A26 26 0 0 1 -110.4 -56.5 L-110.4 -56.5 L-56.5 -110.4 A26 26 0 0 1 -38.1 -118 L-38.1 -118 L38.1 -118 A26 26 0 0 1 56.5 -110.4 L56.5 -110.4 L110.4 -56.5 A26 26 0 0 1 118 -38.1 L118 -38.1 L118 38.1 A26 26 0 0 1 110.4 56.5Z" fill="url(#rgSheen)" stroke="url(#rgRim)" stroke-width="2" />
+
+    <!-- the shards' light spilling onto the plate, centred under their depth -->
+    <g filter="url(#rgGlow)" opacity="0.75" transform="translate(-8.2 4.9)">
+      <use href="#rgFace0" fill="#f43f5e" />
+      <use href="#rgFace1" fill="#fbbf24" />
+      <use href="#rgFace2" fill="#34d399" />
+      <use href="#rgFace3" fill="#60a5fa" />
+    </g>
+
+    <!-- shards: every band's walls, then the faces, then one glint across them all -->
+    <g>
+      <path d="M20.1 -88.9 L25.1 -83.8 L30 -78.5 L34.5 -73.1 L38.7 -67.4 L42.4 -61.5 L45.7 -55.3 L48.6 -48.9 L51.1 -42.2 L53.4 -35.4 L55.5 -28.5 L57.6 -21.6 L59.8 -14.8 L62.3 -8.1 L65.1 -1.6 L68.2 4.7 L71.8 10.7 L75.9 16.4 L80.3 21.9 L85.1 27.2 L90.1 32.4 L86.2 46.4 L69.8 56.2 L64.7 51.1 L59.7 46 L54.8 40.7 L50.2 35.3 L46 29.7 L42.2 23.8 L38.9 17.7 L35.9 11.2 L33.3 4.6 L31 -2.2 L28.9 -9 L26.8 -15.9 L24.6 -22.8 L22.2 -29.5 L19.5 -36 L16.4 -42.3 L12.8 -48.4 L8.8 -54.1 L4.4 -59.7 L-0.3 -65 L3.7 -79.1Z" fill="url(#rgWall0)" stroke="url(#rgWall0)" stroke-width="3" stroke-linejoin="round" />
+      <path d="M-22.2 -98.5 L-17.7 -93.1 L-13 -87.8 L-8 -82.7 L-2.9 -77.6 L2.1 -72.5 L7 -67.3 L11.7 -62 L15.9 -56.4 L19.8 -50.6 L23.2 -44.5 L26.2 -38.2 L28.8 -31.7 L31.2 -25 L33.3 -18.1 L35.4 -11.3 L37.6 -4.4 L39.9 2.3 L42.5 8.8 L45.5 15.2 L48.9 21.2 L52.8 27 L57.1 32.6 L61.7 37.9 L66.6 43.1 L71.6 48.2 L76.7 53.3 L81.7 58.4 L77.3 72.7 L60.9 82.6 L56.3 77.2 L51.4 72.1 L46.3 67 L41.2 61.9 L36.3 56.8 L31.5 51.5 L27.1 46 L23.1 40.3 L19.5 34.4 L16.3 28.1 L13.5 21.7 L11 15 L8.8 8.3 L6.7 1.4 L4.6 -5.5 L2.4 -12.2 L-0.1 -18.9 L-3 -25.3 L-6.2 -31.5 L-9.9 -37.4 L-13.9 -43 L-18.4 -48.5 L-23.2 -53.7 L-28.2 -58.9 L-33.3 -63.9 L-38.3 -69 L-43.2 -74.2 L-38.6 -88.7Z" fill="url(#rgWall1)" stroke="url(#rgWall1)" stroke-width="3" stroke-linejoin="round" />
+      <path d="M-41.1 -82.5 L-36.5 -77.1 L-31.5 -72 L-26.5 -66.9 L-21.4 -61.8 L-16.4 -56.7 L-11.7 -51.4 L-7.3 -45.9 L-3.2 -40.2 L0.4 -34.3 L3.5 -28.1 L6.3 -21.6 L8.8 -15 L11 -8.2 L13.1 -1.3 L15.2 5.5 L17.5 12.3 L19.9 18.9 L22.8 25.4 L26 31.6 L29.7 37.5 L33.8 43.1 L38.2 48.6 L43 53.8 L48 58.9 L53.1 64 L58.1 69.1 L63 74.3 L58.4 88.8 L42 98.6 L37.6 93.1 L32.8 87.9 L27.8 82.8 L22.7 77.7 L17.7 72.6 L12.8 67.4 L8.2 62.1 L3.9 56.5 L0 50.7 L-3.4 44.6 L-6.4 38.3 L-9 31.8 L-11.3 25 L-13.5 18.2 L-15.6 11.4 L-17.7 4.5 L-20.1 -2.2 L-22.7 -8.7 L-25.7 -15.1 L-29.1 -21.1 L-33 -26.9 L-37.2 -32.5 L-41.9 -37.9 L-46.7 -43 L-51.8 -48.1 L-56.9 -53.2 L-61.8 -58.3 L-57.5 -72.6Z" fill="url(#rgWall2)" stroke="url(#rgWall2)" stroke-width="3" stroke-linejoin="round" />
+      <path d="M-48.6 -54.6 L-43.6 -49.7 L-38.7 -44.7 L-34 -39.6 L-29.7 -34.3 L-25.6 -28.8 L-22 -23 L-18.8 -17 L-15.9 -10.8 L-13.5 -4.3 L-11.2 2.2 L-9.1 8.9 L-7.1 15.6 L-5 22.3 L-2.7 28.8 L-0.1 35.2 L2.9 41.4 L6.3 47.3 L10 52.9 L14.2 58.4 L18.7 63.6 L14.6 77.7 L-1.7 87.5 L-6.6 82.5 L-11.2 77.4 L-15.6 72 L-19.5 66.5 L-23.1 60.7 L-26.2 54.7 L-29 48.4 L-31.4 41.9 L-33.6 35.3 L-35.7 28.6 L-37.7 21.9 L-39.9 15.3 L-42.2 8.8 L-44.9 2.4 L-47.9 -3.7 L-51.4 -9.6 L-55.2 -15.2 L-59.4 -20.6 L-64 -25.8 L-68.8 -30.8 L-64.9 -44.8Z" fill="url(#rgWall3)" stroke="url(#rgWall3)" stroke-width="3" stroke-linejoin="round" />
+      <use href="#rgFace0" fill="url(#rgBand0)" stroke="url(#rgBand0)" stroke-width="3" stroke-linejoin="round" />
+      <use href="#rgFace1" fill="url(#rgBand1)" stroke="url(#rgBand1)" stroke-width="3" stroke-linejoin="round" />
+      <use href="#rgFace2" fill="url(#rgBand2)" stroke="url(#rgBand2)" stroke-width="3" stroke-linejoin="round" />
+      <use href="#rgFace3" fill="url(#rgBand3)" stroke="url(#rgBand3)" stroke-width="3" stroke-linejoin="round" />
+      <use href="#rgFace0" fill="url(#rgGlint)" />
+      <use href="#rgFace1" fill="url(#rgGlint)" />
+      <use href="#rgFace2" fill="url(#rgGlint)" />
+      <use href="#rgFace3" fill="url(#rgGlint)" />
+    </g>
+
+    <path d="M98.5 -3.5 Q98.5 7.5 109.5 7.5 Q98.5 7.5 98.5 18.5 Q98.5 7.5 87.5 7.5 Q98.5 7.5 98.5 -3.5Z M-76.3 -46.2 Q-76.3 -39.2 -69.3 -39.2 Q-76.3 -39.2 -76.3 -32.2 Q-76.3 -39.2 -83.3 -39.2 Q-76.3 -39.2 -76.3 -46.2Z M60.2 -70.2 Q60.2 -65.2 65.2 -65.2 Q60.2 -65.2 60.2 -60.2 Q60.2 -65.2 55.2 -65.2 Q60.2 -65.2 60.2 -70.2Z" fill="#ffffff" filter="url(#rgSpark)" />
+  </g>
+</svg>

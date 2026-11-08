@@ -751,9 +751,11 @@
 /* Asset registry                                                      */
 /* ------------------------------------------------------------------ */
 
+/* Colours follow the registry mark (public/icons/registry.svg): its near-black plate for the
+   window, its amber, emerald and rose bands for the prompt, strings and tiers. */
 .rgWindow {
   color: #e5e7eb;
-  background: linear-gradient(160deg, #1a1a2e 0%, #111122 100%);
+  background: linear-gradient(200deg, #262a38 0%, #14151d 45%, #0b0b12 100%);
 }
 
 .rgBody {
@@ -770,12 +772,12 @@
 }
 
 .rgPrompt {
-  color: var(--accent-btn);
+  color: #fbbf24;
   font-weight: 700;
 }
 
 .rgString {
-  color: #86efac;
+  color: #34d399;
 }
 
 .rgCaret {
@@ -784,7 +786,7 @@
   height: 1em;
   margin-left: 2px;
   vertical-align: text-bottom;
-  background: var(--accent-btn);
+  background: #fbbf24;
   animation: blink 1s steps(2, start) infinite;
 }
 
@@ -838,13 +840,14 @@
   border-radius: 999px;
   font-size: 10px;
   font-weight: 700;
-  color: #86efac;
-  background: rgba(134, 239, 172, 0.12);
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.12);
 }
 
+/* dark ink, not var(--text): the gradient is fixed, so the text on it must be too */
 .rgTierPro {
-  color: var(--text);
-  background: var(--accent-btn);
+  color: #1a0a10;
+  background: linear-gradient(90deg, #fb7185, #fbbf24);
 }
 
 .rgFooter {
