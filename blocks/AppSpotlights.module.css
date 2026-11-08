@@ -87,9 +87,11 @@
   background: color-mix(in srgb, var(--app-accent) 12%, transparent);
 }
 
+/* Live is a solid pill, in progress a tinted one, coming soon only an outline:
+   each step keeps the app's hue but carries less weight. */
 .status-soon {
-  color: var(--text-muted);
-  border: 1px solid var(--border-color);
+  color: var(--app-accent);
+  border: 1px solid color-mix(in srgb, var(--app-accent) 40%, transparent);
   background: var(--background);
 }
 
