@@ -91,7 +91,8 @@ export const APPS: T_App[] = [
     platforms: "Cloud, Windows, macOS and Linux",
     status: "live",
     icon: <MotionBuffIcon />,
-    iconBg: "bg-orange-100",
+    // The mark is a full tile of its own, so no tinted backing.
+    iconBg: "bg-transparent",
     accent: "#f97316",
   },
   {

@@ -102,56 +102,25 @@ export function ScreenBuffIcon(p: AppIconProps) {
   );
 }
 
+/**
+ * MotionBuff's real app mark (public/icons/motionbuff.svg, the same design
+ * source as its favicon). Loaded as an image rather than inlined: the SVG
+ * defines gradient ids, and inlining it in several places at once (header
+ * menu, suite card, spotlight) would duplicate them, and gradients defined
+ * inside the hidden header menu can fail to paint. The mark is its own tile,
+ * so it fills the icon box instead of sitting at 70%.
+ */
 export function MotionBuffIcon(p: AppIconProps) {
   return (
-    <svg {...svgProps} className={p.className} {...a11yProps(p.title)}>
-      {p.title && <title>{p.title}</title>}
-      {/* Screen/board */}
-      <rect
-        x="3"
-        y="2"
-        width="18"
-        height="14"
-        rx="2"
-        fill="#fb923c"
-        stroke={INK}
-        strokeWidth="1.2"
-        strokeLinejoin="round"
-      />
-      {/* Stand */}
-      <line
-        x1="12"
-        y1="16"
-        x2="12"
-        y2="20"
-        stroke={INK}
-        strokeWidth="1.2"
-        strokeLinecap="round"
-      />
-      <line
-        x1="8"
-        y1="20"
-        x2="16"
-        y2="20"
-        stroke={INK}
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-      {/* Eyes */}
-      <circle cx="9" cy="8" r="1.4" fill={INK} />
-      <circle cx="15" cy="8" r="1.4" fill={INK} />
-      {/* Eye shine */}
-      <circle cx="9.5" cy="7.5" r="0.5" fill="white" />
-      <circle cx="15.5" cy="7.5" r="0.5" fill="white" />
-      {/* Smile */}
-      <path
-        d="M9.5 12Q12 14 14.5 12"
-        fill="none"
-        stroke={INK}
-        strokeWidth="1.2"
-        strokeLinecap="round"
-      />
-    </svg>
+    <img
+      src="/icons/motionbuff.svg"
+      alt={p.title ?? ""}
+      aria-hidden={p.title ? undefined : true}
+      width="100%"
+      height="100%"
+      className={p.className}
+      draggable={false}
+    />
   );
 }
 
