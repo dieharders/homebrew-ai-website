@@ -266,8 +266,7 @@ export default function Home() {
         groupId: "industry",
         app: "ScreenBuff",
         title: "Product Ads from a Screen Recording",
-        description:
-          "Cut a 15-second ad and a full demo from the same take.",
+        description: "Cut a 15-second ad and a full demo from the same take.",
         expandedContent:
           "ScreenBuff (coming soon) adds the zooms, callouts and pacing, then exports landscape and vertical versions.",
       },
@@ -414,8 +413,8 @@ export default function Home() {
         {/* Suite overview — links out to each app's subdomain */}
         <AppSuite
           id="apps"
-          title="ONE SUITE, FOUR APPS"
-          subtitle="Each app does one creative job end to end, and every one of them can be driven by an agent."
+          title="ONE SUITE, MANY APPS"
+          subtitle="Each app does one creative job end to end. Each one can be driven by any agent you bring."
           background="alternate"
         />
 
@@ -492,7 +491,7 @@ export default function Home() {
           background="alternate"
           pattern="dots"
           title="ACROSS EVERY APP"
-          subtitle="What you get no matter which OpenBrew app you start with."
+          subtitle="What you get with every OpenBrew app."
           features={[
             {
               icon: "/icons/robot-face.png",
@@ -544,7 +543,7 @@ export default function Home() {
 
         <Plans
           id="pricing"
-          title="FREE TOOLS, PAID BUILDING BLOCKS"
+          title="FREE TOOLS, PAID MATERIALS"
           subtitle="The apps are free to use. Upgrade for premium assets, file types and features. No credits, ever."
           plans={[
             {

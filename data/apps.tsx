@@ -63,7 +63,7 @@ export const APPS: T_App[] = [
     tagline: "Files into video",
     description:
       "Drop in a deck, PDF or doc. The agent writes the story, applies your brand and renders a finished video with narration and captions.",
-    headline: "Turn any file into an on-brand video",
+    headline: "Turn files into video",
     pitch:
       "MotionBuff is our agent-native video studio. Hand it a prompt, a slide deck, a PDF or a spreadsheet and it builds the whole thing: script, motion graphics, voiceover and captions. No timeline, no editor, no days of back-and-forth.",
     features: [
@@ -88,7 +88,7 @@ export const APPS: T_App[] = [
         text: "Narration and on-screen text in each viewer's language.",
       },
     ],
-    platforms: "Cloud, Windows, macOS and Linux",
+    platforms: "Windows, macOS and Linux",
     status: "live",
     icon: <MotionBuffIcon />,
     // The mark is a full tile of its own, so no tinted backing.
@@ -130,7 +130,7 @@ export const APPS: T_App[] = [
         text: "Each query, answer and action is logged with timestamps and attribution for compliance review.",
       },
     ],
-    platforms: "Windows, macOS and Linux · on-premise and air-gapped",
+    platforms: "Windows, macOS and Linux",
     status: "live",
     icon: <FileBuffIcon />,
     // The mark is a full tile of its own, so no tinted backing.
@@ -170,7 +170,7 @@ export const APPS: T_App[] = [
         text: "Share as a web page or export to PDF with the layout intact.",
       },
     ],
-    platforms: "In progress · desktop and web",
+    platforms: "Desktop and Web",
     status: "in-progress",
     icon: <PaperBuffIcon />,
     // The mark is a full tile of its own, so no tinted backing.
@@ -211,7 +211,7 @@ export const APPS: T_App[] = [
         text: "Export a long demo, a 15-second ad and a vertical social clip from the same recording.",
       },
     ],
-    platforms: "Coming soon · desktop",
+    platforms: "Desktop and Web",
     status: "soon",
     icon: <ScreenBuffIcon />,
     // The mark is a full tile of its own, so no tinted backing.
