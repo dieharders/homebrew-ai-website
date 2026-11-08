@@ -1,37 +1,89 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-  <!-- Background rounded square (amber-100) -->
-  <rect width="64" height="64" rx="10" fill="#fef3c7"/>
-  <!-- Icon content scaled to 70% centered (24x24 -> ~44.8px, offset ~9.6) -->
-  <g transform="translate(9.6, 9.6) scale(1.867)">
-    <!-- Folder body -->
-    <path
-      d="M20 6h-8l-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"
-      fill="#fbbf24"
-      stroke="#1a1a1a"
-      stroke-width="1.2"
-      stroke-linejoin="round"
-    />
-    <!-- Tab highlight -->
-    <path
-      d="M4 4h6l2 2H4z"
-      fill="#fcd34d"
-      stroke="#1a1a1a"
-      stroke-width="1.2"
-      stroke-linejoin="round"
-    />
-    <!-- Eyes -->
-    <circle cx="9" cy="12" r="1.4" fill="#1a1a1a"/>
-    <circle cx="15" cy="12" r="1.4" fill="#1a1a1a"/>
-    <!-- Eye shine -->
-    <circle cx="9.5" cy="11.5" r="0.5" fill="white"/>
-    <circle cx="15.5" cy="11.5" r="0.5" fill="white"/>
-    <!-- Smile -->
-    <path
-      d="M9.5 15.5Q12 17.5 14.5 15.5"
-      fill="none"
-      stroke="#1a1a1a"
-      stroke-width="1.2"
-      stroke-linecap="round"
-    />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!--
+    The FileBuff mark: an extruded folder on an extruded amber hexagon (a honeycomb cell, where
+    things get stored). A sibling of motionbuff.svg: same -14° tilt, same (-15, +15) extrusion
+    and the same top-right light, with a base shape of its own.
+
+    The coordinates were computed, not hand-placed: every shape is a convex core polygon
+    rounded outward by a radius. Sweeping such a shape along the extrusion is the rounded
+    hull of the core and its shifted copy, so each wall silhouette below is exact rather than
+    patched with strokes. Shapes are drawn in the tilted frame and rotated as a group. Ids are
+    prefixed `fb` because an inlined copy shares the host document's id space.
+
+    Scale 0.904 fits the tilted, extruded hexagon to a 246-unit span, a few units inside the
+    256 box so the tips don't clip when antialiased. The translate re-centres that span, which
+    is asymmetric because the depth only ever runs down-left. Corners outside the hexagon stay transparent.
+  -->
+  <defs>
+    <!-- front face: deep orange low-left, amber, gold where the light lands -->
+    <linearGradient id="fbBg" x1="0.21" y1="0.91" x2="0.79" y2="0.09">
+      <stop offset="0" stop-color="#ea580c" />
+      <stop offset="0.5" stop-color="#f59e0b" />
+      <stop offset="1" stop-color="#fde68a" />
+    </linearGradient>
+
+    <radialGradient id="fbSheen" cx="0.76" cy="0.14" r="0.85">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.26" />
+      <stop offset="0.6" stop-color="#ffffff" stop-opacity="0.05" />
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Hexagon wall. The axis runs between the two points where the wall starts and ends (the
+         extremes perpendicular to the extrusion), so one gradient shades all three visible sides:
+         lightest at the top of the left side, darkest where the bottom side turns away. -->
+    <linearGradient id="fbTileWall" gradientUnits="userSpaceOnUse"
+                    x1="-75.3" y1="-108.3" x2="57.2" y2="119.2">
+      <stop offset="0" stop-color="#c2410c" />
+      <stop offset="0.5" stop-color="#9a3412" />
+      <stop offset="1" stop-color="#4a1d07" />
+    </linearGradient>
+
+    <!-- folder body face -->
+    <linearGradient id="fbFace" gradientUnits="userSpaceOnUse"
+                    x1="87" y1="-42.5" x2="-53" y2="46.5">
+      <stop offset="0" stop-color="#ffffff" />
+      <stop offset="0.55" stop-color="#fff8ea" />
+      <stop offset="1" stop-color="#fbe6bd" />
+    </linearGradient>
+
+    <!-- folder back panel (the tab): a step darker, so the body's top edge reads as a seam -->
+    <linearGradient id="fbTab" gradientUnits="userSpaceOnUse"
+                    x1="7" y1="-72.5" x2="-53" y2="-22.5">
+      <stop offset="0" stop-color="#fbe3ae" />
+      <stop offset="1" stop-color="#f2c97a" />
+    </linearGradient>
+
+    <!-- folder walls: same trick as the tile, light cream-tan on the left, burnt amber below -->
+    <linearGradient id="fbWall" gradientUnits="userSpaceOnUse"
+                    x1="-59.8" y1="-56.2" x2="71.6" y2="50.1">
+      <stop offset="0" stop-color="#f6dca6" />
+      <stop offset="0.45" stop-color="#d99a4a" />
+      <stop offset="1" stop-color="#9c4f12" />
+    </linearGradient>
+
+    <!-- cast down-left, warm brown so it doesn't muddy the amber -->
+    <filter id="fbCast" x="-45%" y="-45%" width="190%" height="190%">
+      <feDropShadow dx="-11" dy="13" stdDeviation="10" flood-color="#3b1606" flood-opacity="0.5" />
+    </filter>
+  </defs>
+
+  <g transform="translate(134.8 121.2) scale(0.9038)">
+    <g transform="rotate(-14)">
+      <!-- swept silhouette (walls), then the front face and its sheen -->
+      <path d="M-145.8 -4.1 L-95 -92.1 A30 30 0 0 1 -84.4 -102.8 L-84.4 -102.8 L-66.3 -113.7 A30 30 0 0 1 -50.8 -118 L-50.8 -118 L50.8 -118 A30 30 0 0 1 76.8 -103 L76.8 -103 L127.6 -15 A30 30 0 0 1 127.6 15 L127.6 15 L76.8 103 A30 30 0 0 1 66.3 113.7 L66.3 113.7 L48.1 124.6 A30 30 0 0 1 32.6 128.9 L32.6 128.9 L-69 128.9 A30 30 0 0 1 -95 113.9 L-95 113.9 L-145.8 25.9 A30 30 0 0 1 -145.8 -4.1Z" fill="url(#fbTileWall)" />
+      <path d="M127.6 15 L76.8 103 A30 30 0 0 1 50.8 118 L50.8 118 L-50.8 118 A30 30 0 0 1 -76.8 103 L-76.8 103 L-127.6 15 A30 30 0 0 1 -127.6 -15 L-127.6 -15 L-76.8 -103 A30 30 0 0 1 -50.8 -118 L-50.8 -118 L50.8 -118 A30 30 0 0 1 76.8 -103 L76.8 -103 L127.6 -15 A30 30 0 0 1 127.6 15Z" fill="url(#fbBg)" />
+      <path d="M127.6 15 L76.8 103 A30 30 0 0 1 50.8 118 L50.8 118 L-50.8 118 A30 30 0 0 1 -76.8 103 L-76.8 103 L-127.6 15 A30 30 0 0 1 -127.6 -15 L-127.6 -15 L-76.8 -103 A30 30 0 0 1 -50.8 -118 L-50.8 -118 L50.8 -118 A30 30 0 0 1 76.8 -103 L76.8 -103 L127.6 -15 A30 30 0 0 1 127.6 15Z" fill="url(#fbSheen)" />
+    </g>
+
+    <g filter="url(#fbCast)">
+      <g transform="rotate(-14)">
+        <!-- walls: swept silhouettes of the two convex parts, painted under both front faces -->
+        <path d="M-66.8 -47.3 L-48.6 -58.2 A9 9 0 0 1 -44 -59.5 L-44 -59.5 L-7.5 -59.5 A9 9 0 0 1 -0.3 -56 L-0.3 -56 L11.2 -40.9 A9 9 0 0 1 13 -35.5 L13 -35.5 L13 -21.5 A9 9 0 0 1 8.6 -13.8 L8.6 -13.8 L-9.5 -2.9 A9 9 0 0 1 -14.2 -1.6 L-14.2 -1.6 L-62.2 -1.6 A9 9 0 0 1 -71.2 -10.6 L-71.2 -10.6 L-71.2 -39.6 A9 9 0 0 1 -66.8 -47.3Z" fill="url(#fbWall)" />
+        <path d="M-64.9 -29.7 L-46.7 -40.6 A13 13 0 0 1 -40 -42.5 L-40 -42.5 L74 -42.5 A13 13 0 0 1 87 -29.5 L87 -29.5 L87 33.5 A13 13 0 0 1 80.7 44.6 L80.7 44.6 L62.5 55.6 A13 13 0 0 1 55.8 57.4 L55.8 57.4 L-58.2 57.4 A13 13 0 0 1 -71.2 44.4 L-71.2 44.4 L-71.2 -18.6 A13 13 0 0 1 -64.9 -29.7Z" fill="url(#fbWall)" />
+        <!-- front: back panel with its tab, then the body over it -->
+        <path d="M-44 -59.5 L-7.5 -59.5 A9 9 0 0 1 -0.3 -56 L-0.3 -56 L11.2 -40.9 A9 9 0 0 1 13 -35.5 L13 -35.5 L13 -21.5 A9 9 0 0 1 4 -12.5 L4 -12.5 L-44 -12.5 A9 9 0 0 1 -53 -21.5 L-53 -21.5 L-53 -50.5 A9 9 0 0 1 -44 -59.5Z" fill="url(#fbTab)" />
+        <path d="M-40 -42.5 L74 -42.5 A13 13 0 0 1 87 -29.5 L87 -29.5 L87 33.5 A13 13 0 0 1 74 46.5 L74 46.5 L-40 46.5 A13 13 0 0 1 -53 33.5 L-53 33.5 L-53 -29.5 A13 13 0 0 1 -40 -42.5Z" fill="url(#fbFace)" />
+      </g>
+    </g>
   </g>
 </svg>

@@ -1,7 +1,8 @@
 /**
- * Mascot icons for the OpenBrew app suite. Inline SVG (not images) so they
- * stay crisp at any size and ship in the server-rendered HTML alongside the
- * app links that point at each subdomain.
+ * Icons for the OpenBrew app suite. Apps with a finished 3D mark load it from
+ * public/icons/ (see MarkImage); the rest are still the inline-SVG mascots,
+ * which stay crisp at any size and ship in the server-rendered HTML alongside
+ * the app links.
  */
 
 const INK = "#1a1a1a";
@@ -22,42 +23,30 @@ const svgProps = {
 const a11yProps = (title?: string) =>
   title ? ({ role: "img" } as const) : ({ "aria-hidden": true } as const);
 
-export function FileBuffIcon(p: AppIconProps) {
+/**
+ * An app's real 3D mark from public/icons/. Loaded as an image rather than
+ * inlined: the SVGs define gradient ids, and inlining one in several places at
+ * once (header menu, suite card, spotlight) would duplicate them, and gradients
+ * defined inside the hidden header menu can fail to paint. Each mark is its own
+ * tile, so it fills the icon box instead of sitting at 70%.
+ */
+function MarkImage({ src, ...p }: AppIconProps & { src: string }) {
   return (
-    <svg {...svgProps} className={p.className} {...a11yProps(p.title)}>
-      {p.title && <title>{p.title}</title>}
-      {/* Folder body */}
-      <path
-        d="M20 6h-8l-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"
-        fill="#fbbf24"
-        stroke={INK}
-        strokeWidth="1.2"
-        strokeLinejoin="round"
-      />
-      {/* Tab highlight */}
-      <path
-        d="M4 4h6l2 2H4z"
-        fill="#fcd34d"
-        stroke={INK}
-        strokeWidth="1.2"
-        strokeLinejoin="round"
-      />
-      {/* Eyes */}
-      <circle cx="9" cy="12" r="1.4" fill={INK} />
-      <circle cx="15" cy="12" r="1.4" fill={INK} />
-      {/* Eye shine */}
-      <circle cx="9.5" cy="11.5" r="0.5" fill="white" />
-      <circle cx="15.5" cy="11.5" r="0.5" fill="white" />
-      {/* Smile */}
-      <path
-        d="M9.5 15.5Q12 17.5 14.5 15.5"
-        fill="none"
-        stroke={INK}
-        strokeWidth="1.2"
-        strokeLinecap="round"
-      />
-    </svg>
+    <img
+      src={src}
+      alt={p.title ?? ""}
+      aria-hidden={p.title ? undefined : true}
+      width="100%"
+      height="100%"
+      className={p.className}
+      draggable={false}
+    />
   );
+}
+
+/** FileBuff's mark: an extruded folder on an amber hexagon. */
+export function FileBuffIcon(p: AppIconProps) {
+  return <MarkImage src="/icons/filebuff.svg" {...p} />;
 }
 
 export function ScreenBuffIcon(p: AppIconProps) {
@@ -102,26 +91,9 @@ export function ScreenBuffIcon(p: AppIconProps) {
   );
 }
 
-/**
- * MotionBuff's real app mark (public/icons/motionbuff.svg, the same design
- * source as its favicon). Loaded as an image rather than inlined: the SVG
- * defines gradient ids, and inlining it in several places at once (header
- * menu, suite card, spotlight) would duplicate them, and gradients defined
- * inside the hidden header menu can fail to paint. The mark is its own tile,
- * so it fills the icon box instead of sitting at 70%.
- */
+/** MotionBuff's mark (the same design source as its favicon). */
 export function MotionBuffIcon(p: AppIconProps) {
-  return (
-    <img
-      src="/icons/motionbuff.svg"
-      alt={p.title ?? ""}
-      aria-hidden={p.title ? undefined : true}
-      width="100%"
-      height="100%"
-      className={p.className}
-      draggable={false}
-    />
-  );
+  return <MarkImage src="/icons/motionbuff.svg" {...p} />;
 }
 
 export function PaperBuffIcon(p: AppIconProps) {

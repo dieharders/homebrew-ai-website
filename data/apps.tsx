@@ -131,7 +131,8 @@ export const APPS: T_App[] = [
     platforms: "Windows, macOS and Linux · on-premise and air-gapped",
     status: "live",
     icon: <FileBuffIcon />,
-    iconBg: "bg-amber-100",
+    // The mark is a full tile of its own, so no tinted backing.
+    iconBg: "bg-transparent",
     accent: "#d97706",
   },
   {
