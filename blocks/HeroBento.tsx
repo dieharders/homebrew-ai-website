@@ -1,7 +1,6 @@
 import styles from "./HeroBento.module.css";
 import { cx } from "@/utils/common";
 import Button from "@/components/Button";
-import BentoCard from "@/components/BentoCard";
 import VideoPlayer from "@/components/VideoPlayer";
 
 interface HeroBentoProps {
@@ -65,84 +64,6 @@ export default function HeroBento({
                 />
               </div>
             )}
-          </div>
-
-          <div className={styles.cardGroup}>
-            {/* Feature card - The app suite */}
-            <BentoCard
-              variant="light"
-              size="medium"
-              className={styles.featureCard}
-              illustration={
-                <div className={styles.featureIcon}>
-                  <svg
-                    width="40"
-                    height="40"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <rect x="3" y="3" width="7" height="7" rx="1.5" />
-                    <rect x="14" y="3" width="7" height="7" rx="1.5" />
-                    <rect x="3" y="14" width="7" height="7" rx="1.5" />
-                    <rect x="14" y="14" width="7" height="7" rx="1.5" />
-                  </svg>
-                </div>
-              }
-              title="Agent-Native Apps"
-              description="Video, documents, screen recordings and workspace automation, built for agents to drive."
-              link={{ text: "See the apps", href: "#apps" }}
-            />
-
-            {/* CTA card - Enterprise */}
-            <BentoCard
-              variant="light"
-              size="medium"
-              className={styles.darkCard}
-              illustration={
-                <div className={styles.darkCardIcon}>
-                  <svg
-                    width="40"
-                    height="40"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                  </svg>
-                </div>
-              }
-              title="Bring Your Own AI"
-              description="Use a cloud model you already pay for, or a local model through our open-source Obrew CLI."
-              link={{ text: "How it works", href: "#how-it-works" }}
-            />
-
-            {/* Performance card */}
-            <BentoCard
-              variant="light"
-              size="medium"
-              className={styles.performanceCard}
-              illustration={
-                <div className={styles.performanceIcon}>
-                  <svg
-                    width="40"
-                    height="40"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-                  </svg>
-                </div>
-              }
-              title="Asset Registry"
-              description="One library of sound, 3D, video, images and templates that any agent can search and pull from."
-              link={{ text: "Learn more", href: "#registry" }}
-            />
           </div>
         </div>
       </div>
