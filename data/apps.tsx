@@ -214,7 +214,9 @@ export const APPS: T_App[] = [
     icon: <ScreenBuffIcon />,
     // The mark is a full tile of its own, so no tinted backing.
     iconBg: "bg-transparent",
-    accent: "#9333ea",
+    // Recording red, to match the mark (a step deeper than its #ef4444 face so
+    // feature labels set in it keep text contrast on a light page).
+    accent: "#dc2626",
     comingSoon: true,
   },
 ];
