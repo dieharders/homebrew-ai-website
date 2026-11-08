@@ -171,7 +171,8 @@ export const APPS: T_App[] = [
     platforms: "In progress · desktop and web",
     status: "in-progress",
     icon: <PaperBuffIcon />,
-    iconBg: "bg-sky-100",
+    // The mark is a full tile of its own, so no tinted backing.
+    iconBg: "bg-transparent",
     accent: "#0284c7",
     comingSoon: true,
   },

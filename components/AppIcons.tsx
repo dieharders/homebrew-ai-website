@@ -96,40 +96,7 @@ export function MotionBuffIcon(p: AppIconProps) {
   return <MarkImage src="/icons/motionbuff.svg" {...p} />;
 }
 
+/** PaperBuff's mark: an extruded, dog-eared page on a sky-blue speech bubble. */
 export function PaperBuffIcon(p: AppIconProps) {
-  return (
-    <svg {...svgProps} className={p.className} {...a11yProps(p.title)}>
-      {p.title && <title>{p.title}</title>}
-      {/* Paper body */}
-      <path
-        d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6z"
-        fill="#38bdf8"
-        stroke={INK}
-        strokeWidth="1.2"
-        strokeLinejoin="round"
-      />
-      {/* Folded corner */}
-      <path
-        d="M14 2v6h6"
-        fill="#bae6fd"
-        stroke={INK}
-        strokeWidth="1.2"
-        strokeLinejoin="round"
-      />
-      {/* Eyes */}
-      <circle cx="9" cy="13" r="1.4" fill={INK} />
-      <circle cx="15" cy="13" r="1.4" fill={INK} />
-      {/* Eye shine */}
-      <circle cx="9.5" cy="12.5" r="0.5" fill="white" />
-      <circle cx="15.5" cy="12.5" r="0.5" fill="white" />
-      {/* Smile */}
-      <path
-        d="M9.5 16.5Q12 18.5 14.5 16.5"
-        fill="none"
-        stroke={INK}
-        strokeWidth="1.2"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
+  return <MarkImage src="/icons/paperbuff.svg" {...p} />;
 }
