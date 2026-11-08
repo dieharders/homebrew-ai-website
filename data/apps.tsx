@@ -93,7 +93,9 @@ export const APPS: T_App[] = [
     icon: <MotionBuffIcon />,
     // The mark is a full tile of its own, so no tinted backing.
     iconBg: "bg-transparent",
-    accent: "#f97316",
+    // The mark's own violet (its deepest gradient stop), dark enough for
+    // feature labels set in it to keep text contrast on a light page.
+    accent: "#7c3aed",
   },
   {
     id: "filebuff",
