@@ -60,12 +60,12 @@ export const APPS: T_App[] = [
     name: "MotionBuff",
     href: "https://motionbuff.openbrew.ai",
     external: true,
-    tagline: "Files into video",
+    tagline: "Files into motion",
     description:
       "Drop in a deck, PDF or doc. The agent writes the story, applies your brand and renders a finished video with narration and captions.",
-    headline: "Turn files into video",
+    headline: "Turn files into motion video",
     pitch:
-      "MotionBuff is our agent-native video studio. Hand it a prompt, a slide deck, a PDF or a spreadsheet and it builds the whole thing: script, motion graphics, voiceover and captions. No timeline, no editor, no days of back-and-forth.",
+      "MotionBuff is our agent-native motion studio. Hand it a prompt, slide deck or PDF and it builds the whole video: script, motion graphics, voiceover and captions.",
     features: [
       {
         label: "BRAND",
@@ -88,7 +88,7 @@ export const APPS: T_App[] = [
         text: "Narration and on-screen text in each viewer's language.",
       },
     ],
-    platforms: "Windows, macOS and Linux",
+    platforms: "Desktop only",
     status: "live",
     icon: <MotionBuffIcon />,
     // The mark is a full tile of its own, so no tinted backing.
@@ -130,7 +130,7 @@ export const APPS: T_App[] = [
         text: "Each query, answer and action is logged with timestamps and attribution for compliance review.",
       },
     ],
-    platforms: "Windows, macOS and Linux",
+    platforms: "Web only",
     status: "live",
     icon: <FileBuffIcon />,
     // The mark is a full tile of its own, so no tinted backing.

@@ -58,7 +58,11 @@ export default function RegistryMock() {
   const answered = tick % 2 === 1;
 
   return (
-    <div ref={ref} className={cx(styles.window, styles.rgWindow)} aria-hidden="true">
+    <div
+      ref={ref}
+      className={cx(styles.window, styles.rgWindow)}
+      aria-hidden="true"
+    >
       <div className={styles.chrome}>
         <span className={styles.dot} />
         <span className={styles.dot} />
@@ -68,9 +72,9 @@ export default function RegistryMock() {
       <div className={styles.rgBody}>
         <p className={styles.rgCall}>
           <span className={styles.rgPrompt}>agent ›</span> registry.search(
-          <span className={styles.rgString}>&quot;{q.query}&quot;</span>, {"{"} type:{" "}
-          <span className={styles.rgString}>&quot;{q.kind}&quot;</span> {"}"})
-          {!answered && <span className={styles.rgCaret} />}
+          <span className={styles.rgString}>&quot;{q.query}&quot;</span>, {"{"}{" "}
+          type: <span className={styles.rgString}>&quot;{q.kind}&quot;</span>{" "}
+          {"}"}){!answered && <span className={styles.rgCaret} />}
         </p>
         <ul className={styles.rgResults}>
           {q.results.map((r, i) => (
@@ -81,7 +85,12 @@ export default function RegistryMock() {
             >
               <span className={styles.rgName}>{r.name}</span>
               <span className={styles.rgMeta}>{r.meta}</span>
-              <span className={cx(styles.rgTier, r.tier === "Pro" && styles.rgTierPro)}>
+              <span
+                className={cx(
+                  styles.rgTier,
+                  r.tier === "Pro" && styles.rgTierPro,
+                )}
+              >
                 {r.tier}
               </span>
             </li>

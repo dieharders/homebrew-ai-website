@@ -54,7 +54,7 @@ export default function SponsorPage() {
                 price="$100"
                 period="/seat"
                 description="For teams ready to boost speed and productivity"
-                ctaText="Purchase"
+                ctaText="Buy now"
                 features={[
                   "10 seat minimum included",
                   "Email support",

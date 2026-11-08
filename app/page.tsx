@@ -406,7 +406,7 @@ export default function Home() {
           headline="CREATIVE TOOLS FOR AGENTS"
           tagline="OpenBrew.ai builds agent-native apps for video, documents, screen recordings and your workspace. Use them yourself, or hand the work to your agent."
           primaryCTA={{ text: "Explore Apps", href: "#apps" }}
-          secondaryCTA={{ text: "Purchase", href: "/buy" }}
+          secondaryCTA={{ text: "Pricing", href: "#pricing" }}
           videoSrc="/promo.mp4"
         />
 
@@ -414,7 +414,7 @@ export default function Home() {
         <AppSuite
           id="apps"
           title="ONE SUITE, MANY APPS"
-          subtitle="Each app does one creative job end to end. Each one can be driven by any agent you bring."
+          subtitle="Each app does one creative job end to end and can be driven by any agent you bring."
           background="alternate"
         />
 
@@ -437,7 +437,11 @@ export default function Home() {
           }}
         />
 
-        <HowItWorks
+        {/* Spotlights alternate normal/alternate and end on alternate, so
+            continue the pattern. */}
+        <AssetRegistry id="registry" background="normal" />
+
+        {/* <HowItWorks
           id="how-it-works"
           title="BUILT SO ANY AGENT CAN DO THE WORK"
           subtitle="Creative software was built for people clicking menus and dragging timelines. Ours is built for the agents people are starting to send instead."
@@ -465,13 +469,11 @@ export default function Home() {
             },
           ]}
           footnote="Every app pulls its supporting assets from the OpenBrew registry, so the agent never has to go hunting for music, icons or footage."
-        />
+        /> */}
 
-        <AssetRegistry id="registry" />
+        {/* <VideoShowcase id="demo" videos={videos} /> */}
 
-        <VideoShowcase id="demo" videos={videos} />
-
-        <UseCases
+        {/* <UseCases
           id="use-cases"
           title="WHAT TEAMS DO WITH OPENBREW"
           subtitle="Use cases across the suite, by team and by industry."
@@ -484,7 +486,7 @@ export default function Home() {
             buttonText: "Read White Paper",
             buttonHref: whitePaperLink,
           }}
-        />
+        /> */}
 
         <Features
           id="features"
@@ -496,47 +498,47 @@ export default function Home() {
             {
               icon: "/icons/robot-face.png",
               title: "Agent-Native",
-              text: "Built for agents to drive, not just for people to click.",
+              text: "Built for agents to drive, not for people to click.",
             },
             {
               icon: "/icons/robot-arm.png",
-              title: "Bring Your Own Model",
-              text: "Cloud subscriptions or local open-weight models via the Obrew CLI.",
+              title: "Bring Your Model",
+              text: "Subscription plans or open-weight models.",
             },
             {
               icon: "/icons/truck.png",
-              title: "Desktop & Cloud",
-              text: "Windows, macOS, Linux or the browser. No setup required.",
+              title: "Desktop & Web",
+              text: "Windows, macOS, Linux or the browser.",
             },
             {
               icon: "/icons/off-limits.png",
               title: "No Credits",
-              text: "Flat pricing. Nothing to ration per render or per query.",
+              text: "Flat pricing. Nothing to ration.",
             },
             {
-              icon: "/icons/clap.png",
-              title: "Brand Kits",
-              text: "Colours, type and logos applied to every video and page.",
+              icon: "/icons/clipboard.png",
+              title: "Human in the Loop",
+              text: "Watch each step and approve before shipping.",
             },
             {
               icon: "/icons/lock.png",
               title: "Private by Default",
-              text: "Run locally and sensitive files never leave your device.",
+              text: "Run locally, files stay on device.",
             },
             {
-              icon: "/icons/clipboard.png",
-              title: "Plain-Language Workflows",
-              text: "Write tasks like a to-do list and automate them.",
+              icon: "/icons/face-censored.png",
+              title: "Unrestricted",
+              text: "Requests are never blocked or down-graded.",
             },
             {
               icon: "/icons/key.png",
               title: "API & MCP Access",
-              text: "Plug any agent into the apps and the asset registry.",
+              text: "Plug any agent into our apps or asset registry.",
             },
             {
               icon: "/icons/toolbox.png",
               title: "Extensible",
-              text: "Add your own tools, templates and integrations.",
+              text: "Add your own templates and integrations.",
             },
           ]}
         />
@@ -544,33 +546,30 @@ export default function Home() {
         <Plans
           id="pricing"
           title="FREE TOOLS, PAID MATERIALS"
-          subtitle="The apps are free to use. Upgrade for premium assets, file types and features. No credits, ever."
+          subtitle="All apps are free to use. Upgrade for premium access to assets and features. No credits, ever."
           plans={[
             {
               name: "Free",
               price: "$0",
               text: "For trying things out and building on your own.",
               includes: [
-                "All released apps",
-                "Local models via the Obrew CLI",
-                "Free-tier registry assets",
-                "Daily usage limits",
+                "Access all apps free",
+                "Access free AI models",
+                "Free registry assets",
               ],
-              cta: { text: "Explore the apps", href: "#apps" },
+              cta: { text: "Explore apps", href: "#apps" },
             },
             {
               name: "Pro",
               price: "$100",
               cadence: "/ month",
-              text: "For creators, small businesses and contractors.",
+              text: "For creators, small businesses and studios.",
               includes: [
                 "Everything in Free",
-                "Premium registry assets and file types",
-                "Pro features in every app",
-                "Multi-language voice and captions",
-                "1080p video export",
+                "Premium registry assets, file types and services",
+                "Premium features and support in every app",
               ],
-              cta: { text: "Purchase", href: "/buy" },
+              cta: { text: "Buy now", href: "/buy" },
               featured: true,
             },
             {
@@ -581,29 +580,26 @@ export default function Home() {
               includes: [
                 "Everything in Pro",
                 "Private asset registries",
-                "Custom brand kits",
                 "MCP and API access",
-                "Collaboration features",
-                "On-premise and air-gapped deployment",
               ],
               cta: { text: "Talk to us", href: "#contact" },
             },
           ]}
         />
 
-        <DarkCTA
+        {/* <DarkCTA
           label="Next steps"
           title="EVERY IDEA DESERVES TO MOVE"
           subtitle="Start with MotionBuff or FileBuff today, or talk to us about bringing OpenBrew to your team."
-          primaryButton={{ text: "Purchase", href: "/buy" }}
+          primaryButton={{ text: "Buy now", href: "/buy" }}
           secondaryButton={{
             text: "Try MotionBuff",
             href: "https://motionbuff.openbrew.ai",
             target: "_blank",
           }}
-        />
+        /> */}
 
-        <Highlights
+        {/* <Highlights
           title="POWERED BY OPENBREW"
           subtitle="Every app runs on the OpenBrew engine: composable building blocks for memory, tool use and local inference, open-sourced as the Obrew CLI."
           background="alternate"
@@ -633,7 +629,7 @@ export default function Home() {
               link: { text: "Contact us", href: "#contact" },
             },
           ]}
-        />
+        /> */}
 
         {/* Newsletter Epilogue */}
         <Epilogue
