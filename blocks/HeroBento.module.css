@@ -1,37 +1,22 @@
 .container {
   position: relative;
-  min-height: 100vh;
+  /* Fill the first screen *below* the sticky header (which sits in normal
+     flow above this section), so the content centres in what's visible. */
+  min-height: calc(100vh - var(--scroll-offset));
   /* svh tracks the visible viewport, so mobile browser chrome doesn't push the
      hero taller than the screen. Falls back to the vh above. */
-  min-height: 100svh;
+  min-height: calc(100svh - var(--scroll-offset));
   display: flex;
   align-items: center;
-  /* Tighter on small screens — 8rem of dead space above the headline is a lot
-     of scrolling before anything is visible. Restored at 700px below. */
-  padding: var(--space-7) 0 var(--space-7) 0;
+  /* Symmetric padding so align-items: center lands on the true middle. */
+  padding: var(--space-7) 0;
   background: var(--background);
   overflow: hidden;
 }
 
 @media screen and (min-width: 700px) {
   .container {
-    padding: var(--space-10) 0 4rem 0;
-  }
-}
-
-.cardGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-@media screen and (min-width: 700px) {
-  .cardGroup {
-    flex-direction: row;
-  }
-
-  .cardGroup > * {
-    flex: 1;
+    padding: var(--space-8) 0;
   }
 }
 
@@ -83,6 +68,10 @@
   padding: 0;
   flex: 1;
   min-width: 0;
+  /* Small screens: centre the block, keep its contents left-aligned. */
+  align-self: center;
+  width: 100%;
+  max-width: 480px; /* match .videoCard */
 }
 
 .headline {
@@ -109,47 +98,6 @@
   flex-wrap: wrap;
   gap: var(--space-4);
   margin-top: auto;
-}
-
-/* Feature card */
-.featureCard {
-  grid-column: span 1;
-}
-
-.featureIcon {
-  width: 56px;
-  height: 56px;
-  border-radius: var(--ui-radius-md);
-  background: linear-gradient(
-    135deg,
-    var(--accent-light) 0%,
-    var(--accent-normal) 100%
-  );
-  color: var(--accent-dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 8px var(--accent-gold-glow);
-}
-
-/* Dark card */
-.darkCard {
-  grid-column: span 1;
-}
-
-.darkCardIcon {
-  width: 56px;
-  height: 56px;
-  border-radius: var(--ui-radius-md);
-  background: linear-gradient(
-    135deg,
-    var(--accent-light) 0%,
-    var(--accent-normal) 100%
-  );
-  color: var(--accent-dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 /* Video card. Square by design — promo.mp4 is composed for a 1/1 safe area,
@@ -185,27 +133,6 @@
   background: var(--background);
 }
 
-/* Performance card */
-.performanceCard {
-  grid-column: span 1;
-}
-
-.performanceIcon {
-  width: 56px;
-  height: 56px;
-  border-radius: var(--ui-radius-md);
-  background: linear-gradient(
-    135deg,
-    var(--accent-light) 0%,
-    var(--accent-normal) 100%
-  );
-  color: var(--accent-dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 8px var(--accent-gold-glow);
-}
-
 /* Responsive: copy and video side by side.
    This used to wait until 1100px, which left every window between 700 and
    1100 — the common laptop range — with a full-width video stacked under the
@@ -218,6 +145,8 @@
 
   .headlineArea {
     flex: 1 1 50%;
+    align-self: auto;
+    max-width: none;
   }
 
   .videoCard {
@@ -233,4 +162,14 @@
   .tagline {
     font-size: 1.25rem;
   }
+}
+
+/* Gold accent to match the featured Pro pricing card. */
+.secondaryCta {
+  border-color: var(--accent-btn) !important;
+  background: linear-gradient(180deg, var(--accent-light) 0%, var(--background) 100%) !important;
+}
+
+.secondaryCta:hover {
+  background: var(--accent-light) !important;
 }

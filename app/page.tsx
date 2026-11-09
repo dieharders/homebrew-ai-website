@@ -1,26 +1,61 @@
 import Header from "@/blocks/Header";
 import HeroBento from "@/blocks/HeroBento";
-import UseCases from "@/blocks/UseCases";
 import AppSuite from "@/blocks/AppSuite";
+import AppSpotlights from "@/blocks/AppSpotlights";
+import AssetRegistry from "@/blocks/AssetRegistry";
+import Plans from "@/blocks/Plans";
+import VideoPlayer from "@/components/VideoPlayer";
+import PaperBuffMock from "@/components/mocks/PaperBuffMock";
+import ScreenBuffMock from "@/components/mocks/ScreenBuffMock";
 import Features from "@/blocks/Features";
-import VideoShowcase from "@/blocks/VideoShowcase";
-import DarkCTA from "@/blocks/DarkCTA";
-import Highlights from "@/blocks/Highlights";
 import Epilogue from "@/blocks/Epilogue";
 import Footer from "@/blocks/Footer";
 import SubscribeInput from "@/components/SubscribeInput";
-import highlightPosterImageA from "public/use-cases.svg";
-import highlightPosterImageB from "public/workflows.svg";
 import epiloguePosterImage from "public/badge.png";
+import type { T_AppId } from "@/data/apps";
+import type { ReactNode } from "react";
+// Parked sections — not rendered, so not imported (keeps them out of the
+// bundle). Uncomment together with their JSX and data below to bring one back.
+// import UseCases from "@/blocks/UseCases";
+// import VideoShowcase from "@/blocks/VideoShowcase";
+// import DarkCTA from "@/blocks/DarkCTA";
+// import Highlights from "@/blocks/Highlights";
+// import highlightPosterImageA from "public/use-cases.svg";
+// import highlightPosterImageB from "public/workflows.svg";
+
+/** Shared props for the looping demo videos in the spotlights. */
+function SpotlightVideo(p: { src: string }) {
+  return (
+    <VideoPlayer
+      src={p.src}
+      // Same shadow as the animated mocks in the other spotlights.
+      className="shadow-[var(--media-shadow,var(--shadow-dark-card))]"
+      autoPlay
+      loop
+      muted
+      aspectRatio="4/3"
+      lazy
+    />
+  );
+}
+
+/** Visual for each app's spotlight. Typed by app id, so every app needs one. */
+const SPOTLIGHT_MEDIA: Record<T_AppId, ReactNode> = {
+  motionbuff: <SpotlightVideo src="/motionbuff-demo.mp4" />,
+  filebuff: <SpotlightVideo src="/auto-workflow.mp4" />,
+  paperbuff: <PaperBuffMock />,
+  screenbuff: <ScreenBuffMock />,
+};
 
 export default function Home() {
-  const whitePaperLink = "/capability-statement.pdf";
-
   const imgStyle = {
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center",
   };
+
+  /* Data for the parked sections (Highlights, UseCases, VideoShowcase).
+  const whitePaperLink = "/capability-statement.pdf";
 
   const highlightPosterA = {
     backgroundImage: `url(${highlightPosterImageA.src})`,
@@ -37,6 +72,7 @@ export default function Home() {
     backgroundColor: "transparent",
     backgroundSize: "contain",
   };
+  */
 
   const epiloguePoster = {
     backgroundImage: `url(${epiloguePosterImage.src})`,
@@ -45,145 +81,175 @@ export default function Home() {
     backgroundSize: "contain",
   };
 
-  // Use Cases Data
+  /* Data for the parked sections, continued.
+  // Use cases span the whole suite. Each one names its app; MotionBuff and
+  // PaperBuff ones show a placeholder until their demo video is recorded.
   const useCasesData = {
     filterGroups: [
       {
-        id: "function",
-        label: "Features",
+        id: "team",
+        label: "By team",
         categories: [
-          { id: "search", label: "AI Search" },
-          { id: "automation", label: "Workflow Automation" },
-          { id: "security", label: "Audit & Compliance" },
-          { id: "integration", label: "Integrations" },
+          { id: "sales", label: "Sales & Marketing" },
+          { id: "training", label: "Training" },
+          { id: "fundraising", label: "Fundraising" },
+          { id: "operations", label: "Operations" },
         ],
       },
       {
         id: "industry",
-        label: "Industry",
+        label: "By industry",
         categories: [
-          { id: "financial", label: "Financial" },
-          { id: "legal", label: "Legal" },
-          { id: "healthcare", label: "Healthcare" },
-          { id: "research", label: "Research" },
           { id: "defense", label: "Defense" },
+          { id: "media", label: "Media" },
+          { id: "healthcare", label: "Healthcare" },
+          { id: "legal", label: "Legal" },
+          { id: "financial", label: "Financial" },
+          { id: "research", label: "Research" },
         ],
       },
     ],
     useCases: [
+      // ---- By team ----
       {
-        id: "doc-search",
-        categoryId: "search",
-        groupId: "function",
-        title: "Private Document Search",
+        id: "sales-personalized",
+        categoryId: "sales",
+        groupId: "team",
+        app: "MotionBuff",
+        title: "Personalized Sales Videos",
         description:
-          "Find relevant information across thousands of documents instantly using natural language.",
+          "One template, a video for every account. Names, companies and numbers filled in from your CRM.",
         expandedContent:
-          "FileBuff uses advanced AI to understand context and relationships between documents. Ask questions in plain English and get synthesized answers with source citations.",
-        videoSrc: "/filebuff-documents.mp4",
+          "Connect Salesforce or HubSpot and MotionBuff renders a version of your pitch for each prospect, in their language. When the numbers change, re-render instead of re-editing.",
+        videoPlaceholder: {
+          label: "Personalized sales videos from CRM data",
+          file: "motionbuff-sales.mp4",
+        },
       },
       {
-        id: "semantic-search",
-        categoryId: "search",
-        groupId: "function",
-        title: "Semantic File Search",
+        id: "sales-launch",
+        categoryId: "sales",
+        groupId: "team",
+        app: "MotionBuff",
+        title: "Deck to Launch Video",
         description:
-          "Search by meaning, not just keywords. Find files based on what they contain.",
+          "Drop in a slide deck and get a narrated, on-brand launch video.",
         expandedContent:
-          'Unlike traditional search, FileBuff understands the semantic meaning of your queries. Search for "contracts mentioning liability clauses" and find relevant documents even if they use different terminology.',
+          "The agent reads your deck, writes the story beat by beat and renders it in your brand's colours, type and logo. Edit the outline to change the video.",
+        videoPlaceholder: {
+          label: "A slide deck becomes a launch video",
+          file: "motionbuff-deck-to-video.mp4",
+        },
       },
       {
-        id: "workflow-auto",
-        categoryId: "automation",
-        groupId: "function",
-        title: "Automate Tasks",
+        id: "sales-email",
+        categoryId: "sales",
+        groupId: "team",
+        app: "FileBuff",
+        title: "Draft Follow-ups",
         description:
-          "Define tasks in natural language and let AI execute them automatically.",
+          "Draft replies and follow-ups from the emails, notes and files you already have.",
         expandedContent:
-          "Create powerful automations without coding. Simply describe what you want to accomplish, and FileBuff will break it down into actionable steps.",
-        videoSrc: "/filebuff-workflow.mp4",
-      },
-      {
-        id: "daily-briefings",
-        categoryId: "automation",
-        groupId: "function",
-        title: "Automate Daily Briefings",
-        description:
-          "Generate summaries and reports from your documents automatically.",
-        expandedContent:
-          "Schedule automated briefings that synthesize information from multiple sources. Perfect for staying up-to-date on project status, market research, or competitive intelligence.",
-      },
-      {
-        id: "audit-trail",
-        categoryId: "security",
-        groupId: "function",
-        title: "Comprehensive Audit Trail",
-        description:
-          "Track every AI action with immutable logs for compliance and accountability.",
-        expandedContent:
-          "Every query, response, and action is logged with timestamps and attribution. Export audit logs for compliance reviews or investigations.",
-        videoSrc: "/filebuff-audit.mp4",
-      },
-      {
-        id: "compliance-check",
-        categoryId: "security",
-        groupId: "function",
-        title: "Compliance Checking",
-        description:
-          "Automatically verify documents against compliance frameworks and standards.",
-        expandedContent:
-          "Check documents against internal standards, regulatory requirements, or custom rules. Get instant feedback on compliance issues.",
-      },
-      {
-        id: "email-integration",
-        categoryId: "integration",
-        groupId: "function",
-        title: "Email, Meetings, Calendar, Chats",
-        description:
-          "Connect with Microsoft 365 apps, calendar systems, file storage.",
-        expandedContent:
-          "Search across emails, chat conversations, calendar events as well as files. FileBuff creates a unified knowledge base from all your organization's information sources.",
+          "FileBuff finds the context across your inbox, meetings and documents, then drafts the message for you to review and send.",
         videoSrc: "/draft-email.mp4",
       },
       {
-        id: "financial-doc",
-        categoryId: "financial",
-        groupId: "industry",
-        title: "Document Management",
+        id: "training-modules",
+        categoryId: "training",
+        groupId: "team",
+        app: "MotionBuff",
+        title: "Training Videos from SOPs",
         description:
-          "Manage large document libraries with AI-powered organization and search.",
+          "Turn procedures and manuals into short, narrated training modules.",
         expandedContent:
-          "Handle millions of documents with intelligent categorization, tagging, and retrieval. Perfect for knowledge management, policy libraries, and corporate archives.",
-        videoSrc: "/filebuff-dashboard.mp4",
+          "Hand MotionBuff a PDF or doc and get a video per procedure, with captions and narration in each learner's language. Update the source and re-render.",
+        videoPlaceholder: {
+          label: "A procedure manual becomes training videos",
+          file: "motionbuff-training.mp4",
+        },
       },
       {
-        id: "legal-discovery",
-        categoryId: "legal",
-        groupId: "industry",
-        title: "Document Discovery",
+        id: "training-walkthroughs",
+        categoryId: "training",
+        groupId: "team",
+        app: "ScreenBuff",
+        title: "Software Walkthroughs",
         description:
-          "Accelerate e-discovery and contract review with AI-powered analysis.",
+          "Record a task once and get a polished how-to with zooms and step labels.",
         expandedContent:
-          "Rapidly review contracts, find relevant clauses, and identify risks. FileBuff helps legal teams process documents faster while maintaining accuracy.",
-        videoSrc: "/project-files.mp4",
+          "ScreenBuff (coming soon) follows your cursor, zooms in on each click and labels every step, so internal how-tos look as good as product marketing.",
       },
       {
-        id: "healthcare-admin",
-        categoryId: "healthcare",
-        groupId: "industry",
-        title: "Automate Admin Tasks",
+        id: "fundraising-submission",
+        categoryId: "fundraising",
+        groupId: "team",
+        app: "MotionBuff",
+        title: "Video Funding Submissions",
         description:
-          "Eliminate administrative bottlenecks with on-device AI that keeps patient data secure.",
+          "When a slide deck isn't an option, submit a video that tells the story.",
         expandedContent:
-          "Automate documentation, staffing reconciliation, compliance audits, and credential tracking — saving $340K+ per department annually. 100% on-device processing means full HIPAA compliance by architecture, not policy.",
-        videoSrc: "/auto-email.mp4",
-        readMoreHref: "/case-study/healthcare.pdf",
-        readMoreLabel: "Read use case",
+          "Write the story first (hook, problem, proof, ask) and MotionBuff builds it on-brand with no studio or editor. One link, playable anywhere.",
+        videoPlaceholder: {
+          label: "A funding pitch rendered as video",
+          file: "motionbuff-pitch.mp4",
+        },
       },
+      {
+        id: "fundraising-memo",
+        categoryId: "fundraising",
+        groupId: "team",
+        app: "PaperBuff",
+        title: "Memos Investors Will Read",
+        description:
+          "Dictate the memo; get a page that's typeset and easy to read.",
+        expandedContent:
+          "PaperBuff (in progress) lays out your memo with clear hierarchy, pull quotes and live charts, then exports to PDF or a shareable page.",
+        videoPlaceholder: {
+          label: "Dictating and typesetting a memo",
+          file: "paperbuff-memo.mp4",
+        },
+      },
+      {
+        id: "ops-automate",
+        categoryId: "operations",
+        groupId: "team",
+        app: "FileBuff",
+        title: "Automate Tasks",
+        description:
+          "Describe a task in plain language and let an agent carry it out.",
+        expandedContent:
+          "Create automations without code. Describe what you want done and FileBuff breaks it into steps and runs it.",
+        videoSrc: "/filebuff-workflow.mp4",
+      },
+      {
+        id: "ops-search",
+        categoryId: "operations",
+        groupId: "team",
+        app: "FileBuff",
+        title: "Private Document Search",
+        description:
+          "Find answers across thousands of documents in plain language.",
+        expandedContent:
+          "Ask a question and get a synthesized answer with source citations. Search by meaning, not just keywords.",
+        videoSrc: "/filebuff-documents.mp4",
+      },
+      {
+        id: "ops-briefings",
+        categoryId: "operations",
+        groupId: "team",
+        app: "FileBuff",
+        title: "Daily Briefings",
+        description:
+          "Scheduled summaries of what changed across your files, inbox and calendar.",
+        expandedContent:
+          "Stay current on project status, research or competitive intelligence with briefings FileBuff writes for you on a schedule.",
+      },
+      // ---- By industry ----
       {
         id: "defense-logistics",
         categoryId: "defense",
         groupId: "industry",
+        app: "FileBuff",
         title: "Automate Supply Chain",
         description:
           "Scale DoD logistics with on-device AI that keeps sensitive data secure.",
@@ -194,9 +260,115 @@ export default function Home() {
         readMoreLabel: "Read case study",
       },
       {
-        id: "research-lit",
+        id: "defense-sims",
+        categoryId: "defense",
+        groupId: "industry",
+        app: "MotionBuff",
+        title: "Simulation & Training Scenarios",
+        description:
+          "Build training scenarios and briefings at scale, without an in-house studio.",
+        expandedContent:
+          "Turn doctrine, procedures and after-action reports into narrated scenario videos, then regenerate them as the source material changes.",
+        videoPlaceholder: {
+          label: "Training scenario built from a procedure",
+          file: "motionbuff-defense.mp4",
+        },
+      },
+      {
+        id: "media-branded",
+        categoryId: "media",
+        groupId: "industry",
+        app: "MotionBuff",
+        title: "Branded Content at Scale",
+        description:
+          "Produce on-brand explainers and social cuts from scripts, decks or data.",
+        expandedContent:
+          "Brand rules are enforced by the agent, so every video keeps your colours, type and logo, across every language.",
+        videoPlaceholder: {
+          label: "Branded explainers in many languages",
+          file: "motionbuff-branded.mp4",
+        },
+      },
+      {
+        id: "media-ads",
+        categoryId: "media",
+        groupId: "industry",
+        app: "ScreenBuff",
+        title: "Product Ads from a Screen Recording",
+        description: "Cut a 15-second ad and a full demo from the same take.",
+        expandedContent:
+          "ScreenBuff (coming soon) adds the zooms, callouts and pacing, then exports landscape and vertical versions.",
+      },
+      {
+        id: "healthcare-admin",
+        categoryId: "healthcare",
+        groupId: "industry",
+        app: "FileBuff",
+        title: "Automate Admin Tasks",
+        description:
+          "Eliminate administrative bottlenecks with on-device AI that keeps patient data secure.",
+        expandedContent:
+          "Automate documentation, staffing reconciliation, compliance audits, and credential tracking — saving $340K+ per department annually. 100% on-device processing means full HIPAA compliance by architecture, not policy.",
+        videoSrc: "/auto-email.mp4",
+        readMoreHref: "/case-study/healthcare.pdf",
+        readMoreLabel: "Read use case",
+      },
+      {
+        id: "legal-discovery",
+        categoryId: "legal",
+        groupId: "industry",
+        app: "FileBuff",
+        title: "Document Discovery",
+        description:
+          "Accelerate e-discovery and contract review with AI-powered analysis.",
+        expandedContent:
+          "Rapidly review contracts, find relevant clauses, and identify risks. FileBuff helps legal teams process documents faster while maintaining accuracy.",
+        videoSrc: "/project-files.mp4",
+      },
+      {
+        id: "legal-audit",
+        categoryId: "legal",
+        groupId: "industry",
+        app: "FileBuff",
+        title: "Comprehensive Audit Trail",
+        description:
+          "Track every AI action with immutable logs for compliance and accountability.",
+        expandedContent:
+          "Every query, response, and action is logged with timestamps and attribution. Export audit logs for compliance reviews or investigations.",
+        videoSrc: "/filebuff-audit.mp4",
+      },
+      {
+        id: "financial-doc",
+        categoryId: "financial",
+        groupId: "industry",
+        app: "FileBuff",
+        title: "Document Management",
+        description:
+          "Manage large document libraries with AI-powered organization and search.",
+        expandedContent:
+          "Handle millions of documents with intelligent categorization, tagging, and retrieval. Perfect for knowledge management, policy libraries, and corporate archives.",
+        videoSrc: "/filebuff-dashboard.mp4",
+      },
+      {
+        id: "financial-reports",
+        categoryId: "financial",
+        groupId: "industry",
+        app: "MotionBuff",
+        title: "Reports That Update Themselves",
+        description:
+          "Point charts at your data and the video refreshes when the numbers do.",
+        expandedContent:
+          "Connect Power BI or SharePoint and render quarterly updates, client reports or portfolio reviews as video, re-rendered when the data changes.",
+        videoPlaceholder: {
+          label: "A data-driven quarterly report video",
+          file: "motionbuff-reports.mp4",
+        },
+      },
+      {
+        id: "research-review",
         categoryId: "research",
         groupId: "industry",
+        app: "FileBuff",
         title: "Document Review",
         description:
           "Synthesize findings across papers, reports, and research documents.",
@@ -206,58 +378,89 @@ export default function Home() {
         readMoreHref: "/case-study/research.pdf",
         readMoreLabel: "Read use case",
       },
+      {
+        id: "research-publish",
+        categoryId: "research",
+        groupId: "industry",
+        app: "PaperBuff",
+        title: "Publish with Interactive Figures",
+        description:
+          "Reports with 3D models and live charts readers can explore.",
+        expandedContent:
+          "PaperBuff (in progress) typesets your findings and embeds rotatable 3D scans and interactive charts right in the page.",
+        videoPlaceholder: {
+          label: "A research report with embedded 3D",
+          file: "paperbuff-research.mp4",
+        },
+      },
     ],
   };
 
-  // Video Showcase Data
+  // Video Showcase Data — entries without `src` show a placeholder.
   const videos = [
     {
-      id: "dashboard",
-      title: "Dashboard Overview",
+      id: "motionbuff",
+      title: "MotionBuff: File to Video",
       description:
-        "Navigate your documents and workflows with an intuitive interface.",
-      src: "/filebuff-dashboard.mp4",
+        "Drop in a deck and watch the agent write, brand and render the video.",
+      placeholderFile: "motionbuff-demo.mp4",
     },
     {
       id: "documents",
-      title: "Document Search",
+      title: "FileBuff: Document Search",
       description:
         "Find information across all your files using natural language.",
       src: "/filebuff-documents.mp4",
     },
     {
       id: "workflow",
-      title: "Workflow Automation",
+      title: "FileBuff: Workflows",
       description: "Create and run automated workflows with simple commands.",
       src: "/filebuff-workflow.mp4",
     },
     {
-      id: "audit",
-      title: "Audit Trail",
-      description: "Track every action with comprehensive logging.",
-      src: "/filebuff-audit.mp4",
+      id: "paperbuff",
+      title: "PaperBuff: First Look",
+      description: "Edit and typeset a document by voice.",
+      placeholderFile: "paperbuff-preview.mp4",
     },
   ];
+  */
 
   return (
     <div>
       <Header id="top" title="" />
 
       <main>
-        {/* Hero Bento Section */}
         <HeroBento
-          headline="AI-NATIVE ON YOUR TERMS"
-          tagline="OpenBrew.ai is a suite of AI-native apps for your files, videos, documents and screen recordings. One subscription, many apps, unlimited use."
-          primaryCTA={{ text: "Purchase", href: "/buy" }}
-          secondaryCTA={{ text: "Explore Apps", href: "#apps" }}
-          videoSrc="/promo.mp4"
+          headline="THE CREATIVE TOOL-CHAIN FOR AGENTS"
+          tagline="OpenBrew.ai builds agent driven creative tools for entertainment & simulations. Have your personal agents create and manage your videos, documents, screen recordings and virtual workspaces."
+          primaryCTA={{ text: "Explore Apps", href: "#apps" }}
+          secondaryCTA={{ text: "Pricing", href: "#pricing" }}
+          videoSrc="/openbrew-promo.mp4"
         />
 
-        {/* Use Cases Section */}
-        <UseCases
+        {/* Suite overview — links out to each app's subdomain */}
+        <AppSuite
+          id="apps"
+          title="ONE SUITE, MANY APPS"
+          subtitle="Each specialized app is driven by the agent you bring."
+          background="alternate"
+        />
+
+        {/* One detailed section per app */}
+        <AppSpotlights media={SPOTLIGHT_MEDIA} />
+
+        {/* Spotlights alternate normal/alternate and end on alternate, so
+            continue the pattern. */}
+        <AssetRegistry id="registry" background="normal" />
+
+        {/* <VideoShowcase id="demo" videos={videos} /> */}
+
+        {/* <UseCases
           id="use-cases"
-          title="DISCOVER WHAT FILEBUFF CAN DO"
-          subtitle="Explore use cases tailored to your work and industry."
+          title="WHAT TEAMS DO WITH OPENBREW"
+          subtitle="Use cases across the suite, by team and by industry."
           filterGroups={useCasesData.filterGroups}
           useCases={useCasesData.useCases}
           sidebarCTA={{
@@ -267,94 +470,129 @@ export default function Home() {
             buttonText: "Read White Paper",
             buttonHref: whitePaperLink,
           }}
-        />
+        /> */}
 
-        {/* App Suite — links out to each app's subdomain */}
-        <AppSuite
-          id="apps"
-          title="ONE AI-NATIVE SUITE"
-          subtitle="OpenBrew.ai is a family of AI-native apps that work together to manage and automate your work."
-          background="alternate"
-        />
-
-        {/* Features Grid */}
         <Features
           id="features"
           background="alternate"
           pattern="dots"
-          title="FEATURES"
-          subtitle="Everything you need to manage your projects with AI or build AI native apps with the Obrew platform."
+          title="BUILT INTO EVERY APP"
+          subtitle="What you get with every OpenBrew app."
           features={[
             {
-              icon: "/icons/truck.png",
-              title: "Easy Install",
-              text: "All-in-one app, no setup required.",
+              icon: "/icons/robot-face.png",
+              title: "Agent-Native",
+              text: "Built for agents to drive, not for people to click.",
             },
             {
               icon: "/icons/robot-arm.png",
-              title: "Run Any Model",
-              text: "Download any public model. Supports CPU/GPU.",
+              title: "Bring Your Model",
+              text: "Subscription plans or open-weight models.",
+            },
+            {
+              icon: "/icons/truck.png",
+              title: "Desktop & Web",
+              text: "Windows, macOS, Linux or the browser.",
             },
             {
               icon: "/icons/off-limits.png",
-              title: "No Limits",
-              text: "Work without boundaries. No daily limits or throttling.",
+              title: "No Credits",
+              text: "Flat pricing. Nothing to ration.",
             },
             {
-              icon: "/icons/toolbox.png",
-              title: "Extensible",
-              text: "Write or add your own custom tools and integrations.",
+              icon: "/icons/clipboard.png",
+              title: "Human in the Loop",
+              text: "Watch each step and approve before shipping.",
             },
             {
               icon: "/icons/lock.png",
-              title: "100% Private Data",
-              text: "Everything stays on device. Prevent exposure and leaks.",
+              title: "Private by Default",
+              text: "Run locally, files stay on device.",
             },
             {
               icon: "/icons/face-censored.png",
               title: "Unrestricted",
-              text: "Get objective answers to your requests, uncensored.",
-            },
-            {
-              icon: "/icons/robot-face.png",
-              title: "Agents",
-              text: "Build AI to perform tasks on your behalf automatically.",
-            },
-            {
-              icon: "/icons/clipboard.png",
-              title: "Workflows",
-              text: "Write tasks in natural language and automate them.",
+              text: "Requests are never blocked or down-graded.",
             },
             {
               icon: "/icons/key.png",
-              title: "API Access",
-              text: "Extensive API for building custom applications.",
+              title: "API & MCP Access",
+              text: "Plug any agent into our apps or asset registry.",
+            },
+            {
+              icon: "/icons/toolbox.png",
+              title: "Extensible",
+              text: "Add your own templates and integrations.",
             },
           ]}
         />
 
-        {/* Video Showcase */}
-        <VideoShowcase id="demo" videos={videos} />
-
-        {/* Dark CTA Section */}
-        <DarkCTA
-          label="Next steps"
-          title="READY TO TRANSFORM YOUR WORK?"
-          subtitle="Stop sending your sensitive data out to the world. Get 100% private AI all day long. One subscription, every app, unlimited use."
-          primaryButton={{ text: "Purchase", href: "/buy" }}
+        <Plans
+          id="pricing"
+          title="FREE TOOLS, PAID ASSETS"
+          subtitle="All apps are free to use. Upgrade for premium access to assets and features. No credits, ever."
+          plans={[
+            {
+              name: "Free",
+              price: "$0",
+              text: "For trying things out and building on your own.",
+              includes: [
+                "Access all apps free",
+                "Access free AI models",
+                "Free registry assets",
+              ],
+              cta: { text: "Explore apps", href: "#apps" },
+            },
+            {
+              name: "Pro",
+              price: "$100",
+              cadence: "/ month",
+              text: "For creators, small businesses and studios.",
+              includes: [
+                "Everything in Free",
+                "Premium registry assets, file types and services",
+                "Premium features and support in every app",
+              ],
+              cta: { text: "Buy now", href: "/buy" },
+              featured: true,
+            },
+            {
+              name: "Enterprise",
+              price: "Custom",
+              cadence: "annual",
+              text: "For teams producing at high volume.",
+              includes: [
+                "Everything in Pro",
+                "Private asset registries",
+                "MCP and API access",
+              ],
+              cta: { text: "Talk to us", href: "#contact" },
+            },
+          ]}
         />
 
-        {/* Highlights with Video */}
-        <Highlights
+        {/* <DarkCTA
+          label="Next steps"
+          title="EVERY IDEA DESERVES TO MOVE"
+          subtitle="Start with MotionBuff or FileBuff today, or talk to us about bringing OpenBrew to your team."
+          primaryButton={{ text: "Buy now", href: "/buy" }}
+          secondaryButton={{
+            text: "Try MotionBuff",
+            href: "https://motionbuff.openbrew.ai",
+            target: "_blank",
+          }}
+        /> */}
+
+        {/* <Highlights
           title="POWERED BY OPENBREW"
-          subtitle="Killer apps like FileBuff run on the OpenBrew engine - a platform providing composable Lego blocks for common AI challenges like long-term memory and tool use."
+          subtitle="Every app runs on the OpenBrew engine: composable building blocks for memory, tool use and local inference, open-sourced as the Obrew CLI."
           background="alternate"
           highlights={[
             {
-              title: "FLEXIBLE",
-              text: "From domain knowledge copilots to customer data retrieval agents, compliance workflows to document processing at scale. Build what you need.",
+              title: "PROVEN IN DEFENSE",
+              text: "A U.S. Air Force contract funds our work, and our solutions are awardable for immediate acquisition by the Department of War.",
               illustration: highlightPosterA,
-              link: { text: "Explore use cases", href: "#use-cases" },
+              link: { text: "Read the white paper", href: whitePaperLink },
             },
             {
               title: "BUILD WORKFLOWS WITH LANGUAGE",
@@ -366,7 +604,7 @@ export default function Home() {
               title: "FULL AUDIT TRAIL",
               text: "Every AI action is logged with full attribution. Export logs for compliance reviews, investigations, or quality assurance.",
               videoSrc: "/filebuff-audit.mp4",
-              link: { text: "Learn about security", href: "#features" },
+              link: { text: "Explore use cases", href: "#use-cases" },
             },
             {
               title: "KEEP DATA PRIVATE",
@@ -375,18 +613,18 @@ export default function Home() {
               link: { text: "Contact us", href: "#contact" },
             },
           ]}
-        />
+        /> */}
 
         {/* Newsletter Epilogue */}
         <Epilogue
           id="contact"
-          title=""
+          title="Notify me when new apps launch"
           subtitle1=""
-          subtitle2="Get notified of product updates"
+          subtitle2="No spam. Just a heads-up when something new ships."
           illustration={epiloguePoster}
           background="alternate"
         >
-          <SubscribeInput placeholder="your@email.com" actionText="Contact" />
+          <SubscribeInput placeholder="your@email.com" actionText="Notify me" />
         </Epilogue>
       </main>
 

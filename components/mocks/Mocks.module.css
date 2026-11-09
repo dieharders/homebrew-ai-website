@@ -1,0 +1,727 @@
+/*
+ * Shared styles for the animated product mocks. Each mock is a fake app
+ * window; state changes come from React (see useLoop) and every visual change
+ * is a CSS transition, so reduced-motion users simply see the end state.
+ */
+
+.window {
+  --mono: var(--font-comic-mono), ui-monospace, monospace;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--ui-radius-lg);
+  box-shadow: var(--media-shadow, var(--shadow-dark-card));
+  font-size: 12px;
+  line-height: 1.4;
+  user-select: none;
+}
+
+.chrome {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.chromeLight {
+  background: #f1f3f5;
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+  color: rgba(31, 41, 55, 0.6);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff5f57;
+}
+.dot:nth-child(2) {
+  background: #febc2e;
+}
+.dot:nth-child(3) {
+  background: #28c840;
+}
+
+.chromeTitle {
+  margin-left: 8px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: 600;
+}
+
+/* ------------------------------------------------------------------ */
+/* PaperBuff                                                           */
+/* ------------------------------------------------------------------ */
+
+.pbWindow {
+  background: #e9ecef;
+  color: var(--text);
+  /* Same geometry as --shadow-dark-card, lighter: against this pale window the
+     full-strength shadow reads much heavier than it does on the dark mocks
+     (e.g. the registry), so it's toned down to look the same. */
+  box-shadow: var(--media-shadow, 0 8px 32px rgba(0, 0, 0, 0.2));
+}
+
+/* Fixed-size slot: every phase is stacked in one grid cell, so the cell is as
+   tall as the tallest phase and the live window never pushes the page around. */
+.pbSlot {
+  position: relative;
+  display: grid;
+}
+
+.pbGhost {
+  grid-area: 1 / 1;
+}
+
+/* Invisible sizing copies: take up space, never paint or animate. */
+.pbGhost {
+  visibility: hidden;
+}
+
+.pbGhost,
+.pbGhost * {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* The live window still grows and shrinks, centred in the reserved space.
+   Out of flow, so even a mid-transition frame that's taller than every ghost
+   can't resize the slot and shift the page. */
+.pbLive {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Loop restart: snap back to the plain draft instead of animating. Otherwise
+   the single-column layout returns instantly while the quote and figure are
+   still collapsing, a brief state taller than any real phase. */
+.pbReset .pbPage,
+.pbReset .pbColumns,
+.pbReset .pbQuote,
+.pbReset .pbFigure {
+  transition: none;
+}
+
+.pbStage {
+  position: relative;
+  padding: 18px 18px 64px;
+}
+
+.pbPage {
+  padding: 18px;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  transition: padding var(--transition-slow);
+}
+
+.pbKicker {
+  margin: 0 0 4px;
+  font-size: 10px;
+  color: var(--text-muted);
+  transition: var(--transition-slow);
+}
+
+.pbTitle {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.3;
+  transition: var(--transition-slow);
+}
+
+.pbDek {
+  margin: 4px 0 12px;
+  font-size: 11px;
+  color: var(--text-shade);
+  transition: var(--transition-slow);
+}
+
+.pbColumns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  transition: gap var(--transition-slow);
+}
+
+.pbCol {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pbLine {
+  display: block;
+  height: 6px;
+  border-radius: 3px;
+  background: #dee2e6;
+}
+
+.pbLineShort {
+  width: 60%;
+}
+
+/* The "typeset" state: real hierarchy, two columns, comfortable rhythm. */
+.pbTypeset {
+  padding: 22px 24px;
+}
+
+.pbTypeset .pbKicker {
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #0284c7;
+}
+
+.pbTypeset .pbTitle {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.pbTypeset .pbDek {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.pbTypeset .pbColumns {
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.pbTypeset .pbCol {
+  gap: 8px;
+}
+
+/* Quote and figure: collapsed until their phase. */
+.pbQuote,
+.pbFigure {
+  max-height: 0;
+  margin: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    max-height var(--transition-slow),
+    opacity var(--transition-slow),
+    margin var(--transition-slow);
+}
+
+.pbShown {
+  max-height: 160px;
+  opacity: 1;
+  margin: 4px 0;
+}
+
+.pbQuote {
+  padding-left: 10px;
+  border-left: 3px solid #0284c7;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #075985;
+}
+
+.pbFigure figcaption {
+  margin-top: 6px;
+  font-size: 9.5px;
+  color: var(--text-muted);
+}
+
+.pbCubeWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 84px;
+  border-radius: 6px;
+  background: radial-gradient(circle at 50% 40%, #e0f2fe, #bae6fd);
+  perspective: 300px;
+}
+
+.pbCube {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  transform-style: preserve-3d;
+  animation: spin 6s linear infinite;
+}
+
+.pbCube span {
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid #0369a1;
+  background: rgba(56, 189, 248, 0.35);
+}
+
+.pbCube span:nth-child(1) { transform: translateZ(18px); }
+.pbCube span:nth-child(2) { transform: rotateY(180deg) translateZ(18px); }
+.pbCube span:nth-child(3) { transform: rotateY(90deg) translateZ(18px); }
+.pbCube span:nth-child(4) { transform: rotateY(-90deg) translateZ(18px); }
+.pbCube span:nth-child(5) { transform: rotateX(90deg) translateZ(18px); }
+.pbCube span:nth-child(6) { transform: rotateX(-90deg) translateZ(18px); }
+
+@keyframes spin {
+  from { transform: rotateX(-20deg) rotateY(0deg); }
+  to { transform: rotateX(-20deg) rotateY(360deg); }
+}
+
+.pbVoice {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: calc(100% - 32px);
+  padding: 7px 14px 7px 7px;
+  border-radius: 999px;
+  background: #1f2937;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.pbMic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #0284c7;
+}
+
+.pbWave {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 16px;
+}
+
+.pbWave i {
+  display: block;
+  width: 3px;
+  height: 4px;
+  border-radius: 2px;
+  background: #7dd3fc;
+  transition: height var(--transition-fast);
+}
+
+.pbListening .pbWave i {
+  animation: wave 0.9s ease-in-out infinite;
+}
+.pbListening .pbWave i:nth-child(2) { animation-delay: 0.1s; }
+.pbListening .pbWave i:nth-child(3) { animation-delay: 0.2s; }
+.pbListening .pbWave i:nth-child(4) { animation-delay: 0.3s; }
+.pbListening .pbWave i:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes wave {
+  0%, 100% { height: 4px; }
+  50% { height: 16px; }
+}
+
+.pbCommand {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 11.5px;
+}
+
+/* ------------------------------------------------------------------ */
+/* ScreenBuff                                                          */
+/* ------------------------------------------------------------------ */
+
+.sbWindow {
+  color: #fee2e2;
+  background: linear-gradient(160deg, #2a1518 0%, #150b0c 100%);
+}
+
+.sbRec {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+  flex-shrink: 0;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: #fca5a5;
+}
+
+.sbRec i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ef4444;
+  animation: blink 1.2s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to { visibility: hidden; }
+}
+
+.sbViewport {
+  position: relative;
+  margin: 12px;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: var(--ui-radius-md);
+  background: #fff;
+}
+
+.sbScreen {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.9s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.sbApp {
+  display: flex;
+  height: 100%;
+  color: var(--text);
+}
+
+.sbSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 18%;
+  padding: 10px 8px;
+  background: #f8f9fa;
+  border-right: 1px solid #e9ecef;
+}
+
+.sbSidebar span {
+  height: 6px;
+  border-radius: 3px;
+  background: #dee2e6;
+}
+
+.sbSidebar .sbLogo {
+  height: 14px;
+  width: 14px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  background: #dc2626;
+}
+
+.sbSidebar .sbNavActive {
+  background: #f87171;
+}
+
+.sbMain {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8%;
+  padding: 4%;
+}
+
+.sbTopbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sbHeading {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.sbButton {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #fff;
+  background: #dc2626;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.sbPressed {
+  transform: scale(0.94);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.3);
+}
+
+.sbCards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.sbCard {
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+  font-size: 8.5px;
+  color: var(--text-muted);
+}
+
+.sbCard b {
+  font-size: 11px;
+  color: var(--text);
+}
+
+.sbTable {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sbTable span {
+  height: 12px;
+  border-radius: 4px;
+  background: #f1f3f5;
+  transition: background var(--transition-smooth);
+}
+
+.sbTable .sbRowActive {
+  background: #fee2e2;
+  box-shadow: inset 0 0 0 1px #f87171;
+}
+
+.sbCursor {
+  position: absolute;
+  z-index: 2;
+  margin: -2px 0 0 -3px;
+  transition:
+    left 0.9s cubic-bezier(0.65, 0, 0.35, 1),
+    top 0.9s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.sbCursor::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  margin: -9px 0 0 -9px;
+  border-radius: 50%;
+  background: rgba(220, 38, 38, 0.45);
+  transform: scale(0);
+  opacity: 0;
+}
+
+.sbClick::after {
+  animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+  0% { transform: scale(0.2); opacity: 1; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+.sbCallout {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  max-width: calc(100% - 20px);
+  padding: 6px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #fff;
+  background: #dc2626;
+  box-shadow: 0 6px 18px rgba(127, 29, 29, 0.4);
+  opacity: 0;
+  transform: translate(-50%, 8px);
+  transition:
+    opacity var(--transition-smooth),
+    transform var(--transition-smooth);
+}
+
+.sbCalloutShown {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.sbTimeline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px 12px;
+}
+
+.sbTrackLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: rgba(254, 226, 226, 0.5);
+}
+
+.sbTrack {
+  position: relative;
+  flex: 1;
+  height: 16px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.sbSegment {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #dc2626, #f87171);
+}
+
+.sbPlayhead {
+  position: absolute;
+  top: -3px;
+  bottom: -3px;
+  width: 2px;
+  border-radius: 1px;
+  background: #fff;
+  transition: left 1.1s linear;
+}
+
+/* ------------------------------------------------------------------ */
+/* Asset registry                                                      */
+/* ------------------------------------------------------------------ */
+
+/* Colours follow the registry mark (public/icons/registry.svg): its near-black plate for the
+   window, its amber, emerald and rose bands for the prompt, strings and tiers. */
+.rgWindow {
+  color: #e5e7eb;
+  background: linear-gradient(200deg, #262a38 0%, #14151d 45%, #0b0b12 100%);
+}
+
+.rgBody {
+  padding: 16px;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.rgCall {
+  min-height: 3.2em;
+  color: #e5e7eb;
+  margin: 0 0 12px;
+  word-break: break-word;
+}
+
+.rgPrompt {
+  color: #fbbf24;
+  font-weight: 700;
+}
+
+.rgString {
+  color: #34d399;
+}
+
+.rgCaret {
+  display: inline-block;
+  width: 7px;
+  height: 1em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: #fbbf24;
+  animation: blink 1s steps(2, start) infinite;
+}
+
+.rgResults {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rgResult {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: var(--ui-radius-sm);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity var(--transition-smooth),
+    transform var(--transition-smooth);
+}
+
+.rgResultShown {
+  opacity: 1;
+  transform: none;
+}
+
+.rgName {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #fff;
+}
+
+.rgMeta {
+  flex-shrink: 0;
+  color: rgba(229, 231, 235, 0.5);
+  font-size: 11px;
+}
+
+.rgTier {
+  flex-shrink: 0;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.12);
+}
+
+/* dark ink, not var(--text): the gradient is fixed, so the text on it must be too */
+.rgTierPro {
+  color: #1a0a10;
+  background: linear-gradient(90deg, #fb7185, #fbbf24);
+}
+
+.rgFooter {
+  margin: 12px 0 0;
+  font-size: 11px;
+  color: rgba(229, 231, 235, 0.55);
+  opacity: 0;
+  transition: opacity var(--transition-smooth);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pbCube,
+  .pbListening .pbWave i,
+  .sbRec i,
+  .rgCaret {
+    animation: none;
+  }
+
+  /* useLoop swaps the server-rendered first tick for the resting frame on
+     mount; with transitions off that's an instant cut, not a camera move. */
+  .window,
+  .window * {
+    transition: none !important;
+  }
+}
+
+/* Declared after .rgFooter so the shown state wins over its base opacity. */
+.rgFooter.rgResultShown {
+  opacity: 1;
+}

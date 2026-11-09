@@ -1,0 +1,428 @@
+/*
+ * Mobile: intro → visual → details, so the visual isn't buried under the
+ * feature list. Desktop: copy in one column, visual beside it, alternating
+ * sides per app.
+ */
+.spotlight {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "intro" "media" "details";
+  gap: var(--space-6);
+}
+
+.intro {
+  grid-area: intro;
+}
+
+.details {
+  grid-area: details;
+}
+
+.media {
+  grid-area: media;
+}
+
+@media screen and (min-width: 960px) {
+  .spotlight {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "intro media" "details media";
+    column-gap: var(--space-8);
+    row-gap: 0;
+  }
+
+  .flipped {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    grid-template-areas: "media intro" "media details";
+  }
+
+  .media {
+    align-self: center;
+  }
+
+  .intro {
+    padding-bottom: var(--space-6);
+  }
+}
+
+.identity {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--ui-radius-md);
+}
+
+.name {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.status {
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+/* Live apps show no pill; in progress and coming soon are outlined in the
+   app's hue on a plain background. */
+.status-in-progress,
+.status-soon {
+  color: var(--app-accent);
+  border: 1px solid color-mix(in srgb, var(--app-accent) 40%, transparent);
+  background: var(--background);
+}
+
+.headline {
+  margin: 0 0 var(--space-4);
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.3px;
+  color: var(--text);
+}
+
+/* No bottom margin: the grid gap (mobile) or .intro padding (desktop) spaces it. */
+.pitch {
+  margin: 0;
+  max-width: 56ch;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--text-shade);
+}
+
+.features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5) var(--space-6);
+  margin: 0 0 var(--space-6);
+}
+
+@media screen and (min-width: 560px) {
+  .features {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* "Show more" toggle for the feature cards. */
+.moreToggle {
+  margin-bottom: var(--space-6);
+  font-size: 0.95rem;
+  color: var(--app-accent);
+}
+
+.moreToggle:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.feature {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-color);
+}
+
+.feature dt {
+  margin-bottom: var(--space-1);
+}
+
+.featureLabel {
+  display: block;
+  margin-bottom: 2px;
+  font-family: var(--font-comic-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--app-accent);
+}
+
+.featureTitle {
+  display: block;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+.featureText {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--text-shade);
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-5);
+  margin-bottom: var(--space-6);
+}
+
+/* Label and platforms stack on the left; the arrow chip sits on the right,
+   centred across both lines. */
+.cta {
+  --cta-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  grid-template-areas: "label arrow" "platforms arrow";
+  align-items: center;
+  column-gap: var(--space-5);
+  row-gap: 2px;
+  padding: var(--space-3) var(--space-3) var(--space-3) var(--space-5);
+  border-radius: var(--ui-radius-md);
+  font-weight: 700;
+  /* Each spotlight's own hue, lit from the top like the Plans cards: a lighter
+     tint of the accent at the top settling into the full colour. The lit top
+     pulls white text below 4.5:1, so a soft dark text-shadow keeps the label
+     legible where it sits in the highlight. */
+  color: #fff;
+  text-shadow: 0 1px 2px color-mix(in srgb, var(--app-accent), #000 45%);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--app-accent), #fff 35%) 0%,
+    var(--app-accent) 45%
+  );
+  box-shadow:
+    var(--shadow-sm),
+    0 6px 18px -6px color-mix(in srgb, var(--app-accent) 60%, transparent);
+  transition:
+    transform 0.35s var(--cta-ease),
+    box-shadow 0.35s var(--cta-ease);
+}
+
+.cta:hover,
+.cta:focus-visible {
+  transform: translateY(-3px);
+  box-shadow:
+    var(--shadow-card),
+    0 14px 32px -8px color-mix(in srgb, var(--app-accent) 70%, transparent);
+}
+
+.cta:active {
+  transform: translateY(0) scale(0.98);
+  transition-duration: 0.1s;
+}
+
+.ctaLabel {
+  grid-area: label;
+  white-space: nowrap;
+}
+
+/* Secondary line inside the button. Muted via opacity of the button's own
+   text colour so it stays legible on any accent. */
+.platforms {
+  grid-area: platforms;
+  font-size: 0.8rem;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+/* Round chip holding two arrows; overflow clips the one that's off-stage. */
+.ctaArrow {
+  grid-area: arrow;
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.18);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.25);
+  transition:
+    background 0.35s var(--cta-ease),
+    color 0.35s var(--cta-ease),
+    transform 0.35s var(--cta-ease);
+}
+
+.ctaArrow svg {
+  grid-area: 1 / 1;
+  transition: transform 0.45s var(--cta-ease);
+}
+
+.arrowOut {
+  animation: arrow-beckon 3.2s var(--cta-ease) infinite;
+}
+
+.arrowIn {
+  transform: translateX(-36px);
+}
+
+/* Hover: the chip turns white with an accent arrow, the old arrow shoots off
+   to the right and a new one slides in from the left. */
+.cta:hover .ctaArrow,
+.cta:focus-visible .ctaArrow {
+  background: #fff;
+  color: var(--app-accent);
+  transform: rotate(-8deg) scale(1.06);
+}
+
+.cta:hover .arrowOut,
+.cta:focus-visible .arrowOut {
+  animation: none;
+  transform: translateX(36px);
+}
+
+.cta:hover .arrowIn,
+.cta:focus-visible .arrowIn {
+  transform: translateX(0);
+  transition-delay: 0.08s;
+}
+
+/* Idle: a small double-nudge every few seconds so the button invites a click. */
+@keyframes arrow-beckon {
+  0%,
+  70%,
+  100% {
+    transform: translateX(0);
+  }
+  78% {
+    transform: translateX(5px);
+  }
+  84% {
+    transform: translateX(0);
+  }
+  90% {
+    transform: translateX(3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta,
+  .ctaArrow,
+  .ctaArrow svg {
+    transition: none;
+  }
+
+  .arrowOut {
+    animation: none;
+  }
+
+  .cta:hover,
+  .cta:focus-visible {
+    transform: none;
+  }
+}
+
+.media {
+  position: relative;
+  min-width: 0;
+}
+
+/* The media's drop shadow is tinted with the app's accent instead of a
+   separate glow layer. Mocks and videos read this via
+   var(--media-shadow, <their default>). */
+.mediaInner {
+  position: relative;
+  --media-shadow: 0 12px 40px
+    color-mix(in srgb, var(--app-accent) 35%, transparent);
+}
+
+/*
+ * Scroll transitions. Scroll-driven (no JS): an "in" over entry, an "out" as
+ * the element leaves the top; fill modes are split so they never fight.
+ *
+ * The copy slides in from its own side while the visual swings in from the
+ * other on a 3D hinge, so each spotlight "opens" toward the reader. --dir
+ * flips for the mirrored layout. On the way out the visual sinks back and
+ * the copy drifts up, like a parallax.
+ *
+ * The "out" range is anchored to the element's bottom edge: it runs over the
+ * last 30vh before that edge leaves the top. Plain `exit 0%` would start as
+ * soon as a block taller than the viewport touched the bottom, fading copy
+ * that is still being read. `exit 100%` is always "bottom edge at the top",
+ * and the 30vh offset is in scroll distance, so it's height-independent.
+ *
+ * .details holds the RevealMore region, so its "in" range uses `cover`
+ * offsets in viewport units (measured from its top edge entering) instead of
+ * percentages of its own height — expanding it can't rewind a finished "in".
+ */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .spotlight {
+      --dir: 1;
+    }
+
+    .flipped {
+      --dir: -1;
+    }
+
+    .intro {
+      animation:
+        spot-copy-in linear backwards,
+        spot-copy-out linear forwards;
+      animation-timeline: view(), view();
+      animation-range:
+        entry 0% cover 35%,
+        exit calc(100% - 30vh) exit 100%;
+    }
+
+    .details {
+      animation:
+        spot-details-in linear backwards,
+        spot-copy-out linear forwards;
+      animation-timeline: view(), view();
+      animation-range:
+        cover 2vh cover 40vh,
+        exit calc(100% - 30vh) exit 100%;
+    }
+
+    .media {
+      animation:
+        spot-media-in linear backwards,
+        spot-media-out linear forwards;
+      animation-timeline: view(), view();
+      animation-range:
+        entry 0% cover 40%,
+        exit calc(100% - 30vh) exit 100%;
+    }
+  }
+}
+
+@keyframes spot-copy-in {
+  from {
+    opacity: 0;
+    translate: calc(var(--dir) * -60px) 0;
+  }
+}
+
+@keyframes spot-details-in {
+  from {
+    opacity: 0;
+    translate: 0 40px;
+  }
+}
+
+@keyframes spot-copy-out {
+  to {
+    opacity: 0;
+    translate: 0 -60px;
+  }
+}
+
+@keyframes spot-media-in {
+  from {
+    opacity: 0;
+    transform: perspective(1200px) translateX(calc(var(--dir) * 80px))
+      rotateY(calc(var(--dir) * -28deg)) scale(0.88);
+  }
+}
+
+@keyframes spot-media-out {
+  to {
+    opacity: 0.2;
+    transform: perspective(1200px) translateY(-40px) rotateX(12deg) scale(0.9);
+  }
+}

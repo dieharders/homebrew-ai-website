@@ -10,11 +10,11 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "OpenBrew.ai — AI-native multimedia apps for everyone",
+  title: "OpenBrew.ai — Creative tools for personal agents",
   // Leads with the app names so the suite is what surfaces in search results,
   // and stays under ~160 chars so Google doesn't truncate it.
   description:
-    "The AI-native app suite built to get your work done without burning credits.",
+    "Agent-native creative apps: MotionBuff turns files into video, FileBuff automates your workspace, plus PaperBuff and ScreenBuff.",
   applicationName: "OpenBrew.ai",
   metadataBase: new URL(`https://www.openbrew.ai`),
   alternates: {
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
   // was cropping it into a small square thumbnail.
   twitter: { card: "summary_large_image", images: [{ url: cardWide.src }] },
   openGraph: {
-    title: "OpenBrew.ai — AI-native apps for all",
+    title: "OpenBrew.ai — Creative tools for personal agents",
     description:
-      "The AI-native app suite built to get your work done without burning credits.",
+      "Agent-native creative apps: MotionBuff turns files into video, FileBuff automates your workspace, PaperBuff and ScreenBuff.",
     url: "https://www.openbrew.ai",
     siteName: "OpenBrew.ai",
     type: "website",

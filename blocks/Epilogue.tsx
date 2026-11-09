@@ -24,10 +24,10 @@ export default function Epilogue(p: {
         <div className={styles.illustration} style={p.illustration}></div>
       </div>
       <div className={styles.header}>
-        <h2 className={styles.title}>{p.title}</h2>
-        <h4 className={styles.subtitle1}>{p.subtitle1}</h4>
+        {p.title && <h2 className={styles.title}>{p.title}</h2>}
+        {p.subtitle1 && <h4 className={styles.subtitle1}>{p.subtitle1}</h4>}
         {p.children}
-        <p className={styles.subtitle2}>{p.subtitle2}</p>
+        {p.subtitle2 && <p className={styles.subtitle2}>{p.subtitle2}</p>}
       </div>
     </Section>
   );

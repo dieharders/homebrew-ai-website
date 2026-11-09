@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!--
+    The app mark: the slanted play arrow, extruded, on a matching extruded brand tile.
+
+    This file is the DESIGN SOURCE for every platform's icon — `bun run icons` rasterises it with
+    the vendored headless Chrome into `assets/icon.ico`, which the build embeds. Edit here, then
+    re-run that; see the Icons section of README.md.
+
+    Drawn at 256 rather than the old 32 so the extrusion's coordinates are whole-ish numbers; the
+    generator scales the viewBox to every size it needs, so the box is a precision choice, not a
+    size. Ids are prefixed `mb` because an inlined copy shares the host document's id space.
+
+    The tile and the arrow share ONE tilt (-14°) and ONE extrusion vector (-15, +15), so they read
+    as two slabs of the same solid lit from the same side. The tile casts no shadow — it is the
+    ground; only the arrow, floating above it, does.
+  -->
+  <defs>
+    <!-- brand gradient: the original favicon's stops and angle, unchanged -->
+    <linearGradient id="mbBg" x1="0.21" y1="0.91" x2="0.79" y2="0.09">
+      <stop offset="0" stop-color="#7c3aed" />
+      <stop offset="0.5" stop-color="#6366f1" />
+      <stop offset="1" stop-color="#22d3ee" />
+    </linearGradient>
+
+    <!-- top-right sheen, so the tile itself reads as lit from the same side as the arrow -->
+    <radialGradient id="mbSheen" cx="0.76" cy="0.14" r="0.85">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.22" />
+      <stop offset="0.6" stop-color="#ffffff" stop-opacity="0.04" />
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- The tile's extrusion wall. Its axis runs corner-to-corner across the back face, which
+         puts the top of the LEFT wall at 0, the bottom-left corner at 0.5 and the far end of the
+         BOTTOM wall at 1 — so one gradient shades both visible walls, lightest where they meet
+         the light and darkest where they turn away. Tones are the brand hues in deep shade. -->
+    <linearGradient id="mbTileWall" gradientUnits="userSpaceOnUse" x1="-15" y1="15" x2="241" y2="271">
+      <stop offset="0" stop-color="#4b46a8" />
+      <stop offset="0.5" stop-color="#4a1f9e" />
+      <stop offset="1" stop-color="#241d5e" />
+    </linearGradient>
+
+    <!-- front face -->
+    <linearGradient id="mbFace" gradientUnits="userSpaceOnUse" x1="183" y1="95" x2="95" y2="180">
+      <stop offset="0" stop-color="#ffffff" />
+      <stop offset="0.55" stop-color="#f4f2ff" />
+      <stop offset="1" stop-color="#ddd7fb" />
+    </linearGradient>
+
+    <!-- left extrusion wall -->
+    <linearGradient id="mbWallL" gradientUnits="userSpaceOnUse" x1="88" y1="90" x2="97" y2="196">
+      <stop offset="0" stop-color="#cfc6f6" />
+      <stop offset="1" stop-color="#8f7fd8" />
+    </linearGradient>
+
+    <!-- lower-right wall: turned furthest from the light, so it carries the darkest tone -->
+    <linearGradient id="mbWallB" gradientUnits="userSpaceOnUse" x1="180" y1="118" x2="104" y2="192">
+      <stop offset="0" stop-color="#8878d6" />
+      <stop offset="1" stop-color="#5b4bb4" />
+    </linearGradient>
+
+    <!-- Cast down-LEFT, following the extrusion, and deep enough to read as a shadow rather than
+         a haze — the tile underneath is a saturated violet, which swallows a light one. -->
+    <filter id="mbCast" x="-45%" y="-45%" width="190%" height="190%">
+      <feDropShadow dx="-11" dy="13" stdDeviation="10" flood-color="#140e33" flood-opacity="0.55" />
+    </filter>
+  </defs>
+
+  <!--
+    Nothing behind the tile: the corners MUST stay transparent, which is the whole reason the .ico
+    is generated from this file rather than by an online converter — and now more of the box is
+    transparent than before, since the tile is tilted and no longer full-bleed.
+
+    0.83 is the largest scale at which the TILTED, EXTRUDED tile still fits the viewBox: the
+    rounded rect's support in the rotated axis is 141.58, plus 15 of depth and 2.5 of stroke on one
+    side each = a 303-unit span. The trailing translate re-centres that span, which is asymmetric
+    because the depth only ever runs down-left. Tile and arrow scale TOGETHER, so the arrow keeps
+    the framing it was tuned for.
+  -->
+  <g transform="translate(128 128) scale(0.83) translate(-128 -128) translate(7.5 -7.5)">
+    <g transform="rotate(-14 128 128)">
+      <!-- Back face, offset down-left by the same vector as the arrow's. The sliver it leaves
+           uncovered IS the left + bottom wall: for a convex shape the union of the two copies is
+           the swept solid to within ~0.5 unit at the two grazing corners, and the round-joined
+           stroke closes that without a second silhouette path. -->
+      <rect x="-15" y="15" width="256" height="256" rx="64" fill="url(#mbTileWall)"
+            stroke="url(#mbTileWall)" stroke-width="5" stroke-linejoin="round" />
+      <!-- front face, then its sheen -->
+      <rect width="256" height="256" rx="64" fill="url(#mbBg)" />
+      <rect width="256" height="256" rx="64" fill="url(#mbSheen)" />
+    </g>
+
+    <!--
+      The extrusion runs down-left, so the solid's mass sits low and left of the front face. Nudge
+      and scale the whole group to optically centre it in the tile, and to give the arrow more of
+      the frame at 16 px — where the tile is just 16 px of gradient and the arrow is what has to
+      survive.
+    -->
+    <g transform="translate(128 128) scale(1.07) translate(-128 -128) translate(9 -8)">
+      <!-- Faces are painted back-to-front and stroked in their own fill (round joins) so the seams
+           close and the corners soften by ~2.5 units without a second silhouette path. -->
+      <g filter="url(#mbCast)" stroke-linejoin="round" stroke-width="5">
+        <!-- back face: seals the swept silhouette behind the walls -->
+        <path d="M72.8 101.5 L168.3 129.2 L97 198.5 Z" fill="#4a3c98" stroke="#4a3c98" />
+        <!-- the two walls the light can see, offset (-15, +15) from the front face -->
+        <path d="M112 183.5 L183.3 114.2 L168.3 129.2 L97 198.5 Z" fill="url(#mbWallB)" stroke="#6d5cc6" />
+        <path d="M87.8 86.5 L112 183.5 L97 198.5 L72.8 101.5 Z" fill="url(#mbWallL)" stroke="#a998e4" />
+        <!-- front face: the play triangle, rotated -14° about the tile centre -->
+        <path d="M87.8 86.5 L183.3 114.2 L112 183.5 Z" fill="url(#mbFace)" stroke="#ffffff" />
+      </g>
+    </g>
+  </g>
+</svg>

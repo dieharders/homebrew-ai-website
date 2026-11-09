@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!--
+    The ScreenBuff mark: an extruded arrow cursor on an extruded red recording dot. A sibling of
+    motionbuff.svg, filebuff.svg and paperbuff.svg: same -14° tilt, same (-15, +15) extrusion and
+    the same top-right light, with a base shape of its own.
+
+    The coordinates were computed, not hand-placed: every shape is a convex core polygon
+    rounded outward by a radius (the disc is a single point rounded by its radius). Sweeping
+    such a shape along the extrusion is the rounded hull of the core and its shifted copy, so
+    each wall silhouette below is exact. The cursor is not convex, so it is built from two convex
+    parts, the arrowhead and the stem, each swept on its own. Shapes are drawn in the tilted frame
+    and rotated as a group. Ids are prefixed `sb` because an inlined copy shares the host
+    document's id space.
+
+    Scale 0.980 fits the tilted, extruded disc to a 246-unit span, a few units inside the
+    256 box so the edges don't clip when antialiased. The translate re-centres that span.
+  -->
+  <defs>
+    <!-- disc face: deep red low-left, record red, coral where the light lands -->
+    <linearGradient id="sbBg" x1="0.21" y1="0.91" x2="0.79" y2="0.09">
+      <stop offset="0" stop-color="#b91c1c" />
+      <stop offset="0.5" stop-color="#ef4444" />
+      <stop offset="1" stop-color="#fda4af" />
+    </linearGradient>
+
+    <radialGradient id="sbSheen" cx="0.76" cy="0.14" r="0.85">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.24" />
+      <stop offset="0.6" stop-color="#ffffff" stop-opacity="0.05" />
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Disc wall. The axis runs between the points where the wall starts and ends (the
+         extremes perpendicular to the extrusion), so one gradient shades the whole visible rim:
+         lightest at its upper-left end, darkest where it turns away at the lower-right. -->
+    <linearGradient id="sbTileWall" gradientUnits="userSpaceOnUse"
+                    x1="-69.9" y1="-95.7" x2="51.7" y2="106.6">
+      <stop offset="0" stop-color="#991b1b" />
+      <stop offset="0.5" stop-color="#7f1d1d" />
+      <stop offset="1" stop-color="#3b0a0a" />
+    </linearGradient>
+
+    <!-- cursor face: white, warming to a pale rose low-left -->
+    <linearGradient id="sbFace" gradientUnits="userSpaceOnUse"
+                    x1="57.8" y1="-74.5" x2="-23.8" y2="61.5">
+      <stop offset="0" stop-color="#ffffff" />
+      <stop offset="0.55" stop-color="#fff6f6" />
+      <stop offset="1" stop-color="#fde1e3" />
+    </linearGradient>
+
+    <!-- cursor walls: pale rose-grey on the left, rose-brown on the lower edges -->
+    <linearGradient id="sbWall" gradientUnits="userSpaceOnUse"
+                    x1="-30.5" y1="-61.6" x2="30.1" y2="59.3">
+      <stop offset="0" stop-color="#f6dede" />
+      <stop offset="0.45" stop-color="#cf9a9a" />
+      <stop offset="1" stop-color="#7f3a3a" />
+    </linearGradient>
+
+    <!-- cast down-left, deep maroon so it reads on the saturated red -->
+    <filter id="sbCast" x="-45%" y="-45%" width="190%" height="190%">
+      <feDropShadow dx="-11" dy="13" stdDeviation="10" flood-color="#2a0606" flood-opacity="0.55" />
+    </filter>
+  </defs>
+
+  <g transform="translate(135.4 120.6) scale(0.9801)">
+    <g transform="rotate(-14)">
+      <!-- swept silhouette (the rim), then the face and its sheen -->
+      <path d="M-79 -90.2 L-60.8 -101.1 A118 118 0 0 1 60.8 101.1 L60.8 101.1 L42.6 112.1 A118 118 0 0 1 -79 -90.2Z" fill="url(#sbTileWall)" />
+      <circle r="118" fill="url(#sbBg)" />
+      <circle r="118" fill="url(#sbSheen)" />
+    </g>
+
+    <g filter="url(#sbCast)">
+      <g transform="rotate(-14)">
+        <!-- walls of both parts under both front faces, so the stem joins the head seamlessly -->
+        <path d="M-19.6 8.2 L-1.4 -2.7 A5 5 0 0 1 -0.8 -3 L-0.8 -3 L11.9 -8.4 A5 5 0 0 1 18.5 -5.8 L18.5 -5.8 L41.2 47.6 A5 5 0 0 1 39.2 53.8 L39.2 53.8 L21 64.7 A5 5 0 0 1 20.4 65.1 L20.4 65.1 L7.7 70.5 A5 5 0 0 1 1.2 67.8 L1.2 67.8 L-21.6 14.5 A5 5 0 0 1 -19.6 8.2Z" fill="url(#sbWall)" />
+        <path d="M-39.6 -56.1 L-21.4 -67.1 A5 5 0 0 1 -15.3 -66.4 L-15.3 -66.4 L52.3 -1.6 A5 5 0 0 1 51.4 6.3 L51.4 6.3 L33.2 17.2 A5 5 0 0 1 32.6 17.6 L32.6 17.6 L-35.1 45.7 A5 5 0 0 1 -42 41.1 L-42 41.1 L-42 -51.9 A5 5 0 0 1 -39.6 -56.1Z" fill="url(#sbWall)" />
+        <path d="M18.5 -5.8 L41.2 47.6 A5 5 0 0 1 38.6 54.1 L38.6 54.1 L25.9 59.5 A5 5 0 0 1 19.3 56.9 L19.3 56.9 L-3.4 3.6 A5 5 0 0 1 -0.8 -3 L-0.8 -3 L11.9 -8.4 A5 5 0 0 1 18.5 -5.8Z" fill="url(#sbFace)" />
+        <path d="M-15.3 -66.4 L52.3 -1.6 A5 5 0 0 1 50.7 6.6 L50.7 6.6 L-16.9 34.8 A5 5 0 0 1 -23.8 30.2 L-23.8 30.2 L-23.8 -62.8 A5 5 0 0 1 -15.3 -66.4Z" fill="url(#sbFace)" />
+      </g>
+    </g>
+  </g>
+</svg>

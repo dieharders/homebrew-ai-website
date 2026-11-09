@@ -1,0 +1,250 @@
+.header {
+  max-width: var(--section-header-max-width);
+  margin: 0 auto var(--space-7);
+  text-align: center;
+}
+
+.accentLine {
+  width: 60px;
+  height: 3px;
+  margin: 0 auto var(--space-5);
+  border-radius: var(--ui-radius-sm);
+  background: var(--accent-gold-line);
+}
+
+.title {
+  margin: 0 0 var(--space-4);
+  font-size: var(--h1-font-size);
+  font-weight: 400;
+  line-height: var(--h1-line-height);
+  letter-spacing: var(--h1-letter-spacing);
+}
+
+.subtitle {
+  margin: 0 auto;
+  max-width: 620px;
+  font-size: var(--subtitle-font-size);
+  line-height: var(--subtitle-line-height);
+  color: var(--text-shade);
+}
+
+.plans {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media screen and (min-width: 860px) {
+  .plans {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: stretch;
+  }
+}
+
+.plan {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-6);
+  border-radius: var(--ui-radius-lg);
+  border: 1px solid var(--border-color);
+  background: var(--background);
+  box-shadow: var(--shadow-sm);
+}
+
+.featured {
+  border: 2px solid var(--accent-btn);
+  background: linear-gradient(180deg, var(--accent-light) 0%, var(--background) 45%);
+  box-shadow: var(--shadow-card);
+}
+
+.name {
+  font-family: var(--font-comic-mono), ui-monospace, monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+}
+
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin: var(--space-2) 0 var(--space-3);
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.cadence {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.text {
+  margin: 0 0 var(--space-4);
+  color: var(--text-shade);
+}
+
+.includes {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-5);
+  padding: 0;
+  list-style: none;
+  font-size: 0.95rem;
+}
+
+.includes li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.includes li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  font-weight: 800;
+  color: var(--accent-dark);
+}
+
+.cta {
+  display: block;
+  padding: var(--space-3);
+  border-radius: var(--ui-radius-md);
+  border: 1px solid var(--border-color);
+  text-align: center;
+  font-weight: 700;
+  color: var(--text);
+  transition: background var(--transition-fast);
+}
+
+.cta:hover {
+  background: var(--background-alternate);
+}
+
+.featured .cta {
+  border-color: transparent;
+  background: var(--accent-btn);
+}
+
+.featured .cta:hover {
+  background: var(--accent-normal);
+}
+
+/*
+ * Scroll transitions. Scroll-driven (no JS): an "in" over entry, an "out" as
+ * the element leaves the top; fill modes are split so they never fight.
+ *
+ * On desktop the three cards fan out from a stack behind the featured plan,
+ * like a hand of cards being spread, and the featured one rises up front.
+ * On the way out they fold back in. Stacked (mobile) cards just rise.
+ */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .header {
+      animation:
+        plans-header-in linear backwards,
+        plans-fade-out linear forwards;
+      animation-timeline: view(), view();
+      animation-range:
+        entry 0% cover 35%,
+        exit 20% exit 100%;
+    }
+
+    .plan {
+      animation:
+        plans-rise-in linear backwards,
+        plans-fade-out linear forwards;
+      animation-timeline: view(), view();
+      animation-range:
+        entry 0% cover 30%,
+        exit 30% exit 100%;
+    }
+
+    @media screen and (min-width: 860px) {
+      .plan {
+        --fan: 0;
+        transform-origin: 50% 120%;
+        animation-name: plans-fan-in, plans-fold-out;
+        animation-range:
+          entry 10% cover 40%,
+          exit 20% exit 100%;
+      }
+
+      .plan:first-child {
+        --fan: -1;
+      }
+
+      .plan:last-child {
+        --fan: 1;
+      }
+
+      .featured {
+        position: relative;
+        z-index: 1;
+        animation-name: plans-featured-in, plans-fold-out;
+      }
+    }
+  }
+}
+
+@keyframes plans-header-in {
+  from {
+    opacity: 0;
+    translate: 0 40px;
+    filter: blur(6px);
+  }
+}
+
+@keyframes plans-fade-out {
+  to {
+    opacity: 0;
+    translate: 0 -30px;
+  }
+}
+
+@keyframes plans-rise-in {
+  from {
+    opacity: 0;
+    translate: 0 60px;
+    scale: 0.94;
+  }
+}
+
+/* Side cards start tucked behind the centre one, tilted, and swing out. */
+@keyframes plans-fan-in {
+  from {
+    opacity: 0;
+    translate: calc(var(--fan) * -105%) 80px;
+    rotate: calc(var(--fan) * 14deg);
+    scale: 0.85;
+  }
+  60% {
+    opacity: 1;
+  }
+}
+
+@keyframes plans-featured-in {
+  from {
+    opacity: 0;
+    translate: 0 120px;
+    scale: 0.85;
+  }
+  75% {
+    scale: 1.03;
+  }
+}
+
+@keyframes plans-fold-out {
+  to {
+    opacity: 0;
+    translate: calc(var(--fan, 0) * -40%) -40px;
+    rotate: calc(var(--fan, 0) * 6deg);
+    scale: 0.9;
+  }
+}

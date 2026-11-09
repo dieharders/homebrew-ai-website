@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import styles from "./Header.module.css";
 import { cx } from "@/utils/common";
 import { scrollToHashOnClick } from "@/utils/hashLink";
-import { APPS } from "@/data/apps";
+import { APPS, STATUS_LABEL, isExternal } from "@/data/apps";
 
 export interface NavItem {
   label: string;
@@ -22,7 +22,7 @@ const defaultNavItems: NavItem[] = [
   // { label: "Features", href: "/#features" },
   { label: "Home", href: "/" },
   { label: "Apps", href: "/#apps" },
-  { label: "Purchase", href: "/buy" },
+  { label: "Pricing", href: "/#pricing" },
   { label: "Jobs", href: "/jobs" },
 ];
 
@@ -75,10 +75,15 @@ export default function Header(p: {
         <Link
           key={app.id}
           href={app.href}
-          target={app.external ? "_blank" : undefined}
-          rel={app.external ? "noopener noreferrer" : undefined}
+          target={isExternal(app) ? "_blank" : undefined}
+          rel={isExternal(app) ? "noopener noreferrer" : undefined}
           className={appLinkClass}
-          onClick={() => setIsMenuOpen(false)}
+          onClick={(e) => {
+            // Unreleased apps link to their spotlight (`/#paperbuff`), which a
+            // repeat click wouldn't scroll to. Left alone for new-tab links.
+            if (!isExternal(app)) scrollToHashOnClick(app.href)(e);
+            setIsMenuOpen(false);
+          }}
         >
           <span
             className={cx(
@@ -86,7 +91,9 @@ export default function Header(p: {
               app.iconBg,
             )}
             title={
-              app.comingSoon ? "Coming Soon..." : `${app.name}: ${app.tagline}`
+              app.status === "live"
+                ? `${app.name}: ${app.tagline}`
+                : `${STATUS_LABEL[app.status]}...`
             }
           >
             {app.icon}

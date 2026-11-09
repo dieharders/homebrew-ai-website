@@ -2,7 +2,7 @@
   max-width: var(--section-header-max-width);
   margin: 0 auto;
   margin-bottom: var(--space-8);
-  overflow: hidden;
+  overflow: clip;
 }
 
 .accentLine {
@@ -144,5 +144,112 @@
 @media screen and (min-width: 800px) {
   .features {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/*
+ * Scroll transitions. Scroll-driven (no JS): an "in" over entry, an "out" as
+ * the element leaves the top; fill modes are split so they never fight.
+ * Individual translate/scale are animated so the hover lift still works.
+ *
+ * Cards rise out of a blur in a left-to-right wave across each row, and the
+ * icon pops in with a little spin just behind its card.
+ */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .header {
+      animation:
+        feat-header-in linear backwards,
+        feat-fade-out linear forwards;
+      animation-timeline: view(), view();
+      animation-range:
+        entry 0% cover 35%,
+        exit 20% exit 100%;
+    }
+
+    .feature {
+      --delay: 0%;
+      animation:
+        feat-card-in linear backwards,
+        feat-card-out linear forwards;
+      animation-timeline: view(), view();
+      animation-range:
+        entry var(--delay) cover calc(30% + var(--delay)),
+        exit 30% exit 100%;
+    }
+
+    .iconContainer {
+      animation: feat-icon-in linear backwards;
+      animation-timeline: view();
+      animation-range: entry calc(20% + var(--delay))
+        cover calc(40% + var(--delay));
+    }
+  }
+}
+
+/* Wave across the row: 2 columns, then 3 from 800px. */
+@media screen and (min-width: 480px) {
+  .feature:nth-child(2n) {
+    --delay: 8%;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .feature:nth-child(2n) {
+    --delay: 0%;
+  }
+
+  .feature:nth-child(3n + 2) {
+    --delay: 8%;
+  }
+
+  .feature:nth-child(3n) {
+    --delay: 16%;
+  }
+}
+
+@keyframes feat-header-in {
+  from {
+    opacity: 0;
+    translate: 0 40px;
+    filter: blur(6px);
+  }
+}
+
+@keyframes feat-fade-out {
+  to {
+    opacity: 0;
+    translate: 0 -30px;
+  }
+}
+
+@keyframes feat-card-in {
+  from {
+    opacity: 0;
+    translate: 0 70px;
+    scale: 0.9;
+    filter: blur(8px);
+  }
+}
+
+@keyframes feat-card-out {
+  to {
+    opacity: 0;
+    translate: 0 -30px;
+    scale: 0.95;
+    filter: blur(6px);
+  }
+}
+
+@keyframes feat-icon-in {
+  from {
+    scale: 0.3;
+    rotate: -25deg;
+    opacity: 0;
+  }
+  70% {
+    scale: 1.12;
+    rotate: 6deg;
+    opacity: 1;
   }
 }

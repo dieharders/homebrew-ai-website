@@ -4,6 +4,7 @@ import { useRef, useEffect } from "react";
 import styles from "./AccordionCard.module.css";
 import { cx } from "../utils/common";
 import VideoPlayer from "./VideoPlayer";
+import VideoPlaceholder from "./VideoPlaceholder";
 
 interface AccordionCardProps {
   title: string;
@@ -11,6 +12,8 @@ interface AccordionCardProps {
   expanded: boolean;
   onToggle: () => void;
   videoSrc?: string;
+  /** Shown in place of the video until `videoSrc` exists. */
+  videoPlaceholder?: { label: string; file?: string };
   readMoreHref?: string;
   readMoreLabel?: string;
   children?: React.ReactNode;
@@ -23,6 +26,7 @@ export default function AccordionCard({
   expanded,
   onToggle,
   videoSrc,
+  videoPlaceholder,
   readMoreHref,
   readMoreLabel = "Read more",
   children,
@@ -78,6 +82,14 @@ export default function AccordionCard({
                 muted
                 controls={false}
                 aspectRatio="16/9"
+              />
+            </div>
+          )}
+          {!videoSrc && videoPlaceholder && expanded && (
+            <div className={styles.video}>
+              <VideoPlaceholder
+                label={videoPlaceholder.label}
+                file={videoPlaceholder.file}
               />
             </div>
           )}

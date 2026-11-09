@@ -34,6 +34,23 @@ export default function VideoPlayer({
   const [isPlaying, setIsPlaying] = useState(autoPlay);
   const [showControls, setShowControls] = useState(false);
   const [isVisible, setIsVisible] = useState(!lazy);
+  // Under prefers-reduced-motion, autoplay is off; the play button still works.
+  const [reduceMotion, setReduceMotion] = useState(false);
+  const shouldAutoPlay = autoPlay && !reduceMotion;
+
+  useEffect(() => {
+    setReduceMotion(
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    );
+  }, []);
+
+  // A server-rendered <video autoplay> may already be playing by the time we
+  // know the preference, so stop it.
+  useEffect(() => {
+    if (!autoPlay || !reduceMotion) return;
+    videoRef.current?.pause();
+    setIsPlaying(false);
+  }, [autoPlay, reduceMotion, isVisible]);
 
   // Lazy loading with Intersection Observer
   useEffect(() => {
@@ -92,12 +109,12 @@ export default function VideoPlayer({
           className={cx(styles.video, aspectRatio === 'auto' && styles.videoAuto)}
           src={src}
           poster={poster}
-          autoPlay={autoPlay}
+          autoPlay={shouldAutoPlay}
           loop={loop}
           muted={muted}
           controls={controls}
           playsInline
-          preload={autoPlay ? 'auto' : 'metadata'}
+          preload={shouldAutoPlay ? 'auto' : 'metadata'}
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}
         />
