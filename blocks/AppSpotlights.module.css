@@ -182,8 +182,9 @@
   padding: var(--space-3) var(--space-5);
   border-radius: var(--ui-radius-md);
   font-weight: 700;
-  color: var(--text);
-  background: var(--accent-btn);
+  /* Each spotlight's own hue, at full strength. */
+  color: #fff;
+  background: var(--app-accent);
   box-shadow: var(--shadow-sm);
   transition:
     transform var(--transition-fast),
@@ -218,7 +219,7 @@
 .platforms {
   font-size: 0.8rem;
   font-weight: 400;
-  opacity: 0.7;
+  opacity: 0.85;
 }
 
 .media {
