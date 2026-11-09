@@ -7,7 +7,6 @@ import HowItWorks from "@/blocks/HowItWorks";
 import AssetRegistry from "@/blocks/AssetRegistry";
 import Plans from "@/blocks/Plans";
 import VideoPlayer from "@/components/VideoPlayer";
-import MotionBuffMock from "@/components/mocks/MotionBuffMock";
 import PaperBuffMock from "@/components/mocks/PaperBuffMock";
 import ScreenBuffMock from "@/components/mocks/ScreenBuffMock";
 import Features from "@/blocks/Features";
@@ -421,7 +420,17 @@ export default function Home() {
         {/* One detailed section per app */}
         <AppSpotlights
           media={{
-            motionbuff: <MotionBuffMock />,
+            motionbuff: (
+              <VideoPlayer
+                src="/motionbuff-demo.mp4"
+                className="shadow-[var(--shadow-dark-card)]"
+                autoPlay
+                loop
+                muted
+                aspectRatio="4/3"
+                lazy
+              />
+            ),
             filebuff: (
               <VideoPlayer
                 src="/filebuff-dashboard.mp4"
