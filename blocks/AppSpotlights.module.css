@@ -172,6 +172,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: var(--space-3) var(--space-5);
+  margin-bottom: var(--space-6);
 }
 
 /* Label and platforms stack on the left; the arrow chip sits on the right,

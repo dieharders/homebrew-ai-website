@@ -57,26 +57,6 @@ export default function AppSpotlights(p: {
               </div>
 
               <div className={styles.details}>
-                {/* Collapsed visually only: the cards are still in the HTML
-                    for crawlers. */}
-                <RevealMore
-                  buttonClassName={styles.moreToggle}
-                  moreLabel="More details"
-                  lessLabel="Hide details"
-                >
-                  <dl className={styles.features}>
-                    {app.features.map((f) => (
-                      <div key={f.label} className={styles.feature}>
-                        <dt>
-                          <span className={styles.featureLabel}>{f.label}</span>
-                          <span className={styles.featureTitle}>{f.title}</span>
-                        </dt>
-                        <dd className={styles.featureText}>{f.text}</dd>
-                      </div>
-                    ))}
-                  </dl>
-                </RevealMore>
-
                 <div className={styles.footer}>
                   {live ? (
                     <Link
@@ -103,6 +83,26 @@ export default function AppSpotlights(p: {
                     </Link>
                   )}
                 </div>
+
+                {/* Collapsed visually only: the cards are still in the HTML
+                    for crawlers. */}
+                <RevealMore
+                  buttonClassName={styles.moreToggle}
+                  moreLabel="More details"
+                  lessLabel="Hide details"
+                >
+                  <dl className={styles.features}>
+                    {app.features.map((f) => (
+                      <div key={f.label} className={styles.feature}>
+                        <dt>
+                          <span className={styles.featureLabel}>{f.label}</span>
+                          <span className={styles.featureTitle}>{f.title}</span>
+                        </dt>
+                        <dd className={styles.featureText}>{f.text}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </RevealMore>
               </div>
 
               <div className={styles.media}>
