@@ -187,11 +187,14 @@
   padding: var(--space-3) var(--space-3) var(--space-3) var(--space-5);
   border-radius: var(--ui-radius-md);
   font-weight: 700;
-  /* Each spotlight's own hue, with a soft top highlight for depth. */
+  /* Each spotlight's own hue, lit from the top like the Plans cards: a lighter
+     tint of the accent at the top settling into the full colour. */
   color: #fff;
-  background:
-    linear-gradient(180deg, rgb(255 255 255 / 0.14), transparent 60%),
-    var(--app-accent);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--app-accent), #fff 35%) 0%,
+    var(--app-accent) 45%
+  );
   box-shadow:
     var(--shadow-sm),
     0 6px 18px -6px color-mix(in srgb, var(--app-accent) 60%, transparent);
