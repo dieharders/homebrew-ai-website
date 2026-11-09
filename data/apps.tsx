@@ -65,26 +65,26 @@ export const APPS: T_App[] = [
       "Drop in a deck, PDF or doc. The agent writes the story, applies your brand and renders a finished video with narration and captions.",
     headline: "Turn files into motion video",
     pitch:
-      "MotionBuff is our agent-native motion studio. Hand it a prompt, slide deck or PDF and it builds the whole video: script, motion graphics, voiceover and captions.",
+      "MotionBuff is the agent-native motion studio. Give it a prompt, slide deck or PDF and it builds the whole video: script, motion graphics, voiceover and captions.",
     features: [
       {
         label: "BRAND",
-        title: "Brand rules enforced by the agent",
-        text: "Paste a URL or upload a brand kit. Colors, type and logos become a reusable theme the agent never breaks.",
+        title: "Brand rules enforced by agent",
+        text: "Paste a URL or brand kit, extract color, type and logos the agent never forgets.",
       },
       {
         label: "STORY",
-        title: "Edit the outline, not the timeline",
-        text: "Change a beat (hook, problem, proof, offer) and the voiceover, captions and motion update with it.",
+        title: "Edit the outline not timeline",
+        text: "Change a beat (hook, problem, proof, offer) and the voiceover, captions, motion update with it.",
       },
       {
         label: "DATA",
         title: "Personalized at scale",
-        text: "Fill one template from your CRM or BI data. Re-render when the numbers change instead of re-editing.",
+        text: "Auto update videos from your CRM data, instead of re-editing.",
       },
       {
         label: "REACH",
-        title: "Any language",
+        title: "Any language, any voice",
         text: "Narration and on-screen text in each viewer's language.",
       },
     ],
@@ -116,18 +116,18 @@ export const APPS: T_App[] = [
       },
       {
         label: "AUTOMATE",
-        title: "Workflows written like a to-do list",
+        title: "Workflows like a to-do list",
         text: "Describe a task once. FileBuff breaks it into steps and runs it on a schedule.",
       },
       {
         label: "CONNECT",
-        title: "Email, meetings, calendar and chats",
-        text: "Pulls Microsoft 365, calendars and file storage into one knowledge base.",
+        title: "Email, meetings, chats",
+        text: "Pull your Microsoft 365, calendar and file data into one knowledge base.",
       },
       {
         label: "AUDIT",
         title: "Every action on the record",
-        text: "Each query, answer and action is logged with timestamps and attribution for compliance review.",
+        text: "Each query, answer and action is logged and attributed for review.",
       },
     ],
     platforms: "Web only",
@@ -144,15 +144,15 @@ export const APPS: T_App[] = [
     external: false,
     tagline: "Voice-assisted documents",
     description:
-      "Talk to your document and it lays itself out. Automatic typography and layout, with 3D and interactive elements embedded right in the page.",
+      "Talk to your document and it styles itself. Automatic typography and layout, with 3D and interactive elements embedded right in the page.",
     headline: "Documents that design themselves",
     pitch:
-      "PaperBuff is a document editor you can talk to. Say what you want and the agent writes, restructures and typesets the page. Headings, pull quotes, figures and spacing are handled for you, and pages can hold live 3D models and interactive charts.",
+      "PaperBuff is a document editor you can talk to. Say what you want, the agent restructures the page. Headings, pull quotes, figures and spacing are handled for you. Pages can hold 3D models and interactive charts.",
     features: [
       {
         label: "VOICE",
         title: "Edit by speaking",
-        text: "“Make the intro shorter and pull out that quote.” The agent edits the page while you watch.",
+        text: "Describe a change and watch the agent work. Make small edits with voice 'gestures'.",
       },
       {
         label: "LAYOUT",
@@ -162,7 +162,7 @@ export const APPS: T_App[] = [
       {
         label: "EMBED",
         title: "3D and interactive elements",
-        text: "Drop in a 3D model, an animated chart or a live widget that readers can rotate and explore.",
+        text: "Drop a 3D model, animated chart or widget for readers to interact with.",
       },
       {
         label: "EXPORT",
@@ -188,7 +188,7 @@ export const APPS: T_App[] = [
       "Record your screen and get a polished product demo or ad. Zooms, callouts, cursor polish and pacing are handled for you.",
     headline: "Screen recordings that edit themselves",
     pitch:
-      "ScreenBuff records your screen and turns a rough walkthrough into a product demo worth sharing. It follows the cursor to add zooms, writes callouts for each click, smooths the pointer and trims the dead air, all without opening an editor.",
+      "ScreenBuff records your screen and turns a rough walkthrough into a product demo worth sharing. It follows the cursor to add zooms, writes callouts for each click, smooths the pointer and trims the dead air automatically.",
     features: [
       {
         label: "ZOOM",
@@ -208,7 +208,7 @@ export const APPS: T_App[] = [
       {
         label: "REUSE",
         title: "One take, many cuts",
-        text: "Export a long demo, a 15-second ad and a vertical social clip from the same recording.",
+        text: "Export ad, vertical social or shorts from one recording.",
       },
     ],
     platforms: "Desktop and Web",

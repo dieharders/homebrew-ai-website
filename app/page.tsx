@@ -414,7 +414,7 @@ export default function Home() {
         <AppSuite
           id="apps"
           title="ONE SUITE, MANY APPS"
-          subtitle="Each app does one creative job end to end and can be driven by any agent you bring."
+          subtitle="Each specialized app is driven by any agent you bring."
           background="alternate"
         />
 
