@@ -57,11 +57,15 @@ export const STATUS_LABEL: Record<T_AppStatus, string> = {
 /** Off-site subdomain, so links need target/rel and get crawled cross-host. */
 export const isExternal = (app: T_App) => /^https?:\/\//.test(app.href);
 
-/** "Desktop only", "Web only" or "Desktop and Web", as shown on the page. */
+/**
+ * "Desktop only", "Runs in your browser" or "Desktop and Web", as shown on the
+ * page. Web apps still process data locally, so a browser-only app isn't
+ * labelled "Web only", which reads as cloud-hosted.
+ */
 export function platformLabel(app: T_App) {
   const has = (p: T_Platform) => app.platforms.includes(p);
   if (has("desktop") && has("web")) return "Desktop and Web";
-  return has("desktop") ? "Desktop only" : "Web only";
+  return has("desktop") ? "Desktop only" : "Runs in your browser";
 }
 
 /** The same platforms as schema.org `operatingSystem` values. */
@@ -127,7 +131,7 @@ export const APPS: T_App[] = [
       "Search and automate your workspace in plain language. Documents, email, chats and events become hand-off tasks for agents.",
     headline: "Your workspace, searchable and automated",
     pitch:
-      "FileBuff reads across your documents, email, chats and calendar, then turns what it finds into tasks an agent can carry out. It runs on your own hardware, so sensitive files never leave the building.",
+      "FileBuff reads across your documents, email, chats and calendar, then turns what it finds into tasks an agent can carry out. It runs in your browser, but the work happens on your own hardware, so sensitive files never leave the building.",
     features: [
       {
         label: "SEARCH",

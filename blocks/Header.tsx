@@ -78,7 +78,12 @@ export default function Header(p: {
           target={isExternal(app) ? "_blank" : undefined}
           rel={isExternal(app) ? "noopener noreferrer" : undefined}
           className={appLinkClass}
-          onClick={() => setIsMenuOpen(false)}
+          onClick={(e) => {
+            // Unreleased apps link to their spotlight (`/#paperbuff`), which a
+            // repeat click wouldn't scroll to. Left alone for new-tab links.
+            if (!isExternal(app)) scrollToHashOnClick(app.href)(e);
+            setIsMenuOpen(false);
+          }}
         >
           <span
             className={cx(

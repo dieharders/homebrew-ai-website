@@ -164,7 +164,11 @@ export default function ScreenBuffMock() {
           />
           <span
             className={styles.sbPlayhead}
-            style={{ left: `${(tick / (SHOTS.length - 1)) * 100}%` }}
+            style={{
+              left: `${(tick / (SHOTS.length - 1)) * 100}%`,
+              // Jump back to the start on wrap instead of sweeping backwards.
+              transition: tick === 0 ? "none" : undefined,
+            }}
           />
         </div>
       </div>

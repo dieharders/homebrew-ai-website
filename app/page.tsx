@@ -17,7 +17,6 @@ import type { ReactNode } from "react";
 // Parked sections — not rendered, so not imported (keeps them out of the
 // bundle). Uncomment together with their JSX and data below to bring one back.
 // import UseCases from "@/blocks/UseCases";
-// import HowItWorks from "@/blocks/HowItWorks";
 // import VideoShowcase from "@/blocks/VideoShowcase";
 // import DarkCTA from "@/blocks/DarkCTA";
 // import Highlights from "@/blocks/Highlights";
@@ -455,36 +454,6 @@ export default function Home() {
         {/* Spotlights alternate normal/alternate and end on alternate, so
             continue the pattern. */}
         <AssetRegistry id="registry" background="normal" />
-
-        {/* <HowItWorks
-          id="how-it-works"
-          title="BUILT SO ANY AGENT CAN DO THE WORK"
-          subtitle="Creative software was built for people clicking menus and dragging timelines. Ours is built for the agents people are starting to send instead."
-          steps={[
-            {
-              label: "You or your agent",
-              title: "Asks for the result",
-              text: "“Turn this deck into a launch video for Company X.”",
-            },
-            {
-              label: "Generative models",
-              title: "Cloud or local",
-              text: "A model you already subscribe to, or a local model through our open-source Obrew CLI.",
-            },
-            {
-              label: "OpenBrew apps",
-              title: "Do the creative work",
-              text: "Story, brand, layout, voice and render, handled by an agent-native app.",
-              highlight: true,
-            },
-            {
-              label: "Output",
-              title: "A finished asset",
-              text: "A video, document or demo you can edit and regenerate as needs change.",
-            },
-          ]}
-          footnote="Every app pulls its supporting assets from the OpenBrew registry, so the agent never has to go hunting for music, icons or footage."
-        /> */}
 
         {/* <VideoShowcase id="demo" videos={videos} /> */}
 

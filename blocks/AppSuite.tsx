@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "./AppSuite.module.css";
 import Section, { T_Background, T_Pattern } from "@/components/Section";
+import HashLink from "@/components/HashLink";
 import { lilita_one } from "fonts/fonts";
 import { cx } from "../utils/common";
 import {
@@ -96,7 +97,7 @@ export default function AppSuite(p: {
               <p className={styles["app-text"]}>{app.description}</p>
 
               <div className={styles["app-footer"]}>
-                <Link href={`#${app.id}`} className={styles["app-link"]}>
+                <HashLink href={`#${app.id}`} className={styles["app-link"]}>
                   See details
                   <svg
                     width="16"
@@ -111,7 +112,7 @@ export default function AppSuite(p: {
                   >
                     <path d="M5 12h14M13 6l6 6-6 6" />
                   </svg>
-                </Link>
+                </HashLink>
                 {app.status === "live" ? (
                   <Link
                     href={app.href}

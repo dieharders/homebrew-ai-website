@@ -1,6 +1,6 @@
-import Link from "next/link";
 import styles from "./Plans.module.css";
 import Section from "@/components/Section";
+import HashLink from "@/components/HashLink";
 import { lilita_one } from "fonts/fonts";
 import { cx } from "../utils/common";
 
@@ -42,9 +42,9 @@ export default function Plans(p: {
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <Link href={plan.cta.href} className={styles.cta}>
+            <HashLink href={plan.cta.href} className={styles.cta}>
               {plan.cta.text}
-            </Link>
+            </HashLink>
           </li>
         ))}
       </ul>

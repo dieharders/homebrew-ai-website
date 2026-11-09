@@ -343,6 +343,16 @@
  * other on a 3D hinge, so each spotlight "opens" toward the reader. --dir
  * flips for the mirrored layout. On the way out the visual sinks back and
  * the copy drifts up, like a parallax.
+ *
+ * The "out" range is anchored to the element's bottom edge: it runs over the
+ * last 30vh before that edge leaves the top. Plain `exit 0%` would start as
+ * soon as a block taller than the viewport touched the bottom, fading copy
+ * that is still being read. `exit 100%` is always "bottom edge at the top",
+ * and the 30vh offset is in scroll distance, so it's height-independent.
+ *
+ * .details holds the RevealMore region, so its "in" range uses `cover`
+ * offsets in viewport units (measured from its top edge entering) instead of
+ * percentages of its own height — expanding it can't rewind a finished "in".
  */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
@@ -361,7 +371,7 @@
       animation-timeline: view(), view();
       animation-range:
         entry 0% cover 35%,
-        exit 0% exit 100%;
+        exit calc(100% - 30vh) exit 100%;
     }
 
     .details {
@@ -370,8 +380,8 @@
         spot-copy-out linear forwards;
       animation-timeline: view(), view();
       animation-range:
-        entry 10% cover 35%,
-        exit 0% exit 100%;
+        cover 2vh cover 40vh,
+        exit calc(100% - 30vh) exit 100%;
     }
 
     .media {
@@ -381,7 +391,7 @@
       animation-timeline: view(), view();
       animation-range:
         entry 0% cover 40%,
-        exit 0% exit 100%;
+        exit calc(100% - 30vh) exit 100%;
     }
   }
 }

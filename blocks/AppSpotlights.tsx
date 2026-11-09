@@ -3,6 +3,7 @@ import Link from "next/link";
 import styles from "./AppSpotlights.module.css";
 import Section from "@/components/Section";
 import RevealMore from "@/components/RevealMore";
+import HashLink from "@/components/HashLink";
 import { lilita_one } from "fonts/fonts";
 import { cx } from "../utils/common";
 import {
@@ -72,7 +73,7 @@ export default function AppSpotlights(p: {
                       <Arrow />
                     </Link>
                   ) : (
-                    <Link href="#contact" className={styles.cta}>
+                    <HashLink href="#contact" className={styles.cta}>
                       <span className={styles.ctaLabel}>
                         Get notified at launch
                       </span>
@@ -80,7 +81,7 @@ export default function AppSpotlights(p: {
                         {platformLabel(app)}
                       </span>
                       <Arrow />
-                    </Link>
+                    </HashLink>
                   )}
                 </div>
 
