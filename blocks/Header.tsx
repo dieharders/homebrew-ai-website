@@ -22,7 +22,7 @@ const defaultNavItems: NavItem[] = [
   // { label: "Features", href: "/#features" },
   { label: "Home", href: "/" },
   { label: "Apps", href: "/#apps" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Pricing", href: "/#pricing" },
   { label: "Jobs", href: "/jobs" },
 ];
 
