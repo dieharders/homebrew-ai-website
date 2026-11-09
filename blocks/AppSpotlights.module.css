@@ -232,8 +232,8 @@
   inset: -12%;
   background: radial-gradient(
     ellipse at center,
-    color-mix(in srgb, var(--app-accent) 30%, transparent) 0%,
-    transparent 65%
+    color-mix(in srgb, var(--app-accent) 40%, transparent) 0%,
+    transparent 70%
   );
   filter: blur(30px);
   pointer-events: none;
