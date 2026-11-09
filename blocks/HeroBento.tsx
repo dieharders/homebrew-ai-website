@@ -45,6 +45,7 @@ export default function HeroBento({
                     type="secondary"
                     size="large"
                     location="body"
+                    className={styles.secondaryCta}
                   >
                     {secondaryCTA.text}
                   </Button>

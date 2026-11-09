@@ -157,3 +157,13 @@
     font-size: 1.25rem;
   }
 }
+
+/* Gold accent to match the featured Pro pricing card. */
+.secondaryCta {
+  border-color: var(--accent-btn) !important;
+  background: linear-gradient(180deg, var(--accent-light) 0%, var(--background) 100%) !important;
+}
+
+.secondaryCta:hover {
+  background: var(--accent-light) !important;
+}
