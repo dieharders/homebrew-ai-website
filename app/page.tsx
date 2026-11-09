@@ -43,7 +43,7 @@ function SpotlightVideo(p: { src: string }) {
 /** Visual for each app's spotlight. Typed by app id, so every app needs one. */
 const SPOTLIGHT_MEDIA: Record<T_AppId, ReactNode> = {
   motionbuff: <SpotlightVideo src="/motionbuff-demo.mp4" />,
-  filebuff: <SpotlightVideo src="/filebuff-dashboard.mp4" />,
+  filebuff: <SpotlightVideo src="/auto-workflow.mp4" />,
   paperbuff: <PaperBuffMock />,
   screenbuff: <ScreenBuffMock />,
 };
