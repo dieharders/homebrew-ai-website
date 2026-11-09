@@ -1,6 +1,6 @@
 .container {
   position: relative;
-  overflow: hidden;
+  overflow: clip; /* clip, not hidden: hidden makes a scroll container, which breaks the view() scroll timelines inside */
 }
 
 .container-size-normal,

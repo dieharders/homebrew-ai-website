@@ -334,3 +334,90 @@
   --media-shadow: 0 12px 40px
     color-mix(in srgb, var(--app-accent) 35%, transparent);
 }
+
+/*
+ * Scroll transitions. Scroll-driven (no JS): an "in" over entry, an "out" as
+ * the element leaves the top; fill modes are split so they never fight.
+ *
+ * The copy slides in from its own side while the visual swings in from the
+ * other on a 3D hinge, so each spotlight "opens" toward the reader. --dir
+ * flips for the mirrored layout. On the way out the visual sinks back and
+ * the copy drifts up, like a parallax.
+ */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .spotlight {
+      --dir: 1;
+    }
+
+    .flipped {
+      --dir: -1;
+    }
+
+    .intro {
+      animation:
+        spot-copy-in linear backwards,
+        spot-copy-out linear forwards;
+      animation-timeline: view(), view();
+      animation-range:
+        entry 0% cover 35%,
+        exit 0% exit 100%;
+    }
+
+    .details {
+      animation:
+        spot-details-in linear backwards,
+        spot-copy-out linear forwards;
+      animation-timeline: view(), view();
+      animation-range:
+        entry 10% cover 35%,
+        exit 0% exit 100%;
+    }
+
+    .media {
+      animation:
+        spot-media-in linear backwards,
+        spot-media-out linear forwards;
+      animation-timeline: view(), view();
+      animation-range:
+        entry 0% cover 40%,
+        exit 0% exit 100%;
+    }
+  }
+}
+
+@keyframes spot-copy-in {
+  from {
+    opacity: 0;
+    translate: calc(var(--dir) * -60px) 0;
+  }
+}
+
+@keyframes spot-details-in {
+  from {
+    opacity: 0;
+    translate: 0 40px;
+  }
+}
+
+@keyframes spot-copy-out {
+  to {
+    opacity: 0;
+    translate: 0 -60px;
+  }
+}
+
+@keyframes spot-media-in {
+  from {
+    opacity: 0;
+    transform: perspective(1200px) translateX(calc(var(--dir) * 80px))
+      rotateY(calc(var(--dir) * -28deg)) scale(0.88);
+  }
+}
+
+@keyframes spot-media-out {
+  to {
+    opacity: 0.2;
+    transform: perspective(1200px) translateY(-40px) rotateX(12deg) scale(0.9);
+  }
+}

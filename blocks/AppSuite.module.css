@@ -2,7 +2,7 @@
   max-width: var(--section-header-max-width);
   margin: 0 auto;
   margin-bottom: var(--space-8);
-  overflow: hidden;
+  overflow: clip;
 }
 
 .accentLine {
@@ -186,5 +186,78 @@
 @media screen and (min-width: 640px) {
   .apps {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/*
+ * Scroll transitions. Scroll-driven (no JS): each element runs an "in" over
+ * its entry into the viewport and an "out" as it leaves the top. Fill modes
+ * are split (in: backwards, out: forwards) so neither one holds over the
+ * other. Individual translate/scale/rotate are animated, not `transform`, so
+ * the cards' hover lift still composes on top.
+ *
+ * Cards are dealt in from alternating sides with a slight spin, staggered.
+ */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .header {
+      animation:
+        suite-header-in linear backwards,
+        suite-header-out linear forwards;
+      animation-timeline: view(), view();
+      animation-range:
+        entry 0% cover 35%,
+        exit 20% exit 100%;
+    }
+
+    .app {
+      --dir: -1;
+      --delay: 0%;
+      animation:
+        suite-card-in linear backwards,
+        suite-card-out linear forwards;
+      animation-timeline: view(), view();
+      animation-range:
+        entry var(--delay) cover calc(30% + var(--delay)),
+        exit 30% exit 100%;
+    }
+
+    .app:nth-child(even) {
+      --dir: 1;
+      --delay: 6%;
+    }
+  }
+}
+
+@keyframes suite-header-in {
+  from {
+    opacity: 0;
+    translate: 0 40px;
+    scale: 0.96;
+    filter: blur(6px);
+  }
+}
+
+@keyframes suite-header-out {
+  to {
+    opacity: 0;
+    translate: 0 -30px;
+  }
+}
+
+@keyframes suite-card-in {
+  from {
+    opacity: 0;
+    translate: calc(var(--dir) * 70px) 60px;
+    rotate: calc(var(--dir) * 5deg);
+    scale: 0.92;
+  }
+}
+
+@keyframes suite-card-out {
+  to {
+    opacity: 0;
+    translate: 0 -40px;
+    scale: 0.9;
   }
 }
