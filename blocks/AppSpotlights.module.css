@@ -122,6 +122,18 @@
   }
 }
 
+/* "Show more" toggle for the feature cards. */
+.moreToggle {
+  margin-bottom: var(--space-6);
+  font-size: 0.95rem;
+  color: var(--app-accent);
+}
+
+.moreToggle:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .feature {
   padding-top: var(--space-4);
   border-top: 1px solid var(--border-color);

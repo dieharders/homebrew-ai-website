@@ -2,6 +2,7 @@ import type { CSSProperties, ReactNode } from "react";
 import Link from "next/link";
 import styles from "./AppSpotlights.module.css";
 import Section from "@/components/Section";
+import RevealMore from "@/components/RevealMore";
 import { lilita_one } from "fonts/fonts";
 import { cx } from "../utils/common";
 import { APPS, STATUS_LABEL } from "@/data/apps";
@@ -50,17 +51,21 @@ export default function AppSpotlights(p: {
               </div>
 
               <div className={styles.details}>
-                <dl className={styles.features}>
-                  {app.features.map((f) => (
-                    <div key={f.label} className={styles.feature}>
-                      <dt>
-                        <span className={styles.featureLabel}>{f.label}</span>
-                        <span className={styles.featureTitle}>{f.title}</span>
-                      </dt>
-                      <dd className={styles.featureText}>{f.text}</dd>
-                    </div>
-                  ))}
-                </dl>
+                {/* Collapsed visually only: the cards are still in the HTML
+                    for crawlers. */}
+                <RevealMore buttonClassName={styles.moreToggle}>
+                  <dl className={styles.features}>
+                    {app.features.map((f) => (
+                      <div key={f.label} className={styles.feature}>
+                        <dt>
+                          <span className={styles.featureLabel}>{f.label}</span>
+                          <span className={styles.featureTitle}>{f.title}</span>
+                        </dt>
+                        <dd className={styles.featureText}>{f.text}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </RevealMore>
 
                 <div className={styles.footer}>
                   {live ? (

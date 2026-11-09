@@ -1,0 +1,45 @@
+/* Height animation without measuring: a single grid row going 0fr -> 1fr. */
+.region {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows var(--transition-slow),
+    opacity var(--transition-slow);
+}
+
+.region.open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0;
+  border: none;
+  background: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.chevron {
+  transition: transform var(--transition-smooth);
+}
+
+.toggle[aria-expanded="true"] .chevron {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .region,
+  .chevron {
+    transition: none;
+  }
+}
