@@ -547,7 +547,7 @@ export default function Home() {
 
         <Plans
           id="pricing"
-          title="FREE TOOLS, PAID MATERIALS"
+          title="FREE TOOLS, PAID ASSETS"
           subtitle="All apps are free to use. Upgrade for premium access to assets and features. No credits, ever."
           plans={[
             {
