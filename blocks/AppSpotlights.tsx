@@ -98,7 +98,6 @@ export default function AppSpotlights(p: {
               </div>
 
               <div className={styles.media}>
-                <div className={styles.glow} aria-hidden="true" />
                 <div className={styles.mediaInner}>{p.media[app.id]}</div>
               </div>
             </article>

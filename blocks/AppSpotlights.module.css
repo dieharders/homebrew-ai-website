@@ -227,18 +227,11 @@
   min-width: 0;
 }
 
-.glow {
-  position: absolute;
-  inset: -12%;
-  background: radial-gradient(
-    ellipse at center,
-    color-mix(in srgb, var(--app-accent) 40%, transparent) 0%,
-    transparent 70%
-  );
-  filter: blur(30px);
-  pointer-events: none;
-}
-
+/* The media's drop shadow is tinted with the app's accent instead of a
+   separate glow layer. Mocks and videos read this via
+   var(--media-shadow, <their default>). */
 .mediaInner {
   position: relative;
+  --media-shadow: 0 12px 40px
+    color-mix(in srgb, var(--app-accent) 35%, transparent);
 }

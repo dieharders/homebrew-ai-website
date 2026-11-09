@@ -423,7 +423,7 @@ export default function Home() {
             motionbuff: (
               <VideoPlayer
                 src="/motionbuff-demo.mp4"
-                className="shadow-[var(--shadow-dark-card)]"
+                className="shadow-[var(--media-shadow,var(--shadow-dark-card))]"
                 autoPlay
                 loop
                 muted
@@ -435,7 +435,7 @@ export default function Home() {
               <VideoPlayer
                 src="/filebuff-dashboard.mp4"
                 // Same shadow as the animated mocks in the other spotlights.
-                className="shadow-[var(--shadow-dark-card)]"
+                className="shadow-[var(--media-shadow,var(--shadow-dark-card))]"
                 autoPlay
                 loop
                 muted

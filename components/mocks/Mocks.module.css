@@ -10,7 +10,7 @@
   width: 100%;
   overflow: hidden;
   border-radius: var(--ui-radius-lg);
-  box-shadow: var(--shadow-dark-card);
+  box-shadow: var(--media-shadow, var(--shadow-dark-card));
   font-size: 12px;
   line-height: 1.4;
   user-select: none;
@@ -63,7 +63,7 @@
   /* Same geometry as --shadow-dark-card, lighter: against this pale window the
      full-strength shadow reads much heavier than it does on the dark mocks
      (e.g. the registry), so it's toned down to look the same. */
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--media-shadow, 0 8px 32px rgba(0, 0, 0, 0.2));
 }
 
 /* Fixed-size slot: every phase is stacked in one grid cell, so the cell is as
