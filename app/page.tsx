@@ -403,8 +403,8 @@ export default function Home() {
 
       <main>
         <HeroBento
-          headline="CREATIVE TOOLS FOR AGENTS"
-          tagline="OpenBrew.ai builds agent-native apps for video, documents, screen recordings and your workspace. Use them yourself, or hand the work to your agent."
+          headline="THE CREATIVE TOOL-CHAIN FOR AGENTS"
+          tagline="OpenBrew.ai builds agent driven creative tools for entertainment & simulations. Create and manage your video, documents, screen recordings and workspace."
           primaryCTA={{ text: "Explore Apps", href: "#apps" }}
           secondaryCTA={{ text: "Pricing", href: "#pricing" }}
           videoSrc="/promo.mp4"

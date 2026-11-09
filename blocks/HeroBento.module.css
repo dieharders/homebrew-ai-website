@@ -68,6 +68,10 @@
   padding: 0;
   flex: 1;
   min-width: 0;
+  /* Small screens: centre the block, keep its contents left-aligned. */
+  align-self: center;
+  width: 100%;
+  max-width: 480px; /* match .videoCard */
 }
 
 .headline {
@@ -141,6 +145,8 @@
 
   .headlineArea {
     flex: 1 1 50%;
+    align-self: auto;
+    max-width: none;
   }
 
   .videoCard {
