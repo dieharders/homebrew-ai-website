@@ -77,13 +77,8 @@
   text-transform: uppercase;
 }
 
-.status-live {
-  color: #fff;
-  background: var(--app-accent);
-}
-
-/* Live is a solid pill; in progress and coming soon are outlined in the app's
-   hue on a plain background. */
+/* Live apps show no pill; in progress and coming soon are outlined in the
+   app's hue on a plain background. */
 .status-in-progress,
 .status-soon {
   color: var(--app-accent);

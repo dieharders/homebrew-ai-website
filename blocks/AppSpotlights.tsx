@@ -46,9 +46,11 @@ export default function AppSpotlights(p: {
                 <div className={styles.identity}>
                   <span className={cx(styles.icon, app.iconBg)}>{app.icon}</span>
                   <span className={styles.name}>{app.name}</span>
-                  <span className={cx(styles.status, styles[`status-${app.status}`])}>
-                    {STATUS_LABEL[app.status]}
-                  </span>
+                  {!live && (
+                    <span className={cx(styles.status, styles[`status-${app.status}`])}>
+                      {STATUS_LABEL[app.status]}
+                    </span>
+                  )}
                 </div>
 
                 <h2 className={cx(lilita_one.className, styles.headline)}>
