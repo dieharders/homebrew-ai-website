@@ -48,7 +48,7 @@ export default function PaperBuffMock() {
         applied={applied}
         listening={listening}
         command={COMMANDS[phase]}
-        className={styles.pbLive}
+        className={cx(styles.pbLive, tick === 0 && styles.pbReset)}
       />
     </div>
   );

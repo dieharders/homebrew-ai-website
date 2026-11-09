@@ -269,10 +269,11 @@
 /* Fixed-size slot: every phase is stacked in one grid cell, so the cell is as
    tall as the tallest phase and the live window never pushes the page around. */
 .pbSlot {
+  position: relative;
   display: grid;
 }
 
-.pbSlot > * {
+.pbGhost {
   grid-area: 1 / 1;
 }
 
@@ -287,9 +288,25 @@
   transition: none !important;
 }
 
-/* The live window still grows and shrinks, centred in the reserved space. */
+/* The live window still grows and shrinks, centred in the reserved space.
+   Out of flow, so even a mid-transition frame that's taller than every ghost
+   can't resize the slot and shift the page. */
 .pbLive {
-  align-self: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Loop restart: snap back to the plain draft instead of animating. Otherwise
+   the single-column layout returns instantly while the quote and figure are
+   still collapsing, a brief state taller than any real phase. */
+.pbReset .pbPage,
+.pbReset .pbColumns,
+.pbReset .pbQuote,
+.pbReset .pbFigure {
+  transition: none;
 }
 
 .pbStage {
