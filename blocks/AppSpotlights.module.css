@@ -174,52 +174,144 @@
   gap: var(--space-3) var(--space-5);
 }
 
+/* Label and platforms stack on the left; the arrow chip sits on the right,
+   centred across both lines. */
 .cta {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
-  padding: var(--space-3) var(--space-5);
+  --cta-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  grid-template-areas: "label arrow" "platforms arrow";
+  align-items: center;
+  column-gap: var(--space-5);
+  row-gap: 2px;
+  padding: var(--space-3) var(--space-3) var(--space-3) var(--space-5);
   border-radius: var(--ui-radius-md);
   font-weight: 700;
-  /* Each spotlight's own hue, at full strength. */
+  /* Each spotlight's own hue, with a soft top highlight for depth. */
   color: #fff;
-  background: var(--app-accent);
-  box-shadow: var(--shadow-sm);
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 0.14), transparent 60%),
+    var(--app-accent);
+  box-shadow:
+    var(--shadow-sm),
+    0 6px 18px -6px color-mix(in srgb, var(--app-accent) 60%, transparent);
   transition:
-    transform var(--transition-fast),
-    box-shadow var(--transition-fast);
+    transform 0.35s var(--cta-ease),
+    box-shadow 0.35s var(--cta-ease);
 }
 
-.cta:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-card);
+.cta:hover,
+.cta:focus-visible {
+  transform: translateY(-3px);
+  box-shadow:
+    var(--shadow-card),
+    0 14px 32px -8px color-mix(in srgb, var(--app-accent) 70%, transparent);
 }
 
-/* Main line: label + arrow. */
+.cta:active {
+  transform: translateY(0) scale(0.98);
+  transition-duration: 0.1s;
+}
+
 .ctaLabel {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
+  grid-area: label;
   white-space: nowrap;
 }
 
-/* Nudge the arrow with a transform, not by growing the gap: transforms don't
-   affect layout, so the button never changes size on hover. */
-.ctaLabel svg {
-  transition: transform var(--transition-fast);
-}
-
-.cta:hover .ctaLabel svg {
-  transform: translateX(4px);
-}
-
 /* Secondary line inside the button. Muted via opacity of the button's own
-   text colour so it stays legible on the yellow background. */
+   text colour so it stays legible on any accent. */
 .platforms {
+  grid-area: platforms;
   font-size: 0.8rem;
   font-weight: 400;
   opacity: 0.85;
+}
+
+/* Round chip holding two arrows; overflow clips the one that's off-stage. */
+.ctaArrow {
+  grid-area: arrow;
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.18);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.25);
+  transition:
+    background 0.35s var(--cta-ease),
+    color 0.35s var(--cta-ease),
+    transform 0.35s var(--cta-ease);
+}
+
+.ctaArrow svg {
+  grid-area: 1 / 1;
+  transition: transform 0.45s var(--cta-ease);
+}
+
+.arrowOut {
+  animation: arrow-beckon 3.2s var(--cta-ease) infinite;
+}
+
+.arrowIn {
+  transform: translateX(-36px);
+}
+
+/* Hover: the chip turns white with an accent arrow, the old arrow shoots off
+   to the right and a new one slides in from the left. */
+.cta:hover .ctaArrow,
+.cta:focus-visible .ctaArrow {
+  background: #fff;
+  color: var(--app-accent);
+  transform: rotate(-8deg) scale(1.06);
+}
+
+.cta:hover .arrowOut,
+.cta:focus-visible .arrowOut {
+  animation: none;
+  transform: translateX(36px);
+}
+
+.cta:hover .arrowIn,
+.cta:focus-visible .arrowIn {
+  transform: translateX(0);
+  transition-delay: 0.08s;
+}
+
+/* Idle: a small double-nudge every few seconds so the button invites a click. */
+@keyframes arrow-beckon {
+  0%,
+  70%,
+  100% {
+    transform: translateX(0);
+  }
+  78% {
+    transform: translateX(5px);
+  }
+  84% {
+    transform: translateX(0);
+  }
+  90% {
+    transform: translateX(3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta,
+  .ctaArrow,
+  .ctaArrow svg {
+    transition: none;
+  }
+
+  .arrowOut {
+    animation: none;
+  }
+
+  .cta:hover,
+  .cta:focus-visible {
+    transform: none;
+  }
 }
 
 .media {

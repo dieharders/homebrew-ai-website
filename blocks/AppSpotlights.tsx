@@ -79,19 +79,17 @@ export default function AppSpotlights(p: {
                       rel="noopener"
                       className={styles.cta}
                     >
-                      <span className={styles.ctaLabel}>
-                        Try {app.name}
-                        <Arrow />
-                      </span>
+                      <span className={styles.ctaLabel}>Try {app.name}</span>
                       <span className={styles.platforms}>{app.platforms}</span>
+                      <Arrow />
                     </Link>
                   ) : (
                     <Link href="#contact" className={styles.cta}>
                       <span className={styles.ctaLabel}>
                         Get notified at launch
-                        <Arrow />
                       </span>
                       <span className={styles.platforms}>{app.platforms}</span>
+                      <Arrow />
                     </Link>
                   )}
                 </div>
@@ -108,18 +106,29 @@ export default function AppSpotlights(p: {
   );
 }
 
+/* Two stacked copies of the arrow inside a round chip: on hover the first
+   slides out to the right while the second slides in from the left. */
 function Arrow() {
   return (
+    <span className={styles.ctaArrow} aria-hidden="true">
+      <ArrowGlyph className={styles.arrowOut} />
+      <ArrowGlyph className={styles.arrowIn} />
+    </span>
+  );
+}
+
+function ArrowGlyph(p: { className: string }) {
+  return (
     <svg
-      width="16"
-      height="16"
+      className={p.className}
+      width="18"
+      height="18"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
       strokeWidth="2.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      aria-hidden="true"
     >
       <path d="M5 12h14M13 6l6 6-6 6" />
     </svg>
