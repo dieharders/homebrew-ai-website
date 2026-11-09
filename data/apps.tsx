@@ -8,6 +8,10 @@ import {
 
 export type T_AppStatus = "live" | "in-progress" | "soon";
 
+export type T_AppId = "motionbuff" | "filebuff" | "paperbuff" | "screenbuff";
+
+export type T_Platform = "desktop" | "web";
+
 export interface T_AppFeature {
   /** Short uppercase label, e.g. "BRAND". */
   label: string;
@@ -16,12 +20,13 @@ export interface T_AppFeature {
 }
 
 export interface T_App {
-  id: string;
+  id: T_AppId;
   name: string;
-  /** Where the app lives. Unreleased apps point at their spotlight on the homepage. */
+  /**
+   * Where the app lives. Unreleased apps point at their spotlight on the
+   * homepage. An absolute URL is an off-site subdomain (see `isExternal`).
+   */
   href: string;
-  /** Off-site subdomain, so links need target/rel and get crawled cross-host. */
-  external: boolean;
   /** Short "what it is" line — used as the header tooltip and the card kicker. */
   tagline: string;
   /** Full sentence used in the suite section and the structured data. */
@@ -32,15 +37,15 @@ export interface T_App {
   pitch: string;
   /** What the app does, in detail. Rendered as the spotlight's feature list. */
   features: T_AppFeature[];
-  /** Where it runs, or where it will. */
-  platforms: string;
+  /** Where it runs, or where it will. Labelled by `platformLabel`. */
+  platforms: T_Platform[];
+  /** Drives every status-dependent label and CTA across the site. */
   status: T_AppStatus;
   icon: ReactNode;
   /** Tailwind class for the icon tile background. */
   iconBg: string;
   /** Accent colour for the spotlight (status pill, feature labels, glow). */
   accent: string;
-  comingSoon?: boolean;
 }
 
 export const STATUS_LABEL: Record<T_AppStatus, string> = {
@@ -48,6 +53,23 @@ export const STATUS_LABEL: Record<T_AppStatus, string> = {
   "in-progress": "In progress",
   soon: "Coming soon",
 };
+
+/** Off-site subdomain, so links need target/rel and get crawled cross-host. */
+export const isExternal = (app: T_App) => /^https?:\/\//.test(app.href);
+
+/** "Desktop only", "Web only" or "Desktop and Web", as shown on the page. */
+export function platformLabel(app: T_App) {
+  const has = (p: T_Platform) => app.platforms.includes(p);
+  if (has("desktop") && has("web")) return "Desktop and Web";
+  return has("desktop") ? "Desktop only" : "Web only";
+}
+
+/** The same platforms as schema.org `operatingSystem` values. */
+export function operatingSystems(app: T_App) {
+  return app.platforms
+    .map((p) => (p === "desktop" ? "Windows, macOS, Linux" : "Web browser"))
+    .join(", ");
+}
 
 /**
  * Single source of truth for the app suite — consumed by the header's apps
@@ -59,7 +81,6 @@ export const APPS: T_App[] = [
     id: "motionbuff",
     name: "MotionBuff",
     href: "https://motionbuff.openbrew.ai",
-    external: true,
     tagline: "Files into motion",
     description:
       "Drop in a deck, PDF or doc. The agent writes the story, applies your brand and renders a finished video with narration and captions.",
@@ -88,7 +109,7 @@ export const APPS: T_App[] = [
         text: "Narration and on-screen text in each viewer's language.",
       },
     ],
-    platforms: "Desktop only",
+    platforms: ["desktop"],
     status: "live",
     icon: <MotionBuffIcon />,
     // The mark is a full tile of its own, so no tinted backing.
@@ -101,7 +122,6 @@ export const APPS: T_App[] = [
     id: "filebuff",
     name: "FileBuff",
     href: "https://filebuff.openbrew.ai",
-    external: true,
     tagline: "Workspace intelligence",
     description:
       "Search and automate your workspace in plain language. Documents, email, chats and events become hand-off tasks for agents.",
@@ -130,18 +150,19 @@ export const APPS: T_App[] = [
         text: "Each query, answer and action is logged and attributed for review.",
       },
     ],
-    platforms: "Web only",
+    platforms: ["web"],
     status: "live",
     icon: <FileBuffIcon />,
     // The mark is a full tile of its own, so no tinted backing.
     iconBg: "bg-transparent",
-    accent: "#d97706",
+    // Deep amber: the mark's #d97706 only reaches ~3.2:1 against white, too
+    // low for the white "Live" pill / CTA text and the small feature labels.
+    accent: "#a34a06",
   },
   {
     id: "paperbuff",
     name: "PaperBuff",
     href: "/#paperbuff",
-    external: false,
     tagline: "Voice-powered documents",
     description:
       "Talk to your document and it styles itself. Automatic typography and layout, with 3D and interactive elements embedded right in the page.",
@@ -170,19 +191,19 @@ export const APPS: T_App[] = [
         text: "Share as a web page or export to PDF with the layout intact.",
       },
     ],
-    platforms: "Desktop and Web",
-    status: "in-progress",
+    platforms: ["desktop", "web"],
+    status: "soon",
     icon: <PaperBuffIcon />,
     // The mark is a full tile of its own, so no tinted backing.
     iconBg: "bg-transparent",
-    accent: "#0284c7",
-    comingSoon: true,
+    // sky-700: a step deeper than the mark's #0284c7 (~4.1:1) so the small
+    // status pill and feature labels set in it pass AA on a light page.
+    accent: "#0369a1",
   },
   {
     id: "screenbuff",
     name: "ScreenBuff",
     href: "/#screenbuff",
-    external: false,
     tagline: "Smart screen recorder",
     description:
       "Record your screen and get a polished product demo or ad. Zooms, callouts, cursor polish and pacing are handled for you.",
@@ -211,7 +232,7 @@ export const APPS: T_App[] = [
         text: "Export ad, vertical social or shorts from one recording.",
       },
     ],
-    platforms: "Desktop and Web",
+    platforms: ["desktop", "web"],
     status: "soon",
     icon: <ScreenBuffIcon />,
     // The mark is a full tile of its own, so no tinted backing.
@@ -219,6 +240,5 @@ export const APPS: T_App[] = [
     // Recording red, to match the mark (a step deeper than its #ef4444 face so
     // feature labels set in it keep text contrast on a light page).
     accent: "#dc2626",
-    comingSoon: true,
   },
 ];

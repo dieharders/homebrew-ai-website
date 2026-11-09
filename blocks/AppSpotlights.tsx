@@ -5,7 +5,12 @@ import Section from "@/components/Section";
 import RevealMore from "@/components/RevealMore";
 import { lilita_one } from "fonts/fonts";
 import { cx } from "../utils/common";
-import { APPS, STATUS_LABEL } from "@/data/apps";
+import {
+  APPS,
+  STATUS_LABEL,
+  platformLabel,
+  type T_AppId,
+} from "@/data/apps";
 
 /**
  * One full-width section per app, in `APPS` order, alternating media left and
@@ -16,7 +21,8 @@ import { APPS, STATUS_LABEL } from "@/data/apps";
  * header links unreleased apps to exactly that.
  */
 export default function AppSpotlights(p: {
-  media: Record<string, ReactNode>;
+  /** One visual per app; keyed by `T_AppId` so a missing app is a type error. */
+  media: Record<T_AppId, ReactNode>;
 }) {
   return (
     <>
@@ -80,7 +86,9 @@ export default function AppSpotlights(p: {
                       className={styles.cta}
                     >
                       <span className={styles.ctaLabel}>Try {app.name}</span>
-                      <span className={styles.platforms}>{app.platforms}</span>
+                      <span className={styles.platforms}>
+                        {platformLabel(app)}
+                      </span>
                       <Arrow />
                     </Link>
                   ) : (
@@ -88,7 +96,9 @@ export default function AppSpotlights(p: {
                       <span className={styles.ctaLabel}>
                         Get notified at launch
                       </span>
-                      <span className={styles.platforms}>{app.platforms}</span>
+                      <span className={styles.platforms}>
+                        {platformLabel(app)}
+                      </span>
                       <Arrow />
                     </Link>
                   )}

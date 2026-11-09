@@ -3,7 +3,12 @@ import styles from "./AppSuite.module.css";
 import Section, { T_Background, T_Pattern } from "@/components/Section";
 import { lilita_one } from "fonts/fonts";
 import { cx } from "../utils/common";
-import { APPS, STATUS_LABEL } from "@/data/apps";
+import {
+  APPS,
+  STATUS_LABEL,
+  isExternal,
+  operatingSystems,
+} from "@/data/apps";
 
 const SITE = "https://www.openbrew.ai";
 
@@ -34,13 +39,18 @@ export default function AppSuite(p: {
       "OpenBrew.ai builds agent-native creative apps for video, documents, screen recordings and workspace automation.",
     makesOffer: APPS.map((app) => ({
       "@type": "Offer",
+      // Unreleased apps are announced on the page, so list them as upcoming.
+      availability:
+        app.status === "live"
+          ? "https://schema.org/InStock"
+          : "https://schema.org/PreOrder",
       itemOffered: {
         "@type": "SoftwareApplication",
         name: app.name,
         applicationCategory: "BusinessApplication",
         description: app.description,
-        url: app.external ? app.href : SITE,
-        operatingSystem: "Windows, macOS, Linux",
+        url: isExternal(app) ? app.href : `${SITE}/#${app.id}`,
+        operatingSystem: operatingSystems(app),
         publisher: { "@type": "Organization", name: "OpenBrew.ai", url: SITE },
       },
     })),
@@ -67,7 +77,7 @@ export default function AppSuite(p: {
 
       <ul className={styles.apps}>
         {APPS.map((app) => {
-          const linkProps = app.external
+          const linkProps = isExternal(app)
             ? { target: "_blank", rel: "noopener" }
             : {};
 
@@ -102,7 +112,7 @@ export default function AppSuite(p: {
                     <path d="M5 12h14M13 6l6 6-6 6" />
                   </svg>
                 </Link>
-                {app.external ? (
+                {app.status === "live" ? (
                   <Link
                     href={app.href}
                     className={styles["app-visit"]}

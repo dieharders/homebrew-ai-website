@@ -712,6 +712,13 @@
   .rgCaret {
     animation: none;
   }
+
+  /* useLoop swaps the server-rendered first tick for the resting frame on
+     mount; with transitions off that's an instant cut, not a camera move. */
+  .window,
+  .window * {
+    transition: none !important;
+  }
 }
 
 /* Declared after .rgFooter so the shown state wins over its base opacity. */

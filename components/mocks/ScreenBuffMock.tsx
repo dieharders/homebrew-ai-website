@@ -20,6 +20,24 @@ const SHOTS = [
   { x: 40, y: 85, zoom: false, callout: null },
 ];
 
+/**
+ * Reduced-motion still frame: zoomed on the table with its callout up and the
+ * row highlighted. (The last shot is the reset to idle, which shows nothing.)
+ */
+const REST_TICK = 6;
+
+/**
+ * Text for the callout pill at `tick`: the current shot's, or while hidden
+ * the most recent one, so a fading-out callout keeps its own words.
+ */
+function calloutAt(tick: number) {
+  for (let i = 0; i < SHOTS.length; i++) {
+    const c = SHOTS[(tick - i + SHOTS.length) % SHOTS.length].callout;
+    if (c) return c;
+  }
+  return "";
+}
+
 const ZOOM = 1.7;
 /** Furthest the zoomed screen can pan (in % of its size) before an edge shows. */
 const MAX_PAN = ((1 - 1 / ZOOM) / 2) * 100;
@@ -36,7 +54,7 @@ function cameraFor(shot: (typeof SHOTS)[number]) {
  * auto-zooms on each click, callouts appear and the timeline marks the zooms.
  */
 export default function ScreenBuffMock() {
-  const { ref, tick } = useLoop(SHOTS.length, 1100);
+  const { ref, tick } = useLoop(SHOTS.length, 1100, REST_TICK);
   const shot = SHOTS[tick];
   const clicking = shot.zoom && !SHOTS[tick - 1]?.zoom;
   const seconds = 3 + tick * 2;
@@ -129,7 +147,7 @@ export default function ScreenBuffMock() {
             !!shot.callout && styles.sbCalloutShown,
           )}
         >
-          {shot.callout ?? SHOTS[2].callout}
+          {calloutAt(tick)}
         </span>
       </div>
 

@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import styles from "./Header.module.css";
 import { cx } from "@/utils/common";
 import { scrollToHashOnClick } from "@/utils/hashLink";
-import { APPS } from "@/data/apps";
+import { APPS, STATUS_LABEL, isExternal } from "@/data/apps";
 
 export interface NavItem {
   label: string;
@@ -75,8 +75,8 @@ export default function Header(p: {
         <Link
           key={app.id}
           href={app.href}
-          target={app.external ? "_blank" : undefined}
-          rel={app.external ? "noopener noreferrer" : undefined}
+          target={isExternal(app) ? "_blank" : undefined}
+          rel={isExternal(app) ? "noopener noreferrer" : undefined}
           className={appLinkClass}
           onClick={() => setIsMenuOpen(false)}
         >
@@ -86,7 +86,9 @@ export default function Header(p: {
               app.iconBg,
             )}
             title={
-              app.comingSoon ? "Coming Soon..." : `${app.name}: ${app.tagline}`
+              app.status === "live"
+                ? `${app.name}: ${app.tagline}`
+                : `${STATUS_LABEL[app.status]}...`
             }
           >
             {app.icon}

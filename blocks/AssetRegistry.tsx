@@ -3,6 +3,7 @@ import Section, { type T_Background } from "@/components/Section";
 import { lilita_one } from "fonts/fonts";
 import { cx } from "../utils/common";
 import RegistryMock from "@/components/mocks/RegistryMock";
+import { STATUS_LABEL } from "@/data/apps";
 
 const CATEGORIES = ["UI", "Sound", "3D", "Video", "Images"];
 
@@ -31,7 +32,9 @@ export default function AssetRegistry(p: {
               className={styles.icon}
               draggable={false}
             />
-            <span className={styles.status}>In-progress</span>
+            <span className={styles.status}>
+              {STATUS_LABEL["in-progress"]}
+            </span>
           </div>
           <h2 className={cx(lilita_one.className, styles.title)}>
             The asset registry built for agents

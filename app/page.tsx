@@ -1,33 +1,62 @@
 import Header from "@/blocks/Header";
 import HeroBento from "@/blocks/HeroBento";
-import UseCases from "@/blocks/UseCases";
 import AppSuite from "@/blocks/AppSuite";
 import AppSpotlights from "@/blocks/AppSpotlights";
-import HowItWorks from "@/blocks/HowItWorks";
 import AssetRegistry from "@/blocks/AssetRegistry";
 import Plans from "@/blocks/Plans";
 import VideoPlayer from "@/components/VideoPlayer";
 import PaperBuffMock from "@/components/mocks/PaperBuffMock";
 import ScreenBuffMock from "@/components/mocks/ScreenBuffMock";
 import Features from "@/blocks/Features";
-import VideoShowcase from "@/blocks/VideoShowcase";
-import DarkCTA from "@/blocks/DarkCTA";
-import Highlights from "@/blocks/Highlights";
 import Epilogue from "@/blocks/Epilogue";
 import Footer from "@/blocks/Footer";
 import SubscribeInput from "@/components/SubscribeInput";
-import highlightPosterImageA from "public/use-cases.svg";
-import highlightPosterImageB from "public/workflows.svg";
 import epiloguePosterImage from "public/badge.png";
+import type { T_AppId } from "@/data/apps";
+import type { ReactNode } from "react";
+// Parked sections — not rendered, so not imported (keeps them out of the
+// bundle). Uncomment together with their JSX and data below to bring one back.
+// import UseCases from "@/blocks/UseCases";
+// import HowItWorks from "@/blocks/HowItWorks";
+// import VideoShowcase from "@/blocks/VideoShowcase";
+// import DarkCTA from "@/blocks/DarkCTA";
+// import Highlights from "@/blocks/Highlights";
+// import highlightPosterImageA from "public/use-cases.svg";
+// import highlightPosterImageB from "public/workflows.svg";
+
+/** Shared props for the looping demo videos in the spotlights. */
+function SpotlightVideo(p: { src: string }) {
+  return (
+    <VideoPlayer
+      src={p.src}
+      // Same shadow as the animated mocks in the other spotlights.
+      className="shadow-[var(--media-shadow,var(--shadow-dark-card))]"
+      autoPlay
+      loop
+      muted
+      aspectRatio="4/3"
+      lazy
+    />
+  );
+}
+
+/** Visual for each app's spotlight. Typed by app id, so every app needs one. */
+const SPOTLIGHT_MEDIA: Record<T_AppId, ReactNode> = {
+  motionbuff: <SpotlightVideo src="/motionbuff-demo.mp4" />,
+  filebuff: <SpotlightVideo src="/filebuff-dashboard.mp4" />,
+  paperbuff: <PaperBuffMock />,
+  screenbuff: <ScreenBuffMock />,
+};
 
 export default function Home() {
-  const whitePaperLink = "/capability-statement.pdf";
-
   const imgStyle = {
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center",
   };
+
+  /* Data for the parked sections (Highlights, UseCases, VideoShowcase).
+  const whitePaperLink = "/capability-statement.pdf";
 
   const highlightPosterA = {
     backgroundImage: `url(${highlightPosterImageA.src})`,
@@ -44,6 +73,7 @@ export default function Home() {
     backgroundColor: "transparent",
     backgroundSize: "contain",
   };
+  */
 
   const epiloguePoster = {
     backgroundImage: `url(${epiloguePosterImage.src})`,
@@ -52,6 +82,7 @@ export default function Home() {
     backgroundSize: "contain",
   };
 
+  /* Data for the parked sections, continued.
   // Use cases span the whole suite. Each one names its app; MotionBuff and
   // PaperBuff ones show a placeholder until their demo video is recorded.
   const useCasesData = {
@@ -395,6 +426,7 @@ export default function Home() {
       placeholderFile: "paperbuff-preview.mp4",
     },
   ];
+  */
 
   return (
     <div>
@@ -418,35 +450,7 @@ export default function Home() {
         />
 
         {/* One detailed section per app */}
-        <AppSpotlights
-          media={{
-            motionbuff: (
-              <VideoPlayer
-                src="/motionbuff-demo.mp4"
-                className="shadow-[var(--media-shadow,var(--shadow-dark-card))]"
-                autoPlay
-                loop
-                muted
-                aspectRatio="4/3"
-                lazy
-              />
-            ),
-            filebuff: (
-              <VideoPlayer
-                src="/filebuff-dashboard.mp4"
-                // Same shadow as the animated mocks in the other spotlights.
-                className="shadow-[var(--media-shadow,var(--shadow-dark-card))]"
-                autoPlay
-                loop
-                muted
-                aspectRatio="4/3"
-                lazy
-              />
-            ),
-            paperbuff: <PaperBuffMock />,
-            screenbuff: <ScreenBuffMock />,
-          }}
-        />
+        <AppSpotlights media={SPOTLIGHT_MEDIA} />
 
         {/* Spotlights alternate normal/alternate and end on alternate, so
             continue the pattern. */}
