@@ -649,13 +649,13 @@ export default function Home() {
         {/* Newsletter Epilogue */}
         <Epilogue
           id="contact"
-          title=""
+          title="Notify me when new apps launch"
           subtitle1=""
-          subtitle2="Get notified when new apps launch"
+          subtitle2="No spam. Just a heads-up when something new ships."
           illustration={epiloguePoster}
           background="alternate"
         >
-          <SubscribeInput placeholder="your@email.com" actionText="Contact" />
+          <SubscribeInput placeholder="your@email.com" actionText="Notify me" />
         </Epilogue>
       </main>
 
