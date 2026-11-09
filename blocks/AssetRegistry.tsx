@@ -34,7 +34,7 @@ export default function AssetRegistry(p: {
             <span className={styles.status}>In-progress</span>
           </div>
           <h2 className={cx(lilita_one.className, styles.title)}>
-            THE ASSET REGISTRY BUILT FOR AGENTS
+            The asset registry built for agents
           </h2>
           <p className={styles.lead}>
             One agent-friendly source for creative assets. Agents can search the
