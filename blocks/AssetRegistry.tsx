@@ -32,16 +32,15 @@ export default function AssetRegistry(p: {
               className={styles.icon}
               draggable={false}
             />
-            <span className={styles.status}>
-              {STATUS_LABEL["in-progress"]}
-            </span>
+            <span className={styles.status}>{STATUS_LABEL["in-progress"]}</span>
           </div>
           <h2 className={cx(lilita_one.className, styles.title)}>
-            The asset registry built for agents
+            The asset registry built for personal agents
           </h2>
           <p className={styles.lead}>
-            One agent-friendly source for creative assets. Agents can search the
-            registry and pull down exactly what a project needs.
+            One source for creative assets. Agents can pull what they need:
+            search, license, download and modify production-ready assets from
+            the registry.
           </p>
 
           <ul className={styles.categories}>
@@ -51,10 +50,6 @@ export default function AssetRegistry(p: {
               </li>
             ))}
           </ul>
-
-          <p className={styles.note}>
-            Agents have the power to: search, license, download, modify
-          </p>
         </div>
 
         <RegistryMock />

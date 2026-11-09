@@ -155,9 +155,9 @@ export const APPS: T_App[] = [
     icon: <FileBuffIcon />,
     // The mark is a full tile of its own, so no tinted backing.
     iconBg: "bg-transparent",
-    // Deep amber: the mark's #d97706 only reaches ~3.2:1 against white, too
-    // low for the white "Live" pill / CTA text and the small feature labels.
-    accent: "#a34a06",
+    // The midpoint of the mark's hexagon gradient (#ea580c → #f59e0b → #fde68a).
+    // Chosen for brand match over contrast: white text on it is ~2.2:1.
+    accent: "#f59e0b",
   },
   {
     id: "paperbuff",

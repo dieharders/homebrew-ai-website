@@ -188,13 +188,14 @@
   border-radius: var(--ui-radius-md);
   font-weight: 700;
   /* Each spotlight's own hue, lit from the top like the Plans cards: a lighter
-     tint of the accent at the top settling into the full colour. Kept subtle
-     (15%) so the white label, which sits in the lit upper half, keeps AA
-     contrast; at 35% every accent dropped below 4.5:1 there. */
+     tint of the accent at the top settling into the full colour. The lit top
+     pulls white text below 4.5:1, so a soft dark text-shadow keeps the label
+     legible where it sits in the highlight. */
   color: #fff;
+  text-shadow: 0 1px 2px color-mix(in srgb, var(--app-accent), #000 45%);
   background: linear-gradient(
     180deg,
-    color-mix(in srgb, var(--app-accent), #fff 15%) 0%,
+    color-mix(in srgb, var(--app-accent), #fff 35%) 0%,
     var(--app-accent) 45%
   );
   box-shadow:
