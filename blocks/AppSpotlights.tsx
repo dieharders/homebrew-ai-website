@@ -53,7 +53,11 @@ export default function AppSpotlights(p: {
               <div className={styles.details}>
                 {/* Collapsed visually only: the cards are still in the HTML
                     for crawlers. */}
-                <RevealMore buttonClassName={styles.moreToggle}>
+                <RevealMore
+                  buttonClassName={styles.moreToggle}
+                  moreLabel="More details"
+                  lessLabel="Hide details"
+                >
                   <dl className={styles.features}>
                     {app.features.map((f) => (
                       <div key={f.label} className={styles.feature}>

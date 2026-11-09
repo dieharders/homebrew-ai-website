@@ -25,14 +25,6 @@ export default function RevealMore(p: {
 
   return (
     <div className={p.className}>
-      <div
-        id={id}
-        className={cx(styles.region, open && styles.open)}
-        inert={!open}
-      >
-        <div className={styles.inner}>{p.children}</div>
-      </div>
-
       <button
         type="button"
         className={cx(styles.toggle, p.buttonClassName)}
@@ -56,6 +48,14 @@ export default function RevealMore(p: {
           <polyline points="6 9 12 15 18 9" />
         </svg>
       </button>
+
+      <div
+        id={id}
+        className={cx(styles.region, open && styles.open)}
+        inert={!open}
+      >
+        <div className={styles.inner}>{p.children}</div>
+      </div>
     </div>
   );
 }
