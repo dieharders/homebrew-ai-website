@@ -53,7 +53,7 @@ export default function HeroBento({
             </div>
 
             {/* Video preview card */}
-            {/* {videoSrc && (
+            {videoSrc && (
               <div className={styles.videoCard}>
                 <VideoPlayer
                   src={videoSrc}
@@ -63,7 +63,7 @@ export default function HeroBento({
                   aspectRatio="1/1"
                 />
               </div>
-            )} */}
+            )}
           </div>
         </div>
       </div>
