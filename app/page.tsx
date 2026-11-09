@@ -494,7 +494,7 @@ export default function Home() {
           id="features"
           background="alternate"
           pattern="dots"
-          title="ACROSS EVERY APP"
+          title="BUILT INTO EVERY APP"
           subtitle="What you get with every OpenBrew app."
           features={[
             {

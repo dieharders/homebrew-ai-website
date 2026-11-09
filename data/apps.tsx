@@ -142,7 +142,7 @@ export const APPS: T_App[] = [
     name: "PaperBuff",
     href: "/#paperbuff",
     external: false,
-    tagline: "Voice-assisted documents",
+    tagline: "Voice-powered documents",
     description:
       "Talk to your document and it styles itself. Automatic typography and layout, with 3D and interactive elements embedded right in the page.",
     headline: "Documents that design themselves",
