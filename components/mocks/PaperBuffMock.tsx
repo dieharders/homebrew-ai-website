@@ -16,7 +16,9 @@ const COMMANDS = [
 ];
 
 // Longest command, so the hidden sizing copies reserve room for the widest pill.
-const LONGEST_COMMAND = COMMANDS.reduce((a, b) => (b.length > a.length ? b : a));
+const LONGEST_COMMAND = COMMANDS.reduce((a, b) =>
+  b.length > a.length ? b : a,
+);
 
 /**
  * Animated stand-in for PaperBuff: a plain draft is typeset, given a pull
@@ -67,13 +69,17 @@ function Window(p: {
         <span className={styles.dot} />
         <span className={styles.dot} />
         <span className={styles.dot} />
-        <span className={styles.chromeTitle}>PaperBuff — Coastal survey.pdoc</span>
+        <span className={styles.chromeTitle}>
+          PaperBuff — Coastal-Survey.doc
+        </span>
       </div>
 
       <div className={styles.pbStage}>
         <div className={cx(styles.pbPage, applied >= 1 && styles.pbTypeset)}>
           <p className={styles.pbKicker}>Field report · Oct 2026</p>
-          <p className={styles.pbTitle}>Reef recovery along the northern shelf</p>
+          <p className={styles.pbTitle}>
+            Reef recovery along the northern shelf
+          </p>
           <p className={styles.pbDek}>
             Six weeks of survey data, and what it says about the next decade.
           </p>
@@ -84,14 +90,18 @@ function Window(p: {
               <span className={styles.pbLine} />
               <span className={styles.pbLine} />
               <span className={cx(styles.pbLine, styles.pbLineShort)} />
-              <blockquote className={cx(styles.pbQuote, applied >= 2 && styles.pbShown)}>
+              <blockquote
+                className={cx(styles.pbQuote, applied >= 2 && styles.pbShown)}
+              >
                 Coral cover rose 18% where the new moorings went in.
               </blockquote>
               <span className={styles.pbLine} />
               <span className={cx(styles.pbLine, styles.pbLineShort)} />
             </div>
             <div className={styles.pbCol}>
-              <figure className={cx(styles.pbFigure, applied >= 3 && styles.pbShown)}>
+              <figure
+                className={cx(styles.pbFigure, applied >= 3 && styles.pbShown)}
+              >
                 <div className={styles.pbCubeWrap}>
                   <div className={styles.pbCube}>
                     <span />
@@ -113,7 +123,15 @@ function Window(p: {
 
         <div className={cx(styles.pbVoice, listening && styles.pbListening)}>
           <span className={styles.pbMic}>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.4"
+              strokeLinecap="round"
+            >
               <rect x="9" y="3" width="6" height="11" rx="3" />
               <path d="M5 11a7 7 0 0 0 14 0M12 18v3" />
             </svg>

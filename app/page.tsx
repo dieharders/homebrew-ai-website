@@ -407,7 +407,7 @@ export default function Home() {
           tagline="OpenBrew.ai builds agent driven creative tools for entertainment & simulations. Create and manage your video, documents, screen recordings and workspace."
           primaryCTA={{ text: "Explore Apps", href: "#apps" }}
           secondaryCTA={{ text: "Pricing", href: "#pricing" }}
-          videoSrc="/promo.mp4"
+          videoSrc="/openbrew-promo.mp4"
         />
 
         {/* Suite overview — links out to each app's subdomain */}

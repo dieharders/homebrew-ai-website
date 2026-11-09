@@ -105,7 +105,7 @@ export const APPS: T_App[] = [
     tagline: "Workspace intelligence",
     description:
       "Search and automate your workspace in plain language. Documents, email, chats and events become hand-off tasks for agents.",
-    headline: "Your whole workspace, searchable and automated",
+    headline: "Your workspace, searchable and automated",
     pitch:
       "FileBuff reads across your documents, email, chats and calendar, then turns what it finds into tasks an agent can carry out. It runs on your own hardware, so sensitive files never leave the building.",
     features: [

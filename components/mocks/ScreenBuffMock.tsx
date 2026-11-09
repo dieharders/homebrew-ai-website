@@ -42,22 +42,25 @@ export default function ScreenBuffMock() {
   const seconds = 3 + tick * 2;
 
   return (
-    <div ref={ref} className={cx(styles.window, styles.sbWindow)} aria-hidden="true">
+    <div
+      ref={ref}
+      className={cx(styles.window, styles.sbWindow)}
+      aria-hidden="true"
+    >
       <div className={styles.chrome}>
         <span className={styles.dot} />
         <span className={styles.dot} />
         <span className={styles.dot} />
-        <span className={styles.chromeTitle}>ScreenBuff — Product demo</span>
+        <span className={styles.chromeTitle}>
+          ScreenBuff — Product-Demo.mp4
+        </span>
         <span className={styles.sbRec}>
           <i /> REC 0:{String(seconds).padStart(2, "0")}
         </span>
       </div>
 
       <div className={styles.sbViewport}>
-        <div
-          className={styles.sbScreen}
-          style={{ transform: cameraFor(shot) }}
-        >
+        <div className={styles.sbScreen} style={{ transform: cameraFor(shot) }}>
           {/* A generic invoicing app being demoed */}
           <div className={styles.sbApp}>
             <div className={styles.sbSidebar}>
@@ -70,7 +73,12 @@ export default function ScreenBuffMock() {
             <div className={styles.sbMain}>
               <div className={styles.sbTopbar}>
                 <span className={styles.sbHeading}>Invoices</span>
-                <span className={cx(styles.sbButton, tick >= 2 && tick < 4 && styles.sbPressed)}>
+                <span
+                  className={cx(
+                    styles.sbButton,
+                    tick >= 2 && tick < 4 && styles.sbPressed,
+                  )}
+                >
                   + New invoice
                 </span>
               </div>
@@ -90,7 +98,9 @@ export default function ScreenBuffMock() {
               </div>
               <div className={styles.sbTable}>
                 <span />
-                <span className={cx(tick >= 5 && tick < 7 && styles.sbRowActive)} />
+                <span
+                  className={cx(tick >= 5 && tick < 7 && styles.sbRowActive)}
+                />
                 <span />
                 <span />
               </div>
@@ -102,12 +112,23 @@ export default function ScreenBuffMock() {
             style={{ left: `${shot.x}%`, top: `${shot.y}%` }}
           >
             <svg width="18" height="18" viewBox="0 0 24 24">
-              <path d="M4 2l16 10-7 1.5L9.5 21z" fill="#111" stroke="#fff" strokeWidth="1.6" strokeLinejoin="round" />
+              <path
+                d="M4 2l16 10-7 1.5L9.5 21z"
+                fill="#111"
+                stroke="#fff"
+                strokeWidth="1.6"
+                strokeLinejoin="round"
+              />
             </svg>
           </span>
         </div>
 
-        <span className={cx(styles.sbCallout, !!shot.callout && styles.sbCalloutShown)}>
+        <span
+          className={cx(
+            styles.sbCallout,
+            !!shot.callout && styles.sbCalloutShown,
+          )}
+        >
           {shot.callout ?? SHOTS[2].callout}
         </span>
       </div>
@@ -115,8 +136,14 @@ export default function ScreenBuffMock() {
       <div className={styles.sbTimeline}>
         <span className={styles.sbTrackLabel}>Zooms</span>
         <div className={styles.sbTrack}>
-          <span className={styles.sbSegment} style={{ left: "25%", width: "25%" }} />
-          <span className={styles.sbSegment} style={{ left: "62.5%", width: "25%" }} />
+          <span
+            className={styles.sbSegment}
+            style={{ left: "25%", width: "25%" }}
+          />
+          <span
+            className={styles.sbSegment}
+            style={{ left: "62.5%", width: "25%" }}
+          />
           <span
             className={styles.sbPlayhead}
             style={{ left: `${(tick / (SHOTS.length - 1)) * 100}%` }}
