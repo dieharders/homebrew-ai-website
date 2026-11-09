@@ -112,3 +112,119 @@
   font-weight: 600;
   color: var(--text);
 }
+
+/*
+ * Scroll transitions. Scroll-driven (no JS): an "in" over entry, an "out" as
+ * the element leaves the top; fill modes are split so they never fight.
+ *
+ * The mark spins in, the copy follows, and the category pills drop in one by
+ * one like assets landing in the library. The registry window tilts up from
+ * flat, as if being lifted off a desk, and lays back down on the way out.
+ */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .icon {
+      animation:
+        reg-icon-in linear backwards,
+        reg-copy-out linear forwards;
+      animation-timeline: view(), view();
+      animation-range:
+        entry 0% cover 30%,
+        exit 20% exit 100%;
+    }
+
+    .status,
+    .title,
+    .lead {
+      animation:
+        reg-copy-in linear backwards,
+        reg-copy-out linear forwards;
+      animation-timeline: view(), view();
+      animation-range:
+        entry 0% cover 30%,
+        exit 20% exit 100%;
+    }
+
+    .category {
+      --delay: 0%;
+      animation:
+        reg-pill-in linear backwards,
+        reg-copy-out linear forwards;
+      animation-timeline: view(), view();
+      animation-range:
+        entry var(--delay) cover calc(28% + var(--delay)),
+        exit 20% exit 100%;
+    }
+
+    .category:nth-child(2) { --delay: 4%; }
+    .category:nth-child(3) { --delay: 8%; }
+    .category:nth-child(4) { --delay: 12%; }
+    .category:nth-child(5) { --delay: 16%; }
+    .category:nth-child(n + 6) { --delay: 20%; }
+
+    /* The RegistryMock window. */
+    .layout > :last-child {
+      transform-origin: 50% 100%;
+      animation:
+        reg-window-in linear backwards,
+        reg-window-out linear forwards;
+      animation-timeline: view(), view();
+      animation-range:
+        entry 0% cover 40%,
+        exit 0% exit 100%;
+    }
+  }
+}
+
+@keyframes reg-icon-in {
+  from {
+    opacity: 0;
+    scale: 0.2;
+    rotate: -180deg;
+  }
+  70% {
+    opacity: 1;
+    scale: 1.1;
+  }
+}
+
+@keyframes reg-copy-in {
+  from {
+    opacity: 0;
+    translate: -50px 0;
+  }
+}
+
+@keyframes reg-copy-out {
+  to {
+    opacity: 0;
+    translate: 0 -40px;
+  }
+}
+
+@keyframes reg-pill-in {
+  from {
+    opacity: 0;
+    translate: 0 -60px;
+    rotate: -12deg;
+  }
+  65% {
+    opacity: 1;
+    translate: 0 6px;
+    rotate: 3deg;
+  }
+}
+
+@keyframes reg-window-in {
+  from {
+    opacity: 0;
+    transform: perspective(1400px) translateY(80px) rotateX(35deg) scale(0.9);
+  }
+}
+
+@keyframes reg-window-out {
+  to {
+    opacity: 0.2;
+    transform: perspective(1400px) translateY(-30px) rotateX(20deg) scale(0.92);
+  }
+}
