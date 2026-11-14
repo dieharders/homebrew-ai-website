@@ -438,11 +438,10 @@ export default function Home() {
 
       <main>
         <HeroBento
-          kicker={
-            LIVE_APPS.length > 0
-              ? { text: `Live now: ${LIVE_APPS.join(" + ")}`, href: "#apps" }
-              : undefined
-          }
+          kicker={{
+            text: `Now live: Free-form video in MotionBuff! 🥳`,
+            href: "",
+          }}
           headline="THE CREATIVE TOOL-CHAIN FOR AGENTS"
           highlight="FOR AGENTS"
           tagline="OpenBrew.ai builds agent driven creative tools for entertainment & simulations. Have your personal agents create and manage your videos, documents, screen recordings and virtual workspaces."
