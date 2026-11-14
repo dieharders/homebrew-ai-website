@@ -11,7 +11,7 @@ import Features from "@/blocks/Features";
 import Epilogue from "@/blocks/Epilogue";
 import Footer from "@/blocks/Footer";
 import SubscribeInput from "@/components/SubscribeInput";
-import epiloguePosterImage from "public/badge.png";
+import epiloguePosterImage from "public/logo-badge.svg";
 import type { T_AppId } from "@/data/apps";
 import type { ReactNode } from "react";
 // Parked sections — not rendered, so not imported (keeps them out of the

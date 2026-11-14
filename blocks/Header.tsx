@@ -118,11 +118,12 @@ export default function Header(p: {
             onClick={scrollToHashOnClick("/")}
           >
             <Image
-              src="/badge.png"
+              src="/logo-badge.svg"
               alt="Homebrew AI"
               width={40}
               height={40}
               priority
+              unoptimized
             />
           </Link>
 
