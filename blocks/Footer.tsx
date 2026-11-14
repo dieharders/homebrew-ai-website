@@ -32,7 +32,7 @@ export default function Footer(p: {
     <footer id={p.id} className={className}>
       <div className={styles.content}>
         <div className={styles.heading}>
-          <div className={styles.accent} />
+          <div className={cx("squiggle-accent", styles.accent)} />
           <h2 className={cx(styles.title, lilita_one.className)}>
             GET IN TOUCH
           </h2>

@@ -102,6 +102,12 @@
   background: color-mix(in srgb, var(--paper) 70%, transparent);
 }
 
+/* The page you are on: a paper pill, ruled in ink like the rest of the bar. */
+.navLink[aria-current="page"] {
+  background: var(--paper);
+  box-shadow: inset 0 0 0 2px var(--ink);
+}
+
 .logo {
   flex-shrink: 0;
   height: 100%;

@@ -48,18 +48,19 @@
 }
 
 /* Body buttons are ink-outlined stickers with a hard shadow: hover lifts them
-   off the page, press pushes them flat into it. */
-.container-location-body {
+   off the page, press pushes them flat into it. Primary and secondary only,
+   so type="custom" buttons keep their own styling. */
+:is(.container-type-primary, .container-type-secondary).container-location-body {
   border: var(--ink-line);
   box-shadow: var(--shadow-hard);
 }
 
-.container-location-body:hover {
+:is(.container-type-primary, .container-type-secondary).container-location-body:hover {
   transform: translate(-2px, -2px);
   box-shadow: var(--shadow-hard-lg);
 }
 
-.container-location-body:active {
+:is(.container-type-primary, .container-type-secondary).container-location-body:active {
   transform: translate(4px, 4px);
   box-shadow: 0 0 0 var(--ink);
 }

@@ -1,7 +1,6 @@
 import styles from "./HeroBento.module.css";
 import { cx } from "@/utils/common";
 import Button from "@/components/Button";
-import HashLink from "@/components/HashLink";
 import VideoPlayer from "@/components/VideoPlayer";
 
 interface HeroBentoProps {
@@ -9,8 +8,8 @@ interface HeroBentoProps {
   /** Part of `headline` to set on a strip of butter tape, e.g. "FOR AGENTS". */
   highlight?: string;
   tagline: string;
-  /** Small sticker above the headline, e.g. which apps are live. */
-  kicker?: { text: string; href: string };
+  /** Small sticker above the headline, e.g. which apps are live. Not a link. */
+  kicker?: string;
   primaryCTA: { text: string; href: string };
   secondaryCTA?: { text: string; href: string };
   videoSrc?: string;
@@ -64,16 +63,16 @@ export default function HeroBento({
         <svg className={cx(styles.blob, styles.blobB)} viewBox="0 0 200 200">
           <path d="M39.9,-49.6C53.3,-41.6,66.9,-30.6,71.6,-16.5C76.3,-2.4,72.1,14.8,63.6,28.8C55.1,42.8,42.3,53.6,27.5,60.6C12.7,67.6,-4.1,70.8,-21.1,67.4C-38.1,64,-55.3,54,-65.5,38.9C-75.7,23.8,-78.9,3.6,-73.6,-13.4C-68.3,-30.4,-54.5,-44.2,-39.6,-51.9C-24.7,-59.6,-8.6,-61.2,4.7,-66.7C18,-72.2,26.5,-57.6,39.9,-49.6Z" transform="translate(100 100)" />
         </svg>
-        <div className={styles.pattern} />
+        <div className="doodle-ground" />
       </div>
 
       <div className={styles.content}>
         <div className={styles.copy}>
           {kicker && (
-            <HashLink href={kicker.href} className={styles.kicker}>
+            <p className={styles.kicker}>
               <span className={styles.liveDot} aria-hidden="true" />
-              {kicker.text}
-            </HashLink>
+              {kicker}
+            </p>
           )}
           <h1 className={styles.headline}>
             <Headline text={headline} highlight={highlight} />

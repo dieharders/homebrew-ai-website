@@ -62,7 +62,3 @@
   rotate: -6deg;
   filter: drop-shadow(6px 6px 0 var(--ground-deep));
 }
-
-.glow {
-  display: none;
-}

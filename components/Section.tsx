@@ -7,6 +7,10 @@ export type T_Background = 'normal' | 'alternate' | 'butter' | 'foam' | 'accent'
 // 'doodle' is the brand pattern, tinted to the ground and multiplied over it.
 export type T_Pattern = 'none' | 'doodle' | 'geometric' | 'dots' | 'lines';
 
+// The grounds that set a --ground-ink. On any other ground the doodle tint is
+// transparent, so the layer would cost a blended, masked composite for nothing.
+const INKED_GROUNDS: ReadonlySet<T_Background> = new Set(['normal', 'alternate', 'butter', 'foam']);
+
 export default function Section(p: {
   id?: string,
   className?: string,
@@ -18,7 +22,10 @@ export default function Section(p: {
 }) {
   const size = p.size ?? 'normal';
   const background = p.background ?? 'normal';
-  const pattern = p.pattern ?? 'doodle';
+  const inked = INKED_GROUNDS.has(background);
+  // Doodle by default where it shows; never on a ground with no ink for it.
+  const requested = p.pattern ?? (inked ? 'doodle' : 'none');
+  const pattern = requested === 'doodle' && !inked ? 'none' : requested;
   const accentLine = p.accentLine ?? 'none';
 
   const className = cx(
@@ -31,7 +38,8 @@ export default function Section(p: {
 
   return (
     <section id={p.id} className={className}>
-      {pattern !== 'none' && (
+      {pattern === 'doodle' && <div className="doodle-ground" aria-hidden="true" />}
+      {pattern !== 'none' && pattern !== 'doodle' && (
         <div className={cx(styles.pattern, styles[`pattern-${pattern}`])} aria-hidden="true" />
       )}
       <div className={styles.content}>

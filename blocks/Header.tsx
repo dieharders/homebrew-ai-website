@@ -1,9 +1,13 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useId, useState, useRef } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+// Static import, so the header and the Epilogue (app/page.tsx) share one
+// hashed URL and the browser fetches the badge once.
+import logoBadge from "../public/logo-badge.svg";
 import styles from "./Header.module.css";
 import { cx } from "@/utils/common";
 import { scrollToHashOnClick } from "@/utils/hashLink";
@@ -33,9 +37,13 @@ export default function Header(p: {
   const id = p.id ?? "top";
   const navItems = p.navItems ?? defaultNavItems;
 
+  const pathname = usePathname();
+  const appsPanelId = useId();
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!isMenuOpen) return;
@@ -49,8 +57,19 @@ export default function Header(p: {
         setIsMenuOpen(false);
       }
     };
+    // Escape closes the panel and hands focus back to the Apps button, so
+    // keyboard users can dismiss it without hunting for an outside click.
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      setIsMenuOpen(false);
+      menuButtonRef.current?.focus();
+    };
     document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
+    document.addEventListener("keydown", handleKey);
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+      document.removeEventListener("keydown", handleKey);
+    };
   }, [isMenuOpen]);
 
   useEffect(() => {
@@ -115,26 +134,30 @@ export default function Header(p: {
             aria-label="Home"
             onClick={scrollToHashOnClick("/")}
           >
+            {/* Decorative: the link's aria-label already names it. */}
             <Image
-              src="/logo-badge.svg"
-              alt="Homebrew AI"
+              src={logoBadge}
+              alt=""
               width={40}
               height={40}
-              priority
+              preload
               unoptimized
             />
           </Link>
 
           <div className={styles.navGroup}>
             <div className="relative shrink-0" ref={menuRef}>
+              {/* A disclosure (a button that shows a panel of links), not an
+                ARIA menu: no menu roles, so no arrow-key contract to keep. */}
               <button
+                ref={menuButtonRef}
                 className={cx(
                   styles.navLink,
                   "cursor-pointer gap-1 border-none bg-transparent",
                 )}
                 onClick={() => setIsMenuOpen((v) => !v)}
-                aria-haspopup="menu"
                 aria-expanded={isMenuOpen}
+                aria-controls={appsPanelId}
               >
                 Apps
                 <svg
@@ -158,6 +181,7 @@ export default function Header(p: {
                 is what kept the subdomains undiscovered. Show/hide is
                 CSS-only. */}
               <div
+                id={appsPanelId}
                 className={cx(
                   "absolute top-[calc(100%+0.75rem)] left-0 z-[200] min-w-[220px] flex-col gap-1 rounded-2xl border-2 border-[var(--ink)] bg-[var(--paper)] p-2 shadow-[var(--shadow-hard-lg)]",
                   isMenuOpen ? "hidden sm:flex" : "hidden",
@@ -195,11 +219,18 @@ export default function Header(p: {
 
             <ul className={styles.navList}>
               {navItems.map((item) => {
+                // Page links only: a `/#pricing` hash link is a spot on the
+                // home page, not a page you are on.
+                const isCurrent =
+                  !item.href.includes("#") &&
+                  (pathname === item.href ||
+                    pathname.startsWith(`${item.href}/`));
                 return (
                   <li key={item.href} className={styles.navItem}>
                     <Link
                       href={item.href}
                       className={styles.navLink}
+                      aria-current={isCurrent ? "page" : undefined}
                       target={item?.rel && "_blank"}
                       rel={item.rel}
                       onClick={scrollToHashOnClick(item.href)}

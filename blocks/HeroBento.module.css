@@ -63,15 +63,6 @@
   }
 }
 
-.pattern {
-  position: absolute;
-  inset: 0;
-  background: var(--ground-ink);
-  -webkit-mask: url("/pattern-doodle.svg") 0 0 / 280px 280px repeat;
-  mask: url("/pattern-doodle.svg") 0 0 / 280px 280px repeat;
-  mix-blend-mode: multiply;
-}
-
 /* ---- layout ---- */
 
 .content {
@@ -112,7 +103,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  margin-bottom: var(--space-5);
+  margin: 0 0 var(--space-5);
   padding: 0.4rem 0.95rem 0.4rem 0.75rem;
   border: var(--ink-line);
   border-radius: 999px;
@@ -123,16 +114,6 @@
   line-height: 1.2;
   color: var(--ink);
   rotate: -1.5deg;
-  transition:
-    rotate var(--transition-fast),
-    translate var(--transition-fast),
-    box-shadow var(--transition-fast);
-}
-
-.kicker:hover {
-  rotate: 0deg;
-  translate: -1px -1px;
-  box-shadow: var(--shadow-hard);
 }
 
 .liveDot {
@@ -149,7 +130,8 @@
   margin: 0 0 var(--space-5);
   font-family: var(--font-lilita-one), sans-serif;
   font-size: clamp(2.65rem, 1.55rem + 4.6vw, 5.25rem);
-  font-weight: 700;
+  /* Lilita One has a single 400 weight; asking for 700 faux-bolds it. */
+  font-weight: 400;
   line-height: 1.04;
   letter-spacing: 0.5px;
   color: var(--ink);

@@ -12,7 +12,7 @@ import Epilogue from "@/blocks/Epilogue";
 import Footer from "@/blocks/Footer";
 import SubscribeInput from "@/components/SubscribeInput";
 import epiloguePosterImage from "public/logo-badge.svg";
-import { APPS, type T_AppId } from "@/data/apps";
+import type { T_AppId } from "@/data/apps";
 import type { ReactNode } from "react";
 // Parked sections — not rendered, so not imported (keeps them out of the
 // bundle). Uncomment together with their JSX and data below to bring one back.
@@ -46,11 +46,6 @@ const SPOTLIGHT_MEDIA: Record<T_AppId, ReactNode> = {
   paperbuff: <PaperBuffMock />,
   screenbuff: <ScreenBuffMock />,
 };
-
-/** Hero sticker, kept in step with the app statuses in data/apps.tsx. */
-const LIVE_APPS = APPS.filter((app) => app.status === "live").map(
-  (app) => app.name,
-);
 
 export default function Home() {
   const imgStyle = {
@@ -438,10 +433,7 @@ export default function Home() {
 
       <main>
         <HeroBento
-          kicker={{
-            text: `Now live: Free-form video in MotionBuff! 🥳`,
-            href: "",
-          }}
+          kicker="Now live: Free-form video in MotionBuff! 🥳"
           headline="THE CREATIVE TOOL-CHAIN FOR AGENTS"
           highlight="FOR AGENTS"
           tagline="OpenBrew.ai builds agent driven creative tools for entertainment & simulations. Have your personal agents create and manage your videos, documents, screen recordings and virtual workspaces."

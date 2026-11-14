@@ -35,7 +35,7 @@ export default function Features(p: {
       accentLine={p.accentLine}
     >
       <div className={styles.header}>
-        <div className={styles.accentLine} />
+        <div className={cx("squiggle-accent", styles.accentLine)} />
         <h2 className={cx(lilita_one.className, styles.title)}>{p.title}</h2>
         <p className={styles.subtitle}>{p.subtitle}</p>
       </div>

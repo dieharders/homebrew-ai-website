@@ -20,7 +20,6 @@ export default function Epilogue(p: {
   return (
     <Section id={p.id} className={className} background={p.background}>
       <div className={styles.illustrationContainer}>
-        <div className={styles.glow}></div>
         <div className={styles.illustration} style={p.illustration}></div>
       </div>
       <div className={styles.header}>

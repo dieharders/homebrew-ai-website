@@ -4,14 +4,9 @@
   text-align: center;
 }
 
-/* A pink squiggle, drawn like the doodles in the ground pattern. */
+/* Spacing for the shared .squiggle-accent (global.css). */
 .accentLine {
-  width: 68px;
-  height: 14px;
   margin: 0 auto var(--space-4);
-  background: var(--cheek-deep);
-  -webkit-mask: var(--squiggle) center / contain no-repeat;
-  mask: var(--squiggle) center / contain no-repeat;
 }
 
 .title {

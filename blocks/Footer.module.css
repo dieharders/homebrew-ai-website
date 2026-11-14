@@ -27,12 +27,11 @@
   flex-shrink: 0;
 }
 
+/* The shared .squiggle-accent (global.css), in butter on the ink footer. */
 .accent {
-  width: 68px;
-  height: 14px;
   background: var(--butter-strong);
-  -webkit-mask: var(--squiggle) left center / contain no-repeat;
-  mask: var(--squiggle) left center / contain no-repeat;
+  -webkit-mask-position: left center;
+  mask-position: left center;
 }
 
 .title {
