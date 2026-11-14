@@ -127,3 +127,14 @@
     font-size: 0.85rem;
   }
 }
+
+/* Apps dropdown + nav links. The dropdown lives outside .navList because
+   that list scrolls horizontally (overflow-x), which would clip it. */
+.navGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.25rem;
+  flex-grow: 1;
+  min-width: 0;
+}
