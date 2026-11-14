@@ -1,6 +1,15 @@
 .container {
   position: relative;
+  /* Keeps the doodle layer's multiply blend inside the section. */
+  isolation: isolate;
   overflow: clip; /* clip, not hidden: hidden makes a scroll container, which breaks the view() scroll timelines inside */
+  /* Each ground sets these three; children read them.
+     --ground       the section's solid colour
+     --ground-deep  a deeper shade of it, for the hard shadows of cards on it
+     --ground-ink   the doodle pattern's tint, multiplied over the ground */
+  --ground: var(--background);
+  --ground-deep: var(--border-color);
+  --ground-ink: transparent;
 }
 
 .container-size-normal,
@@ -27,11 +36,31 @@
 
 /* Background variants */
 .container-background-normal {
-  background: var(--background);
+  --ground: var(--butter-pale);
+  --ground-deep: #efd48a;
+  --ground-ink: #fdf0cf;
+  background: var(--ground);
 }
 
 .container-background-alternate {
-  background: var(--background-alternate);
+  --ground: var(--foam-pale);
+  --ground-deep: #d8c4f6;
+  --ground-ink: #f1e8fd;
+  background: var(--ground);
+}
+
+.container-background-butter {
+  --ground: var(--butter);
+  --ground-deep: var(--butter-deep);
+  --ground-ink: #fff1c8;
+  background: var(--ground);
+}
+
+.container-background-foam {
+  --ground: var(--foam);
+  --ground-deep: var(--foam-deep);
+  --ground-ink: #ebe0fc;
+  background: var(--ground);
 }
 
 .container-background-accent {
@@ -97,6 +126,9 @@
   pointer-events: none;
   z-index: 0;
 }
+
+/* The 'doodle' pattern is the global .doodle-ground (global.css). Section.tsx
+   only renders it on grounds that set a --ground-ink. */
 
 .pattern-geometric {
   background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffd43b' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");

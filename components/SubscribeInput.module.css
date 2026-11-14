@@ -2,17 +2,17 @@
   position: relative;
   display: flex;
   align-items: stretch;
-  box-shadow: 0 4px 18px #0002;
-  border-radius: 12px;
-  border: dashed #343a40;
-  border-width: 0.25rem;
+  box-shadow: 6px 6px 0 var(--ground-deep, var(--ink));
+  border-radius: 16px;
+  border: var(--ink-line);
   padding: 0.5rem;
-  background: #fffd;
+  background: var(--paper);
   overflow: hidden;
   gap: 0.25rem;
-  outline-style: solid;
-  outline-color: white;
-  outline-width: normal;
+}
+
+.container:focus-within {
+  box-shadow: var(--shadow-hard-lg);
 }
 
 .input {
@@ -28,9 +28,10 @@
   border-radius: 4px;
   border: none;
 }
-.input:focus {
+/* The whole field gets the focus treatment (see .container:focus-within). */
+.input:focus,
+.input:focus-visible {
   outline: none;
-  background: var(--illustration);
 }
 
 .button {

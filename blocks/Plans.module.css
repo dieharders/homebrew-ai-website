@@ -4,12 +4,9 @@
   text-align: center;
 }
 
+/* Spacing for the shared .squiggle-accent (global.css). */
 .accentLine {
-  width: 60px;
-  height: 3px;
-  margin: 0 auto var(--space-5);
-  border-radius: var(--ui-radius-sm);
-  background: var(--accent-gold-line);
+  margin: 0 auto var(--space-4);
 }
 
 .title {
@@ -31,6 +28,8 @@
 .plans {
   display: grid;
   grid-template-columns: 1fr;
+  /* Every card matches the tallest, stacked (mobile) or side by side. */
+  grid-auto-rows: 1fr;
   gap: var(--space-5);
   margin: 0;
   padding: 0;
@@ -48,16 +47,16 @@
   display: flex;
   flex-direction: column;
   padding: var(--space-6);
-  border-radius: var(--ui-radius-lg);
-  border: 1px solid var(--border-color);
-  background: var(--background);
-  box-shadow: var(--shadow-sm);
+  border-radius: var(--ui-radius-xl);
+  border: var(--ink-line);
+  background: var(--paper);
+  box-shadow: 6px 6px 0 var(--ground-deep);
 }
 
+/* The plan we recommend is the mascot's butter, with an ink shadow. */
 .featured {
-  border: 2px solid var(--accent-btn);
-  background: linear-gradient(180deg, var(--accent-light) 0%, var(--background) 45%);
-  box-shadow: var(--shadow-card);
+  background: var(--butter);
+  box-shadow: var(--shadow-hard-lg);
 }
 
 .name {
@@ -66,7 +65,7 @@
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: var(--accent-dark);
+  color: var(--cheek-deep);
 }
 
 .price {
@@ -109,31 +108,63 @@
   position: absolute;
   left: 0;
   font-weight: 800;
-  color: var(--accent-dark);
+  color: var(--cheek-deep);
 }
 
 .cta {
   display: block;
   padding: var(--space-3);
   border-radius: var(--ui-radius-md);
-  border: 1px solid var(--border-color);
+  border: var(--ink-line);
+  background: var(--paper);
+  box-shadow: var(--shadow-hard-sm);
   text-align: center;
+  font-size: 1.125rem;
   font-weight: 700;
-  color: var(--text);
-  transition: background var(--transition-fast);
+  color: var(--ink);
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
 .cta:hover {
-  background: var(--background-alternate);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-hard);
 }
 
+.cta:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 0 var(--ink);
+}
+
+/*
+ * The one button on the page we want clicked: hot cheek-pink on the butter
+ * card (the strongest contrast in the palette) and a deeper ink shadow.
+ */
 .featured .cta {
-  border-color: transparent;
-  background: var(--accent-btn);
+  background: var(--cheek-deep);
+  box-shadow: var(--shadow-hard-lg);
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--paper);
 }
 
 .featured .cta:hover {
-  background: var(--accent-normal);
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0 var(--ink);
+  background: #d6336c;
+  color: var(--paper);
+}
+
+.featured .cta:active {
+  transform: translate(6px, 6px);
+  box-shadow: 0 0 0 var(--ink);
+}
+
+.featured .cta:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 4px;
 }
 
 /*

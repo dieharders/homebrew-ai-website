@@ -1,9 +1,13 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useId, useState, useRef } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
+// Static import, so the header and the Epilogue (app/page.tsx) share one
+// hashed URL and the browser fetches the badge once.
+import logoBadge from "../public/logo-badge.svg";
 import styles from "./Header.module.css";
 import { cx } from "@/utils/common";
 import { scrollToHashOnClick } from "@/utils/hashLink";
@@ -16,12 +20,10 @@ export interface NavItem {
 }
 
 const appLinkClass =
-  "flex items-center gap-3 rounded-lg px-3 py-2.5 text-[var(--text-shade)] no-underline transition-colors hover:bg-[var(--background-alternate)] hover:text-[var(--text)]";
+  "flex items-center gap-3 rounded-lg px-3 py-2.5 text-[var(--ink)] no-underline transition-colors hover:bg-[var(--foam-pale)]";
 
 const defaultNavItems: NavItem[] = [
   // { label: "Features", href: "/#features" },
-  { label: "Home", href: "/" },
-  { label: "Apps", href: "/#apps" },
   { label: "Pricing", href: "/#pricing" },
   { label: "Jobs", href: "/jobs" },
 ];
@@ -34,11 +36,14 @@ export default function Header(p: {
 }) {
   const id = p.id ?? "top";
   const navItems = p.navItems ?? defaultNavItems;
+
   const pathname = usePathname();
+  const appsPanelId = useId();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!isMenuOpen) return;
@@ -52,8 +57,19 @@ export default function Header(p: {
         setIsMenuOpen(false);
       }
     };
+    // Escape closes the panel and hands focus back to the Apps button, so
+    // keyboard users can dismiss it without hunting for an outside click.
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      setIsMenuOpen(false);
+      menuButtonRef.current?.focus();
+    };
     document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
+    document.addEventListener("keydown", handleKey);
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+      document.removeEventListener("keydown", handleKey);
+    };
   }, [isMenuOpen]);
 
   useEffect(() => {
@@ -68,7 +84,7 @@ export default function Header(p: {
 
   const appLinks = () => (
     <>
-      <p className="mt-2 px-3 pt-2 pb-1 text-xs font-semibold tracking-wider text-[var(--text-shade)] uppercase opacity-60">
+      <p className="mt-2 px-3 pt-2 pb-1 text-xs font-semibold tracking-wider text-[var(--ink-muted)] uppercase">
         AI Apps
       </p>
       {APPS.map((app) => (
@@ -111,88 +127,121 @@ export default function Header(p: {
     >
       <nav className={styles.nav}>
         <div className={styles.navContent}>
-          <div className="relative shrink-0" ref={menuRef}>
-            <button
-              className="flex size-9 cursor-pointer items-center justify-center rounded-md border-none bg-transparent text-[var(--text)] transition-colors hover:bg-[var(--background-alternate)]"
-              onClick={() => setIsMenuOpen((v) => !v)}
-              title="More apps"
-              aria-label="Open apps menu"
-              aria-expanded={isMenuOpen}
-            >
-              <svg
-                width="22"
-                height="22"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z" />
-              </svg>
-            </button>
+          <Link
+            href="/"
+            className="flex size-10 shrink-0 items-center justify-center rounded-full transition-transform hover:scale-105"
+            title="Home"
+            aria-label="Home"
+            onClick={scrollToHashOnClick("/")}
+          >
+            {/* Decorative: the link's aria-label already names it. */}
+            <Image
+              src={logoBadge}
+              alt=""
+              width={40}
+              height={40}
+              preload
+              unoptimized
+            />
+          </Link>
 
-            {/* Always in the DOM so the app links ship in the server-rendered
+          <div className={styles.navGroup}>
+            <div className="relative shrink-0" ref={menuRef}>
+              {/* A disclosure (a button that shows a panel of links), not an
+                ARIA menu: no menu roles, so no arrow-key contract to keep. */}
+              <button
+                ref={menuButtonRef}
+                className={cx(
+                  styles.navLink,
+                  "cursor-pointer gap-1 border-none bg-transparent",
+                )}
+                onClick={() => setIsMenuOpen((v) => !v)}
+                aria-expanded={isMenuOpen}
+                aria-controls={appsPanelId}
+              >
+                Apps
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  className={cx(
+                    "transition-transform",
+                    isMenuOpen && "rotate-180",
+                  )}
+                >
+                  <path d="M7 10l5 5 5-5z" />
+                </svg>
+              </button>
+
+              {/* Always in the DOM so the app links ship in the server-rendered
                 HTML. Googlebot never clicks the menu button, so a subtree
                 mounted only while the menu is open is invisible to it — that
                 is what kept the subdomains undiscovered. Show/hide is
                 CSS-only. */}
-            <div
-              className={cx(
-                "absolute top-[calc(100%+0.5rem)] left-0 z-[200] min-w-[200px] flex-col gap-1 rounded-xl bg-white p-2 shadow-[0_4px_24px_rgba(0,0,0,0.12),0_1px_4px_rgba(0,0,0,0.08)]",
-                isMenuOpen ? "hidden sm:flex" : "hidden",
-              )}
-            >
-              {appLinks()}
+              <div
+                id={appsPanelId}
+                className={cx(
+                  "absolute top-[calc(100%+0.75rem)] left-0 z-[200] min-w-[220px] flex-col gap-1 rounded-2xl border-2 border-[var(--ink)] bg-[var(--paper)] p-2 shadow-[var(--shadow-hard-lg)]",
+                  isMenuOpen ? "hidden sm:flex" : "hidden",
+                )}
+              >
+                {appLinks()}
+              </div>
+
+              {/* Mobile fullscreen via portal */}
+              {isMenuOpen &&
+                createPortal(
+                  <div
+                    className="fixed inset-0 z-[9999] flex flex-col bg-[var(--paper)] p-4 sm:hidden"
+                    ref={mobileMenuRef}
+                  >
+                    <button
+                      className="mb-4 flex size-9 cursor-pointer items-center justify-center self-end rounded-md border-none bg-transparent text-[var(--text)]"
+                      onClick={() => setIsMenuOpen(false)}
+                      aria-label="Close menu"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                      </svg>
+                    </button>
+                    {appLinks()}
+                  </div>,
+                  document.body,
+                )}
             </div>
 
-            {/* Mobile fullscreen via portal */}
-            {isMenuOpen &&
-              createPortal(
-                <div
-                  className="fixed inset-0 z-[9999] flex flex-col bg-white p-4 sm:hidden"
-                  ref={mobileMenuRef}
-                >
-                  <button
-                    className="mb-4 flex size-9 cursor-pointer items-center justify-center self-end rounded-md border-none bg-transparent text-[var(--text)]"
-                    onClick={() => setIsMenuOpen(false)}
-                    aria-label="Close menu"
-                  >
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
+            <ul className={styles.navList}>
+              {navItems.map((item) => {
+                // Page links only: a `/#pricing` hash link is a spot on the
+                // home page, not a page you are on.
+                const isCurrent =
+                  !item.href.includes("#") &&
+                  (pathname === item.href ||
+                    pathname.startsWith(`${item.href}/`));
+                return (
+                  <li key={item.href} className={styles.navItem}>
+                    <Link
+                      href={item.href}
+                      className={styles.navLink}
+                      aria-current={isCurrent ? "page" : undefined}
+                      target={item?.rel && "_blank"}
+                      rel={item.rel}
+                      onClick={scrollToHashOnClick(item.href)}
                     >
-                      <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                    </svg>
-                  </button>
-                  {appLinks()}
-                </div>,
-                document.body,
-              )}
+                      {item.label}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
-
-          <ul className={styles.navList}>
-            {navItems.map((item) => {
-              const isActive =
-                pathname === item.href ||
-                (item.href !== "/" && pathname.startsWith(item.href));
-              return (
-                <li key={item.href} className={styles.navItem}>
-                  <Link
-                    href={item.href}
-                    className={cx(
-                      styles.navLink,
-                      isActive && styles.navLinkActive,
-                    )}
-                    target={item?.rel && "_blank"}
-                    rel={item.rel}
-                    onClick={scrollToHashOnClick(item.href)}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
         </div>
       </nav>
     </header>

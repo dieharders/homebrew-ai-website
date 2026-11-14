@@ -1,175 +1,279 @@
+/*
+ * Hero: copy on a foam ground (the mascot's lavender foam) with two deeper
+ * foam blobs in the corners and the doodle pattern multiplied over the lot.
+ * The promo video is a tilted, ink-outlined card with the mascot stuck on its
+ * corner. Sized to its content, not the viewport, so the next band peeks in
+ * below the fold on desktop and the CTAs sit in the first screen on phones.
+ */
 .container {
+  --ground: var(--foam);
+  --ground-deep: var(--foam-deep);
+  --ground-ink: #e5d6fb;
+  --blob: #dcc5fb;
   position: relative;
-  /* Fill the first screen *below* the sticky header (which sits in normal
-     flow above this section), so the content centres in what's visible. */
-  min-height: calc(100vh - var(--scroll-offset));
-  /* svh tracks the visible viewport, so mobile browser chrome doesn't push the
-     hero taller than the screen. Falls back to the vh above. */
-  min-height: calc(100svh - var(--scroll-offset));
-  display: flex;
-  align-items: center;
-  /* Symmetric padding so align-items: center lands on the true middle. */
-  padding: var(--space-7) 0;
-  background: var(--background);
-  overflow: hidden;
+  isolation: isolate;
+  overflow: clip;
+  background: var(--ground);
+  padding-block: var(--space-6) var(--space-8);
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 900px) {
   .container {
-    padding: var(--space-8) 0;
+    padding-block: clamp(3.5rem, 9vh, 6rem);
   }
 }
 
-.pattern {
+/* ---- ground decoration ---- */
+
+.decor {
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffd43b' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  pointer-events: none;
   z-index: 0;
+  pointer-events: none;
 }
+
+.blob {
+  position: absolute;
+  fill: var(--blob);
+}
+
+.blobA {
+  width: 380px;
+  top: -190px;
+  left: -170px;
+}
+
+.blobB {
+  width: 440px;
+  bottom: -230px;
+  right: -200px;
+}
+
+@media screen and (min-width: 900px) {
+  .blobA {
+    width: 620px;
+    top: -330px;
+    left: -280px;
+  }
+
+  .blobB {
+    width: 720px;
+    bottom: -380px;
+    right: -260px;
+  }
+}
+
+/* ---- layout ---- */
 
 .content {
   position: relative;
   z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-8);
+  align-items: center;
+  width: 100%;
   max-width: var(--page-max-width-wide);
   margin: 0 auto;
-  padding: 0 var(--page-padding);
-  width: 100%;
+  padding-inline: 20px;
 }
 
-.grid {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-}
-
-.gridHeader {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-@media screen and (min-width: 700px) {
-  .grid {
-    gap: 4rem;
-  }
-
-  .gridHeader {
-    gap: 3rem;
+@media screen and (min-width: 600px) {
+  .content {
+    padding-inline: var(--page-padding);
   }
 }
 
-/* Headline area */
-.headlineArea {
+@media screen and (min-width: 900px) {
+  .content {
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    gap: var(--space-8);
+  }
+}
+
+.copy {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 0;
-  flex: 1;
-  min-width: 0;
-  /* Small screens: centre the block, keep its contents left-aligned. */
-  align-self: center;
-  width: 100%;
-  max-width: 480px; /* match .videoCard */
+  align-items: flex-start;
+}
+
+/* ---- copy ---- */
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 var(--space-5);
+  padding: 0.4rem 0.95rem 0.4rem 0.75rem;
+  border: var(--ink-line);
+  border-radius: 999px;
+  background: var(--paper);
+  box-shadow: var(--shadow-hard-sm);
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--ink);
+  rotate: -1.5deg;
+}
+
+.liveDot {
+  position: relative;
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  background: #40c057;
 }
 
 .headline {
+  margin: 0 0 var(--space-5);
   font-family: var(--font-lilita-one), sans-serif;
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  font-weight: 700;
-  line-height: 1.1;
+  font-size: clamp(2.65rem, 1.55rem + 4.6vw, 5.25rem);
+  /* Lilita One has a single 400 weight; asking for 700 faux-bolds it. */
+  font-weight: 400;
+  line-height: 1.04;
   letter-spacing: 0.5px;
-  margin: 0 0 var(--space-5) 0;
-  color: var(--text);
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+/* A strip of butter tape with torn ends, stuck on slightly crooked. */
+.tape {
+  display: inline-block;
+  margin-top: 0.06em;
+  padding: 0.02em 0.2em 0.08em;
+  background: var(--butter-strong);
+  rotate: -2deg;
+  clip-path: polygon(
+    1.5% 6%,
+    4% 0,
+    96% 3%,
+    99% 0,
+    98% 28%,
+    100% 52%,
+    98.5% 78%,
+    100% 100%,
+    3% 97%,
+    0 100%,
+    1.5% 72%,
+    0 46%,
+    2% 22%
+  );
 }
 
 .tagline {
-  font-size: clamp(1.05rem, 2vw, 1.2rem);
-  line-height: 1.7;
-  color: var(--text-shade);
-  margin: 0 0 var(--space-6) 0;
-  max-width: 560px;
+  max-width: 34rem;
+  margin: 0 0 var(--space-6);
+  font-size: clamp(1rem, 0.94rem + 0.3vw, 1.2rem);
+  line-height: 1.6;
+  color: var(--ink-soft);
 }
 
 .actions {
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
-  gap: var(--space-4);
-  margin-top: auto;
+  align-items: center;
+  gap: var(--space-4) var(--space-5);
 }
 
-/* Video card. Square by design — promo.mp4 is composed for a 1/1 safe area,
-   so the card and the player inside it both stay 1/1 at every breakpoint. */
+/* ---- video stage ---- */
+
+/* Square, so cap it by the viewport height too or it pushes the copy around
+   on short laptop screens. The padding leaves room for the card's shadow. */
+.stage {
+  position: relative;
+  justify-self: center;
+  width: min(100%, 480px);
+  padding: 0 14px 14px 0;
+}
+
+@media screen and (min-width: 900px) {
+  .stage {
+    width: min(100%, 520px, 66svh);
+    justify-self: end;
+  }
+}
+
 .videoCard {
-  background: var(--background);
-  border-radius: var(--ui-radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-card);
-  border: 1px solid var(--section-separator-color);
-  transition: box-shadow var(--transition-smooth);
-  aspect-ratio: 1 / 1;
-  /* Stacked layout: a square is the tallest shape there is, so cap it and
-     centre it. Unbounded, it took the full column width and turned into a
-     ~900px slab on tablet-width windows. */
-  width: 100%;
-  max-width: 480px;
-  margin-inline: auto;
+  border: 3px solid var(--ink);
+  border-radius: 26px;
+  background: #111;
+  box-shadow: 12px 12px 0 var(--ground-deep);
+  rotate: 1.5deg;
+  transition:
+    rotate var(--transition-smooth),
+    box-shadow var(--transition-smooth);
 }
 
 .videoCard:hover {
-  box-shadow: var(--shadow-card-hover);
+  rotate: 0deg;
+  box-shadow: 14px 14px 0 var(--ground-deep);
 }
 
-.videoLabel {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--space-4) var(--space-5);
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--text);
-  background: var(--background);
+/* Die-cut sticker: a paper rim drawn with four hard drop-shadows, then a
+   soft ink shadow so it sits on top of the card. */
+.mascot {
+  position: absolute;
+  z-index: 2;
+  top: -34px;
+  left: -10px;
+  width: clamp(84px, 22vw, 128px);
+  height: auto;
+  rotate: -12deg;
+  filter: drop-shadow(3px 0 0 var(--paper)) drop-shadow(-3px 0 0 var(--paper))
+    drop-shadow(0 3px 0 var(--paper)) drop-shadow(0 -3px 0 var(--paper))
+    drop-shadow(3px 4px 0 rgb(43 45 51 / 0.22));
+  pointer-events: none;
 }
 
-/* Responsive: copy and video side by side.
-   This used to wait until 1100px, which left every window between 700 and
-   1100 — the common laptop range — with a full-width video stacked under the
-   copy. There is room for two columns well before that. */
 @media screen and (min-width: 900px) {
-  .gridHeader {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .headlineArea {
-    flex: 1 1 50%;
-    align-self: auto;
-    max-width: none;
-  }
-
-  .videoCard {
-    flex: 1 1 50%;
-    width: auto;
-    max-width: none;
-    margin-inline: 0;
+  .mascot {
+    top: -46px;
+    left: -48px;
   }
 }
 
-/* Responsive: Large Desktop */
-@media screen and (min-width: 1100px) {
-  .tagline {
-    font-size: 1.25rem;
+/* One load moment: the mascot is slapped onto the card. */
+@media (prefers-reduced-motion: no-preference) {
+  .mascot {
+    animation: sticker-slap 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.35s both;
+  }
+
+  .liveDot::after {
+    content: "";
+    position: absolute;
+    inset: -1.5px;
+    border-radius: 50%;
+    background: #40c057;
+    animation: live-ping 2.4s ease-out infinite;
   }
 }
 
-/* Gold accent to match the featured Pro pricing card. */
-.secondaryCta {
-  border-color: var(--accent-btn) !important;
-  background: linear-gradient(180deg, var(--accent-light) 0%, var(--background) 100%) !important;
+@keyframes sticker-slap {
+  from {
+    opacity: 0;
+    scale: 1.6;
+    rotate: -30deg;
+  }
+  60% {
+    opacity: 1;
+  }
 }
 
-.secondaryCta:hover {
-  background: var(--accent-light) !important;
+@keyframes live-ping {
+  0% {
+    scale: 1;
+    opacity: 0.7;
+  }
+  70%,
+  100% {
+    scale: 2.4;
+    opacity: 0;
+  }
+}
+
+.nowrap {
+  white-space: nowrap;
 }

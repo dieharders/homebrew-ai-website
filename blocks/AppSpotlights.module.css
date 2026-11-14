@@ -82,8 +82,8 @@
 .status-in-progress,
 .status-soon {
   color: var(--app-accent);
-  border: 1px solid color-mix(in srgb, var(--app-accent) 40%, transparent);
-  background: var(--background);
+  border: 1.5px solid var(--app-accent);
+  background: var(--paper);
 }
 
 .headline {
@@ -118,10 +118,12 @@
 }
 
 /* "Show more" toggle for the feature cards. */
+/* The accent darkened toward ink, so light accents (FileBuff's amber) stay
+   readable on the pastel grounds. */
 .moreToggle {
   margin-bottom: var(--space-6);
   font-size: 0.95rem;
-  color: var(--app-accent);
+  color: color-mix(in srgb, var(--app-accent), var(--ink) 35%);
 }
 
 .moreToggle:hover {
@@ -131,7 +133,7 @@
 
 .feature {
   padding-top: var(--space-4);
-  border-top: 1px solid var(--border-color);
+  border-top: 1.5px dashed color-mix(in srgb, var(--ink) 30%, transparent);
 }
 
 .feature dt {
@@ -145,7 +147,7 @@
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 1px;
-  color: var(--app-accent);
+  color: color-mix(in srgb, var(--app-accent), var(--ink) 35%);
 }
 
 .featureTitle {
@@ -191,12 +193,11 @@
   text-shadow: 0 1px 2px color-mix(in srgb, var(--app-accent), #000 45%);
   background: linear-gradient(
     180deg,
-    color-mix(in srgb, var(--app-accent), #fff 35%) 0%,
+    color-mix(in srgb, var(--app-accent), #fff 30%) 0%,
     var(--app-accent) 45%
   );
-  box-shadow:
-    var(--shadow-sm),
-    0 6px 18px -6px color-mix(in srgb, var(--app-accent) 60%, transparent);
+  border: var(--ink-line);
+  box-shadow: var(--shadow-hard);
   transition:
     transform 0.35s var(--cta-ease),
     box-shadow 0.35s var(--cta-ease);
@@ -204,14 +205,13 @@
 
 .cta:hover,
 .cta:focus-visible {
-  transform: translateY(-3px);
-  box-shadow:
-    var(--shadow-card),
-    0 14px 32px -8px color-mix(in srgb, var(--app-accent) 70%, transparent);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-hard-lg);
 }
 
 .cta:active {
-  transform: translateY(0) scale(0.98);
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 var(--ink);
   transition-duration: 0.1s;
 }
 
@@ -326,8 +326,10 @@
    var(--media-shadow, <their default>). */
 .mediaInner {
   position: relative;
-  --media-shadow: 0 12px 40px
-    color-mix(in srgb, var(--app-accent) 35%, transparent);
+  /* An ink outline (a spread-only shadow follows the corner radius), then a
+     hard offset shadow in the app's hue mixed into the ground. */
+  --media-shadow: 0 0 0 2.5px var(--ink),
+    10px 10px 0 2.5px color-mix(in srgb, var(--app-accent) 45%, var(--ground));
 }
 
 /*

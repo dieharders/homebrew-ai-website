@@ -3,10 +3,9 @@
   flex-direction: column;
   align-items: center;
   padding: var(--space-9) var(--page-padding) var(--space-7);
-  color: var(--text);
-  background-color: var(--background);
-  border-top: var(--section-separator-width) solid
-    var(--section-separator-color);
+  /* Ink, closing the page the way the outlines close every sticker on it. */
+  color: var(--paper);
+  background-color: var(--ink);
 }
 
 .content {
@@ -28,24 +27,21 @@
   flex-shrink: 0;
 }
 
+/* The shared .squiggle-accent (global.css), in butter on the ink footer. */
 .accent {
-  width: 4rem;
-  height: 4px;
-  background: linear-gradient(
-    135deg,
-    var(--accent-btn) 0%,
-    var(--accent-dark) 100%
-  );
-  border-radius: 2px;
+  background: var(--butter-strong);
+  -webkit-mask-position: left center;
+  mask-position: left center;
 }
 
 .title {
-  font-size: 1.75rem;
-  font-weight: var(--h2-font-weight);
+  font-size: 2rem;
+  /* Lilita One has a single 400 weight; asking for 700 faux-bolds it. */
+  font-weight: 400;
   line-height: var(--h2-line-height);
-  letter-spacing: var(--h2-letter-spacing);
+  letter-spacing: 1px;
   margin: 0;
-  color: var(--text);
+  color: var(--paper);
 }
 
 .cards {
@@ -61,29 +57,29 @@
   align-items: center;
   gap: var(--space-4);
   padding: var(--space-4) var(--space-5);
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--paper);
   border-radius: var(--ui-radius-md);
   text-decoration: none;
-  color: var(--text);
-  background-color: var(--background);
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition-smooth);
-  transition-property: transform, box-shadow, border-color;
+  color: var(--ink);
+  background-color: var(--paper);
+  box-shadow: 4px 4px 0 var(--cheek);
+  transition: var(--transition-fast);
+  transition-property: transform, box-shadow;
 }
 
 .card:hover {
-  transform: translateY(-2px);
-  border-color: var(--accent-btn);
-  box-shadow: var(--shadow-card-hover);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--cheek);
 }
 
 .card:active {
-  transform: translateY(0);
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 var(--cheek);
 }
 
 .icon {
   flex-shrink: 0;
-  color: var(--accent-dark);
+  color: var(--cheek-deep);
 }
 
 .label {
@@ -98,10 +94,9 @@
   max-width: var(--page-max-width);
   margin: var(--space-7) auto 0;
   padding-top: var(--space-5);
-  border-top: var(--section-separator-width) solid
-    var(--section-separator-color);
+  border-top: 1px solid rgb(255 253 247 / 0.15);
   font-size: 0.875rem;
-  color: var(--text-muted);
+  color: rgb(255 253 247 / 0.65);
   text-align: center;
 }
 

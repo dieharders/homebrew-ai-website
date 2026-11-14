@@ -34,43 +34,75 @@
   --page-max-width-wide: 1200px;
   --page-responsive-desktop: 800px;
   --page-header-height: 52px;
-  /* Real height of the sticky header: 36px of content + 0.75rem padding top
-     and bottom. Anchored sections scroll to sit flush beneath it. */
-  --scroll-offset: 60px;
+  /* Real height of the sticky header at every width: the 40px logo + 0.5rem
+     padding top and bottom + the 2px ink rule. Anchored sections scroll to sit
+     flush beneath it. Keep in sync with Header.module.css and Header.tsx. */
+  --scroll-offset: 58px;
   --page-footer-height: 64px;
   --section-header-max-width: 700px;
   --list-item-max-width: 450px;
 
+  /*
+   * Brand palette, taken from the mascot (public/cup-icon.svg): a butter-yellow
+   * mug, lavender foam, pink cheeks, all drawn in charcoal ink. Pages are bands
+   * of the two pastel grounds; objects on them are paper "stickers" outlined
+   * in ink with a hard shadow in a deeper shade of the ground they sit on.
+   */
+  --ink: #2b2d33;
+  --ink-soft: #4a4857;
+  --ink-muted: #686474;
+  --paper: #fffdf7;
+
+  --foam: #eadcfd;
+  --foam-deep: #c6a8f4;
+  --foam-pale: #f6f0fe;
+  --butter: #ffe9a3;
+  --butter-strong: #ffd84d;
+  --butter-deep: #e9bf4f;
+  --butter-pale: #fff8e0;
+  --cheek: #f783ac;
+  --cheek-deep: #c2255c;
+
+  /* Hard "sticker" shadows. Cards take the shade of their section's ground
+     (--ground-deep, set by Section), controls take ink. */
+  --ink-line: 2px solid var(--ink);
+  --shadow-hard-sm: 3px 3px 0 var(--ink);
+  --shadow-hard: 4px 4px 0 var(--ink);
+  --shadow-hard-lg: 6px 6px 0 var(--ink);
+
+  /* A hand-drawn squiggle, used as a mask for section-heading accents. */
+  --squiggle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 68 14'%3E%3Cpath d='M3 9 q8 -9 15.5 0 t15.5 0 t15.5 0 t15.5 0' fill='none' stroke='%23000' stroke-width='3.5' stroke-linecap='round'/%3E%3C/svg%3E");
+
   /* Colors - Light Mode */
-  --background: #ffffff;
-  --background-alternate: #f8f9fa;
+  --background: var(--paper);
+  --background-alternate: var(--foam-pale);
   --background-dark: #1a1a2e;
   --background-dark-alt: #16213e;
   --background-charcoal: #2d2d2d;
-  --section-separator-color: #e5e7eb;
+  --section-separator-color: color-mix(in srgb, var(--ink) 14%, transparent);
   --section-separator-width: 1px;
-  --section-accent-text-color: hsl(160, 100%, 5%);
+  --section-accent-text-color: var(--ink);
 
   /* Text Colors */
-  --text: #1f2937;
-  --text-shade: rgba(31, 41, 55, 0.7);
-  --text-muted: rgba(31, 41, 55, 0.5);
+  --text: var(--ink);
+  --text-shade: var(--ink-soft);
+  --text-muted: var(--ink-muted);
   --text-accent: #ffffff;
   --text-accent-shade: rgba(255, 255, 255, 0.85);
 
-  /* Accent Colors (Gold/Yellow) */
+  /* Accent Colors (butter yellow) */
   --accent: #f3f4f6;
-  --accent-light: #fff9db;
-  --accent-normal: #ffec99;
-  --accent-btn: #ffd43b;
-  --accent-dark: #f59f00;
-  --accent-gold-glow: rgba(255, 212, 59, 0.25);
-  --accent-gold-line: #ffd43b;
+  --accent-light: var(--butter-pale);
+  --accent-normal: var(--butter);
+  --accent-btn: var(--butter-strong);
+  --accent-dark: #b7791f;
+  --accent-gold-glow: rgba(255, 216, 77, 0.3);
+  --accent-gold-line: var(--butter-strong);
 
   /* UI Colors */
-  --button: #374151;
-  --button-hover: #1f2937;
-  --border-color: rgba(0, 0, 0, 0.08);
+  --button: var(--ink);
+  --button-hover: #16171b;
+  --border-color: color-mix(in srgb, var(--ink) 12%, transparent);
   --border-color-dark: rgba(255, 255, 255, 0.1);
 
   --bento-gap: 1.5rem;
@@ -147,16 +179,6 @@ html {
   }
 }
 
-/* Matches the header's own mobile breakpoint, where the padding drops to
-   0.5rem. The nav links shrink to 32px there, but the 36px apps button doesn't,
-   so the bar is 36px of content + 1rem of padding.
-   Keep in sync with Header.module.css and Header.tsx. */
-@media screen and (max-width: 620px) {
-  :root {
-    --scroll-offset: 52px;
-  }
-}
-
 html,
 body {
   padding: 0;
@@ -171,6 +193,16 @@ body {
   -webkit-font-smoothing: antialiased;
   width: 100%;
   height: 100%;
+}
+
+::selection {
+  background: var(--butter-strong);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--cheek-deep);
+  outline-offset: 3px;
 }
 
 @layer base {
@@ -196,4 +228,32 @@ select {
   color: inherit;
   font-family: inherit;
   font-size: inherit;
+}
+
+/* Shared brand decorations. Wrapped in :where() so they carry no
+   specificity: a block's own module rule always wins when it needs to tweak
+   one (see Footer's .accent). Not in an @layer: Tailwind v4 merges
+   `@layer components` into its own layer and drops the contents in dev. */
+
+/* The doodle tile, used as a mask so it takes the ground's own tint;
+   multiplied over the ground it gives a two-tone print of the section's hue.
+   Reads --ground-ink from the nearest ground (Section, HeroBento). */
+:where(.doodle-ground) {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: var(--ground-ink);
+  -webkit-mask: url("/pattern-doodle.svg") 0 0 / 280px 280px repeat;
+  mask: url("/pattern-doodle.svg") 0 0 / 280px 280px repeat;
+  mix-blend-mode: multiply;
+}
+
+/* A pink squiggle under section headings, drawn like the doodles. */
+:where(.squiggle-accent) {
+  width: 68px;
+  height: 14px;
+  background: var(--cheek-deep);
+  -webkit-mask: var(--squiggle) center / contain no-repeat;
+  mask: var(--squiggle) center / contain no-repeat;
 }

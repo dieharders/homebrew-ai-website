@@ -11,7 +11,7 @@ import Features from "@/blocks/Features";
 import Epilogue from "@/blocks/Epilogue";
 import Footer from "@/blocks/Footer";
 import SubscribeInput from "@/components/SubscribeInput";
-import epiloguePosterImage from "public/badge.png";
+import epiloguePosterImage from "public/logo-badge.svg";
 import type { T_AppId } from "@/data/apps";
 import type { ReactNode } from "react";
 // Parked sections — not rendered, so not imported (keeps them out of the
@@ -433,7 +433,9 @@ export default function Home() {
 
       <main>
         <HeroBento
+          kicker="Now live: Free-form video in MotionBuff! 🥳"
           headline="THE CREATIVE TOOL-CHAIN FOR AGENTS"
+          highlight="FOR AGENTS"
           tagline="OpenBrew.ai builds agent driven creative tools for entertainment & simulations. Have your personal agents create and manage your videos, documents, screen recordings and virtual workspaces."
           primaryCTA={{ text: "Explore Apps", href: "#apps" }}
           secondaryCTA={{ text: "Pricing", href: "#pricing" }}
@@ -445,7 +447,7 @@ export default function Home() {
           id="apps"
           title="ONE SUITE, MANY APPS"
           subtitle="Each specialized app is driven by the agent you bring."
-          background="alternate"
+          background="butter"
         />
 
         {/* One detailed section per app */}
@@ -474,8 +476,7 @@ export default function Home() {
 
         <Features
           id="features"
-          background="alternate"
-          pattern="dots"
+          background="foam"
           title="BUILT INTO EVERY APP"
           subtitle="What you get with every OpenBrew app."
           features={[
@@ -535,7 +536,7 @@ export default function Home() {
             {
               name: "Free",
               price: "$0",
-              text: "For trying things out and building on your own.",
+              text: "For trying things out on your own.",
               includes: [
                 "Access all apps free",
                 "Access free AI models",
@@ -547,11 +548,11 @@ export default function Home() {
               name: "Pro",
               price: "$100",
               cadence: "/ month",
-              text: "For creators, small businesses and studios.",
+              text: "For creators, small business and studios.",
               includes: [
                 "Everything in Free",
-                "Premium registry assets, file types and services",
-                "Premium features and support in every app",
+                "Premium assets and export options",
+                "Extra features and support",
               ],
               cta: { text: "Buy now", href: "/buy" },
               featured: true,
@@ -625,7 +626,7 @@ export default function Home() {
           subtitle1=""
           subtitle2="No spam. Just a heads-up when something new ships."
           illustration={epiloguePoster}
-          background="alternate"
+          background="butter"
         >
           <SubscribeInput placeholder="your@email.com" actionText="Notify me" />
         </Epilogue>
