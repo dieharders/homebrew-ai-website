@@ -52,7 +52,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: cardWide.src,
-        alt: "Obrew logo and title",
+        // Source: extras/social-card.html (re-render instructions inside).
+        alt: "OpenBrew.ai: the creative tool-chain for agents. The mug mascot surrounded by the MotionBuff, FileBuff, PaperBuff and ScreenBuff app icons.",
         width: cardWide.width,
         height: cardWide.height,
       },

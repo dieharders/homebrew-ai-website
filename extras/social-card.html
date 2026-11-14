@@ -1,0 +1,293 @@
+<!doctype html>
+<!--
+  Source for public/social-card-wide.png, the og:image / twitter:image for the
+  whole site (wired up in app/layout.tsx). 1200x630, the size every link
+  preview expects.
+
+  It reuses the site's own assets (fonts, pattern, mascot, app marks) by
+  relative path, and copies its colour tokens from global/global.css and
+  blocks/HeroBento.module.css. Change those and this card won't follow, so
+  re-render it after a brand change.
+
+  To re-render, from the repo root (Git Bash on Windows; Chrome's path may
+  differ). `pwd -W` gives the C:/... form Chrome needs in a file URL:
+
+    "/c/Program Files/Google/Chrome/Application/chrome.exe" --headless=new \
+      --allow-file-access-from-files --hide-scrollbars \
+      --force-device-scale-factor=1 --window-size=1200,630 \
+      --virtual-time-budget=8000 \
+      --screenshot="$(pwd -W)/public/social-card-wide.png" \
+      "file:///$(pwd -W)/extras/social-card.html"
+
+  --allow-file-access-from-files lets the page load the local fonts and the
+  pattern mask; without it they fall back silently. Lilita One comes from
+  Google Fonts, so render while online. The image is imported in
+  layout.tsx, so Next serves it at a content-hashed URL and link previews
+  pick up the new card instead of a cached old one.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>OpenBrew.ai social card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lilita+One&display=block"
+    />
+    <style>
+      @font-face {
+        font-family: "Comic Mono";
+        src: url("../fonts/comic-mono/webfonts/comic-mono-latin-400-normal.woff2") format("woff2");
+        font-weight: 400;
+        font-display: block;
+      }
+
+      @font-face {
+        font-family: "Comic Mono";
+        src: url("../fonts/comic-mono/webfonts/comic-mono-latin-700-normal.woff2") format("woff2");
+        font-weight: 700;
+        font-display: block;
+      }
+
+      /* Hero ground on the left, a deeper foam blob carrying the mascot and the
+         four app marks on the right, doodles multiplied over everything. */
+      :root {
+        --ink: #2b2d33;
+        --ink-soft: #4a4857;
+        --paper: #fffdf7;
+        --foam: #eadcfd;
+        --foam-deep: #c6a8f4;
+        --blob: #dcc5fb;
+        --foam-pale: #f6f0fe;
+        --doodle: #e5d6fb;
+        --butter-strong: #ffd84d;
+        --display: "Lilita One", "Arial Black", sans-serif;
+        --body: "Comic Mono", ui-monospace, monospace;
+      }
+
+      html,
+      body {
+        margin: 0;
+        background: var(--foam);
+      }
+
+      .card {
+        position: relative;
+        isolation: isolate;
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+        background: var(--foam);
+        color: var(--ink);
+        font-family: var(--body);
+      }
+
+      /* ---- ground ---- */
+
+      .blob {
+        position: absolute;
+        fill: var(--blob);
+      }
+
+      .blob-a {
+        width: 500px;
+        top: -270px;
+        left: -230px;
+      }
+
+      .blob-b {
+        width: 820px;
+        top: -60px;
+        right: -250px;
+      }
+
+      .pattern {
+        position: absolute;
+        inset: 0;
+        background: var(--doodle);
+        -webkit-mask: url("../public/pattern-doodle.svg") 0 0 / 280px 280px repeat;
+        mask: url("../public/pattern-doodle.svg") 0 0 / 280px 280px repeat;
+        mix-blend-mode: multiply;
+      }
+
+      /* ---- copy ---- */
+
+      .copy {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        bottom: 0;
+        left: 72px;
+        width: 640px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-family: var(--display);
+        font-size: 36px;
+        letter-spacing: 0.5px;
+      }
+
+      .brand img {
+        width: 58px;
+        height: 58px;
+      }
+
+      h1 {
+        margin: 30px 0 28px;
+        font-family: var(--display);
+        font-size: 90px;
+        font-weight: 700;
+        line-height: 1.02;
+        letter-spacing: 0.5px;
+      }
+
+      .nowrap {
+        white-space: nowrap;
+      }
+
+      .tape {
+        display: inline-block;
+        margin-top: 0.06em;
+        padding: 0.02em 0.2em 0.08em;
+        background: var(--butter-strong);
+        rotate: -2deg;
+        clip-path: polygon(
+          1.5% 6%, 4% 0, 96% 3%, 99% 0, 98% 28%, 100% 52%, 98.5% 78%,
+          100% 100%, 3% 97%, 0 100%, 1.5% 72%, 0 46%, 2% 22%
+        );
+      }
+
+      /* The tagline sits on a pale lavender blob drawn above the doodle
+         pattern, so no doodles run through the letters at thumbnail size. */
+      .tagline-wrap {
+        position: relative;
+        align-self: flex-start;
+      }
+
+      .tagline-blob {
+        position: absolute;
+        top: -16px;
+        left: -26px;
+        width: calc(100% + 54px);
+        height: calc(100% + 36px);
+        fill: var(--foam-pale);
+        rotate: -1deg;
+      }
+
+      /* Max width matches where the first line breaks, so the blob hugs the
+         text instead of running into the PaperBuff mark. */
+      .tagline {
+        position: relative;
+        margin: 0;
+        max-width: 560px;
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 1.4;
+        color: var(--ink);
+      }
+
+      /* ---- mascot and app marks ---- */
+
+      .stage {
+        position: absolute;
+        z-index: 1;
+        top: 92px;
+        right: 64px;
+        width: 420px;
+        height: 450px;
+      }
+
+      /* Die-cut stickers: a paper rim from four hard drop-shadows, then a hard
+         shadow in deep foam, like the cards on the site. */
+      .sticker {
+        position: absolute;
+        height: auto;
+        filter: drop-shadow(4px 0 0 var(--paper)) drop-shadow(-4px 0 0 var(--paper))
+          drop-shadow(0 4px 0 var(--paper)) drop-shadow(0 -4px 0 var(--paper))
+          drop-shadow(8px 8px 0 var(--foam-deep));
+      }
+
+      .mascot {
+        width: 300px;
+        left: 62px;
+        top: 86px;
+        rotate: -8deg;
+      }
+
+      .app {
+        width: 104px;
+      }
+
+      .app-motionbuff {
+        left: -2px;
+        top: 4px;
+        rotate: -12deg;
+      }
+
+      .app-filebuff {
+        left: 316px;
+        top: -16px;
+        rotate: 9deg;
+      }
+
+      .app-paperbuff {
+        left: 8px;
+        top: 324px;
+        rotate: 7deg;
+      }
+
+      .app-screenbuff {
+        left: 318px;
+        top: 312px;
+        rotate: -8deg;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <svg class="blob blob-a" viewBox="0 0 200 200" aria-hidden="true">
+        <path d="M44.6,-58.3C57.5,-49.4,67.1,-35.3,71.4,-19.5C75.7,-3.7,74.6,13.8,67.4,28C60.2,42.2,46.8,53.1,31.6,61.2C16.4,69.3,-0.6,74.6,-17.4,71.6C-34.2,68.6,-50.8,57.3,-61.7,42C-72.6,26.7,-77.8,7.4,-74.4,-10.1C-71,-27.6,-59,-43.3,-44.2,-52C-29.4,-60.7,-11.8,-62.4,3.6,-66.7C19,-71,31.7,-67.2,44.6,-58.3Z" transform="translate(100 100)" />
+      </svg>
+      <svg class="blob blob-b" viewBox="0 0 200 200" aria-hidden="true">
+        <path d="M39.9,-49.6C53.3,-41.6,66.9,-30.6,71.6,-16.5C76.3,-2.4,72.1,14.8,63.6,28.8C55.1,42.8,42.3,53.6,27.5,60.6C12.7,67.6,-4.1,70.8,-21.1,67.4C-38.1,64,-55.3,54,-65.5,38.9C-75.7,23.8,-78.9,3.6,-73.6,-13.4C-68.3,-30.4,-54.5,-44.2,-39.6,-51.9C-24.7,-59.6,-8.6,-61.2,4.7,-66.7C18,-72.2,26.5,-57.6,39.9,-49.6Z" transform="translate(100 100)" />
+      </svg>
+      <div class="pattern" aria-hidden="true"></div>
+
+      <div class="copy">
+        <div class="brand">
+          <img src="../public/logo-badge.svg" alt="" />
+          OpenBrew.ai
+        </div>
+        <h1>
+          THE CREATIVE<br />
+          <span class="nowrap">TOOL-CHAIN</span><br />
+          <span class="tape">FOR AGENTS</span>
+        </h1>
+        <div class="tagline-wrap">
+          <svg class="tagline-blob" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M4 7 C11 1 38 3 60 2 C80 1 96 2 98 11 C100 21 100 31 93 36 C79 41 42 38 21 39 C8 40 1 35 1.5 25 C2 17 -1 11 4 7 Z" />
+          </svg>
+          <p class="tagline">
+            Agent-driven apps for video, documents, screen recordings and
+            workspaces.
+          </p>
+        </div>
+      </div>
+
+      <div class="stage" aria-hidden="true">
+        <img class="sticker mascot" src="../public/cup-icon.svg" alt="" />
+        <img class="sticker app app-motionbuff" src="../public/icons/motionbuff.svg" alt="" />
+        <img class="sticker app app-filebuff" src="../public/icons/filebuff.svg" alt="" />
+        <img class="sticker app app-paperbuff" src="../public/icons/paperbuff.svg" alt="" />
+        <img class="sticker app app-screenbuff" src="../public/icons/screenbuff.svg" alt="" />
+      </div>
+    </main>
+  </body>
+</html>
