@@ -100,11 +100,6 @@
   background: var(--background-alternate);
 }
 
-.navLinkActive {
-  color: var(--text);
-  background: var(--accent-light);
-}
-
 .logo {
   flex-shrink: 0;
   height: 100%;

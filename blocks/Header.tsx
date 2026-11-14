@@ -4,7 +4,6 @@ import { useEffect, useState, useRef } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import styles from "./Header.module.css";
 import { cx } from "@/utils/common";
 import { scrollToHashOnClick } from "@/utils/hashLink";
@@ -33,7 +32,6 @@ export default function Header(p: {
 }) {
   const id = p.id ?? "top";
   const navItems = p.navItems ?? defaultNavItems;
-  const pathname = usePathname();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -133,7 +131,6 @@ export default function Header(p: {
                 className={cx(
                   styles.navLink,
                   "cursor-pointer gap-1 border-none bg-transparent",
-                  isMenuOpen && styles.navLinkActive,
                 )}
                 onClick={() => setIsMenuOpen((v) => !v)}
                 aria-haspopup="menu"
@@ -198,17 +195,11 @@ export default function Header(p: {
 
             <ul className={styles.navList}>
               {navItems.map((item) => {
-                const isActive =
-                  pathname === item.href ||
-                  (item.href !== "/" && pathname.startsWith(item.href));
                 return (
                   <li key={item.href} className={styles.navItem}>
                     <Link
                       href={item.href}
-                      className={cx(
-                        styles.navLink,
-                        isActive && styles.navLinkActive,
-                      )}
+                      className={styles.navLink}
                       target={item?.rel && "_blank"}
                       rel={item.rel}
                       onClick={scrollToHashOnClick(item.href)}
