@@ -230,29 +230,30 @@ select {
   font-size: inherit;
 }
 
-/* Shared brand decorations. In a layer, so a module's own rules (unlayered)
-   always win when a block needs to tweak one. */
-@layer components {
-  /* The doodle tile, used as a mask so it takes the ground's own tint;
-     multiplied over the ground it gives a two-tone print of the section's
-     hue. Reads --ground-ink from the nearest ground (Section, HeroBento). */
-  .doodle-ground {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    background: var(--ground-ink);
-    -webkit-mask: url("/pattern-doodle.svg") 0 0 / 280px 280px repeat;
-    mask: url("/pattern-doodle.svg") 0 0 / 280px 280px repeat;
-    mix-blend-mode: multiply;
-  }
+/* Shared brand decorations. Wrapped in :where() so they carry no
+   specificity: a block's own module rule always wins when it needs to tweak
+   one (see Footer's .accent). Not in an @layer: Tailwind v4 merges
+   `@layer components` into its own layer and drops the contents in dev. */
 
-  /* A pink squiggle under section headings, drawn like the doodles. */
-  .squiggle-accent {
-    width: 68px;
-    height: 14px;
-    background: var(--cheek-deep);
-    -webkit-mask: var(--squiggle) center / contain no-repeat;
-    mask: var(--squiggle) center / contain no-repeat;
-  }
+/* The doodle tile, used as a mask so it takes the ground's own tint;
+   multiplied over the ground it gives a two-tone print of the section's hue.
+   Reads --ground-ink from the nearest ground (Section, HeroBento). */
+:where(.doodle-ground) {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: var(--ground-ink);
+  -webkit-mask: url("/pattern-doodle.svg") 0 0 / 280px 280px repeat;
+  mask: url("/pattern-doodle.svg") 0 0 / 280px 280px repeat;
+  mix-blend-mode: multiply;
+}
+
+/* A pink squiggle under section headings, drawn like the doodles. */
+:where(.squiggle-accent) {
+  width: 68px;
+  height: 14px;
+  background: var(--cheek-deep);
+  -webkit-mask: var(--squiggle) center / contain no-repeat;
+  mask: var(--squiggle) center / contain no-repeat;
 }
