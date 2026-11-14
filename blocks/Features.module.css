@@ -5,12 +5,14 @@
   overflow: clip;
 }
 
+/* A pink squiggle, drawn like the doodles in the ground pattern. */
 .accentLine {
-  width: 60px;
-  height: 3px;
-  background: var(--accent-gold-line);
-  border-radius: var(--ui-radius-sm);
-  margin: 0 auto var(--space-5) auto;
+  width: 68px;
+  height: 14px;
+  margin: 0 auto var(--space-4) auto;
+  background: var(--cheek-deep);
+  -webkit-mask: var(--squiggle) center / contain no-repeat;
+  mask: var(--squiggle) center / contain no-repeat;
 }
 
 .title {
@@ -34,73 +36,50 @@
   margin: 0 auto;
 }
 
+/* Each icon sits in a butter disc, like a sticker on the sheet. */
 .iconContainer {
-  width: 64px;
-  height: 64px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto var(--space-4) auto;
-  background: radial-gradient(
-    circle,
-    var(--accent-gold-glow) 0%,
-    transparent 80%
-  );
-  border-radius: var(--ui-radius-md);
-  padding: var(--space-2);
-  filter: blur(0);
-  position: relative;
-}
-
-.iconContainer::before {
-  content: "";
-  position: absolute;
-  inset: -20px;
-  background: radial-gradient(
-    circle,
-    var(--accent-gold-glow) 0%,
-    transparent 100%
-  );
-  filter: blur(20px);
-  z-index: -1;
-  opacity: 0.8;
+  width: 56px;
+  height: 56px;
+  border: var(--ink-line);
+  border-radius: 50%;
+  background: var(--butter);
+  box-shadow: var(--shadow-hard-sm);
 }
 
 .icon {
-  width: 48px !important;
-  height: 48px !important;
+  width: 32px !important;
+  height: 32px !important;
   object-fit: contain;
 }
 
+/* One paper sheet holding all the features, rather than nine separate
+   cards: it reads as a single list, and stays short on a phone. */
 .features {
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-6);
+  gap: var(--space-6) var(--space-7);
   width: 100%;
-  padding: 0;
   margin: 0;
+  padding: var(--space-6) var(--space-5);
   list-style: none;
+  background: var(--paper);
+  border: var(--ink-line);
+  border-radius: var(--ui-radius-2xl);
+  box-shadow: 8px 8px 0 var(--ground-deep);
 }
 
 .feature {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: var(--space-6);
-  background: var(--background);
-  border-radius: var(--ui-radius-lg);
-  border: 1px solid var(--section-separator-color);
-  transition: var(--transition-smooth);
-  transition-property: transform, box-shadow, border-color;
-}
-
-.feature:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-card-hover);
-  border-color: var(--accent-normal);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: var(--space-4);
+  text-align: left;
 }
 
 .feature-illustration {
@@ -111,22 +90,23 @@
 }
 
 .feature-content {
-  margin-top: var(--space-2);
+  padding-top: 2px;
 }
 
 .feature-title {
-  font-size: var(--h3-font-size);
+  margin: 0 0 var(--space-1);
+  font-size: 1.1rem;
   font-weight: var(--h3-font-weight);
   line-height: var(--h3-line-height);
   letter-spacing: var(--h3-letter-spacing);
-  margin-bottom: var(--space-2);
   color: var(--text);
 }
 
 .feature-text {
+  margin: 0;
   color: var(--text-shade);
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 0.95rem;
+  line-height: 1.55;
 }
 
 .feature-link {
@@ -135,15 +115,16 @@
   justify-content: center;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 640px) {
   .features {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: var(--space-7);
   }
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 900px) {
   .features {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -187,14 +168,14 @@
   }
 }
 
-/* Wave across the row: 2 columns, then 3 from 800px. */
-@media screen and (min-width: 480px) {
+/* Wave across the row: 2 columns, then 3 from 900px. */
+@media screen and (min-width: 640px) {
   .feature:nth-child(2n) {
     --delay: 8%;
   }
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 900px) {
   .feature:nth-child(2n) {
     --delay: 0%;
   }

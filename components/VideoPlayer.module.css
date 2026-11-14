@@ -46,8 +46,8 @@
   height: 64px;
   border-radius: 50%;
   background: var(--accent-btn);
-  color: var(--text);
-  border: none;
+  color: var(--ink);
+  border: var(--ink-line);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,7 +55,7 @@
   transition:
     transform var(--transition-smooth),
     box-shadow var(--transition-smooth);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-hard);
 }
 
 .playButton:hover {

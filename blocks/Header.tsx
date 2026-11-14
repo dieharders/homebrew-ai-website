@@ -16,7 +16,7 @@ export interface NavItem {
 }
 
 const appLinkClass =
-  "flex items-center gap-3 rounded-lg px-3 py-2.5 text-[var(--text-shade)] no-underline transition-colors hover:bg-[var(--background-alternate)] hover:text-[var(--text)]";
+  "flex items-center gap-3 rounded-lg px-3 py-2.5 text-[var(--ink)] no-underline transition-colors hover:bg-[var(--foam-pale)]";
 
 const defaultNavItems: NavItem[] = [
   // { label: "Features", href: "/#features" },
@@ -65,7 +65,7 @@ export default function Header(p: {
 
   const appLinks = () => (
     <>
-      <p className="mt-2 px-3 pt-2 pb-1 text-xs font-semibold tracking-wider text-[var(--text-shade)] uppercase opacity-60">
+      <p className="mt-2 px-3 pt-2 pb-1 text-xs font-semibold tracking-wider text-[var(--ink-muted)] uppercase">
         AI Apps
       </p>
       {APPS.map((app) => (
@@ -159,7 +159,7 @@ export default function Header(p: {
                 CSS-only. */}
               <div
                 className={cx(
-                  "absolute top-[calc(100%+0.5rem)] left-0 z-[200] min-w-[200px] flex-col gap-1 rounded-xl bg-white p-2 shadow-[0_4px_24px_rgba(0,0,0,0.12),0_1px_4px_rgba(0,0,0,0.08)]",
+                  "absolute top-[calc(100%+0.75rem)] left-0 z-[200] min-w-[220px] flex-col gap-1 rounded-2xl border-2 border-[var(--ink)] bg-[var(--paper)] p-2 shadow-[var(--shadow-hard-lg)]",
                   isMenuOpen ? "hidden sm:flex" : "hidden",
                 )}
               >
@@ -170,7 +170,7 @@ export default function Header(p: {
               {isMenuOpen &&
                 createPortal(
                   <div
-                    className="fixed inset-0 z-[9999] flex flex-col bg-white p-4 sm:hidden"
+                    className="fixed inset-0 z-[9999] flex flex-col bg-[var(--paper)] p-4 sm:hidden"
                     ref={mobileMenuRef}
                   >
                     <button

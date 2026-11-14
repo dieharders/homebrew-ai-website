@@ -52,25 +52,17 @@
   margin: 0 auto;
 }
 
+/* The badge as a sticker: tilted, with a hard shadow in the ground's shade. */
 .illustration {
   position: relative;
   width: 100%;
-  max-width: 200px;
-  height: 200px;
+  max-width: 180px;
+  height: 180px;
   background: var(--illustration);
+  rotate: -6deg;
+  filter: drop-shadow(6px 6px 0 var(--ground-deep));
 }
 
 .glow {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 28rem;
-  height: 28rem;
-  background: radial-gradient(
-    ellipse at center,
-    var(--accent-normal) 0%,
-    transparent 60%
-  );
-  opacity: 0.5;
+  display: none;
 }

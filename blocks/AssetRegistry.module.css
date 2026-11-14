@@ -3,6 +3,8 @@
   grid-template-columns: 1fr;
   gap: var(--space-7);
   align-items: center;
+  /* Same ink-outlined sticker treatment as the app spotlights' media. */
+  --media-shadow: 0 0 0 2.5px var(--ink), 10px 10px 0 2.5px var(--ground-deep);
 }
 
 @media screen and (min-width: 960px) {
@@ -86,7 +88,8 @@
   padding: 6px 16px;
   border-radius: 999px;
   border: 2px solid var(--band);
-  background: var(--background);
+  background: var(--paper);
+  box-shadow: 2px 2px 0 var(--ink);
   font-family: var(--font-comic-mono), ui-monospace, monospace;
   font-size: 0.85rem;
   font-weight: 800;

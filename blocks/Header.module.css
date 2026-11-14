@@ -10,16 +10,18 @@
 }
 
 .scrolled {
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 0 rgb(43 45 51 / 0.08);
 }
 
+/* The hero's foam, so the bar and the hero read as one panel at the top of
+   the page, ruled off in ink like a comic frame. */
 .nav {
   width: 100%;
   /* make sure vendor prefixes always come first */
-  -webkit-backdrop-filter: blur(8px);
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--section-separator-color);
+  -webkit-backdrop-filter: blur(10px);
+  background: color-mix(in srgb, var(--foam) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: var(--ink-line);
 }
 
 .navContent {
@@ -88,16 +90,16 @@
   font-size: 1.125rem;
   font-weight: 600;
   line-height: 1;
-  color: var(--text-shade);
-  border-radius: 6px;
+  color: var(--ink);
+  border-radius: 999px;
   transition:
     color var(--transition-smooth),
     background var(--transition-smooth);
 }
 
-.navLink:hover {
-  color: var(--text);
-  background: var(--section-separator-color);
+.navLink:hover,
+.navLink[aria-expanded="true"] {
+  background: color-mix(in srgb, var(--paper) 70%, transparent);
 }
 
 .logo {

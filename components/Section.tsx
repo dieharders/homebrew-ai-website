@@ -1,8 +1,11 @@
 import styles from './Section.module.css';
 import { cx } from '../utils/common';
 
-export type T_Background = 'normal' | 'alternate' | 'accent' | 'accent-alt-1' | 'accent-alt-2' | 'dark' | 'dark-navy' | 'dark-charcoal';
-export type T_Pattern = 'none' | 'geometric' | 'dots' | 'lines';
+// 'normal' and 'alternate' are the pale butter and pale foam grounds; 'butter'
+// and 'foam' are their full-strength versions, for sections that should pop.
+export type T_Background = 'normal' | 'alternate' | 'butter' | 'foam' | 'accent' | 'accent-alt-1' | 'accent-alt-2' | 'dark' | 'dark-navy' | 'dark-charcoal';
+// 'doodle' is the brand pattern, tinted to the ground and multiplied over it.
+export type T_Pattern = 'none' | 'doodle' | 'geometric' | 'dots' | 'lines';
 
 export default function Section(p: {
   id?: string,
@@ -15,7 +18,7 @@ export default function Section(p: {
 }) {
   const size = p.size ?? 'normal';
   const background = p.background ?? 'normal';
-  const pattern = p.pattern ?? 'none';
+  const pattern = p.pattern ?? 'doodle';
   const accentLine = p.accentLine ?? 'none';
 
   const className = cx(
