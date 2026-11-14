@@ -536,7 +536,7 @@ export default function Home() {
             {
               name: "Free",
               price: "$0",
-              text: "For trying things out and building on your own.",
+              text: "For trying things out on your own.",
               includes: [
                 "Access all apps free",
                 "Access free AI models",
@@ -548,11 +548,11 @@ export default function Home() {
               name: "Pro",
               price: "$100",
               cadence: "/ month",
-              text: "For creators, small businesses and studios.",
+              text: "For creators, small business and studios.",
               includes: [
                 "Everything in Free",
-                "Premium registry assets, file types and services",
-                "Premium features and support in every app",
+                "Premium assets and export options",
+                "Extra features and support",
               ],
               cta: { text: "Buy now", href: "/buy" },
               featured: true,

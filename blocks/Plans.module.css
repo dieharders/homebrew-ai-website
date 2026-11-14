@@ -28,6 +28,8 @@
 .plans {
   display: grid;
   grid-template-columns: 1fr;
+  /* Every card matches the tallest, stacked (mobile) or side by side. */
+  grid-auto-rows: 1fr;
   gap: var(--space-5);
   margin: 0;
   padding: 0;
@@ -117,6 +119,7 @@
   background: var(--paper);
   box-shadow: var(--shadow-hard-sm);
   text-align: center;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--ink);
   transition:
@@ -134,13 +137,34 @@
   box-shadow: 0 0 0 var(--ink);
 }
 
+/*
+ * The one button on the page we want clicked: hot cheek-pink on the butter
+ * card (the strongest contrast in the palette) and a deeper ink shadow.
+ */
 .featured .cta {
-  background: var(--ink);
+  background: var(--cheek-deep);
+  box-shadow: var(--shadow-hard-lg);
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
   color: var(--paper);
 }
 
 .featured .cta:hover {
-  color: var(--butter-strong);
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0 var(--ink);
+  background: #d6336c;
+  color: var(--paper);
+}
+
+.featured .cta:active {
+  transform: translate(6px, 6px);
+  box-shadow: 0 0 0 var(--ink);
+}
+
+.featured .cta:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 4px;
 }
 
 /*
