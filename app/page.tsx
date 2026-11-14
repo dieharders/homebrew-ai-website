@@ -566,7 +566,10 @@ export default function Home() {
                 "Private asset registries",
                 "MCP and API access",
               ],
-              cta: { text: "Talk to us", href: "#contact" },
+              cta: {
+                text: "Talk to us",
+                href: "https://outlook.office.com/bookwithme/user/b4d366c2632b473bbe75780b3c7c7d67@openbrew.ai/meetingtype/qRhE-JQXvEqmmUDmnQX8EA2?anonymous&ismsaljsauthenabled&ep=mLinkFromTile",
+              },
             },
           ]}
         />
@@ -610,10 +613,7 @@ export default function Home() {
               title: "KEEP DATA PRIVATE",
               text: "Deploy on-premise, in air-gapped environments, or on your self-managed network. Own your AI infrastructure end-to-end.",
               illustration: highlightPosterB,
-              link: {
-                text: "Contact us",
-                href: "https://outlook.office.com/bookwithme/user/b4d366c2632b473bbe75780b3c7c7d67@openbrew.ai/meetingtype/qRhE-JQXvEqmmUDmnQX8EA2?anonymous&ismsaljsauthenabled&ep=mLinkFromTile",
-              },
+              link: { text: "Contact us", href: "#contact" },
             },
           ]}
         /> */}
