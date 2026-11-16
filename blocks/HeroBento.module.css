@@ -2,8 +2,8 @@
  * Hero: copy on a foam ground (the mascot's lavender foam) with two deeper
  * foam blobs in the corners and the doodle pattern multiplied over the lot.
  * The promo video is a tilted, ink-outlined card with the mascot stuck on its
- * corner. Sized to its content, not the viewport, so the next band peeks in
- * below the fold on desktop and the CTAs sit in the first screen on phones.
+ * corner. At least one screen tall (minus the header), growing past that
+ * when the content needs more room.
  */
 .container {
   --ground: var(--foam);
@@ -15,6 +15,10 @@
   overflow: clip;
   background: var(--ground);
   padding-block: var(--space-6) var(--space-8);
+  /* Always fill the first screen below the sticky header, content centred. */
+  display: grid;
+  align-content: center;
+  min-height: calc(100svh - var(--page-header-height));
 }
 
 @media screen and (min-width: 900px) {
@@ -136,6 +140,10 @@
   letter-spacing: 0.5px;
   color: var(--ink);
   text-wrap: balance;
+  /* In em so it scales with the type: wide enough for the longest line
+     ("THE CREATIVE", ~7em), too narrow for two words of the next to pair up,
+     so it always sets as three lines. */
+  max-width: 9em;
 }
 
 /* A strip of butter tape with torn ends, stuck on slightly crooked. */
@@ -183,7 +191,7 @@
    on short laptop screens. The padding leaves room for the card's shadow. */
 .stage {
   position: relative;
-  justify-self: center;
+  justify-self: start;
   width: min(100%, 480px);
   padding: 0 14px 14px 0;
 }
