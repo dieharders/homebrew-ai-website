@@ -35,7 +35,8 @@ export default function AppSpotlights(p: {
           <Section
             key={app.id}
             id={app.id}
-            background={i % 2 === 0 ? "normal" : "alternate"}
+            // The ground is overridden per app (AppSpotlights.module.css).
+            className={cx(styles.ground, styles[`ground-${app.id}`])}
             size="wide"
           >
             <article

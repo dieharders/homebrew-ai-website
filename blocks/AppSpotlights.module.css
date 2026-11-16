@@ -1,4 +1,43 @@
 /*
+ * Each spotlight sits on a pale ground in its own app's hue, in place of the
+ * Section's butter/foam ground. Doubled selectors so these win over Section's
+ * single-class ground whatever order the stylesheets load in. The doodle tiles
+ * are built from these hexes by scripts/build-doodles.mjs, so keep each
+ * --<id>-ground a plain 6-digit hex.
+ */
+.ground.ground-motionbuff {
+  --motionbuff-ground: #f4eeff;
+  --ground: var(--motionbuff-ground);
+  --ground-deep: #cdb6f7;
+  --doodle-tile: url("/doodle/motionbuff.svg");
+  background: var(--ground);
+}
+
+.ground.ground-filebuff {
+  --filebuff-ground: #fff4e0;
+  --ground: var(--filebuff-ground);
+  --ground-deep: #f5cd85;
+  --doodle-tile: url("/doodle/filebuff.svg");
+  background: var(--ground);
+}
+
+.ground.ground-paperbuff {
+  --paperbuff-ground: #eef7fe;
+  --ground: var(--paperbuff-ground);
+  --ground-deep: #a9d3ef;
+  --doodle-tile: url("/doodle/paperbuff.svg");
+  background: var(--ground);
+}
+
+.ground.ground-screenbuff {
+  --screenbuff-ground: #fef0f0;
+  --ground: var(--screenbuff-ground);
+  --ground-deep: #f4b4b4;
+  --doodle-tile: url("/doodle/screenbuff.svg");
+  background: var(--ground);
+}
+
+/*
  * Mobile: intro → visual → details, so the visual isn't buried under the
  * feature list. Desktop: copy in one column, visual beside it, alternating
  * sides per app.
