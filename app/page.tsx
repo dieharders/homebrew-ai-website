@@ -434,7 +434,7 @@ export default function Home() {
       <main>
         <HeroBento
           kicker="Now live: Free-form video in MotionBuff! 🥳"
-          headline="THE CREATIVE TOOL-CHAIN FOR AGENTS"
+          headline="THE CREATIVE PLATFORM FOR AGENTS"
           highlight="FOR AGENTS"
           tagline="OpenBrew.ai offers creative tools for personal agents in entertainment & simulation industries to create content and manage your digital workspace."
           primaryCTA={{ text: "Explore Apps", href: "#apps" }}
