@@ -236,7 +236,9 @@
     var(--app-accent) 45%
   );
   border: var(--ink-line);
-  box-shadow: var(--shadow-hard);
+  /* Hard shadow in the app's hue, the same tint as the media's shadow. */
+  --cta-shadow: color-mix(in srgb, var(--app-accent) 45%, var(--ground));
+  box-shadow: 4px 4px 0 var(--cta-shadow);
   transition:
     transform 0.35s var(--cta-ease),
     box-shadow 0.35s var(--cta-ease);
@@ -245,12 +247,12 @@
 .cta:hover,
 .cta:focus-visible {
   transform: translate(-2px, -2px);
-  box-shadow: var(--shadow-hard-lg);
+  box-shadow: 6px 6px 0 var(--cta-shadow);
 }
 
 .cta:active {
   transform: translate(4px, 4px);
-  box-shadow: 0 0 0 var(--ink);
+  box-shadow: 0 0 0 var(--cta-shadow);
   transition-duration: 0.1s;
 }
 
