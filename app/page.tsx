@@ -614,14 +614,14 @@ export default function Home() {
               title: "KEEP DATA PRIVATE",
               text: "Deploy on-premise, in air-gapped environments, or on your self-managed network. Own your AI infrastructure end-to-end.",
               illustration: highlightPosterB,
-              link: { text: "Contact us", href: "#contact" },
+              link: { text: "Contact us", href: "#notify" },
             },
           ]}
         /> */}
 
         {/* Newsletter Epilogue */}
         <Epilogue
-          id="contact"
+          id="notify"
           title="Notify me when new apps launch"
           subtitle1=""
           subtitle2="No spam. Just a heads-up when something ships."

@@ -76,7 +76,7 @@ export default function SponsorPage() {
                   "Custom integrations",
                 ]}
                 ctaText="Contact Sales"
-                href="/#contact"
+                href="/#notify"
               />
             </div>
           </div>

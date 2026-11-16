@@ -75,7 +75,7 @@ export default function AppSpotlights(p: {
                       <Arrow />
                     </Link>
                   ) : (
-                    <HashLink href="#contact" className={styles.cta}>
+                    <HashLink href="#notify" className={styles.cta}>
                       <span className={styles.ctaLabel}>
                         Get notified at launch
                       </span>
