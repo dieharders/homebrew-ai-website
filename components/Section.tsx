@@ -9,6 +9,21 @@ export type T_Background = 'normal' | 'alternate' | 'butter' | 'foam' | 'accent'
 // the layer paints nothing there.
 export type T_Pattern = 'none' | 'doodle' | 'geometric' | 'dots' | 'lines';
 
+// The doodle tile's width (global.css .doodle-ground).
+const DOODLE_TILE = 280;
+
+/**
+ * A stable sideways shift for the doodle tile, picked from the section's id so
+ * each section prints a different slice of the pattern, the same on server
+ * and client. Sections without an id keep the tile at 0.
+ */
+function doodleOffset(id?: string) {
+  if (!id) return 0;
+  let h = 0;
+  for (const ch of id) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
+  return h % DOODLE_TILE;
+}
+
 export default function Section(p: {
   id?: string,
   className?: string,
@@ -16,6 +31,8 @@ export default function Section(p: {
   background?: T_Background,
   pattern?: T_Pattern,
   accentLine?: 'top' | 'bottom' | 'both' | 'none',
+  /** Sideways shift of the doodle tile in px; defaults to one derived from `id`. */
+  doodleX?: number,
   children: React.ReactNode,
 }) {
   const size = p.size ?? 'normal';
@@ -33,7 +50,13 @@ export default function Section(p: {
 
   return (
     <section id={p.id} className={className}>
-      {pattern === 'doodle' && <div className="doodle-ground" aria-hidden="true" />}
+      {pattern === 'doodle' && (
+        <div
+          className="doodle-ground"
+          aria-hidden="true"
+          style={{ '--doodle-x': `${p.doodleX ?? doodleOffset(p.id)}px` } as React.CSSProperties}
+        />
+      )}
       {pattern !== 'none' && pattern !== 'doodle' && (
         <div className={cx(styles.pattern, styles[`pattern-${pattern}`])} aria-hidden="true" />
       )}

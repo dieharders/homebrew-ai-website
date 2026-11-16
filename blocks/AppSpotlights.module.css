@@ -1,4 +1,43 @@
 /*
+ * Each spotlight sits on a pale ground in its own app's hue, in place of the
+ * Section's butter/foam ground. Doubled selectors so these win over Section's
+ * single-class ground whatever order the stylesheets load in. The doodle tiles
+ * are built from these hexes by scripts/build-doodles.mjs, so keep each
+ * --<id>-ground a plain 6-digit hex.
+ */
+.ground.ground-motionbuff {
+  --motionbuff-ground: #f4eeff;
+  --ground: var(--motionbuff-ground);
+  --ground-deep: #cdb6f7;
+  --doodle-tile: url("/doodle/motionbuff.svg");
+  background: var(--ground);
+}
+
+.ground.ground-filebuff {
+  --filebuff-ground: #fff4e0;
+  --ground: var(--filebuff-ground);
+  --ground-deep: #f5cd85;
+  --doodle-tile: url("/doodle/filebuff.svg");
+  background: var(--ground);
+}
+
+.ground.ground-paperbuff {
+  --paperbuff-ground: #eef7fe;
+  --ground: var(--paperbuff-ground);
+  --ground-deep: #a9d3ef;
+  --doodle-tile: url("/doodle/paperbuff.svg");
+  background: var(--ground);
+}
+
+.ground.ground-screenbuff {
+  --screenbuff-ground: #fef0f0;
+  --ground: var(--screenbuff-ground);
+  --ground-deep: #f4b4b4;
+  --doodle-tile: url("/doodle/screenbuff.svg");
+  background: var(--ground);
+}
+
+/*
  * Mobile: intro → visual → details, so the visual isn't buried under the
  * feature list. Desktop: copy in one column, visual beside it, alternating
  * sides per app.
@@ -101,7 +140,7 @@
   max-width: 56ch;
   font-size: 1.05rem;
   line-height: 1.65;
-  color: var(--text-shade);
+  color: var(--text);
 }
 
 .features {
@@ -131,9 +170,13 @@
   text-underline-offset: 3px;
 }
 
+/* A solid card, near-white in the section's hue, so the copy doesn't sit on
+   the doodles. */
 .feature {
-  padding-top: var(--space-4);
-  border-top: 1.5px dashed color-mix(in srgb, var(--ink) 30%, transparent);
+  padding: var(--space-4);
+  border-radius: var(--ui-radius-md);
+  background: color-mix(in srgb, var(--ground), #fff 75%);
+  border: 1.5px solid color-mix(in srgb, var(--app-accent) 25%, var(--ground));
 }
 
 .feature dt {
@@ -146,6 +189,9 @@
   font-family: var(--font-comic-mono), ui-monospace, monospace;
   font-size: 0.72rem;
   font-weight: 700;
+  /* Comic Mono tops out at 700, which still reads light at this size; a hair
+     of stroke in the text's own colour thickens it to read as bold. */
+  -webkit-text-stroke: 0.5px currentColor;
   letter-spacing: 1px;
   color: color-mix(in srgb, var(--app-accent), var(--ink) 35%);
 }
@@ -197,7 +243,9 @@
     var(--app-accent) 45%
   );
   border: var(--ink-line);
-  box-shadow: var(--shadow-hard);
+  /* Hard shadow in the app's hue, the same tint as the media's shadow. */
+  --cta-shadow: color-mix(in srgb, var(--app-accent) 45%, var(--ground));
+  box-shadow: 4px 4px 0 var(--cta-shadow);
   transition:
     transform 0.35s var(--cta-ease),
     box-shadow 0.35s var(--cta-ease);
@@ -206,12 +254,12 @@
 .cta:hover,
 .cta:focus-visible {
   transform: translate(-2px, -2px);
-  box-shadow: var(--shadow-hard-lg);
+  box-shadow: 6px 6px 0 var(--cta-shadow);
 }
 
 .cta:active {
   transform: translate(4px, 4px);
-  box-shadow: 0 0 0 var(--ink);
+  box-shadow: 0 0 0 var(--cta-shadow);
   transition-duration: 0.1s;
 }
 
@@ -328,7 +376,8 @@
   position: relative;
   /* An ink outline (a spread-only shadow follows the corner radius), then a
      hard offset shadow in the app's hue mixed into the ground. */
-  --media-shadow: 0 0 0 2.5px var(--ink),
+  --media-shadow:
+    0 0 0 2.5px var(--ink),
     10px 10px 0 2.5px color-mix(in srgb, var(--app-accent) 45%, var(--ground));
 }
 

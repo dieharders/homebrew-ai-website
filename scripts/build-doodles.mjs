@@ -54,6 +54,7 @@ function translucent(grounds, ink) {
 
 const GLOBAL = 'global/global.css';
 const HERO = 'blocks/HeroBento.module.css';
+const SPOTLIGHTS = 'blocks/AppSpotlights.module.css';
 
 // Each section ground (components/Section.module.css) and its ink.
 const TILES = {
@@ -63,6 +64,11 @@ const TILES = {
   foam: { color: multiply(cssColor(GLOBAL, 'foam'), '#ebe0fc') },
   // Hero: the doodle crosses both the foam ground and the deeper blobs.
   hero: translucent([cssColor(GLOBAL, 'foam'), cssColor(HERO, 'blob')], '#e5d6fb'),
+  // App spotlights: each on a pale ground in its app's accent.
+  motionbuff: { color: multiply(cssColor(SPOTLIGHTS, 'motionbuff-ground'), '#efe5fd') },
+  filebuff: { color: multiply(cssColor(SPOTLIGHTS, 'filebuff-ground'), '#fdeccc') },
+  paperbuff: { color: multiply(cssColor(SPOTLIGHTS, 'paperbuff-ground'), '#e2f0fb') },
+  screenbuff: { color: multiply(cssColor(SPOTLIGHTS, 'screenbuff-ground'), '#fde2e2') },
 };
 
 // The master draws in exactly #000; match that colour only, not #000000 etc.
