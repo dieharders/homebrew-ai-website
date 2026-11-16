@@ -71,7 +71,7 @@
   --shadow-hard-lg: 6px 6px 0 var(--ink);
 
   /* A hand-drawn squiggle, used as a mask for section-heading accents. */
-  --squiggle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 68 14'%3E%3Cpath d='M3 9 q8 -9 15.5 0 t15.5 0 t15.5 0 t15.5 0' fill='none' stroke='%23000' stroke-width='3.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  --squiggle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='68' height='18' viewBox='0 0 68 18'%3E%3Cpath d='M3 9 q8 -9 15.5 0 t15.5 0 t15.5 0 t15.5 0' fill='none' stroke='%23000' stroke-width='3.5' stroke-linecap='round'/%3E%3C/svg%3E");
 
   /* Colors - Light Mode */
   --background: var(--paper);
@@ -252,7 +252,7 @@ select {
 /* A pink squiggle under section headings, drawn like the doodles. */
 :where(.squiggle-accent) {
   width: 68px;
-  height: 14px;
+  height: 18px;
   background: var(--cheek-deep);
   -webkit-mask: var(--squiggle) center / contain no-repeat;
   mask: var(--squiggle) center / contain no-repeat;
