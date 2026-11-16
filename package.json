@@ -4,7 +4,7 @@
   "private": false,
   "packageManager": "pnpm@9.15.9",
   "engines": {
-    "node": ">=24.x"
+    "node": "24.x"
   },
   "scripts": {
     "doodles": "node scripts/build-doodles.mjs",
