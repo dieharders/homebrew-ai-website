@@ -436,7 +436,7 @@ export default function Home() {
           kicker="Now live: Free-form video in MotionBuff! 🥳"
           headline="THE CREATIVE TOOL-CHAIN FOR AGENTS"
           highlight="FOR AGENTS"
-          tagline="OpenBrew.ai builds agent driven creative tools for entertainment & simulations. Have your personal agents create and manage your videos, documents, screen recordings and virtual workspaces."
+          tagline="OpenBrew.ai offers creative tools for personal agents in entertainment & simulation industries to create content and manage your digital workspace."
           primaryCTA={{ text: "Explore Apps", href: "#apps" }}
           secondaryCTA={{ text: "Pricing", href: "#pricing" }}
           videoSrc="/openbrew-promo.mp4"
