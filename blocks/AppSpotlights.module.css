@@ -170,9 +170,13 @@
   text-underline-offset: 3px;
 }
 
+/* A solid card, near-white in the section's hue, so the copy doesn't sit on
+   the doodles. */
 .feature {
-  padding-top: var(--space-4);
-  border-top: 1.5px dashed color-mix(in srgb, var(--ink) 30%, transparent);
+  padding: var(--space-4);
+  border-radius: var(--ui-radius-md);
+  background: color-mix(in srgb, var(--ground), #fff 75%);
+  border: 1.5px solid color-mix(in srgb, var(--app-accent) 25%, var(--ground));
 }
 
 .feature dt {
