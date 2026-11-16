@@ -16,28 +16,15 @@ interface HeroBentoProps {
   className?: string;
 }
 
-/** Keeps hyphenated words like "TOOL-CHAIN" from breaking at the hyphen. */
-function NoBreakHyphens(p: { text: string }) {
-  return p.text.split(/(\S+-\S+)/).map((part, i) =>
-    i % 2 === 1 ? (
-      <span key={i} className={styles.nowrap}>
-        {part}
-      </span>
-    ) : (
-      part
-    ),
-  );
-}
-
 /** Splits the headline around `highlight` so that phrase can be taped. */
 function Headline(p: { text: string; highlight?: string }) {
   const at = p.highlight ? p.text.indexOf(p.highlight) : -1;
-  if (!p.highlight || at < 0) return <NoBreakHyphens text={p.text} />;
+  if (!p.highlight || at < 0) return <>{p.text}</>;
   return (
     <>
-      <NoBreakHyphens text={p.text.slice(0, at)} />
+      {p.text.slice(0, at)}
       <span className={styles.tape}>{p.highlight}</span>
-      <NoBreakHyphens text={p.text.slice(at + p.highlight.length)} />
+      {p.text.slice(at + p.highlight.length)}
     </>
   );
 }
@@ -55,7 +42,7 @@ export default function HeroBento({
   return (
     <section className={cx(styles.container, className)}>
       {/* Ground decoration: two foam blobs in the corners, with the doodle
-          pattern multiplied over both the ground and the blobs. */}
+          pattern over both the ground and the blobs. */}
       <div className={styles.decor} aria-hidden="true">
         <svg className={cx(styles.blob, styles.blobA)} viewBox="0 0 200 200">
           <path d="M44.6,-58.3C57.5,-49.4,67.1,-35.3,71.4,-19.5C75.7,-3.7,74.6,13.8,67.4,28C60.2,42.2,46.8,53.1,31.6,61.2C16.4,69.3,-0.6,74.6,-17.4,71.6C-34.2,68.6,-50.8,57.3,-61.7,42C-72.6,26.7,-77.8,7.4,-74.4,-10.1C-71,-27.6,-59,-43.3,-44.2,-52C-29.4,-60.7,-11.8,-62.4,3.6,-66.7C19,-71,31.7,-67.2,44.6,-58.3Z" transform="translate(100 100)" />

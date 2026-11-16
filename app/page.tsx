@@ -434,9 +434,9 @@ export default function Home() {
       <main>
         <HeroBento
           kicker="Now live: Free-form video in MotionBuff! 🥳"
-          headline="THE CREATIVE TOOL-CHAIN FOR AGENTS"
+          headline="THE CREATIVE PLATFORM FOR AGENTS"
           highlight="FOR AGENTS"
-          tagline="OpenBrew.ai builds agent driven creative tools for entertainment & simulations. Have your personal agents create and manage your videos, documents, screen recordings and virtual workspaces."
+          tagline="OpenBrew.ai offers creative tools for personal agents in entertainment & simulation industries to create content and manage your digital workspace."
           primaryCTA={{ text: "Explore Apps", href: "#apps" }}
           secondaryCTA={{ text: "Pricing", href: "#pricing" }}
           videoSrc="/openbrew-promo.mp4"
@@ -614,17 +614,17 @@ export default function Home() {
               title: "KEEP DATA PRIVATE",
               text: "Deploy on-premise, in air-gapped environments, or on your self-managed network. Own your AI infrastructure end-to-end.",
               illustration: highlightPosterB,
-              link: { text: "Contact us", href: "#contact" },
+              link: { text: "Contact us", href: "#notify" },
             },
           ]}
         /> */}
 
         {/* Newsletter Epilogue */}
         <Epilogue
-          id="contact"
+          id="notify"
           title="Notify me when new apps launch"
           subtitle1=""
-          subtitle2="No spam. Just a heads-up when something new ships."
+          subtitle2="No spam. Just a heads-up when something ships."
           illustration={epiloguePoster}
           background="butter"
         >

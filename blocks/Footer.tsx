@@ -1,7 +1,23 @@
 import styles from "./Footer.module.css";
-import { Youtube, Mail, Github } from "lucide-react";
+import { Youtube, Mail, Linkedin } from "lucide-react";
 import { lilita_one } from "fonts/fonts";
 import { cx } from "../utils/common";
+
+/** The X (Twitter) mark. Lucide only ships the old bird, and its `X` is a close icon. */
+function XLogo(p: { className?: string; size?: number; strokeWidth?: number }) {
+  return (
+    <svg
+      className={p.className}
+      width={p.size}
+      height={p.size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M18.9 2H22l-7.4 8.5L23.3 22h-6.8l-5.3-7-6.1 7H2l7.9-9.1L1.5 2h7l4.8 6.4L18.9 2Zm-1.2 18h1.9L7.4 3.9H5.4L17.7 20Z" />
+    </svg>
+  );
+}
 
 const links = [
   {
@@ -15,9 +31,14 @@ const links = [
     href: "mailto:sorob+support@openbrew.ai",
   },
   {
-    icon: Github,
-    label: "Github",
-    href: "https://github.com/dieharders/obrew-cli",
+    icon: Linkedin,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/openbrewai",
+  },
+  {
+    icon: XLogo,
+    label: "X",
+    href: "https://x.com/OpenBrewAi",
   },
 ];
 

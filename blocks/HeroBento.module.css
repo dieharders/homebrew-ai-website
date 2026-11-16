@@ -1,20 +1,25 @@
 /*
  * Hero: copy on a foam ground (the mascot's lavender foam) with two deeper
- * foam blobs in the corners and the doodle pattern multiplied over the lot.
+ * foam blobs in the corners and the doodle pattern over the lot.
  * The promo video is a tilted, ink-outlined card with the mascot stuck on its
- * corner. Sized to its content, not the viewport, so the next band peeks in
- * below the fold on desktop and the CTAs sit in the first screen on phones.
+ * corner. At least one screen tall (minus the header), growing past that
+ * when the content needs more room.
  */
 .container {
   --ground: var(--foam);
   --ground-deep: var(--foam-deep);
-  --ground-ink: #e5d6fb;
+  /* Translucent, so it darkens the blobs as well as the ground. */
+  --doodle-tile: url("/doodle/hero.svg");
   --blob: #dcc5fb;
   position: relative;
   isolation: isolate;
   overflow: clip;
   background: var(--ground);
   padding-block: var(--space-6) var(--space-8);
+  /* Always fill the first screen below the sticky header, content centred. */
+  display: grid;
+  align-content: center;
+  min-height: calc(100svh - var(--page-header-height));
 }
 
 @media screen and (min-width: 900px) {
@@ -95,6 +100,17 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
+}
+
+/* Stacked: the copy fills the first screen on its own (centred), pushing the
+   video below the fold rather than leaving dead space beside it. */
+@media screen and (max-width: 899px) {
+  .copy {
+    min-height: calc(
+      100svh - var(--page-header-height) - var(--space-6) - var(--space-8)
+    );
+  }
 }
 
 /* ---- copy ---- */
@@ -136,6 +152,11 @@
   letter-spacing: 0.5px;
   color: var(--ink);
   text-wrap: balance;
+  /* In em so it scales with the type: wide enough for the longest line
+     ("THE CREATIVE", 6.25em in Lilita One, measured from the font's advances
+     and kerning), too narrow for two words of the next to pair up, so it
+     always sets as three lines. */
+  max-width: 9em;
 }
 
 /* A strip of butter tape with torn ends, stuck on slightly crooked. */
@@ -179,12 +200,14 @@
 
 /* ---- video stage ---- */
 
-/* Square, so cap it by the viewport height too or it pushes the copy around
-   on short laptop screens. The padding leaves room for the card's shadow. */
+/* Stacked, it fills the column (it sits below the fold, under the copy).
+   Side by side it's square, so cap it by the viewport height too or it pushes
+   the copy around on short laptop screens. The padding leaves room for the
+   card's shadow. */
 .stage {
   position: relative;
   justify-self: center;
-  width: min(100%, 480px);
+  width: 85%;
   padding: 0 14px 14px 0;
 }
 
@@ -274,6 +297,26 @@
   }
 }
 
-.nowrap {
-  white-space: nowrap;
+/* Stacked: scale the copy to the column so it fills the width. The longest
+   headline line ("THE CREATIVE") is 6.25em (see .headline), so size it to the
+   column (cqi of .copy, which excludes the gutters and any scrollbar, unlike
+   vw) over 6.4em for a little slack, capped by height so three lines still
+   fit on short screens. Kept last so it overrides the base copy rules above. */
+@media screen and (max-width: 899px) {
+  .copy {
+    container-type: inline-size;
+  }
+
+  .headline {
+    font-size: min(100cqi / 6.4, 11svh);
+  }
+
+  .tagline {
+    max-width: none;
+    font-size: clamp(1rem, 0.6rem + 1.8vw, 1.5rem);
+  }
+
+  .kicker {
+    font-size: clamp(0.85rem, 0.6rem + 1vw, 1.1rem);
+  }
 }

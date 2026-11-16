@@ -1,14 +1,15 @@
 {
   "name": "openbrewai-website",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "private": false,
   "packageManager": "pnpm@9.15.9",
   "engines": {
     "node": ">=24.x"
   },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "doodles": "node scripts/build-doodles.mjs",
+    "dev": "pnpm doodles && next dev",
+    "build": "pnpm doodles && next build",
     "start": "next start",
     "lint": "eslint .",
     "format": "prettier --write ."

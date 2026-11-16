@@ -1,8 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240">
   <!-- Repeating doodle tile: brew bubbles, a foam puff, sparkles and squiggles.
-       Used as a CSS mask (only its alpha matters), so each section can tint it
-       and multiply it over its own ground. Motifs keep 14px clear of the edges
-       so the tile repeats without seams. -->
+       The master for the pre-tinted tiles in public/doodle/, which
+       scripts/build-doodles.mjs makes by swapping each ground's ink in for
+       #000. Draw in exactly #000 (not #000000 or another colour) or that part
+       won't be tinted. Motifs keep 14px clear of the edges so the tile repeats
+       without seams. -->
   <g fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
     <!-- bubbles -->
     <circle cx="36" cy="44" r="10"/>

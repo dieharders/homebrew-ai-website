@@ -17,10 +17,7 @@
    the page, ruled off in ink like a comic frame. */
 .nav {
   width: 100%;
-  /* make sure vendor prefixes always come first */
-  -webkit-backdrop-filter: blur(10px);
-  background: color-mix(in srgb, var(--foam) 88%, transparent);
-  backdrop-filter: blur(10px);
+  background: var(--foam);
   border-bottom: var(--ink-line);
 }
 
