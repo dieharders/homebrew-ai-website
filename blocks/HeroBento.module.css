@@ -200,12 +200,14 @@
 
 /* ---- video stage ---- */
 
-/* Square, so cap it by the viewport height too or it pushes the copy around
-   on short laptop screens. The padding leaves room for the card's shadow. */
+/* Stacked, it fills the column (it sits below the fold, under the copy).
+   Side by side it's square, so cap it by the viewport height too or it pushes
+   the copy around on short laptop screens. The padding leaves room for the
+   card's shadow. */
 .stage {
   position: relative;
-  justify-self: start;
-  width: min(100%, 480px);
+  justify-self: center;
+  width: 85%;
   padding: 0 14px 14px 0;
 }
 
