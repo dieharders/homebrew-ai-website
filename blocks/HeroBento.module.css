@@ -99,6 +99,17 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
+}
+
+/* Stacked: the copy fills the first screen on its own (centred), pushing the
+   video below the fold rather than leaving dead space beside it. */
+@media screen and (max-width: 899px) {
+  .copy {
+    min-height: calc(
+      100svh - var(--page-header-height) - var(--space-6) - var(--space-8)
+    );
+  }
 }
 
 /* ---- copy ---- */
@@ -284,4 +295,32 @@
 
 .nowrap {
   white-space: nowrap;
+}
+
+/* Stacked: scale the copy to the column so it fills the width. The longest
+   headline line ("THE CREATIVE") is ~5.9em, so size it to the viewport minus
+   the gutters over 6em, capped by height so three lines still fit on short
+   screens. Kept last so it overrides the base copy rules above. */
+@media screen and (max-width: 899px) {
+  .headline {
+    font-size: min(calc((100vw - 40px) / 6), 11svh);
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .headline {
+    font-size: min(calc((100vw - 2 * var(--page-padding)) / 6), 11svh);
+  }
+}
+
+@media screen and (max-width: 899px) {
+
+  .tagline {
+    max-width: none;
+    font-size: clamp(1rem, 0.6rem + 1.8vw, 1.5rem);
+  }
+
+  .kicker {
+    font-size: clamp(0.85rem, 0.6rem + 1vw, 1.1rem);
+  }
 }
