@@ -7,8 +7,9 @@
     "node": ">=24.x"
   },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "doodles": "node scripts/build-doodles.mjs",
+    "dev": "pnpm doodles && next dev",
+    "build": "pnpm doodles && next build",
     "start": "next start",
     "lint": "eslint .",
     "format": "prettier --write ."

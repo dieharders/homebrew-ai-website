@@ -53,7 +53,7 @@ export const metadata: Metadata = {
       {
         url: cardWide.src,
         // Source: extras/social-card.html (re-render instructions inside).
-        alt: "OpenBrew.ai: the creative platform for personal agents. The mug mascot surrounded by the MotionBuff, FileBuff, PaperBuff and ScreenBuff app icons.",
+        alt: "OpenBrew.ai: the creative platform for agents. The mug mascot surrounded by the MotionBuff, FileBuff, PaperBuff and ScreenBuff app icons.",
         width: cardWide.width,
         height: cardWide.height,
       },

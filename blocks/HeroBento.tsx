@@ -16,28 +16,15 @@ interface HeroBentoProps {
   className?: string;
 }
 
-/** Keeps hyphenated words like "TOOL-CHAIN" from breaking at the hyphen. */
-function NoBreakHyphens(p: { text: string }) {
-  return p.text.split(/(\S+-\S+)/).map((part, i) =>
-    i % 2 === 1 ? (
-      <span key={i} className={styles.nowrap}>
-        {part}
-      </span>
-    ) : (
-      part
-    ),
-  );
-}
-
 /** Splits the headline around `highlight` so that phrase can be taped. */
 function Headline(p: { text: string; highlight?: string }) {
   const at = p.highlight ? p.text.indexOf(p.highlight) : -1;
-  if (!p.highlight || at < 0) return <NoBreakHyphens text={p.text} />;
+  if (!p.highlight || at < 0) return <>{p.text}</>;
   return (
     <>
-      <NoBreakHyphens text={p.text.slice(0, at)} />
+      {p.text.slice(0, at)}
       <span className={styles.tape}>{p.highlight}</span>
-      <NoBreakHyphens text={p.text.slice(at + p.highlight.length)} />
+      {p.text.slice(at + p.highlight.length)}
     </>
   );
 }

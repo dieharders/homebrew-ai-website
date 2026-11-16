@@ -33,11 +33,12 @@
   --page-max-width: 1000px;
   --page-max-width-wide: 1200px;
   --page-responsive-desktop: 800px;
-  --page-header-height: 52px;
-  /* Real height of the sticky header at every width: the 40px logo + 0.5rem
-     padding top and bottom + the 2px ink rule. Anchored sections scroll to sit
-     flush beneath it. Keep in sync with Header.module.css and Header.tsx. */
-  --scroll-offset: 58px;
+  /* Real height of the sticky header at every width: the 2.5rem (40px) logo
+     link + 0.5rem padding top and bottom + the 2px ink rule. Keep in sync with
+     Header.module.css (.navContent, .nav) and Header.tsx (the size-10 link). */
+  --page-header-height: calc(3.5rem + 2px);
+  /* Anchored sections scroll to sit flush beneath the header. */
+  --scroll-offset: var(--page-header-height);
   --page-footer-height: 64px;
   --section-header-max-width: 700px;
   --list-item-max-width: 450px;

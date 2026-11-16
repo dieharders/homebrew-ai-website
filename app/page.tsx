@@ -624,7 +624,7 @@ export default function Home() {
           id="contact"
           title="Notify me when new apps launch"
           subtitle1=""
-          subtitle2="No spam. Just a heads-up when something new ships."
+          subtitle2="No spam. Just a heads-up when something ships."
           illustration={epiloguePoster}
           background="butter"
         >
