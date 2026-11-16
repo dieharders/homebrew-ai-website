@@ -1,6 +1,6 @@
 /*
  * Hero: copy on a foam ground (the mascot's lavender foam) with two deeper
- * foam blobs in the corners and the doodle pattern multiplied over the lot.
+ * foam blobs in the corners and the doodle pattern over the lot.
  * The promo video is a tilted, ink-outlined card with the mascot stuck on its
  * corner. At least one screen tall (minus the header), growing past that
  * when the content needs more room.
@@ -8,7 +8,8 @@
 .container {
   --ground: var(--foam);
   --ground-deep: var(--foam-deep);
-  --ground-ink: #e5d6fb;
+  /* Translucent, so it darkens the blobs as well as the ground. */
+  --doodle-tile: url("/doodle/hero.svg");
   --blob: #dcc5fb;
   position: relative;
   isolation: isolate;

@@ -4,11 +4,10 @@ import { cx } from '../utils/common';
 // 'normal' and 'alternate' are the pale butter and pale foam grounds; 'butter'
 // and 'foam' are their full-strength versions, for sections that should pop.
 export type T_Background = 'normal' | 'alternate' | 'butter' | 'foam' | 'accent' | 'accent-alt-1' | 'accent-alt-2' | 'dark' | 'dark-navy' | 'dark-charcoal';
-// 'doodle' is the brand pattern, tinted to the ground and multiplied over it.
+// 'doodle' is the brand pattern, in a tile pre-tinted to the ground.
 export type T_Pattern = 'none' | 'doodle' | 'geometric' | 'dots' | 'lines';
 
-// The grounds that set a --ground-ink. On any other ground the doodle tint is
-// transparent, so the layer would cost a blended, masked composite for nothing.
+// The grounds that set a --doodle-tile. Any other ground has no tile for it.
 const INKED_GROUNDS: ReadonlySet<T_Background> = new Set(['normal', 'alternate', 'butter', 'foam']);
 
 export default function Section(p: {
@@ -23,7 +22,7 @@ export default function Section(p: {
   const size = p.size ?? 'normal';
   const background = p.background ?? 'normal';
   const inked = INKED_GROUNDS.has(background);
-  // Doodle by default where it shows; never on a ground with no ink for it.
+  // Doodle by default where it shows; never on a ground with no tile for it.
   const requested = p.pattern ?? (inked ? 'doodle' : 'none');
   const pattern = requested === 'doodle' && !inked ? 'none' : requested;
   const accentLine = p.accentLine ?? 'none';
