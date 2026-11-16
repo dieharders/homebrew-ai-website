@@ -185,6 +185,9 @@
   font-family: var(--font-comic-mono), ui-monospace, monospace;
   font-size: 0.72rem;
   font-weight: 700;
+  /* Comic Mono tops out at 700, which still reads light at this size; a hair
+     of stroke in the text's own colour thickens it to read as bold. */
+  -webkit-text-stroke: 0.4px currentColor;
   letter-spacing: 1px;
   color: color-mix(in srgb, var(--app-accent), var(--ink) 35%);
 }
