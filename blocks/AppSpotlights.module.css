@@ -187,7 +187,7 @@
   font-weight: 700;
   /* Comic Mono tops out at 700, which still reads light at this size; a hair
      of stroke in the text's own colour thickens it to read as bold. */
-  -webkit-text-stroke: 0.4px currentColor;
+  -webkit-text-stroke: 0.5px currentColor;
   letter-spacing: 1px;
   color: color-mix(in srgb, var(--app-accent), var(--ink) 35%);
 }
@@ -372,7 +372,8 @@
   position: relative;
   /* An ink outline (a spread-only shadow follows the corner radius), then a
      hard offset shadow in the app's hue mixed into the ground. */
-  --media-shadow: 0 0 0 2.5px var(--ink),
+  --media-shadow:
+    0 0 0 2.5px var(--ink),
     10px 10px 0 2.5px color-mix(in srgb, var(--app-accent) 45%, var(--ground));
 }
 
