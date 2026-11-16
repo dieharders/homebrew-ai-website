@@ -140,7 +140,7 @@
   max-width: 56ch;
   font-size: 1.05rem;
   line-height: 1.65;
-  color: var(--text-shade);
+  color: var(--text);
 }
 
 .features {
